@@ -1,0 +1,46 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Viam Component — Camera
+  description: Capture 2D images and 3D point clouds from any Viam camera component.
+  tags: [Viam, Component, Camera]
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+- namespace: env
+  keys:
+    VIAM_API_KEY: VIAM_API_KEY
+    VIAM_MACHINE_ADDRESS: VIAM_MACHINE_ADDRESS
+capability:
+  consumes:
+  - type: http
+    namespace: component-camera
+    baseUri: '{{env.VIAM_MACHINE_ADDRESS}}'
+    description: Viam CameraService.
+    resources:
+    - name: get-images
+      path: /viam.component.camera.v1.CameraService/GetImages
+      operations:
+      - { name: getImages, method: POST, description: Capture images., outputRawFormat: json, inputParameters: [{ name: body, in: body, type: object, required: true }] }
+    - name: get-point-cloud
+      path: /viam.component.camera.v1.CameraService/GetPointCloud
+      operations:
+      - { name: getPointCloud, method: POST, description: Capture a 3D point cloud., outputRawFormat: json, inputParameters: [{ name: body, in: body, type: object, required: true }] }
+    - name: get-properties
+      path: /viam.component.camera.v1.CameraService/GetProperties
+      operations:
+      - { name: getProperties, method: POST, description: Get camera intrinsics., outputRawFormat: json, inputParameters: [{ name: body, in: body, type: object, required: true }] }
+    authentication:
+      type: apikey
+      key: key
+      value: '{{env.VIAM_API_KEY}}'
+      placement: header
+  exposes:
+  - type: mcp
+    namespace: component-camera-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for camera components.
+    tools:
+    - { name: viam-camera-images, description: Capture images., hints: { readOnly: true, destructive: false, idempotent: true }, call: component-camera.getImages, with: { body: tools.body } }
+    - { name: viam-camera-point-cloud, description: Capture point cloud., hints: { readOnly: true, destructive: false, idempotent: true }, call: component-camera.getPointCloud, with: { body: tools.body } }
+    - { name: viam-camera-properties, description: Get camera intrinsics., hints: { readOnly: true, destructive: false, idempotent: true }, call: component-camera.getProperties, with: { body: tools.body } }

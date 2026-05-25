@@ -1,0 +1,31 @@
+{
+  "request": {
+    "method": "POST",
+    "url": "https://app.viam.com/viam.app.v1.BillingService/GetCurrentMonthUsage",
+    "headers": {
+      "Content-Type": "application/json",
+      "key_id": "abcd1234-key-id",
+      "key": "viam_api_key_value"
+    },
+    "body": {
+      "org_id": "org_01HXXXXXXXXXXXXXXXXX"
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "start_date": "2026-05-01T00:00:00Z",
+      "end_date": "2026-05-25T23:59:59Z",
+      "resource_usage_costs": {
+        "cloud_storage_usage_cost": 1.42,
+        "binary_data_cloud_storage_usage_cost": 0.84,
+        "data_upload_usage_cost": 0.31,
+        "data_egress_usage_cost": 0.05,
+        "remote_control_usage_cost": 0.02,
+        "standard_compute_usage_cost": 0.13,
+        "discount": 0
+      },
+      "subtotal": 2.77
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/viam/refs/heads/main/json-schema/viam-machine-schema.json",
+  "title": "Viam Machine",
+  "description": "A Viam machine (robot). One or more machine parts (viam-server processes) cooperate to make up a machine.",
+  "type": "object",
+  "required": ["id", "name", "location"],
+  "properties": {
+    "id": { "type": "string" },
+    "name": { "type": "string" },
+    "location": { "type": "string", "description": "Owning location id." },
+    "last_access": { "type": "string", "format": "date-time" },
+    "created_on": { "type": "string", "format": "date-time" },
+    "parts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "name": { "type": "string" },
+          "main_part": { "type": "boolean" },
+          "fqdn": { "type": "string" },
+          "local_fqdn": { "type": "string" },
+          "robot_config": { "type": "object" }
+        }
+      }
+    }
+  }
+}

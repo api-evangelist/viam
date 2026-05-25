@@ -1,0 +1,523 @@
+aid: viam
+url: https://raw.githubusercontent.com/api-evangelist/viam/refs/heads/main/apis.yml
+apis:
+- aid: viam:viam-fleet-management-api
+  name: Viam Fleet Management API
+  tags:
+  - Robotics
+  - Fleet Management
+  - Organizations
+  - Locations
+  - Machines
+  humanURL: https://docs.viam.com/dev/reference/apis/fleet/
+  properties:
+  - url: https://docs.viam.com/dev/reference/apis/fleet/
+    type: Documentation
+  - url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/app.proto
+    type: Protobuf
+  - url: openapi/viam-fleet-management-api-openapi.yml
+    type: OpenAPI
+  - url: json-schema/viam-organization-schema.json
+    type: JSONSchema
+  - url: json-schema/viam-location-schema.json
+    type: JSONSchema
+  - url: json-schema/viam-machine-schema.json
+    type: JSONSchema
+  - url: json-ld/viam-context.jsonld
+    type: JSONLD
+  - type: NaftikoCapability
+    url: capabilities/fleet-organizations.yaml
+  - type: NaftikoCapability
+    url: capabilities/fleet-locations.yaml
+  - type: NaftikoCapability
+    url: capabilities/fleet-machines.yaml
+  - type: NaftikoCapability
+    url: capabilities/fleet-fragments.yaml
+  description: Create and manage organizations, locations, machines, machine parts, fragments, OAuth apps, API
+    keys, and team memberships in the viam.app cloud. Backed by the AppService gRPC service in
+    viamrobotics/api with REST/JSON transcoding over app.viam.com:443.
+- aid: viam:viam-machine-management-api
+  name: Viam Machine Management API
+  tags:
+  - Robotics
+  - Machines
+  - Sessions
+  - Operations
+  humanURL: https://docs.viam.com/dev/reference/apis/robot/
+  properties:
+  - url: https://docs.viam.com/dev/reference/apis/robot/
+    type: Documentation
+  - url: https://github.com/viamrobotics/api/blob/main/proto/viam/robot/v1/robot.proto
+    type: Protobuf
+  - url: openapi/viam-machine-management-api-openapi.yml
+    type: OpenAPI
+  - type: NaftikoCapability
+    url: capabilities/machine-status.yaml
+  - type: NaftikoCapability
+    url: capabilities/machine-sessions.yaml
+  - type: NaftikoCapability
+    url: capabilities/machine-frame-system.yaml
+  description: Connect directly to a viam-server instance running on a device to inspect resources, run
+    operations, manage sessions, retrieve machine status and version, transform poses, and tunnel TCP traffic.
+    The Robot Service is the entry point for every machine-side gRPC call.
+- aid: viam:viam-data-client-api
+  name: Viam Data Client API
+  tags:
+  - Robotics
+  - Data
+  - Tabular Data
+  - Binary Data
+  - Datasets
+  humanURL: https://docs.viam.com/dev/reference/apis/data-client/
+  properties:
+  - url: https://docs.viam.com/dev/reference/apis/data-client/
+    type: Documentation
+  - url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/data/v1/data.proto
+    type: Protobuf
+  - url: openapi/viam-data-client-api-openapi.yml
+    type: OpenAPI
+  - url: json-schema/viam-tabular-data-schema.json
+    type: JSONSchema
+  - url: json-schema/viam-binary-data-schema.json
+    type: JSONSchema
+  - type: NaftikoCapability
+    url: capabilities/data-tabular.yaml
+  - type: NaftikoCapability
+    url: capabilities/data-binary.yaml
+  - type: NaftikoCapability
+    url: capabilities/data-datasets.yaml
+  description: Upload, download, query (SQL/MQL), tag, and delete tabular and binary data captured from
+    machines. Manage datasets, saved queries, bounding boxes, sequences, and the cloud-hosted MongoDB
+    connection used for analytics workloads.
+- aid: viam:viam-data-sync-api
+  name: Viam Data Sync API
+  tags:
+  - Robotics
+  - Data
+  - Sync
+  - Capture
+  humanURL: https://docs.viam.com/data-ai/capture-data/capture-sync/
+  properties:
+  - url: https://docs.viam.com/data-ai/capture-data/capture-sync/
+    type: Documentation
+  - url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/datasync/v1/data_sync.proto
+    type: Protobuf
+  - url: openapi/viam-data-sync-api-openapi.yml
+    type: OpenAPI
+  - type: NaftikoCapability
+    url: capabilities/data-sync.yaml
+  description: Upload captured data from viam-server to the cloud via DataCaptureUpload, FileUpload, and
+    StreamingDataCaptureUpload. This is the ingest plane that backs the Data Management Service running on
+    every machine.
+- aid: viam:viam-ml-training-api
+  name: Viam ML Training API
+  tags:
+  - Robotics
+  - Machine Learning
+  - Training
+  - Edge AI
+  humanURL: https://docs.viam.com/data-ai/train/train-tflite/
+  properties:
+  - url: https://docs.viam.com/data-ai/train/train-tflite/
+    type: Documentation
+  - url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/mltraining/v1/ml_training.proto
+    type: Protobuf
+  - url: openapi/viam-ml-training-api-openapi.yml
+    type: OpenAPI
+  - type: NaftikoCapability
+    url: capabilities/ml-training-jobs.yaml
+  description: Submit and manage cloud-hosted ML training jobs that produce models deployable to viam-server.
+    Supports built-in TFLite trainers and custom containerized trainers via SubmitTrainingJob and
+    SubmitCustomTrainingJob.
+- aid: viam:viam-ml-inference-api
+  name: Viam ML Inference API
+  tags:
+  - Robotics
+  - Machine Learning
+  - Inference
+  - Edge AI
+  humanURL: https://docs.viam.com/services/ml/deploy/
+  properties:
+  - url: https://docs.viam.com/services/ml/deploy/
+    type: Documentation
+  - url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/mlinference/v1/ml_inference.proto
+    type: Protobuf
+  - url: openapi/viam-ml-inference-api-openapi.yml
+    type: OpenAPI
+  - type: NaftikoCapability
+    url: capabilities/ml-inference.yaml
+  description: Run cloud-hosted inference against models registered in the Viam ML registry via GetInference.
+    Complements the device-side ML Model Service for cases where compute must live in the cloud.
+- aid: viam:viam-billing-api
+  name: Viam Billing API
+  tags:
+  - Robotics
+  - Billing
+  - FinOps
+  - Invoices
+  humanURL: https://docs.viam.com/manage/manage/billing/
+  properties:
+  - url: https://docs.viam.com/manage/manage/billing/
+    type: Documentation
+  - url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/billing.proto
+    type: Protobuf
+  - url: openapi/viam-billing-api-openapi.yml
+    type: OpenAPI
+  - type: NaftikoCapability
+    url: capabilities/billing-usage.yaml
+  - type: NaftikoCapability
+    url: capabilities/billing-invoices.yaml
+  description: Retrieve current-month usage, billing tier metadata, invoice summaries, invoice PDFs, and
+    organization billing information. Supports custom billing tiers and the location-level billing
+    organization assignment used by Viam's "build a robotics business" features.
+- aid: viam:viam-motion-service-api
+  name: Viam Motion Service API
+  tags:
+  - Robotics
+  - Motion Planning
+  - Services
+  humanURL: https://docs.viam.com/services/motion/
+  properties:
+  - url: https://docs.viam.com/services/motion/
+    type: Documentation
+  - url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/motion/v1/motion.proto
+    type: Protobuf
+  - url: openapi/viam-motion-service-api-openapi.yml
+    type: OpenAPI
+  - type: NaftikoCapability
+    url: capabilities/motion-planning.yaml
+  description: Plan and execute motion for a machine's components — Move, MoveOnMap, MoveOnGlobe, GetPose,
+    StopPlan, ListPlanStatuses, GetPlan. Runs on viam-server as a machine-level service combining kinematic
+    chains, frame system, and obstacle avoidance.
+- aid: viam:viam-vision-service-api
+  name: Viam Vision Service API
+  tags:
+  - Robotics
+  - Vision
+  - Computer Vision
+  - Services
+  humanURL: https://docs.viam.com/services/vision/
+  properties:
+  - url: https://docs.viam.com/services/vision/
+    type: Documentation
+  - url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/vision/v1/vision.proto
+    type: Protobuf
+  - url: openapi/viam-vision-service-api-openapi.yml
+    type: OpenAPI
+  - type: NaftikoCapability
+    url: capabilities/vision-detections.yaml
+  - type: NaftikoCapability
+    url: capabilities/vision-classifications.yaml
+  description: Run object detection, image classification, and 3D segmentation against a configured camera
+    component. Supports GetDetectionsFromCamera, GetClassificationsFromCamera, GetObjectPointClouds, and
+    CaptureAllFromCamera.
+- aid: viam:viam-slam-service-api
+  name: Viam SLAM Service API
+  tags:
+  - Robotics
+  - SLAM
+  - Mapping
+  - Services
+  humanURL: https://docs.viam.com/services/slam/
+  properties:
+  - url: https://docs.viam.com/services/slam/
+    type: Documentation
+  - url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/slam/v1/slam.proto
+    type: Protobuf
+  - url: openapi/viam-slam-service-api-openapi.yml
+    type: OpenAPI
+  - type: NaftikoCapability
+    url: capabilities/slam-mapping.yaml
+  description: Simultaneous Localization And Mapping. GetPosition returns the machine's pose within the map;
+    GetPointCloudMap and GetInternalState stream the live map. Backed by Viam's ORB-SLAM3 and Cartographer
+    integrations and the Cloud SLAM service.
+- aid: viam:viam-ml-model-service-api
+  name: Viam ML Model Service API
+  tags:
+  - Robotics
+  - Machine Learning
+  - Inference
+  - Edge AI
+  - Services
+  humanURL: https://docs.viam.com/services/ml/deploy/
+  properties:
+  - url: https://docs.viam.com/services/ml/deploy/
+    type: Documentation
+  - url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/mlmodel/v1/mlmodel.proto
+    type: Protobuf
+  - url: openapi/viam-ml-model-service-api-openapi.yml
+    type: OpenAPI
+  - type: NaftikoCapability
+    url: capabilities/ml-model-infer.yaml
+  description: Device-side inference. Infer runs a deployed model against tensors; Metadata returns model
+    input and output schemas. Pairs with TFLite, ONNX, and Triton ML model implementations.
+- aid: viam:viam-component-apis
+  name: Viam Component APIs
+  tags:
+  - Robotics
+  - Components
+  - Hardware
+  - Sensors
+  - Actuators
+  humanURL: https://docs.viam.com/dev/reference/apis/
+  properties:
+  - url: https://docs.viam.com/dev/reference/apis/
+    type: Documentation
+  - url: https://github.com/viamrobotics/api/tree/main/proto/viam/component
+    type: Protobuf
+  - url: openapi/viam-component-apis-openapi.yml
+    type: OpenAPI
+  - type: NaftikoCapability
+    url: capabilities/component-camera.yaml
+  - type: NaftikoCapability
+    url: capabilities/component-motor.yaml
+  - type: NaftikoCapability
+    url: capabilities/component-arm.yaml
+  - type: NaftikoCapability
+    url: capabilities/component-base.yaml
+  - type: NaftikoCapability
+    url: capabilities/component-sensor.yaml
+  description: Hardware abstraction for every supported component class — arm, audio in/out, base, board,
+    button, camera, encoder, gantry, generic, gripper, input controller, motor, movement sensor, pose
+    tracker, power sensor, sensor, servo, switch. Each component class exposes a uniform gRPC contract.
+- aid: viam:viam-data-pipelines-api
+  name: Viam Data Pipelines API
+  tags:
+  - Robotics
+  - Data
+  - Pipelines
+  - Analytics
+  humanURL: https://docs.viam.com/data-ai/data/data-pipelines/
+  properties:
+  - url: https://docs.viam.com/data-ai/data/data-pipelines/
+    type: Documentation
+  - url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/datapipelines/v1/data_pipelines.proto
+    type: Protobuf
+  - url: openapi/viam-data-pipelines-api-openapi.yml
+    type: OpenAPI
+  - type: NaftikoCapability
+    url: capabilities/data-pipelines.yaml
+  description: Create, list, rename, enable, disable, and delete scheduled MQL data pipelines that aggregate
+    captured machine data into the Viam hot data store. Backed by ListDataPipelineRuns for execution history.
+- aid: viam:viam-provisioning-api
+  name: Viam Provisioning API
+  tags:
+  - Robotics
+  - Provisioning
+  - Onboarding
+  - Bluetooth
+  humanURL: https://docs.viam.com/manage/configure/provisioning/
+  properties:
+  - url: https://docs.viam.com/manage/configure/provisioning/
+    type: Documentation
+  - url: https://github.com/viamrobotics/api/blob/main/proto/viam/provisioning/v1/provisioning.proto
+    type: Protobuf
+  - url: openapi/viam-provisioning-api-openapi.yml
+    type: OpenAPI
+  - type: NaftikoCapability
+    url: capabilities/provisioning.yaml
+  description: Bootstrap a smart machine onto Wi-Fi and into the viam.app cloud over Bluetooth or hotspot.
+    SetNetworkCredentials, SetSmartMachineCredentials, GetNetworkList, GetSmartMachineStatus, and
+    ExitProvisioning are used by the Flutter provisioning widgets and viam-agent.
+name: Viam
+tags:
+- Robotics
+- Edge AI
+- Fleet Management
+- Computer Vision
+- Machine Learning
+- IoT
+- Embedded
+- gRPC
+kind: contract
+image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+access: 3rd-Party
+common:
+- url: https://www.viam.com
+  type: Portal
+- url: https://docs.viam.com
+  name: Viam Documentation
+  type: Documentation
+- url: https://docs.viam.com/dev/reference/apis/
+  name: API Reference
+  type: Documentation
+- url: https://docs.viam.com/sdks/
+  name: SDKs
+  type: Documentation
+- url: https://app.viam.com
+  name: Viam App
+  type: SignUp
+- url: https://app.viam.com
+  name: Viam Cloud Console
+  type: Sandbox
+- url: https://www.viam.com/pricing
+  name: Pricing
+  type: Pricing
+- url: https://docs.viam.com/dev/reference/changelog/
+  name: Changelog
+  type: ChangeLog
+- url: https://status.viam.com
+  name: Status
+  type: StatusPage
+- url: https://docs.viam.com/manage/cli/
+  name: Viam CLI
+  type: Documentation
+- url: https://github.com/viamrobotics
+  name: Viam Robotics GitHub
+  type: GitHubOrganization
+- url: https://github.com/viamrobotics/api
+  name: Viam API Protobuf Definitions
+  type: Protobuf
+- url: https://github.com/viamrobotics/rdk
+  name: Viam RDK (viam-server, Go)
+  type: SDK
+- url: https://github.com/viamrobotics/micro-rdk
+  name: Viam Micro-RDK (microcontroller, Rust)
+  type: SDK
+- url: https://github.com/viamrobotics/viam-python-sdk
+  name: Python SDK
+  type: SDK
+- url: https://github.com/viamrobotics/viam-typescript-sdk
+  name: TypeScript SDK
+  type: SDK
+- url: https://github.com/viamrobotics/viam-rust-sdk
+  name: Rust SDK
+  type: SDK
+- url: https://github.com/viamrobotics/viam-cpp-sdk
+  name: C++ SDK
+  type: SDK
+- url: https://github.com/viamrobotics/viam-flutter-sdk
+  name: Flutter SDK
+  type: SDK
+- url: https://github.com/viamrobotics/viam-java-sdk
+  name: Java SDK
+  type: SDK
+- url: https://github.com/viamrobotics/viam-dotnet-sdk
+  name: .NET SDK
+  type: SDK
+- url: https://github.com/viamrobotics/viam-svelte-sdk
+  name: Svelte SDK
+  type: SDK
+- url: https://github.com/viamrobotics/agent
+  name: Viam Agent
+  type: Tool
+- url: https://github.com/viamrobotics/build-action
+  name: Viam Module Build GitHub Action
+  type: Tool
+- url: https://github.com/viamrobotics/upload-module
+  name: Upload Module to Registry
+  type: Tool
+- url: https://github.com/viamrobotics/visualization
+  name: Motion and Spatial Visualization
+  type: Tool
+- url: https://github.com/viamrobotics/samples
+  name: Sample Apps and Templates
+  type: CodeExamples
+- url: https://github.com/viamrobotics/can-inspection-simulation
+  name: Can Inspection Simulation (Tutorial)
+  type: CodeExamples
+- url: https://github.com/viamrobotics/inspection-module-starter
+  name: Inspection Module Starter (Tutorial)
+  type: CodeExamples
+- url: https://github.com/viamrobotics/docs
+  name: docs.viam.com source
+  type: Documentation
+- url: https://github.com/viamrobotics/prime
+  name: Prime UI Library
+  type: Tool
+- url: https://github.com/viamrobotics/three
+  name: Three.js Viam Utilities
+  type: Tool
+- url: https://app.viam.com/registry
+  name: Viam Registry (modular components and ML models)
+  type: Portal
+- url: https://discord.gg/viam
+  name: Viam Discord
+  type: Forum
+- url: https://www.viam.com/blog
+  name: Blog
+  type: Blog
+- url: https://www.viam.com/post
+  name: Engineering Posts
+  type: Blog
+- url: https://www.viam.com/customers
+  name: Customer Stories
+  type: CaseStudies
+- url: https://www.viam.com/legal/terms
+  name: Terms of Service
+  type: TermsOfService
+- url: https://www.viam.com/legal/privacy
+  name: Privacy Policy
+  type: PrivacyPolicy
+- url: https://www.viam.com/security
+  name: Security
+  type: TrustCenter
+- url: https://www.viam.com/contact
+  name: Contact
+  type: Support
+- url: https://www.linkedin.com/company/viamrobotics
+  name: Viam on LinkedIn
+  type: LinkedIn
+- url: https://twitter.com/viamrobotics
+  name: Viam on X
+  type: Twitter
+- url: https://www.youtube.com/@ViamRobotics
+  name: Viam on YouTube
+  type: YouTube
+- url: plans/viam-plans-pricing.yml
+  type: Plans
+- url: rate-limits/viam-rate-limits.yml
+  type: RateLimits
+- url: finops/viam-finops.yml
+  type: FinOps
+- type: Features
+  data:
+  - viam-server (RDK) — Go-based runtime for Linux SBCs and servers; the per-machine control plane
+  - micro-rdk — Rust-based viam-server variant for ESP32-class microcontrollers
+  - viam-agent — managed system service that installs, configures, and updates viam-server on devices
+  - viam.app — multi-tenant cloud for fleet management, configuration, and remote control
+  - gRPC-first API contract shared by every official SDK (Python, Go, Rust, TypeScript, C++, Java, .NET, Flutter)
+  - Modular registry — pluggable components and services published as OCI images, npm modules, or PyPI packages
+  - Component APIs covering arm, base, board, button, camera, encoder, gantry, gripper, input controller,
+    motor, movement sensor, pose tracker, power sensor, sensor, servo, switch, audio in/out
+  - Service APIs for motion planning, vision, SLAM, navigation, data management, ML model inference,
+    sensors aggregation, world state, discovery, and generic services
+  - Data Management Service captures data at the edge and syncs to the Viam cloud (tabular and binary)
+  - Data Client API with SQL and MongoDB-MQL query interfaces over captured data
+  - Data Pipelines for scheduled MQL aggregation into the Viam hot data store
+  - ML Training cloud jobs (built-in TFLite trainers + custom containerized trainers)
+  - ML Model Service for edge inference (TFLite, ONNX, Triton)
+  - Cloud SLAM mapping sessions and Cartographer/ORB-SLAM3 integrations
+  - Fleet-level fragments, packages, and machine configuration with OTA rollout
+  - Provisioning over Bluetooth or hotspot via viam-agent and Flutter provisioning widgets
+  - OAuth apps, API keys, location secrets, RBAC, and SCIM for organization administration
+  - Billing API supporting custom per-machine, per-data, per-API-call invoicing for end-customers
+  - Modular registry build pipeline via GitHub Action (multi-arch builds)
+  - Hardware abstraction enabling write-once / run-on-many-platforms control code
+  - Free tier with $5/month in included cloud usage; usage-based metering for storage, compute, and egress
+  - Founded 2020 by Eliot Horowitz (MongoDB co-founder and former CTO)
+  sources:
+  - https://www.viam.com
+  - https://docs.viam.com
+  - https://github.com/viamrobotics
+  - https://github.com/viamrobotics/api
+  - https://www.viam.com/pricing
+  updated: '2026-05-25'
+created: '2026-05-25'
+modified: '2026-05-25'
+position: Consuming
+description: Viam is a robotics and edge AI platform founded in 2020 by Eliot Horowitz (MongoDB co-founder
+  and former CTO). It pairs viam-server — a gRPC-based runtime that runs on Linux single-board computers
+  (RDK) and ESP32-class microcontrollers (micro-rdk) — with viam.app, a multi-tenant cloud for fleet
+  management, data capture, ML training, and remote operations. Every hardware component (motors, cameras,
+  sensors, arms) and every machine-level service (motion, vision, SLAM, ML inference, navigation) is
+  exposed through a uniform gRPC contract defined in viamrobotics/api with first-class SDKs for Python, Go,
+  Rust, TypeScript, C++, Java, .NET, and Flutter. A modular registry lets vendors and community contributors
+  publish new hardware drivers, vision models, and services as OCI images or packages that any Viam machine
+  can pull at config time, making physical-world control feel like building a microservice.
+maintainers:
+- FN: Kin Lane
+  email: info@apievangelist.com
+  X: apievangelist
+  url: https://apievangelist.com
+specificationVersion: '0.16'

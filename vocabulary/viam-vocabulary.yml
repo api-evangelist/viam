@@ -1,0 +1,148 @@
+vocabulary: 0.1
+info:
+  title: Viam Vocabulary
+  description: |
+    Canonical vocabulary for the Viam robotics and edge AI platform. Maps the
+    operational, capability, and resource dimensions exposed across viam-server,
+    viam.app, the modular registry, and the Viam SDKs.
+  created: '2026-05-25'
+  modified: '2026-05-25'
+concepts:
+  - id: machine
+    label: Machine
+    definition: A logical robot composed of one or more parts, each running viam-server.
+  - id: machine-part
+    label: Machine Part
+    definition: A single viam-server process. Parts join into a machine and one is marked main.
+  - id: location
+    label: Location
+    definition: A grouping of machines (building, site, fleet) within an organization.
+  - id: organization
+    label: Organization
+    definition: The top-level tenant boundary owning locations, machines, members, and billing.
+  - id: fragment
+    label: Fragment
+    definition: A reusable, versioned configuration snippet shareable across machines and orgs.
+  - id: module
+    label: Module
+    definition: A pluggable binary that registers new component or service models with viam-server.
+  - id: registry-item
+    label: Registry Item
+    definition: An entry in the Viam registry — module, ML model, training script, or app.
+  - id: component
+    label: Component
+    definition: A hardware abstraction (arm, base, camera, motor, sensor, etc.).
+  - id: service
+    label: Service
+    definition: A machine-level capability (motion, vision, SLAM, ML inference, data management).
+  - id: capture
+    label: Capture
+    definition: Periodic recording of a component method's output to disk for later sync.
+  - id: sync
+    label: Sync
+    definition: Cloud upload of captured tabular and binary data via the Data Sync API.
+  - id: data-pipeline
+    label: Data Pipeline
+    definition: Scheduled MQL aggregation over captured data, materialized into the hot store.
+  - id: training-job
+    label: Training Job
+    definition: A cloud-hosted ML training run that produces a deployable model.
+  - id: ml-model
+    label: ML Model
+    definition: A registered TFLite/ONNX/Triton model deployable to viam-server.
+  - id: provisioning
+    label: Provisioning
+    definition: Bootstrap onboarding of a smart machine via Bluetooth or hotspot.
+  - id: tunnel
+    label: Tunnel
+    definition: Bidirectional TCP tunnel through viam-server.
+  - id: fragment-version
+    label: Fragment Version
+    definition: A version of a fragment; updates can roll out via OTA across the fleet.
+services:
+  fleet-management:
+    label: Fleet Management
+    apis: [fleet-management-api]
+    purpose: Manage tenancy, machines, fragments, members, OAuth apps, secrets.
+  machine-management:
+    label: Machine Management
+    apis: [machine-management-api]
+    purpose: Operate viam-server directly on the device.
+  data:
+    label: Data
+    apis: [data-client-api, data-sync-api, data-pipelines-api]
+    purpose: Capture, sync, query, and aggregate machine data.
+  ml:
+    label: Machine Learning
+    apis: [ml-training-api, ml-inference-api, ml-model-service-api]
+    purpose: Train models in the cloud and run inference at the edge or cloud.
+  motion-vision-slam:
+    label: Motion / Vision / SLAM
+    apis: [motion-service-api, vision-service-api, slam-service-api]
+    purpose: Higher-level perception and planning services running on viam-server.
+  components:
+    label: Components
+    apis: [component-apis]
+    purpose: Hardware abstraction for arms, bases, motors, cameras, sensors, and more.
+  billing:
+    label: Billing
+    apis: [billing-api]
+    purpose: Track usage, invoices, and end-customer billing.
+  provisioning:
+    label: Provisioning
+    apis: [provisioning-api]
+    purpose: First-boot Wi-Fi and cloud onboarding.
+tools:
+  - id: viam-server
+    label: viam-server (RDK)
+    repo: https://github.com/viamrobotics/rdk
+    role: Per-machine runtime (Go).
+  - id: micro-rdk
+    label: micro-rdk
+    repo: https://github.com/viamrobotics/micro-rdk
+    role: Microcontroller variant of viam-server (Rust, ESP32).
+  - id: viam-agent
+    label: viam-agent
+    repo: https://github.com/viamrobotics/agent
+    role: System service that installs, configures, updates viam-server.
+  - id: viam-cli
+    label: Viam CLI
+    docs: https://docs.viam.com/manage/cli/
+    role: Command-line interface for fleet operations.
+  - id: build-action
+    label: Module Build GitHub Action
+    repo: https://github.com/viamrobotics/build-action
+    role: Multi-arch build of Viam modules in CI.
+  - id: prime
+    label: Prime UI Library
+    repo: https://github.com/viamrobotics/prime
+    role: Viam UI component library.
+  - id: prime-flutter
+    label: Prime Flutter
+    repo: https://github.com/viamrobotics/prime_flutter
+    role: Viam UI library for Flutter apps.
+standards:
+  - id: grpc
+    label: gRPC
+    role: Canonical transport for every Viam API.
+  - id: protobuf
+    label: Protocol Buffers
+    role: Interface definitions for every Viam service.
+  - id: webrtc
+    label: WebRTC
+    role: Browser-direct streaming of camera and audio components.
+  - id: mongodb-mql
+    label: MongoDB Query Language
+    role: Query language for tabular data and data pipelines.
+  - id: tflite
+    label: TensorFlow Lite
+    role: Default deployment format for edge ML models.
+  - id: onnx
+    label: ONNX
+    role: Cross-framework ML model interchange.
+  - id: ros2
+    label: ROS 2
+    role: Optional bridge for ROS 2 robotics workloads via community modules.
+  - id: opentelemetry
+    label: OpenTelemetry
+    role: Distributed tracing for viam-server (proto/viam/opentelemetry).

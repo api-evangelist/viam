@@ -1,0 +1,56 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Viam Component — Arm
+  description: Control any Viam robotic arm component — pose, joint positions, and stop.
+  tags: [Viam, Component, Arm]
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+- namespace: env
+  keys:
+    VIAM_API_KEY: VIAM_API_KEY
+    VIAM_MACHINE_ADDRESS: VIAM_MACHINE_ADDRESS
+capability:
+  consumes:
+  - type: http
+    namespace: component-arm
+    baseUri: '{{env.VIAM_MACHINE_ADDRESS}}'
+    description: Viam ArmService.
+    resources:
+    - name: get-end-position
+      path: /viam.component.arm.v1.ArmService/GetEndPosition
+      operations:
+      - { name: getEndPosition, method: POST, description: Get the end-effector pose., outputRawFormat: json, inputParameters: [{ name: body, in: body, type: object, required: true }] }
+    - name: move-to-position
+      path: /viam.component.arm.v1.ArmService/MoveToPosition
+      operations:
+      - { name: moveToPosition, method: POST, description: Move end effector to pose., outputRawFormat: json, inputParameters: [{ name: body, in: body, type: object, required: true }] }
+    - name: get-joint-positions
+      path: /viam.component.arm.v1.ArmService/GetJointPositions
+      operations:
+      - { name: getJointPositions, method: POST, description: Get joint positions., outputRawFormat: json, inputParameters: [{ name: body, in: body, type: object, required: true }] }
+    - name: move-to-joint-positions
+      path: /viam.component.arm.v1.ArmService/MoveToJointPositions
+      operations:
+      - { name: moveToJointPositions, method: POST, description: Move to joint configuration., outputRawFormat: json, inputParameters: [{ name: body, in: body, type: object, required: true }] }
+    - name: stop
+      path: /viam.component.arm.v1.ArmService/Stop
+      operations:
+      - { name: stop, method: POST, description: Stop the arm., outputRawFormat: json, inputParameters: [{ name: body, in: body, type: object, required: true }] }
+    authentication:
+      type: apikey
+      key: key
+      value: '{{env.VIAM_API_KEY}}'
+      placement: header
+  exposes:
+  - type: mcp
+    namespace: component-arm-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for arm components.
+    tools:
+    - { name: viam-arm-end-position, description: Get end position., hints: { readOnly: true, destructive: false, idempotent: true }, call: component-arm.getEndPosition, with: { body: tools.body } }
+    - { name: viam-arm-move-to-position, description: Move to pose., hints: { readOnly: false, destructive: false, idempotent: true }, call: component-arm.moveToPosition, with: { body: tools.body } }
+    - { name: viam-arm-joint-positions, description: Get joint positions., hints: { readOnly: true, destructive: false, idempotent: true }, call: component-arm.getJointPositions, with: { body: tools.body } }
+    - { name: viam-arm-move-joints, description: Move to joints., hints: { readOnly: false, destructive: false, idempotent: true }, call: component-arm.moveToJointPositions, with: { body: tools.body } }
+    - { name: viam-arm-stop, description: Stop arm., hints: { readOnly: false, destructive: true, idempotent: true }, call: component-arm.stop, with: { body: tools.body } }

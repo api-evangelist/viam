@@ -1,0 +1,55 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Viam Data — Binary Data
+  description: Query, retrieve, tag, and delete binary data items captured by cameras and audio components.
+  tags: [Viam, Data, Binary]
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+- namespace: env
+  keys:
+    VIAM_API_KEY: VIAM_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: data-binary
+    baseUri: https://app.viam.com
+    description: Viam DataService — binary data operations.
+    resources:
+    - name: binary-data-by-filter
+      path: /viam.app.data.v1.DataService/BinaryDataByFilter
+      operations:
+      - { name: binaryDataByFilter, method: POST, description: Query binary data by filter., outputRawFormat: json, inputParameters: [{ name: body, in: body, type: object, required: true }] }
+    - name: binary-data-by-ids
+      path: /viam.app.data.v1.DataService/BinaryDataByIDs
+      operations:
+      - { name: binaryDataByIDs, method: POST, description: Retrieve binary data by ids., outputRawFormat: json, inputParameters: [{ name: body, in: body, type: object, required: true }] }
+    - name: delete-binary-data-by-ids
+      path: /viam.app.data.v1.DataService/DeleteBinaryDataByIDs
+      operations:
+      - { name: deleteBinaryDataByIDs, method: POST, description: Delete binary data by ids., outputRawFormat: json, inputParameters: [{ name: body, in: body, type: object, required: true }] }
+    - name: add-tags-to-binary-data
+      path: /viam.app.data.v1.DataService/AddTagsToBinaryDataByIDs
+      operations:
+      - { name: addTagsToBinaryDataByIDs, method: POST, description: Tag binary data items., outputRawFormat: json, inputParameters: [{ name: body, in: body, type: object, required: true }] }
+    - name: create-binary-data-signed-url
+      path: /viam.app.data.v1.DataService/CreateBinaryDataSignedURL
+      operations:
+      - { name: createBinaryDataSignedURL, method: POST, description: Create a signed URL for direct upload., outputRawFormat: json, inputParameters: [{ name: body, in: body, type: object, required: true }] }
+    authentication:
+      type: apikey
+      key: key
+      value: '{{env.VIAM_API_KEY}}'
+      placement: header
+  exposes:
+  - type: mcp
+    namespace: data-binary-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for binary data.
+    tools:
+    - { name: viam-binary-by-filter, description: Query binary data., hints: { readOnly: true, destructive: false, idempotent: true }, call: data-binary.binaryDataByFilter, with: { body: tools.body } }
+    - { name: viam-binary-by-ids, description: Retrieve binary data by ids., hints: { readOnly: true, destructive: false, idempotent: true }, call: data-binary.binaryDataByIDs, with: { body: tools.body } }
+    - { name: viam-binary-delete, description: Delete binary data., hints: { readOnly: false, destructive: true, idempotent: true }, call: data-binary.deleteBinaryDataByIDs, with: { body: tools.body } }
+    - { name: viam-binary-tag, description: Tag binary data., hints: { readOnly: false, destructive: false, idempotent: false }, call: data-binary.addTagsToBinaryDataByIDs, with: { body: tools.body } }
+    - { name: viam-binary-signed-url, description: Create signed upload URL., hints: { readOnly: false, destructive: false, idempotent: false }, call: data-binary.createBinaryDataSignedURL, with: { body: tools.body } }

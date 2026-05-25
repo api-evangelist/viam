@@ -1,0 +1,76 @@
+finops: 0.1
+info:
+  title: Viam FinOps
+  description: |
+    FinOps alignment for Viam — covers the billing surface, cost telemetry, and chargeback
+    primitives exposed by the Viam Billing API. Maps to FinOps Framework capabilities
+    (Inform, Optimize, Operate) and the FOCUS data spec where applicable.
+  source: https://docs.viam.com/manage/manage/billing/
+  modified: '2026-05-25'
+inform:
+  cost-allocation:
+    description: Per-organization, per-location, and per-machine cost attribution.
+    primitives:
+      - GetCurrentMonthUsage (org-level current month usage)
+      - GetInvoicesSummary (historical invoices)
+      - GetInvoicePdf (invoice line items)
+      - Location billing organization assignment (per-location chargeback)
+    focusFields:
+      - BilledCost
+      - EffectiveCost
+      - InvoiceIssuer
+      - ServiceCategory
+      - ServiceName
+      - ResourceId
+      - ResourceName
+      - Tags
+  cost-categorization:
+    description: Cost classes documented on the Viam pricing page.
+    classes:
+      - Standard tabular/JSON storage ($0.25/GB-month)
+      - Hot data store storage ($2.50/GB)
+      - Hot data store compute ($0.00125/second)
+      - Non-tabular storage ($0.05/GB-month)
+      - Cloud data upload ($0.15/GB)
+      - Cloud data egress ($0.25/GB)
+      - Standard compute ($0.0025/second)
+      - Trigger notifications ($2.50/1M)
+optimize:
+  rightsizing:
+    description: Tune capture cadence and data resolution to reduce storage and egress spend.
+    levers:
+      - Reduce per-component capture frequency where possible
+      - Down-sample images on-device before sync (Vision Service preprocessing modules)
+      - Prefer Data Pipelines to pre-aggregate before query
+      - Use GetDatabaseConnection for analytics instead of egressing through the Data API
+      - Delete tabular data older than N days via DeleteTabularData
+      - Move bulk training data to dataset snapshots, not continuous capture
+  workload-placement:
+    description: Choose edge vs cloud for ML inference.
+    levers:
+      - Run inference at the edge via ML Model Service (no per-call cloud cost)
+      - Reserve cloud ML Inference for low-frequency, high-compute workloads
+      - Schedule training jobs in off-peak windows to leverage best-effort capacity
+operate:
+  budgeting:
+    description: Set budget guardrails per organization.
+    primitives:
+      - SendPaymentRequiredEmail when projected spend exceeds threshold
+      - UpdateOrganizationBillingTier to move organizations onto custom contracts
+  chargeback:
+    description: Bill end-customers via the Billing API.
+    primitives:
+      - GetAvailableBillingTiers (your custom tier catalog)
+      - UpdateOrganizationBillingTier (assign customer to a tier)
+      - UpdateLocationBillingOrganization (cross-org chargeback)
+      - ChargeOrganization (one-off charges)
+      - CreateInvoiceAndChargeImmediately (invoice + collect)
+  alerting:
+    description: Trigger notifications from data pipelines / data triggers.
+    note: Triggers are billed at $2.50 per 1M notifications.
+chargebackModel:
+  description: |
+    Viam's Billing API is unusual: it lets a Viam customer become a billing provider for its
+    own end-customers. A machine deployed at a customer site can be billed back at custom
+    per-machine, per-data, or per-API-call rates. This makes Viam a natural fit for OEMs
+    embedding robotics into a product sold as a service.

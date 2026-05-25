@@ -1,0 +1,38 @@
+{
+  "request": {
+    "method": "POST",
+    "url": "https://machine.local.viam.cloud:443/viam.service.vision.v1.VisionService/GetDetectionsFromCamera",
+    "headers": {
+      "Content-Type": "application/json",
+      "key_id": "abcd1234-key-id",
+      "key": "viam_api_key_value"
+    },
+    "body": {
+      "name": "warehouse-detector",
+      "camera_name": "front-camera"
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "detections": [
+        {
+          "x_min": 122,
+          "y_min": 87,
+          "x_max": 488,
+          "y_max": 401,
+          "confidence": 0.94,
+          "class_name": "pallet"
+        },
+        {
+          "x_min": 540,
+          "y_min": 132,
+          "x_max": 798,
+          "y_max": 422,
+          "confidence": 0.81,
+          "class_name": "forklift"
+        }
+      ]
+    }
+  }
+}

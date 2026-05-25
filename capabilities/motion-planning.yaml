@@ -1,0 +1,61 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Viam Motion Service — Planning
+  description: Plan and execute motion for components — Move, MoveOnMap, MoveOnGlobe, StopPlan, GetPlan.
+  tags: [Viam, Motion, Planning]
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+- namespace: env
+  keys:
+    VIAM_API_KEY: VIAM_API_KEY
+    VIAM_MACHINE_ADDRESS: VIAM_MACHINE_ADDRESS
+capability:
+  consumes:
+  - type: http
+    namespace: motion-planning
+    baseUri: '{{env.VIAM_MACHINE_ADDRESS}}'
+    description: Viam MotionService.
+    resources:
+    - name: move
+      path: /viam.service.motion.v1.MotionService/Move
+      operations:
+      - { name: move, method: POST, description: Plan and execute a motion., outputRawFormat: json, inputParameters: [{ name: body, in: body, type: object, required: true }] }
+    - name: move-on-map
+      path: /viam.service.motion.v1.MotionService/MoveOnMap
+      operations:
+      - { name: moveOnMap, method: POST, description: Move on a SLAM map., outputRawFormat: json, inputParameters: [{ name: body, in: body, type: object, required: true }] }
+    - name: move-on-globe
+      path: /viam.service.motion.v1.MotionService/MoveOnGlobe
+      operations:
+      - { name: moveOnGlobe, method: POST, description: Move on GPS coordinates., outputRawFormat: json, inputParameters: [{ name: body, in: body, type: object, required: true }] }
+    - name: stop-plan
+      path: /viam.service.motion.v1.MotionService/StopPlan
+      operations:
+      - { name: stopPlan, method: POST, description: Stop a motion plan., outputRawFormat: json, inputParameters: [{ name: body, in: body, type: object, required: true }] }
+    - name: list-plan-statuses
+      path: /viam.service.motion.v1.MotionService/ListPlanStatuses
+      operations:
+      - { name: listPlanStatuses, method: POST, description: List motion plans., outputRawFormat: json, inputParameters: [{ name: body, in: body, type: object, required: true }] }
+    - name: get-plan
+      path: /viam.service.motion.v1.MotionService/GetPlan
+      operations:
+      - { name: getPlan, method: POST, description: Get a motion plan., outputRawFormat: json, inputParameters: [{ name: body, in: body, type: object, required: true }] }
+    authentication:
+      type: apikey
+      key: key
+      value: '{{env.VIAM_API_KEY}}'
+      placement: header
+  exposes:
+  - type: mcp
+    namespace: motion-planning-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for motion planning.
+    tools:
+    - { name: viam-move, description: Plan and execute motion., hints: { readOnly: false, destructive: false, idempotent: false }, call: motion-planning.move, with: { body: tools.body } }
+    - { name: viam-move-on-map, description: Move on SLAM map., hints: { readOnly: false, destructive: false, idempotent: false }, call: motion-planning.moveOnMap, with: { body: tools.body } }
+    - { name: viam-move-on-globe, description: Move on globe., hints: { readOnly: false, destructive: false, idempotent: false }, call: motion-planning.moveOnGlobe, with: { body: tools.body } }
+    - { name: viam-stop-plan, description: Stop motion plan., hints: { readOnly: false, destructive: true, idempotent: true }, call: motion-planning.stopPlan, with: { body: tools.body } }
+    - { name: viam-list-plan-statuses, description: List motion plans., hints: { readOnly: true, destructive: false, idempotent: true }, call: motion-planning.listPlanStatuses, with: { body: tools.body } }
+    - { name: viam-get-plan, description: Get motion plan., hints: { readOnly: true, destructive: false, idempotent: true }, call: motion-planning.getPlan, with: { body: tools.body } }

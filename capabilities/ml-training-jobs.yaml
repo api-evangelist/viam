@@ -1,0 +1,59 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Viam ML Training — Jobs
+  description: Submit, monitor, and cancel cloud-hosted ML training jobs (built-in TFLite or custom containers).
+  tags: [Viam, MachineLearning, Training]
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+- namespace: env
+  keys:
+    VIAM_API_KEY: VIAM_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: ml-training-jobs
+    baseUri: https://app.viam.com
+    description: Viam MLTrainingService — training job operations.
+    resources:
+    - name: submit-training-job
+      path: /viam.app.mltraining.v1.MLTrainingService/SubmitTrainingJob
+      operations:
+      - { name: submitTrainingJob, method: POST, description: Submit a built-in TFLite training job., outputRawFormat: json, inputParameters: [{ name: body, in: body, type: object, required: true }] }
+    - name: submit-custom-training-job
+      path: /viam.app.mltraining.v1.MLTrainingService/SubmitCustomTrainingJob
+      operations:
+      - { name: submitCustomTrainingJob, method: POST, description: Submit a custom containerized training job., outputRawFormat: json, inputParameters: [{ name: body, in: body, type: object, required: true }] }
+    - name: get-training-job
+      path: /viam.app.mltraining.v1.MLTrainingService/GetTrainingJob
+      operations:
+      - { name: getTrainingJob, method: POST, description: Retrieve a training job by id., outputRawFormat: json, inputParameters: [{ name: body, in: body, type: object, required: true }] }
+    - name: list-training-jobs
+      path: /viam.app.mltraining.v1.MLTrainingService/ListTrainingJobs
+      operations:
+      - { name: listTrainingJobs, method: POST, description: List training jobs for an org., outputRawFormat: json, inputParameters: [{ name: body, in: body, type: object, required: true }] }
+    - name: cancel-training-job
+      path: /viam.app.mltraining.v1.MLTrainingService/CancelTrainingJob
+      operations:
+      - { name: cancelTrainingJob, method: POST, description: Cancel a training job., outputRawFormat: json, inputParameters: [{ name: body, in: body, type: object, required: true }] }
+    - name: get-training-job-logs
+      path: /viam.app.mltraining.v1.MLTrainingService/GetTrainingJobLogs
+      operations:
+      - { name: getTrainingJobLogs, method: POST, description: Retrieve logs for a training job., outputRawFormat: json, inputParameters: [{ name: body, in: body, type: object, required: true }] }
+    authentication:
+      type: apikey
+      key: key
+      value: '{{env.VIAM_API_KEY}}'
+      placement: header
+  exposes:
+  - type: mcp
+    namespace: ml-training-jobs-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for ML training jobs.
+    tools:
+    - { name: viam-submit-training, description: Submit a TFLite training job., hints: { readOnly: false, destructive: false, idempotent: false }, call: ml-training-jobs.submitTrainingJob, with: { body: tools.body } }
+    - { name: viam-submit-custom-training, description: Submit a custom training job., hints: { readOnly: false, destructive: false, idempotent: false }, call: ml-training-jobs.submitCustomTrainingJob, with: { body: tools.body } }
+    - { name: viam-get-training-job, description: Get training job., hints: { readOnly: true, destructive: false, idempotent: true }, call: ml-training-jobs.getTrainingJob, with: { body: tools.body } }
+    - { name: viam-list-training-jobs, description: List training jobs., hints: { readOnly: true, destructive: false, idempotent: true }, call: ml-training-jobs.listTrainingJobs, with: { body: tools.body } }
+    - { name: viam-cancel-training-job, description: Cancel training job., hints: { readOnly: false, destructive: true, idempotent: true }, call: ml-training-jobs.cancelTrainingJob, with: { body: tools.body } }

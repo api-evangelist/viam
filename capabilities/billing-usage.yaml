@@ -1,0 +1,40 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Viam Billing — Usage
+  description: Retrieve current-month usage and organization billing information.
+  tags: [Viam, Billing, FinOps]
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+- namespace: env
+  keys:
+    VIAM_API_KEY: VIAM_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: billing-usage
+    baseUri: https://app.viam.com
+    description: Viam BillingService — usage operations.
+    resources:
+    - name: get-current-month-usage
+      path: /viam.app.v1.BillingService/GetCurrentMonthUsage
+      operations:
+      - { name: getCurrentMonthUsage, method: POST, description: Current month usage and projected cost., outputRawFormat: json, inputParameters: [{ name: body, in: body, type: object, required: true }] }
+    - name: get-org-billing-information
+      path: /viam.app.v1.BillingService/GetOrgBillingInformation
+      operations:
+      - { name: getOrgBillingInformation, method: POST, description: Org billing information., outputRawFormat: json, inputParameters: [{ name: body, in: body, type: object, required: true }] }
+    authentication:
+      type: apikey
+      key: key
+      value: '{{env.VIAM_API_KEY}}'
+      placement: header
+  exposes:
+  - type: mcp
+    namespace: billing-usage-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for usage reporting.
+    tools:
+    - { name: viam-current-month-usage, description: Current month usage., hints: { readOnly: true, destructive: false, idempotent: true }, call: billing-usage.getCurrentMonthUsage, with: { body: tools.body } }
+    - { name: viam-org-billing-info, description: Org billing info., hints: { readOnly: true, destructive: false, idempotent: true }, call: billing-usage.getOrgBillingInformation, with: { body: tools.body } }

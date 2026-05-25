@@ -1,0 +1,25 @@
+{
+  "request": {
+    "method": "POST",
+    "url": "https://app.viam.com/viam.app.mltraining.v1.MLTrainingService/SubmitTrainingJob",
+    "headers": {
+      "Content-Type": "application/json",
+      "key_id": "abcd1234-key-id",
+      "key": "viam_api_key_value"
+    },
+    "body": {
+      "organization_id": "org_01HXXXXXXXXXXXXXXXXX",
+      "dataset_id": "ds_01H33333333333333333A",
+      "model_name": "warehouse-pallet-detector",
+      "model_version": "1",
+      "model_type": "object_detection",
+      "tags": ["pallet", "forklift", "box"]
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "id": "tj_01H44444444444444444A"
+    }
+  }
+}

@@ -1,0 +1,71 @@
+aid: viam
+name: Viam
+url: https://www.viam.com
+type: company
+tags:
+  - Robotics
+  - Edge AI
+  - Fleet Management
+  - IoT
+  - Embedded
+created: '2026-05-25'
+modified: '2026-05-25'
+reviewer:
+  FN: Kin Lane
+  url: https://apievangelist.com
+position: Consuming
+tier: 1
+summary: |
+  Viam is a tier-1 robotics and edge AI platform. The product pairs viam-server — a
+  gRPC-based runtime that runs on Linux SBCs (RDK, Go) and ESP32-class microcontrollers
+  (micro-rdk, Rust) — with viam.app, a multi-tenant cloud for fleet management, data
+  capture, ML training, and remote operations.
+
+  Every hardware component (motors, cameras, sensors, arms, encoders, gantries, grippers)
+  and every machine-level service (motion, vision, SLAM, ML inference, navigation, data
+  management) is exposed through a uniform gRPC contract defined in viamrobotics/api. The
+  contract has first-class SDKs for Python, Go, Rust, TypeScript, C++, Java, .NET, Flutter,
+  and a Svelte reactivity layer. A modular registry lets vendors and community contributors
+  publish new hardware drivers and ML models that any Viam machine can pull at config time.
+
+  The Billing API is one of the most interesting design choices: it lets a Viam customer
+  become a billing provider for its own end-customers, with custom per-machine, per-data,
+  or per-API-call invoicing. This makes Viam a natural fit for OEMs embedding robotics
+  into products sold as a service.
+strengths:
+  - Single uniform gRPC contract across cloud APIs, machine APIs, and every component
+  - Public canonical Protobuf repo (viamrobotics/api) with multi-language code generation
+  - First-class SDKs across nine languages including mobile (Flutter) and frontend (Svelte)
+  - Modular registry decouples hardware vendors and the runtime
+  - viam-server runs on Linux SBCs and ESP32 with a single mental model
+  - Cloud SLAM, vision, and ML training reduce on-device compute requirements
+  - Data Client API exposes SQL and MongoDB-MQL over captured tabular data
+  - Built-in Billing API enables OEM "robotics-as-a-service" business models
+  - Provisioning over Bluetooth/hotspot with Flutter widgets is a strong onboarding story
+  - GitHub Action for multi-arch module builds polishes the developer workflow
+  - Open source viam-server (Apache 2.0) reduces lock-in risk
+notes: |
+  Founded 2020 by Eliot Horowitz (MongoDB co-founder and former CTO). The MongoDB
+  inheritance shows up clearly in the choice of MongoDB Query Language for the Data
+  Pipelines and Data Client APIs, and the broader emphasis on a developer-first platform
+  with strong SDK ergonomics.
+artifacts:
+  apisYml: apis.yml
+  readme: README.md
+  openapiCount: 12
+  capabilityCount: 22
+  jsonSchemaCount: 5
+  jsonLdContext: json-ld/viam-context.jsonld
+  vocabulary: vocabulary/viam-vocabulary.yml
+  plans: plans/viam-plans-pricing.yml
+  rateLimits: rate-limits/viam-rate-limits.yml
+  finops: finops/viam-finops.yml
+  spectral: rules/viam-rules.yml
+sources:
+  - https://www.viam.com
+  - https://docs.viam.com
+  - https://github.com/viamrobotics
+  - https://github.com/viamrobotics/api
+  - https://github.com/viamrobotics/rdk
+  - https://github.com/viamrobotics/micro-rdk
+  - https://www.viam.com/pricing

@@ -1,0 +1,51 @@
+extends:
+  - spectral:oas
+rules:
+  # Viam OpenAPI specs are REST/JSON transcoding of gRPC. Standard REST style
+  # rules don't all apply, so we relax a few and add Viam-specific guards.
+  operation-tag-defined: warn
+  operation-operationId: error
+  operation-operationId-unique: error
+  operation-description: warn
+  operation-summary-formatted:
+    description: Operation summaries must use Title Case and start with "Viam ".
+    given: $.paths.*.*.summary
+    severity: error
+    then:
+      function: pattern
+      functionOptions:
+        match: '^Viam ([A-Z][a-z0-9]*|[A-Z]+)( ([A-Z][a-z0-9]*|[A-Z]+|Api|API))*$'
+  viam-grpc-path:
+    description: Viam transcoded paths must follow /viam.<package>.v1.<Service>/<Method>.
+    given: $.paths.*~
+    severity: warn
+    then:
+      function: pattern
+      functionOptions:
+        match: '^/viam\.[a-z][a-z0-9._]+\.v1\.[A-Z][A-Za-z0-9]+/[A-Z][A-Za-z0-9]+$'
+  viam-server-url:
+    description: At least one server URL must reference app.viam.com or a per-machine address.
+    given: $.servers
+    severity: warn
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          type: array
+          contains:
+            type: object
+            properties:
+              url:
+                type: string
+                pattern: '(viam\.com|viam\.cloud|machine_address|VIAM_MACHINE)'
+            required: [url]
+  viam-security-required:
+    description: Operations on app.viam.com surfaces must declare security.
+    given: $.paths.*.*
+    severity: warn
+    then:
+      field: security
+      function: truthy
+  contact-properties: warn
+  info-license: off
+  no-$ref-siblings: warn

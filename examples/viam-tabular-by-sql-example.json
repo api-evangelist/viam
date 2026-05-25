@@ -1,0 +1,24 @@
+{
+  "request": {
+    "method": "POST",
+    "url": "https://app.viam.com/viam.app.data.v1.DataService/TabularDataBySQL",
+    "headers": {
+      "Content-Type": "application/json",
+      "key_id": "abcd1234-key-id",
+      "key": "viam_api_key_value"
+    },
+    "body": {
+      "organization_id": "org_01HXXXXXXXXXXXXXXXXX",
+      "sql_query": "SELECT robot_id, AVG(CAST(data.readings.temperature AS DOUBLE)) AS avg_temp FROM readings WHERE time_received > NOW() - INTERVAL '1' HOUR GROUP BY robot_id ORDER BY avg_temp DESC LIMIT 10"
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "data": [
+        { "robot_id": "rob_01HZZZZZZZZZZZZZZZZZ", "avg_temp": 27.4 },
+        { "robot_id": "rob_01H1111111111111111A", "avg_temp": 25.9 }
+      ]
+    }
+  }
+}

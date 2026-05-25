@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/viam/refs/heads/main/json-schema/viam-organization-schema.json",
+  "title": "Viam Organization",
+  "description": "A Viam organization — the top-level tenant boundary that owns locations, machines, members, registry items, and billing.",
+  "type": "object",
+  "required": ["id", "name"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Globally unique organization id."
+    },
+    "name": {
+      "type": "string",
+      "description": "Human-readable organization name."
+    },
+    "public_namespace": {
+      "type": "string",
+      "description": "Globally unique public namespace used to scope registry items."
+    },
+    "created_on": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "default_region": {
+      "type": "string"
+    },
+    "cid": {
+      "type": "string",
+      "description": "Customer id used for billing."
+    }
+  }
+}

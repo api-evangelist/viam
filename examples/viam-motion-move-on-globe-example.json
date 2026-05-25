@@ -1,0 +1,32 @@
+{
+  "request": {
+    "method": "POST",
+    "url": "https://machine.local.viam.cloud:443/viam.service.motion.v1.MotionService/MoveOnGlobe",
+    "headers": {
+      "Content-Type": "application/json",
+      "key_id": "abcd1234-key-id",
+      "key": "viam_api_key_value"
+    },
+    "body": {
+      "name": "builtin",
+      "component_name": { "name": "rover-base", "namespace": "rdk", "subtype": "base" },
+      "movement_sensor_name": { "name": "gps", "namespace": "rdk", "subtype": "movement_sensor" },
+      "destination": { "latitude": 40.7128, "longitude": -74.0060 },
+      "heading": 90,
+      "motion_configuration": {
+        "obstacle_detectors": [],
+        "position_polling_frequency_hz": 1,
+        "obstacle_polling_frequency_hz": 1,
+        "plan_deviation_m": 0.5,
+        "linear_m_per_sec": 0.5,
+        "angular_degs_per_sec": 30
+      }
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "execution_id": "exec_01H22222222222222222A"
+    }
+  }
+}

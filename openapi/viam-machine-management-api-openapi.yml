@@ -1,0 +1,385 @@
+openapi: 3.1.0
+info:
+  title: Viam Machine Management API
+  description: |
+    REST/JSON transcoding of the Viam RobotService gRPC API. Connect to a viam-server
+    instance running on a device to inspect resources, manage sessions, retrieve status,
+    transform poses, and tunnel TCP traffic.
+
+    Canonical contract: https://github.com/viamrobotics/api/blob/main/proto/viam/robot/v1/robot.proto
+  version: '2026.05'
+  contact:
+    name: Viam Support
+    url: https://www.viam.com/contact
+servers:
+  - url: https://{machine_address}
+    description: Per-machine viam-server endpoint (typically resolved through app.viam.com signaling)
+    variables:
+      machine_address:
+        default: machine.local.viam.cloud:443
+security:
+  - ApiKeyAuth: []
+tags:
+  - name: Operations
+    description: Long-running operations executing on the machine.
+  - name: Resources
+    description: Resources (components and services) registered on the machine.
+  - name: Sessions
+    description: Client sessions with safety-timeout heartbeats.
+  - name: Status
+    description: Status, version, cloud metadata, and machine state.
+  - name: Frame System
+    description: Frame system config and pose transformations.
+  - name: Modules
+    description: Modular component and service lifecycle.
+  - name: Tunneling
+    description: TCP tunneling through the machine.
+paths:
+  /viam.robot.v1.RobotService/GetOperations:
+    post:
+      summary: Viam Get Operations
+      description: List operations currently running on the machine.
+      operationId: getOperations
+      tags: [Operations]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { type: object }
+      responses:
+        '200':
+          description: Successful response.
+  /viam.robot.v1.RobotService/CancelOperation:
+    post:
+      summary: Viam Cancel Operation
+      description: Cancel a running operation by id.
+      operationId: cancelOperation
+      tags: [Operations]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [id]
+              properties:
+                id: { type: string }
+      responses:
+        '200':
+          description: Successful response.
+  /viam.robot.v1.RobotService/BlockForOperation:
+    post:
+      summary: Viam Block For Operation
+      description: Block the caller until an operation completes.
+      operationId: blockForOperation
+      tags: [Operations]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [id]
+              properties:
+                id: { type: string }
+      responses:
+        '200':
+          description: Successful response.
+  /viam.robot.v1.RobotService/ResourceNames:
+    post:
+      summary: Viam Resource Names
+      description: List all registered resource names on the machine.
+      operationId: resourceNames
+      tags: [Resources]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { type: object }
+      responses:
+        '200':
+          description: Successful response.
+  /viam.robot.v1.RobotService/ResourceRPCSubtypes:
+    post:
+      summary: Viam Resource Rpc Subtypes
+      description: List supported resource RPC subtypes implemented on the machine.
+      operationId: resourceRPCSubtypes
+      tags: [Resources]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { type: object }
+      responses:
+        '200':
+          description: Successful response.
+  /viam.robot.v1.RobotService/GetModelsFromModules:
+    post:
+      summary: Viam Get Models From Modules
+      description: Retrieve the list of resource models registered by all loaded modules.
+      operationId: getModelsFromModules
+      tags: [Modules]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { type: object }
+      responses:
+        '200':
+          description: Successful response.
+  /viam.robot.v1.RobotService/RestartModule:
+    post:
+      summary: Viam Restart Module
+      description: Restart a loaded module without restarting viam-server.
+      operationId: restartModule
+      tags: [Modules]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                module_id: { type: string }
+                module_name: { type: string }
+      responses:
+        '200':
+          description: Successful response.
+  /viam.robot.v1.RobotService/StartSession:
+    post:
+      summary: Viam Start Session
+      description: Open a new session with the machine.
+      operationId: startSession
+      tags: [Sessions]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                resume: { type: string }
+      responses:
+        '200':
+          description: Successful response.
+  /viam.robot.v1.RobotService/SendSessionHeartbeat:
+    post:
+      summary: Viam Send Session Heartbeat
+      description: Send a heartbeat to keep the session alive.
+      operationId: sendSessionHeartbeat
+      tags: [Sessions]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [id]
+              properties:
+                id: { type: string }
+      responses:
+        '200':
+          description: Successful response.
+  /viam.robot.v1.RobotService/GetSessions:
+    post:
+      summary: Viam Get Sessions
+      description: List active sessions on the machine.
+      operationId: getSessions
+      tags: [Sessions]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { type: object }
+      responses:
+        '200':
+          description: Successful response.
+  /viam.robot.v1.RobotService/GetMachineStatus:
+    post:
+      summary: Viam Get Machine Status
+      description: Retrieve the overall machine status including each resource's state.
+      operationId: getMachineStatus
+      tags: [Status]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { type: object }
+      responses:
+        '200':
+          description: Successful response.
+  /viam.robot.v1.RobotService/GetVersion:
+    post:
+      summary: Viam Get Version
+      description: Retrieve the viam-server version and platform metadata.
+      operationId: getVersion
+      tags: [Status]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { type: object }
+      responses:
+        '200':
+          description: Successful response.
+  /viam.robot.v1.RobotService/GetCloudMetadata:
+    post:
+      summary: Viam Get Cloud Metadata
+      description: Retrieve the org/location/machine id that the device is registered to.
+      operationId: getCloudMetadata
+      tags: [Status]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { type: object }
+      responses:
+        '200':
+          description: Successful response.
+  /viam.robot.v1.RobotService/Shutdown:
+    post:
+      summary: Viam Shutdown
+      description: Cleanly shut down viam-server on the device.
+      operationId: shutdown
+      tags: [Status]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { type: object }
+      responses:
+        '200':
+          description: Successful response.
+  /viam.robot.v1.RobotService/StopAll:
+    post:
+      summary: Viam Stop All
+      description: Stop all components on the machine.
+      operationId: stopAll
+      tags: [Status]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { type: object }
+      responses:
+        '200':
+          description: Successful response.
+  /viam.robot.v1.RobotService/FrameSystemConfig:
+    post:
+      summary: Viam Frame System Config
+      description: Retrieve the current frame system configuration.
+      operationId: frameSystemConfig
+      tags: [Frame System]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { type: object }
+      responses:
+        '200':
+          description: Successful response.
+  /viam.robot.v1.RobotService/GetPose:
+    post:
+      summary: Viam Get Pose
+      description: Retrieve a component's pose relative to a destination frame.
+      operationId: getPose
+      tags: [Frame System]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [component_name]
+              properties:
+                component_name: { type: string }
+                destination_frame: { type: string }
+      responses:
+        '200':
+          description: Successful response.
+  /viam.robot.v1.RobotService/TransformPose:
+    post:
+      summary: Viam Transform Pose
+      description: Transform a pose from one frame to another.
+      operationId: transformPose
+      tags: [Frame System]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [source, destination]
+              properties:
+                source: { type: object }
+                destination: { type: string }
+      responses:
+        '200':
+          description: Successful response.
+  /viam.robot.v1.RobotService/TransformPCD:
+    post:
+      summary: Viam Transform Pcd
+      description: Transform a point cloud from one frame to another.
+      operationId: transformPCD
+      tags: [Frame System]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { type: object }
+      responses:
+        '200':
+          description: Successful response.
+  /viam.robot.v1.RobotService/Log:
+    post:
+      summary: Viam Log
+      description: Submit log entries to viam-server.
+      operationId: log
+      tags: [Status]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [logs]
+              properties:
+                logs: { type: array, items: { type: object } }
+      responses:
+        '200':
+          description: Successful response.
+  /viam.robot.v1.RobotService/Tunnel:
+    post:
+      summary: Viam Tunnel
+      description: Tunnel TCP traffic through viam-server (bidirectional stream).
+      operationId: tunnel
+      tags: [Tunneling]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { type: object }
+      responses:
+        '200':
+          description: Successful response.
+  /viam.robot.v1.RobotService/ListTunnels:
+    post:
+      summary: Viam List Tunnels
+      description: List active tunnels.
+      operationId: listTunnels
+      tags: [Tunneling]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { type: object }
+      responses:
+        '200':
+          description: Successful response.
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: key
+      description: Viam API key sent as gRPC metadata or location secret.

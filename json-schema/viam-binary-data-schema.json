@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/viam/refs/heads/main/json-schema/viam-binary-data-schema.json",
+  "title": "Viam Binary Data Item",
+  "description": "A single binary data item (image, video, audio, log) captured from a camera, audio, or generic component.",
+  "type": "object",
+  "required": ["binary_id", "file_extension", "time_captured"],
+  "properties": {
+    "binary_id": {
+      "type": "object",
+      "properties": {
+        "file_id": { "type": "string" },
+        "organization_id": { "type": "string" },
+        "location_id": { "type": "string" }
+      }
+    },
+    "part_id": { "type": "string" },
+    "resource_name": { "type": "string" },
+    "method_name": { "type": "string" },
+    "file_extension": { "type": "string", "description": ".jpg, .png, .pcd, .mp4, .wav, ..." },
+    "file_size_bytes": { "type": "integer", "minimum": 0 },
+    "mime_type": { "type": "string" },
+    "time_captured": { "type": "string", "format": "date-time" },
+    "time_received": { "type": "string", "format": "date-time" },
+    "tags": { "type": "array", "items": { "type": "string" } },
+    "dataset_ids": { "type": "array", "items": { "type": "string" } },
+    "bounding_boxes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "label": { "type": "string" },
+          "x_min_normalized": { "type": "number", "minimum": 0, "maximum": 1 },
+          "y_min_normalized": { "type": "number", "minimum": 0, "maximum": 1 },
+          "x_max_normalized": { "type": "number", "minimum": 0, "maximum": 1 },
+          "y_max_normalized": { "type": "number", "minimum": 0, "maximum": 1 }
+        }
+      }
+    },
+    "metadata": { "type": "object" }
+  }
+}

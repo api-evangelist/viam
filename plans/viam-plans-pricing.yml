@@ -1,0 +1,127 @@
+plans: 0.1
+info:
+  title: Viam Plans & Pricing
+  description: |
+    Viam offers a free tier with up to $5/month of included cloud usage and a usage-based
+    pay-as-you-go developer platform. Bulk storage exceeding 100 GB/month and customized
+    agreements are available through enterprise sales. A separate Robotic Surface Finishing
+    Solutions offering provides a hardware + software annual subscription starting at $120k.
+  source: https://www.viam.com/pricing
+  modified: '2026-05-25'
+plans:
+  - id: free
+    name: Free
+    description: Try Viam — no credit card required. Includes up to $5/month in cloud services.
+    target: Developers, prototypes, hobbyists, students.
+    entries:
+      - geo: US
+        unit: 1
+        label: Cloud services included
+        price: 5
+        metric: usd
+        timeFrame: month
+        description: Up to $5/month in cloud services included.
+    elements:
+      - Connect unlimited machines to viam.app
+      - Use every Viam component, service, and SDK
+      - Capture and sync data (subject to included $5/month)
+      - Use the modular registry
+      - Free CLI, build action, and viam-agent
+  - id: developer-payg
+    name: Developer (Pay-As-You-Go)
+    description: Usage-based pricing once the included $5/month is exceeded. No platform fee.
+    target: Production teams scaling beyond the free allowance.
+    entries:
+      - geo: US
+        unit: 1 GB-month
+        label: Standard tabular/JSON data
+        price: 0.25
+        metric: storage
+        timeFrame: month
+      - geo: US
+        unit: 1 GB
+        label: Hot data store storage
+        price: 2.50
+        metric: storage
+        timeFrame: month
+      - geo: US
+        unit: 1 second
+        label: Hot data store compute
+        price: 0.00125
+        metric: compute
+        timeFrame: usage
+      - geo: US
+        unit: 1 GB-month
+        label: Non-tabular data (images, video, logs)
+        price: 0.05
+        metric: storage
+        timeFrame: month
+      - geo: US
+        unit: 1 GB
+        label: Cloud data upload
+        price: 0.15
+        metric: ingress
+        timeFrame: usage
+      - geo: US
+        unit: 1 GB
+        label: Cloud data egress
+        price: 0.25
+        metric: egress
+        timeFrame: usage
+      - geo: US
+        unit: 1 second
+        label: Standard compute
+        price: 0.0025
+        metric: compute
+        timeFrame: usage
+      - geo: US
+        unit: 1M
+        label: Trigger notifications
+        price: 2.50
+        metric: notifications
+        timeFrame: usage
+    elements:
+      - All Free-tier capabilities
+      - No platform/per-machine fee — only metered usage
+      - Custom per-machine, per-data, per-API-call billing for end customers via Billing API
+  - id: enterprise
+    name: Enterprise
+    description: |
+      Bulk storage exceeding 100 GB/month, custom agreements, dedicated support,
+      uptime commitments, and a contractual relationship for large fleets.
+    target: Large fleets, regulated industries, OEMs shipping Viam-powered products.
+    entries:
+      - geo: US
+        unit: 1
+        label: Contact sales
+        price: Call
+        metric: org
+        timeFrame: contract
+        description: Contact sales for custom pricing.
+    elements:
+      - Volume discounts on storage, compute, and egress
+      - Dedicated support and SLA
+      - Custom contract and procurement
+      - Available add-ons for compliance and data residency
+  - id: surface-finishing
+    name: Robotic Surface Finishing
+    description: |
+      A turnkey hardware + software offering for industrial surface finishing using
+      Viam-powered robotic arms, sanding attachments, integrated vacuums, and the
+      Viam platform. Annual subscription with hardware, install, and support included.
+    target: Manufacturers needing automated surface finishing cells.
+    entries:
+      - geo: US
+        unit: 1 cell
+        label: Standard two-arm cell
+        price: 120000
+        metric: cell
+        timeFrame: year
+        description: Annual subscription per standard two-arm cell.
+    elements:
+      - Robotic arms and sanding attachments
+      - Integrated vacuums
+      - Viam software platform
+      - Site installation
+      - Ongoing technical support
+      - Pricing varies by part size, production volume, and facility configuration

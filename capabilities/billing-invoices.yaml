@@ -1,0 +1,40 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Viam Billing — Invoices
+  description: Summarize invoices and retrieve invoice PDFs.
+  tags: [Viam, Billing, Invoices]
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+- namespace: env
+  keys:
+    VIAM_API_KEY: VIAM_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: billing-invoices
+    baseUri: https://app.viam.com
+    description: Viam BillingService — invoice operations.
+    resources:
+    - name: get-invoices-summary
+      path: /viam.app.v1.BillingService/GetInvoicesSummary
+      operations:
+      - { name: getInvoicesSummary, method: POST, description: Invoice summary for an org., outputRawFormat: json, inputParameters: [{ name: body, in: body, type: object, required: true }] }
+    - name: get-invoice-pdf
+      path: /viam.app.v1.BillingService/GetInvoicePdf
+      operations:
+      - { name: getInvoicePdf, method: POST, description: Retrieve an invoice PDF., outputRawFormat: json, inputParameters: [{ name: body, in: body, type: object, required: true }] }
+    authentication:
+      type: apikey
+      key: key
+      value: '{{env.VIAM_API_KEY}}'
+      placement: header
+  exposes:
+  - type: mcp
+    namespace: billing-invoices-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for invoices.
+    tools:
+    - { name: viam-invoices-summary, description: Invoice summary., hints: { readOnly: true, destructive: false, idempotent: true }, call: billing-invoices.getInvoicesSummary, with: { body: tools.body } }
+    - { name: viam-invoice-pdf, description: Get invoice PDF., hints: { readOnly: true, destructive: false, idempotent: true }, call: billing-invoices.getInvoicePdf, with: { body: tools.body } }

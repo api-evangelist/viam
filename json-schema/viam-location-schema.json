@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/viam/refs/heads/main/json-schema/viam-location-schema.json",
+  "title": "Viam Location",
+  "description": "A logical grouping of machines (e.g., a building, site, or robot fleet) within an organization.",
+  "type": "object",
+  "required": ["id", "name", "organization"],
+  "properties": {
+    "id": { "type": "string" },
+    "name": { "type": "string" },
+    "organization": { "type": "string", "description": "Owning organization id." },
+    "parent_location_id": { "type": "string" },
+    "auth": {
+      "type": "object",
+      "properties": {
+        "location_id": { "type": "string" },
+        "secrets": { "type": "array", "items": { "type": "object" } }
+      }
+    },
+    "created_on": { "type": "string", "format": "date-time" },
+    "robot_count": { "type": "integer", "minimum": 0 },
+    "config": { "type": "object" }
+  }
+}

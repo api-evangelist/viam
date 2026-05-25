@@ -1,0 +1,26 @@
+{
+  "request": {
+    "method": "POST",
+    "url": "https://app.viam.com/viam.app.v1.AppService/ListOrganizations",
+    "headers": {
+      "Content-Type": "application/json",
+      "key_id": "abcd1234-key-id",
+      "key": "viam_api_key_value"
+    },
+    "body": {}
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "organizations": [
+        {
+          "id": "org_01HXXXXXXXXXXXXXXXXX",
+          "name": "Acme Robotics",
+          "public_namespace": "acme-robotics",
+          "created_on": "2026-01-15T18:24:00Z",
+          "default_region": "us-central1"
+        }
+      ]
+    }
+  }
+}

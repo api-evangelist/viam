@@ -1,0 +1,29 @@
+{
+  "request": {
+    "method": "POST",
+    "url": "https://machine.local.viam.cloud:443/viam.component.camera.v1.CameraService/GetImages",
+    "headers": {
+      "Content-Type": "application/json",
+      "key_id": "abcd1234-key-id",
+      "key": "viam_api_key_value"
+    },
+    "body": {
+      "name": "front-camera"
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "images": [
+        {
+          "source_name": "front-camera",
+          "format": "FORMAT_JPEG",
+          "image": "<base64-encoded-jpeg>"
+        }
+      ],
+      "response_metadata": {
+        "captured_at": "2026-05-25T14:02:11.244Z"
+      }
+    }
+  }
+}

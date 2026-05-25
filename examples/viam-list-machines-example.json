@@ -1,0 +1,35 @@
+{
+  "request": {
+    "method": "POST",
+    "url": "https://app.viam.com/viam.app.v1.AppService/ListRobots",
+    "headers": {
+      "Content-Type": "application/json",
+      "key_id": "abcd1234-key-id",
+      "key": "viam_api_key_value"
+    },
+    "body": {
+      "location_id": "loc_01HYYYYYYYYYYYYYYYYY"
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "robots": [
+        {
+          "id": "rob_01HZZZZZZZZZZZZZZZZZ",
+          "name": "warehouse-rover-1",
+          "location": "loc_01HYYYYYYYYYYYYYYYYY",
+          "last_access": "2026-05-24T16:11:42Z",
+          "created_on": "2026-02-01T12:00:00Z"
+        },
+        {
+          "id": "rob_01H1111111111111111A",
+          "name": "warehouse-rover-2",
+          "location": "loc_01HYYYYYYYYYYYYYYYYY",
+          "last_access": "2026-05-24T16:11:38Z",
+          "created_on": "2026-02-01T12:00:00Z"
+        }
+      ]
+    }
+  }
+}

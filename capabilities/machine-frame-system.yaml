@@ -1,0 +1,51 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Viam Machine Management — Frame System
+  description: Inspect the frame system config and transform poses or point clouds between frames.
+  tags: [Viam, Machine, FrameSystem]
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+- namespace: env
+  keys:
+    VIAM_API_KEY: VIAM_API_KEY
+    VIAM_MACHINE_ADDRESS: VIAM_MACHINE_ADDRESS
+capability:
+  consumes:
+  - type: http
+    namespace: machine-frame-system
+    baseUri: '{{env.VIAM_MACHINE_ADDRESS}}'
+    description: Viam RobotService — frame system operations.
+    resources:
+    - name: frame-system-config
+      path: /viam.robot.v1.RobotService/FrameSystemConfig
+      operations:
+      - { name: frameSystemConfig, method: POST, description: Retrieve frame system config., outputRawFormat: json, inputParameters: [{ name: body, in: body, type: object, required: true }] }
+    - name: get-pose
+      path: /viam.robot.v1.RobotService/GetPose
+      operations:
+      - { name: getPose, method: POST, description: Get a component's pose relative to a destination frame., outputRawFormat: json, inputParameters: [{ name: body, in: body, type: object, required: true }] }
+    - name: transform-pose
+      path: /viam.robot.v1.RobotService/TransformPose
+      operations:
+      - { name: transformPose, method: POST, description: Transform a pose between frames., outputRawFormat: json, inputParameters: [{ name: body, in: body, type: object, required: true }] }
+    - name: transform-pcd
+      path: /viam.robot.v1.RobotService/TransformPCD
+      operations:
+      - { name: transformPCD, method: POST, description: Transform a point cloud between frames., outputRawFormat: json, inputParameters: [{ name: body, in: body, type: object, required: true }] }
+    authentication:
+      type: apikey
+      key: key
+      value: '{{env.VIAM_API_KEY}}'
+      placement: header
+  exposes:
+  - type: mcp
+    namespace: machine-frame-system-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for the frame system.
+    tools:
+    - { name: viam-frame-system-config, description: Get frame system config., hints: { readOnly: true, destructive: false, idempotent: true }, call: machine-frame-system.frameSystemConfig, with: { body: tools.body } }
+    - { name: viam-get-pose, description: Get a component's pose., hints: { readOnly: true, destructive: false, idempotent: true }, call: machine-frame-system.getPose, with: { body: tools.body } }
+    - { name: viam-transform-pose, description: Transform a pose between frames., hints: { readOnly: true, destructive: false, idempotent: true }, call: machine-frame-system.transformPose, with: { body: tools.body } }
+    - { name: viam-transform-pcd, description: Transform a point cloud., hints: { readOnly: true, destructive: false, idempotent: true }, call: machine-frame-system.transformPCD, with: { body: tools.body } }

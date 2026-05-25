@@ -1,0 +1,40 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Viam Data — Datasets
+  description: Curate datasets of binary data items used for ML training.
+  tags: [Viam, Data, Datasets]
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+- namespace: env
+  keys:
+    VIAM_API_KEY: VIAM_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: data-datasets
+    baseUri: https://app.viam.com
+    description: Viam DataService — dataset operations.
+    resources:
+    - name: add-binary-to-dataset
+      path: /viam.app.data.v1.DataService/AddBinaryDataToDatasetByIDs
+      operations:
+      - { name: addBinaryDataToDatasetByIDs, method: POST, description: Add binary items to a dataset., outputRawFormat: json, inputParameters: [{ name: body, in: body, type: object, required: true }] }
+    - name: remove-binary-from-dataset
+      path: /viam.app.data.v1.DataService/RemoveBinaryDataFromDatasetByIDs
+      operations:
+      - { name: removeBinaryDataFromDatasetByIDs, method: POST, description: Remove binary items from a dataset., outputRawFormat: json, inputParameters: [{ name: body, in: body, type: object, required: true }] }
+    authentication:
+      type: apikey
+      key: key
+      value: '{{env.VIAM_API_KEY}}'
+      placement: header
+  exposes:
+  - type: mcp
+    namespace: data-datasets-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for datasets.
+    tools:
+    - { name: viam-add-to-dataset, description: Add binary items to dataset., hints: { readOnly: false, destructive: false, idempotent: false }, call: data-datasets.addBinaryDataToDatasetByIDs, with: { body: tools.body } }
+    - { name: viam-remove-from-dataset, description: Remove items from dataset., hints: { readOnly: false, destructive: false, idempotent: true }, call: data-datasets.removeBinaryDataFromDatasetByIDs, with: { body: tools.body } }

@@ -1,0 +1,105 @@
+openapi: 3.1.0
+info:
+  title: Viam Provisioning API
+  description: |
+    REST/JSON transcoding of the Viam ProvisioningService gRPC API. Bootstrap a smart
+    machine onto Wi-Fi and into the viam.app cloud over Bluetooth or hotspot. Used by
+    Flutter provisioning widgets and viam-agent.
+
+    Canonical contract: https://github.com/viamrobotics/api/blob/main/proto/viam/provisioning/v1/provisioning.proto
+  version: '2026.05'
+  contact:
+    name: Viam Support
+    url: https://www.viam.com/contact
+servers:
+  - url: http://192.168.4.1:4772
+    description: Default provisioning hotspot/bluetooth endpoint exposed by viam-agent on a fresh device.
+tags:
+  - name: Provisioning
+    description: Network and cloud credentials onboarding.
+paths:
+  /viam.provisioning.v1.ProvisioningService/GetSmartMachineStatus:
+    post:
+      summary: Viam Get Smart Machine Status
+      description: Retrieve the device's provisioning status (network connectivity, cloud config).
+      operationId: getSmartMachineStatus
+      tags: [Provisioning]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { type: object }
+      responses:
+        '200':
+          description: Successful response.
+  /viam.provisioning.v1.ProvisioningService/SetNetworkCredentials:
+    post:
+      summary: Viam Set Network Credentials
+      description: Submit Wi-Fi credentials to the device.
+      operationId: setNetworkCredentials
+      tags: [Provisioning]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [type, ssid, psk]
+              properties:
+                type: { type: string, enum: [wifi] }
+                ssid: { type: string }
+                psk: { type: string }
+      responses:
+        '200':
+          description: Successful response.
+  /viam.provisioning.v1.ProvisioningService/SetSmartMachineCredentials:
+    post:
+      summary: Viam Set Smart Machine Credentials
+      description: Submit Viam cloud credentials (machine part secret + cloud config URL) to the device.
+      operationId: setSmartMachineCredentials
+      tags: [Provisioning]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [cloud]
+              properties:
+                cloud:
+                  type: object
+                  properties:
+                    id: { type: string }
+                    secret: { type: string }
+                    app_address: { type: string }
+      responses:
+        '200':
+          description: Successful response.
+  /viam.provisioning.v1.ProvisioningService/GetNetworkList:
+    post:
+      summary: Viam Get Network List
+      description: List Wi-Fi networks visible to the device.
+      operationId: getNetworkList
+      tags: [Provisioning]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { type: object }
+      responses:
+        '200':
+          description: Successful response.
+  /viam.provisioning.v1.ProvisioningService/ExitProvisioning:
+    post:
+      summary: Viam Exit Provisioning
+      description: Exit the provisioning service after the device is configured.
+      operationId: exitProvisioning
+      tags: [Provisioning]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { type: object }
+      responses:
+        '200':
+          description: Successful response.

@@ -1,0 +1,61 @@
+rateLimits: 0.1
+info:
+  title: Viam Rate Limits
+  description: |
+    Viam does not publish a hard per-key request-per-minute rate limit table. The Viam
+    Platform applies fair-use and abuse-prevention quotas, with per-organization concurrency
+    and bandwidth controls that scale with billing tier. Captures below summarize what is
+    publicly documented or observable in viam-server defaults.
+  source: https://www.viam.com/pricing
+  modified: '2026-05-25'
+policies:
+  - id: api-fair-use
+    surface: app.viam.com (AppService, DataService, MLTrainingService, BillingService)
+    scope: organization
+    type: fair-use
+    description: |
+      Cloud APIs apply fair-use limits to protect tenants. Burst behavior is tolerated but
+      sustained excessive throughput will receive HTTP 429 / gRPC RESOURCE_EXHAUSTED responses.
+      Contact Viam support for documented per-key quotas.
+  - id: data-egress
+    surface: app.viam.com (Data Client API)
+    scope: organization
+    type: usage-metered
+    description: |
+      Cloud data egress is metered at $0.25/GB on the developer plan. Sustained high-volume
+      egress should use the GetDatabaseConnection API to read directly from the hot data store.
+  - id: machine-grpc
+    surface: viam-server (per-machine gRPC endpoint)
+    scope: machine
+    type: connection-limit
+    description: |
+      Per-machine viam-server applies session connection limits (default 100 concurrent
+      sessions) and a safety-timeout heartbeat. Session timeout defaults to 2 seconds — without
+      a heartbeat, viam-server stops resources to enforce safety.
+  - id: ml-training-jobs
+    surface: app.viam.com (MLTrainingService)
+    scope: organization
+    type: concurrency
+    description: |
+      Each organization may queue multiple training jobs; concurrent execution depends on
+      cluster capacity. Contact Viam for production SLAs.
+  - id: streaming-data-capture-upload
+    surface: app.viam.com (DataSyncService)
+    scope: machine-part
+    type: bandwidth
+    description: |
+      StreamingDataCaptureUpload is bandwidth-limited at the per-part level to prevent a
+      noisy neighbor saturating the org's ingest pipeline.
+errors:
+  - status: 429
+    grpc: RESOURCE_EXHAUSTED
+    meaning: Rate limit or quota exceeded — back off and retry with jitter.
+  - status: 503
+    grpc: UNAVAILABLE
+    meaning: Transient unavailability — retry with exponential backoff.
+guidance:
+  - Use the official SDKs — they implement retry policy aligned with Viam's limits.
+  - Use Data Pipelines to push aggregation to the cloud rather than polling the Data API.
+  - Use GetDatabaseConnection for direct MongoDB reads when running heavy analytics.
+  - For per-machine throughput, prefer WebRTC streaming over repeated unary gRPC calls.
+  - Set per-organization budget alerts via the Viam Console to catch runaway costs.

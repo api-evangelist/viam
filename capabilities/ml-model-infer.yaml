@@ -1,0 +1,41 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Viam ML Model Service — Inference
+  description: Run device-side inference against deployed ML models (TFLite, ONNX, Triton).
+  tags: [Viam, MachineLearning, Inference, Edge]
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+- namespace: env
+  keys:
+    VIAM_API_KEY: VIAM_API_KEY
+    VIAM_MACHINE_ADDRESS: VIAM_MACHINE_ADDRESS
+capability:
+  consumes:
+  - type: http
+    namespace: ml-model-infer
+    baseUri: '{{env.VIAM_MACHINE_ADDRESS}}'
+    description: Viam MLModelService on a viam-server endpoint.
+    resources:
+    - name: infer
+      path: /viam.service.mlmodel.v1.MLModelService/Infer
+      operations:
+      - { name: infer, method: POST, description: Run inference against a deployed model., outputRawFormat: json, inputParameters: [{ name: body, in: body, type: object, required: true }] }
+    - name: metadata
+      path: /viam.service.mlmodel.v1.MLModelService/Metadata
+      operations:
+      - { name: metadata, method: POST, description: Retrieve the model's tensor schema., outputRawFormat: json, inputParameters: [{ name: body, in: body, type: object, required: true }] }
+    authentication:
+      type: apikey
+      key: key
+      value: '{{env.VIAM_API_KEY}}'
+      placement: header
+  exposes:
+  - type: mcp
+    namespace: ml-model-infer-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for device-side ML inference.
+    tools:
+    - { name: viam-mlmodel-infer, description: Device-side inference., hints: { readOnly: false, destructive: false, idempotent: true }, call: ml-model-infer.infer, with: { body: tools.body } }
+    - { name: viam-mlmodel-metadata, description: Get tensor schema., hints: { readOnly: true, destructive: false, idempotent: true }, call: ml-model-infer.metadata, with: { body: tools.body } }

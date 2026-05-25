@@ -1,0 +1,706 @@
+openapi: 3.1.0
+info:
+  title: Viam Component APIs
+  description: |
+    REST/JSON transcoding of every Viam Component gRPC API — the hardware abstraction
+    layer that lets any client speak the same uniform contract to motors, cameras, arms,
+    sensors, and every other supported component class regardless of model.
+
+    Canonical contracts: https://github.com/viamrobotics/api/tree/main/proto/viam/component
+
+    Every component exposes DoCommand (model-specific extension), GetStatus, and
+    GetGeometries in addition to its class-specific operations.
+  version: '2026.05'
+  contact:
+    name: Viam Support
+    url: https://www.viam.com/contact
+servers:
+  - url: https://{machine_address}
+    description: Per-machine viam-server endpoint.
+    variables:
+      machine_address:
+        default: machine.local.viam.cloud:443
+security:
+  - ApiKeyAuth: []
+tags:
+  - name: Arm
+    description: Robotic arms — joint and end-effector control.
+  - name: Audio In
+    description: Audio capture devices.
+  - name: Audio Out
+    description: Audio playback devices.
+  - name: Base
+    description: Mobile platforms (wheeled, tracked).
+  - name: Board
+    description: GPIO boards (Raspberry Pi, Jetson, ESP32).
+  - name: Button
+    description: Physical buttons.
+  - name: Camera
+    description: 2D image and 3D point cloud sources.
+  - name: Encoder
+    description: Position encoders.
+  - name: Gantry
+    description: Linear actuator coordination.
+  - name: Generic
+    description: Custom component with DoCommand-only interface.
+  - name: Gripper
+    description: End-effector grippers.
+  - name: Motor
+    description: DC, servo, and stepper motors.
+  - name: Movement Sensor
+    description: GPS, IMU, odometry.
+  - name: Power Sensor
+    description: Voltage, current, and power measurements.
+  - name: Sensor
+    description: Generic sensor readings.
+  - name: Servo
+    description: Angular-position servos.
+  - name: Switch
+    description: Multi-position switches.
+paths:
+  /viam.component.arm.v1.ArmService/GetEndPosition:
+    post:
+      summary: Viam Arm Get End Position
+      description: Get the pose of the arm's end effector.
+      operationId: armGetEndPosition
+      tags: [Arm]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { type: object, required: [name], properties: { name: { type: string } } }
+      responses: { '200': { description: Successful response. } }
+  /viam.component.arm.v1.ArmService/MoveToPosition:
+    post:
+      summary: Viam Arm Move To Position
+      description: Move the arm's end effector to a target pose.
+      operationId: armMoveToPosition
+      tags: [Arm]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [name, to]
+              properties: { name: { type: string }, to: { type: object } }
+      responses: { '200': { description: Successful response. } }
+  /viam.component.arm.v1.ArmService/GetJointPositions:
+    post:
+      summary: Viam Arm Get Joint Positions
+      description: Get the arm's current joint positions.
+      operationId: armGetJointPositions
+      tags: [Arm]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { type: object, required: [name], properties: { name: { type: string } } }
+      responses: { '200': { description: Successful response. } }
+  /viam.component.arm.v1.ArmService/MoveToJointPositions:
+    post:
+      summary: Viam Arm Move To Joint Positions
+      description: Move the arm to a specific joint configuration.
+      operationId: armMoveToJointPositions
+      tags: [Arm]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [name, positions]
+              properties: { name: { type: string }, positions: { type: object } }
+      responses: { '200': { description: Successful response. } }
+  /viam.component.arm.v1.ArmService/Stop:
+    post:
+      summary: Viam Arm Stop
+      description: Stop the arm.
+      operationId: armStop
+      tags: [Arm]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { type: object, required: [name], properties: { name: { type: string } } }
+      responses: { '200': { description: Successful response. } }
+  /viam.component.base.v1.BaseService/MoveStraight:
+    post:
+      summary: Viam Base Move Straight
+      description: Move the base a specified distance at a velocity.
+      operationId: baseMoveStraight
+      tags: [Base]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [name, distance_mm, mm_per_sec]
+              properties: { name: { type: string }, distance_mm: { type: integer }, mm_per_sec: { type: number } }
+      responses: { '200': { description: Successful response. } }
+  /viam.component.base.v1.BaseService/Spin:
+    post:
+      summary: Viam Base Spin
+      description: Spin the base by an angle at an angular velocity.
+      operationId: baseSpin
+      tags: [Base]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [name, angle_deg, degs_per_sec]
+              properties: { name: { type: string }, angle_deg: { type: number }, degs_per_sec: { type: number } }
+      responses: { '200': { description: Successful response. } }
+  /viam.component.base.v1.BaseService/SetPower:
+    post:
+      summary: Viam Base Set Power
+      description: Set linear and angular power for the base.
+      operationId: baseSetPower
+      tags: [Base]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [name, linear, angular]
+              properties: { name: { type: string }, linear: { type: object }, angular: { type: object } }
+      responses: { '200': { description: Successful response. } }
+  /viam.component.base.v1.BaseService/SetVelocity:
+    post:
+      summary: Viam Base Set Velocity
+      description: Set linear and angular velocity for the base.
+      operationId: baseSetVelocity
+      tags: [Base]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [name, linear, angular]
+              properties: { name: { type: string }, linear: { type: object }, angular: { type: object } }
+      responses: { '200': { description: Successful response. } }
+  /viam.component.base.v1.BaseService/Stop:
+    post:
+      summary: Viam Base Stop
+      description: Stop the base.
+      operationId: baseStop
+      tags: [Base]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { type: object, required: [name], properties: { name: { type: string } } }
+      responses: { '200': { description: Successful response. } }
+  /viam.component.board.v1.BoardService/SetGPIO:
+    post:
+      summary: Viam Board Set Gpio
+      description: Set a GPIO pin high or low.
+      operationId: boardSetGPIO
+      tags: [Board]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [name, pin, high]
+              properties: { name: { type: string }, pin: { type: string }, high: { type: boolean } }
+      responses: { '200': { description: Successful response. } }
+  /viam.component.board.v1.BoardService/GetGPIO:
+    post:
+      summary: Viam Board Get Gpio
+      description: Read a GPIO pin's current value.
+      operationId: boardGetGPIO
+      tags: [Board]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [name, pin]
+              properties: { name: { type: string }, pin: { type: string } }
+      responses: { '200': { description: Successful response. } }
+  /viam.component.board.v1.BoardService/SetPWM:
+    post:
+      summary: Viam Board Set Pwm
+      description: Set a pin's PWM duty cycle.
+      operationId: boardSetPWM
+      tags: [Board]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [name, pin, duty_cycle_pct]
+              properties: { name: { type: string }, pin: { type: string }, duty_cycle_pct: { type: number } }
+      responses: { '200': { description: Successful response. } }
+  /viam.component.board.v1.BoardService/ReadAnalogReader:
+    post:
+      summary: Viam Board Read Analog Reader
+      description: Read a value from an analog reader.
+      operationId: boardReadAnalogReader
+      tags: [Board]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [board_name, analog_reader_name]
+              properties: { board_name: { type: string }, analog_reader_name: { type: string } }
+      responses: { '200': { description: Successful response. } }
+  /viam.component.board.v1.BoardService/StreamTicks:
+    post:
+      summary: Viam Board Stream Ticks
+      description: Stream digital interrupt ticks for the given pin names.
+      operationId: boardStreamTicks
+      tags: [Board]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [name, pin_names]
+              properties: { name: { type: string }, pin_names: { type: array, items: { type: string } } }
+      responses: { '200': { description: Successful response. } }
+  /viam.component.button.v1.ButtonService/Push:
+    post:
+      summary: Viam Button Push
+      description: Trigger a button press programmatically.
+      operationId: buttonPush
+      tags: [Button]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { type: object, required: [name], properties: { name: { type: string } } }
+      responses: { '200': { description: Successful response. } }
+  /viam.component.camera.v1.CameraService/GetImages:
+    post:
+      summary: Viam Camera Get Images
+      description: Capture one or more images from the camera.
+      operationId: cameraGetImages
+      tags: [Camera]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { type: object, required: [name], properties: { name: { type: string } } }
+      responses: { '200': { description: Successful response. } }
+  /viam.component.camera.v1.CameraService/GetPointCloud:
+    post:
+      summary: Viam Camera Get Point Cloud
+      description: Capture a 3D point cloud from the camera.
+      operationId: cameraGetPointCloud
+      tags: [Camera]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [name, mime_type]
+              properties: { name: { type: string }, mime_type: { type: string } }
+      responses: { '200': { description: Successful response. } }
+  /viam.component.camera.v1.CameraService/GetProperties:
+    post:
+      summary: Viam Camera Get Properties
+      description: Get camera intrinsics and supported MIME types.
+      operationId: cameraGetProperties
+      tags: [Camera]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { type: object, required: [name], properties: { name: { type: string } } }
+      responses: { '200': { description: Successful response. } }
+  /viam.component.encoder.v1.EncoderService/GetPosition:
+    post:
+      summary: Viam Encoder Get Position
+      description: Read the encoder's current position.
+      operationId: encoderGetPosition
+      tags: [Encoder]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { type: object, required: [name], properties: { name: { type: string } } }
+      responses: { '200': { description: Successful response. } }
+  /viam.component.encoder.v1.EncoderService/ResetPosition:
+    post:
+      summary: Viam Encoder Reset Position
+      description: Reset the encoder's zero position.
+      operationId: encoderResetPosition
+      tags: [Encoder]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { type: object, required: [name], properties: { name: { type: string } } }
+      responses: { '200': { description: Successful response. } }
+  /viam.component.gantry.v1.GantryService/MoveToPosition:
+    post:
+      summary: Viam Gantry Move To Position
+      description: Move the gantry axes to specified positions.
+      operationId: gantryMoveToPosition
+      tags: [Gantry]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [name, positions_mm]
+              properties: { name: { type: string }, positions_mm: { type: array, items: { type: number } } }
+      responses: { '200': { description: Successful response. } }
+  /viam.component.gantry.v1.GantryService/Home:
+    post:
+      summary: Viam Gantry Home
+      description: Home the gantry.
+      operationId: gantryHome
+      tags: [Gantry]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { type: object, required: [name], properties: { name: { type: string } } }
+      responses: { '200': { description: Successful response. } }
+  /viam.component.gripper.v1.GripperService/Open:
+    post:
+      summary: Viam Gripper Open
+      description: Open the gripper.
+      operationId: gripperOpen
+      tags: [Gripper]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { type: object, required: [name], properties: { name: { type: string } } }
+      responses: { '200': { description: Successful response. } }
+  /viam.component.gripper.v1.GripperService/Grab:
+    post:
+      summary: Viam Gripper Grab
+      description: Close the gripper and report whether anything was grasped.
+      operationId: gripperGrab
+      tags: [Gripper]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { type: object, required: [name], properties: { name: { type: string } } }
+      responses: { '200': { description: Successful response. } }
+  /viam.component.gripper.v1.GripperService/IsHoldingSomething:
+    post:
+      summary: Viam Gripper Is Holding Something
+      description: Check whether the gripper is currently holding something.
+      operationId: gripperIsHoldingSomething
+      tags: [Gripper]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { type: object, required: [name], properties: { name: { type: string } } }
+      responses: { '200': { description: Successful response. } }
+  /viam.component.motor.v1.MotorService/SetPower:
+    post:
+      summary: Viam Motor Set Power
+      description: Set the motor's power as a signed fraction of full power.
+      operationId: motorSetPower
+      tags: [Motor]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [name, power_pct]
+              properties: { name: { type: string }, power_pct: { type: number } }
+      responses: { '200': { description: Successful response. } }
+  /viam.component.motor.v1.MotorService/GoFor:
+    post:
+      summary: Viam Motor Go For
+      description: Spin the motor at an RPM for a specified number of revolutions.
+      operationId: motorGoFor
+      tags: [Motor]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [name, rpm, revolutions]
+              properties: { name: { type: string }, rpm: { type: number }, revolutions: { type: number } }
+      responses: { '200': { description: Successful response. } }
+  /viam.component.motor.v1.MotorService/GoTo:
+    post:
+      summary: Viam Motor Go To
+      description: Move the motor to a target position at an RPM.
+      operationId: motorGoTo
+      tags: [Motor]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [name, rpm, position_revolutions]
+              properties: { name: { type: string }, rpm: { type: number }, position_revolutions: { type: number } }
+      responses: { '200': { description: Successful response. } }
+  /viam.component.motor.v1.MotorService/SetRPM:
+    post:
+      summary: Viam Motor Set Rpm
+      description: Spin the motor continuously at the requested RPM.
+      operationId: motorSetRPM
+      tags: [Motor]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [name, rpm]
+              properties: { name: { type: string }, rpm: { type: number } }
+      responses: { '200': { description: Successful response. } }
+  /viam.component.motor.v1.MotorService/Stop:
+    post:
+      summary: Viam Motor Stop
+      description: Stop the motor.
+      operationId: motorStop
+      tags: [Motor]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { type: object, required: [name], properties: { name: { type: string } } }
+      responses: { '200': { description: Successful response. } }
+  /viam.component.motor.v1.MotorService/IsPowered:
+    post:
+      summary: Viam Motor Is Powered
+      description: Check whether the motor is currently powered.
+      operationId: motorIsPowered
+      tags: [Motor]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { type: object, required: [name], properties: { name: { type: string } } }
+      responses: { '200': { description: Successful response. } }
+  /viam.component.movementsensor.v1.MovementSensorService/GetPosition:
+    post:
+      summary: Viam Movement Sensor Get Position
+      description: Get GPS position (latitude, longitude, altitude).
+      operationId: movementSensorGetPosition
+      tags: [Movement Sensor]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { type: object, required: [name], properties: { name: { type: string } } }
+      responses: { '200': { description: Successful response. } }
+  /viam.component.movementsensor.v1.MovementSensorService/GetLinearVelocity:
+    post:
+      summary: Viam Movement Sensor Get Linear Velocity
+      description: Get linear velocity in m/s.
+      operationId: movementSensorGetLinearVelocity
+      tags: [Movement Sensor]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { type: object, required: [name], properties: { name: { type: string } } }
+      responses: { '200': { description: Successful response. } }
+  /viam.component.movementsensor.v1.MovementSensorService/GetAngularVelocity:
+    post:
+      summary: Viam Movement Sensor Get Angular Velocity
+      description: Get angular velocity in deg/s.
+      operationId: movementSensorGetAngularVelocity
+      tags: [Movement Sensor]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { type: object, required: [name], properties: { name: { type: string } } }
+      responses: { '200': { description: Successful response. } }
+  /viam.component.movementsensor.v1.MovementSensorService/GetCompassHeading:
+    post:
+      summary: Viam Movement Sensor Get Compass Heading
+      description: Get compass heading in degrees.
+      operationId: movementSensorGetCompassHeading
+      tags: [Movement Sensor]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { type: object, required: [name], properties: { name: { type: string } } }
+      responses: { '200': { description: Successful response. } }
+  /viam.component.movementsensor.v1.MovementSensorService/GetOrientation:
+    post:
+      summary: Viam Movement Sensor Get Orientation
+      description: Get orientation as an orientation vector.
+      operationId: movementSensorGetOrientation
+      tags: [Movement Sensor]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { type: object, required: [name], properties: { name: { type: string } } }
+      responses: { '200': { description: Successful response. } }
+  /viam.component.powersensor.v1.PowerSensorService/GetVoltage:
+    post:
+      summary: Viam Power Sensor Get Voltage
+      description: Read voltage in volts.
+      operationId: powerSensorGetVoltage
+      tags: [Power Sensor]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { type: object, required: [name], properties: { name: { type: string } } }
+      responses: { '200': { description: Successful response. } }
+  /viam.component.powersensor.v1.PowerSensorService/GetCurrent:
+    post:
+      summary: Viam Power Sensor Get Current
+      description: Read current in amperes.
+      operationId: powerSensorGetCurrent
+      tags: [Power Sensor]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { type: object, required: [name], properties: { name: { type: string } } }
+      responses: { '200': { description: Successful response. } }
+  /viam.component.powersensor.v1.PowerSensorService/GetPower:
+    post:
+      summary: Viam Power Sensor Get Power
+      description: Read power in watts.
+      operationId: powerSensorGetPower
+      tags: [Power Sensor]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { type: object, required: [name], properties: { name: { type: string } } }
+      responses: { '200': { description: Successful response. } }
+  /viam.component.sensor.v1.SensorService/GetReadings:
+    post:
+      summary: Viam Sensor Get Readings
+      description: Get the latest readings from a generic sensor.
+      operationId: sensorGetReadings
+      tags: [Sensor]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { type: object, required: [name], properties: { name: { type: string } } }
+      responses: { '200': { description: Successful response. } }
+  /viam.component.servo.v1.ServoService/Move:
+    post:
+      summary: Viam Servo Move
+      description: Move the servo to an angle in degrees.
+      operationId: servoMove
+      tags: [Servo]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [name, angle_deg]
+              properties: { name: { type: string }, angle_deg: { type: integer } }
+      responses: { '200': { description: Successful response. } }
+  /viam.component.servo.v1.ServoService/GetPosition:
+    post:
+      summary: Viam Servo Get Position
+      description: Get the servo's current position.
+      operationId: servoGetPosition
+      tags: [Servo]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { type: object, required: [name], properties: { name: { type: string } } }
+      responses: { '200': { description: Successful response. } }
+  /viam.component.switch.v1.SwitchService/SetPosition:
+    post:
+      summary: Viam Switch Set Position
+      description: Set the switch's position.
+      operationId: switchSetPosition
+      tags: [Switch]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [name, position]
+              properties: { name: { type: string }, position: { type: integer } }
+      responses: { '200': { description: Successful response. } }
+  /viam.component.switch.v1.SwitchService/GetPosition:
+    post:
+      summary: Viam Switch Get Position
+      description: Get the switch's current position.
+      operationId: switchGetPosition
+      tags: [Switch]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { type: object, required: [name], properties: { name: { type: string } } }
+      responses: { '200': { description: Successful response. } }
+  /viam.component.audioin.v1.AudioInService/GetAudio:
+    post:
+      summary: Viam Audio In Get Audio
+      description: Capture audio from an input device.
+      operationId: audioInGetAudio
+      tags: [Audio In]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { type: object, required: [name], properties: { name: { type: string } } }
+      responses: { '200': { description: Successful response. } }
+  /viam.component.audioout.v1.AudioOutService/Play:
+    post:
+      summary: Viam Audio Out Play
+      description: Play an audio payload on an output device.
+      operationId: audioOutPlay
+      tags: [Audio Out]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [name, audio]
+              properties: { name: { type: string }, audio: { type: string, format: byte } }
+      responses: { '200': { description: Successful response. } }
+  /viam.component.generic.v1.GenericService/DoCommand:
+    post:
+      summary: Viam Generic Do Command
+      description: Send a custom model-specific command to a generic component.
+      operationId: genericDoCommand
+      tags: [Generic]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [name, command]
+              properties: { name: { type: string }, command: { type: object } }
+      responses: { '200': { description: Successful response. } }
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: key
+      description: Viam API key or location secret.

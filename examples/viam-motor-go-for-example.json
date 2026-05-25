@@ -1,0 +1,20 @@
+{
+  "request": {
+    "method": "POST",
+    "url": "https://machine.local.viam.cloud:443/viam.component.motor.v1.MotorService/GoFor",
+    "headers": {
+      "Content-Type": "application/json",
+      "key_id": "abcd1234-key-id",
+      "key": "viam_api_key_value"
+    },
+    "body": {
+      "name": "left-wheel-motor",
+      "rpm": 60,
+      "revolutions": 5
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {}
+  }
+}

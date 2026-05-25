@@ -1,0 +1,55 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Viam Fleet Management — Locations
+  description: Manage Viam locations — the grouping of machines under an organization.
+  tags: [Viam, Fleet, Locations]
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+- namespace: env
+  keys:
+    VIAM_API_KEY: VIAM_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: fleet-locations
+    baseUri: https://app.viam.com
+    description: Viam AppService — location operations.
+    resources:
+    - name: list-locations
+      path: /viam.app.v1.AppService/ListLocations
+      operations:
+      - { name: listLocations, method: POST, description: List locations under an organization., outputRawFormat: json, inputParameters: [{ name: body, in: body, type: object, required: true }] }
+    - name: get-location
+      path: /viam.app.v1.AppService/GetLocation
+      operations:
+      - { name: getLocation, method: POST, description: Retrieve a location by id., outputRawFormat: json, inputParameters: [{ name: body, in: body, type: object, required: true }] }
+    - name: create-location
+      path: /viam.app.v1.AppService/CreateLocation
+      operations:
+      - { name: createLocation, method: POST, description: Create a new location., outputRawFormat: json, inputParameters: [{ name: body, in: body, type: object, required: true }] }
+    - name: update-location
+      path: /viam.app.v1.AppService/UpdateLocation
+      operations:
+      - { name: updateLocation, method: POST, description: Update a location., outputRawFormat: json, inputParameters: [{ name: body, in: body, type: object, required: true }] }
+    - name: delete-location
+      path: /viam.app.v1.AppService/DeleteLocation
+      operations:
+      - { name: deleteLocation, method: POST, description: Delete a location., outputRawFormat: json, inputParameters: [{ name: body, in: body, type: object, required: true }] }
+    authentication:
+      type: apikey
+      key: key
+      value: '{{env.VIAM_API_KEY}}'
+      placement: header
+  exposes:
+  - type: mcp
+    namespace: fleet-locations-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Viam location management.
+    tools:
+    - { name: viam-list-locations, description: List locations., hints: { readOnly: true, destructive: false, idempotent: true }, call: fleet-locations.listLocations, with: { body: tools.body } }
+    - { name: viam-get-location, description: Get a location., hints: { readOnly: true, destructive: false, idempotent: true }, call: fleet-locations.getLocation, with: { body: tools.body } }
+    - { name: viam-create-location, description: Create a location., hints: { readOnly: false, destructive: false, idempotent: false }, call: fleet-locations.createLocation, with: { body: tools.body } }
+    - { name: viam-update-location, description: Update a location., hints: { readOnly: false, destructive: false, idempotent: true }, call: fleet-locations.updateLocation, with: { body: tools.body } }
+    - { name: viam-delete-location, description: Delete a location., hints: { readOnly: false, destructive: true, idempotent: true }, call: fleet-locations.deleteLocation, with: { body: tools.body } }

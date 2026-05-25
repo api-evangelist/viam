@@ -1,0 +1,45 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Viam Data Sync
+  description: Upload captured data from viam-server to the Viam cloud (tabular, binary, streaming).
+  tags: [Viam, Data, Sync]
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+- namespace: env
+  keys:
+    VIAM_API_KEY: VIAM_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: data-sync
+    baseUri: https://app.viam.com
+    description: Viam DataSyncService — upload operations.
+    resources:
+    - name: data-capture-upload
+      path: /viam.app.datasync.v1.DataSyncService/DataCaptureUpload
+      operations:
+      - { name: dataCaptureUpload, method: POST, description: One-shot upload of captured data., outputRawFormat: json, inputParameters: [{ name: body, in: body, type: object, required: true }] }
+    - name: file-upload
+      path: /viam.app.datasync.v1.DataSyncService/FileUpload
+      operations:
+      - { name: fileUpload, method: POST, description: Upload an arbitrary file., outputRawFormat: json, inputParameters: [{ name: body, in: body, type: object, required: true }] }
+    - name: streaming-data-capture-upload
+      path: /viam.app.datasync.v1.DataSyncService/StreamingDataCaptureUpload
+      operations:
+      - { name: streamingDataCaptureUpload, method: POST, description: Stream large binary capture., outputRawFormat: json, inputParameters: [{ name: body, in: body, type: object, required: true }] }
+    authentication:
+      type: apikey
+      key: key
+      value: '{{env.VIAM_API_KEY}}'
+      placement: header
+  exposes:
+  - type: mcp
+    namespace: data-sync-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for data sync.
+    tools:
+    - { name: viam-data-capture-upload, description: One-shot data upload., hints: { readOnly: false, destructive: false, idempotent: false }, call: data-sync.dataCaptureUpload, with: { body: tools.body } }
+    - { name: viam-file-upload, description: Upload a file., hints: { readOnly: false, destructive: false, idempotent: false }, call: data-sync.fileUpload, with: { body: tools.body } }
+    - { name: viam-streaming-upload, description: Stream large capture., hints: { readOnly: false, destructive: false, idempotent: false }, call: data-sync.streamingDataCaptureUpload, with: { body: tools.body } }

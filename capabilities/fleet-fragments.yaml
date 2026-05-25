@@ -1,0 +1,55 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Viam Fleet Management — Fragments
+  description: Manage Viam configuration fragments — reusable, versioned config snippets shareable across machines.
+  tags: [Viam, Fleet, Fragments]
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+- namespace: env
+  keys:
+    VIAM_API_KEY: VIAM_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: fleet-fragments
+    baseUri: https://app.viam.com
+    description: Viam AppService — fragment operations.
+    resources:
+    - name: list-fragments
+      path: /viam.app.v1.AppService/ListFragments
+      operations:
+      - { name: listFragments, method: POST, description: List fragments., outputRawFormat: json, inputParameters: [{ name: body, in: body, type: object, required: true }] }
+    - name: get-fragment
+      path: /viam.app.v1.AppService/GetFragment
+      operations:
+      - { name: getFragment, method: POST, description: Get a fragment by id., outputRawFormat: json, inputParameters: [{ name: body, in: body, type: object, required: true }] }
+    - name: create-fragment
+      path: /viam.app.v1.AppService/CreateFragment
+      operations:
+      - { name: createFragment, method: POST, description: Create a fragment., outputRawFormat: json, inputParameters: [{ name: body, in: body, type: object, required: true }] }
+    - name: update-fragment
+      path: /viam.app.v1.AppService/UpdateFragment
+      operations:
+      - { name: updateFragment, method: POST, description: Update a fragment., outputRawFormat: json, inputParameters: [{ name: body, in: body, type: object, required: true }] }
+    - name: delete-fragment
+      path: /viam.app.v1.AppService/DeleteFragment
+      operations:
+      - { name: deleteFragment, method: POST, description: Delete a fragment., outputRawFormat: json, inputParameters: [{ name: body, in: body, type: object, required: true }] }
+    authentication:
+      type: apikey
+      key: key
+      value: '{{env.VIAM_API_KEY}}'
+      placement: header
+  exposes:
+  - type: mcp
+    namespace: fleet-fragments-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Viam fragment management.
+    tools:
+    - { name: viam-list-fragments, description: List fragments., hints: { readOnly: true, destructive: false, idempotent: true }, call: fleet-fragments.listFragments, with: { body: tools.body } }
+    - { name: viam-get-fragment, description: Get a fragment by id., hints: { readOnly: true, destructive: false, idempotent: true }, call: fleet-fragments.getFragment, with: { body: tools.body } }
+    - { name: viam-create-fragment, description: Create a fragment., hints: { readOnly: false, destructive: false, idempotent: false }, call: fleet-fragments.createFragment, with: { body: tools.body } }
+    - { name: viam-update-fragment, description: Update a fragment., hints: { readOnly: false, destructive: false, idempotent: true }, call: fleet-fragments.updateFragment, with: { body: tools.body } }
+    - { name: viam-delete-fragment, description: Delete a fragment., hints: { readOnly: false, destructive: true, idempotent: true }, call: fleet-fragments.deleteFragment, with: { body: tools.body } }
