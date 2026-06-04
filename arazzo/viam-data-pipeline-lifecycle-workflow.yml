@@ -1,0 +1,108 @@
+arazzo: 1.0.1
+info:
+  title: Viam Data Pipeline Lifecycle
+  summary: Create a scheduled MQL pipeline, resolve it, enable it, and list its runs.
+  description: >-
+    Data pipelines are scheduled MQL aggregations over captured machine data.
+    This flow creates a pipeline on a cron schedule, lists pipelines to resolve
+    the new id, enables it, and reads its run history. Each request body is
+    inlined so the lifecycle can be executed directly against the Viam Data
+    Pipelines API.
+  version: 1.0.0
+sourceDescriptions:
+- name: dataPipelinesApi
+  url: ../openapi/viam-data-pipelines-api-openapi.yml
+  type: openapi
+workflows:
+- workflowId: data-pipeline-lifecycle
+  summary: Create an MQL pipeline, resolve its id, enable it, and list runs.
+  description: >-
+    Creates a scheduled MQL data pipeline, lists pipelines to resolve the new id,
+    enables it, and retrieves its run history.
+  inputs:
+    type: object
+    required:
+    - apiKey
+    - organizationId
+    - pipelineName
+    - mqlBinary
+    - schedule
+    properties:
+      apiKey:
+        type: string
+        description: Viam API key value sent in the key header.
+      organizationId:
+        type: string
+        description: The organization the pipeline belongs to.
+      pipelineName:
+        type: string
+        description: Name for the new data pipeline.
+      mqlBinary:
+        type: array
+        description: The MQL pipeline stages encoded as a byte array.
+        items:
+          type: string
+      schedule:
+        type: string
+        description: Cron expression that schedules the pipeline.
+  steps:
+  - stepId: createPipeline
+    description: Create a scheduled MQL data pipeline in the organization.
+    operationId: createDataPipeline
+    parameters:
+    - name: key
+      in: header
+      value: $inputs.apiKey
+    requestBody:
+      contentType: application/json
+      payload:
+        organization_id: $inputs.organizationId
+        name: $inputs.pipelineName
+        mql_binary: $inputs.mqlBinary
+        schedule: $inputs.schedule
+    successCriteria:
+    - condition: $statusCode == 200
+  - stepId: resolvePipeline
+    description: List pipelines in the organization to resolve the new pipeline id.
+    operationId: listDataPipelines
+    parameters:
+    - name: key
+      in: header
+      value: $inputs.apiKey
+    requestBody:
+      contentType: application/json
+      payload:
+        organization_id: $inputs.organizationId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      pipelineId: $response.body#/data_pipelines/0/id
+  - stepId: enablePipeline
+    description: Enable the newly created pipeline so it begins running on schedule.
+    operationId: enableDataPipeline
+    parameters:
+    - name: key
+      in: header
+      value: $inputs.apiKey
+    requestBody:
+      contentType: application/json
+      payload:
+        id: $steps.resolvePipeline.outputs.pipelineId
+    successCriteria:
+    - condition: $statusCode == 200
+  - stepId: listRuns
+    description: Retrieve the run history for the enabled pipeline.
+    operationId: listDataPipelineRuns
+    parameters:
+    - name: key
+      in: header
+      value: $inputs.apiKey
+    requestBody:
+      contentType: application/json
+      payload:
+        id: $steps.resolvePipeline.outputs.pipelineId
+        page_size: 10
+    successCriteria:
+    - condition: $statusCode == 200
+  outputs:
+    pipelineId: $steps.resolvePipeline.outputs.pipelineId

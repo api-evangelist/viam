@@ -1,0 +1,123 @@
+arazzo: 1.0.1
+info:
+  title: Viam Train and Monitor an ML Model
+  summary: Submit a TFLite training job, poll its status, and branch to logs or cancel.
+  description: >-
+    Submits a built-in TFLite training job against a curated dataset, then reads
+    the job back to inspect its status. When the job is still pending or running
+    it pulls the training logs, and when it has failed it cancels the job to free
+    resources. Each request body is inlined so the flow can be executed directly
+    against the Viam ML Training API.
+  version: 1.0.0
+sourceDescriptions:
+- name: mlTrainingApi
+  url: ../openapi/viam-ml-training-api-openapi.yml
+  type: openapi
+workflows:
+- workflowId: train-and-monitor-model
+  summary: Submit a training job, check status, and branch to logs or cancellation.
+  description: >-
+    Submits a TFLite training job, retrieves it by the returned id, and branches
+    on status — fetching logs while it runs or canceling it if it failed.
+  inputs:
+    type: object
+    required:
+    - apiKey
+    - organizationId
+    - datasetId
+    - modelName
+    - modelType
+    properties:
+      apiKey:
+        type: string
+        description: Viam API key value sent in the key header.
+      organizationId:
+        type: string
+        description: The organization the training job runs under.
+      datasetId:
+        type: string
+        description: The dataset id the model is trained against.
+      modelName:
+        type: string
+        description: Name for the resulting model.
+      modelType:
+        type: string
+        description: One of single_label_classification, multi_label_classification, object_detection.
+  steps:
+  - stepId: submitJob
+    description: Submit a built-in TFLite training job against the dataset.
+    operationId: submitTrainingJob
+    parameters:
+    - name: key
+      in: header
+      value: $inputs.apiKey
+    requestBody:
+      contentType: application/json
+      payload:
+        organization_id: $inputs.organizationId
+        dataset_id: $inputs.datasetId
+        model_name: $inputs.modelName
+        model_type: $inputs.modelType
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      trainingJobId: $response.body#/id
+  - stepId: checkStatus
+    description: Retrieve the training job by the returned id to inspect its status.
+    operationId: getTrainingJob
+    parameters:
+    - name: key
+      in: header
+      value: $inputs.apiKey
+    requestBody:
+      contentType: application/json
+      payload:
+        id: $steps.submitJob.outputs.trainingJobId
+    successCriteria:
+    - condition: $statusCode == 200
+    onSuccess:
+    - name: jobFailed
+      type: goto
+      stepId: cancelJob
+      criteria:
+      - context: $response.body
+        condition: $.metadata.state == 'failed'
+        type: jsonpath
+    - name: jobRunning
+      type: goto
+      stepId: fetchLogs
+      criteria:
+      - context: $response.body
+        condition: $.metadata.state != 'failed'
+        type: jsonpath
+  - stepId: fetchLogs
+    description: Pull the training job logs while the job is pending or running.
+    operationId: getTrainingJobLogs
+    parameters:
+    - name: key
+      in: header
+      value: $inputs.apiKey
+    requestBody:
+      contentType: application/json
+      payload:
+        id: $steps.submitJob.outputs.trainingJobId
+    successCriteria:
+    - condition: $statusCode == 200
+    onSuccess:
+    - name: done
+      type: end
+  - stepId: cancelJob
+    description: Cancel the training job when it has failed to free resources.
+    operationId: cancelTrainingJob
+    parameters:
+    - name: key
+      in: header
+      value: $inputs.apiKey
+    requestBody:
+      contentType: application/json
+      payload:
+        id: $steps.submitJob.outputs.trainingJobId
+    successCriteria:
+    - condition: $statusCode == 200
+  outputs:
+    trainingJobId: $steps.submitJob.outputs.trainingJobId

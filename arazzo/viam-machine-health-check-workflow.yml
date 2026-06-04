@@ -1,0 +1,83 @@
+arazzo: 1.0.1
+info:
+  title: Viam Machine Health Check
+  summary: Inspect a live machine's status, resources, version, and cloud identity.
+  description: >-
+    Connects to a running viam-server instance and gathers a quick health
+    picture — overall machine status, the registered resource names, the server
+    version, and the org/location/machine identity the device is registered to.
+    The endpoint is the per-machine viam-server address, authenticated with a
+    Viam API key or location secret. Each request body is inlined so the check
+    can be executed directly against the Viam Machine Management API.
+  version: 1.0.0
+sourceDescriptions:
+- name: machineManagementApi
+  url: ../openapi/viam-machine-management-api-openapi.yml
+  type: openapi
+workflows:
+- workflowId: machine-health-check
+  summary: Read machine status, resource names, version, and cloud metadata.
+  description: >-
+    Retrieves the overall machine status, lists registered resource names, reads
+    the viam-server version, and reads the cloud metadata identifying the device.
+  inputs:
+    type: object
+    required:
+    - apiKey
+    properties:
+      apiKey:
+        type: string
+        description: Viam API key or location secret sent in the key header.
+  steps:
+  - stepId: readStatus
+    description: Retrieve the overall machine status including each resource's state.
+    operationId: getMachineStatus
+    parameters:
+    - name: key
+      in: header
+      value: $inputs.apiKey
+    requestBody:
+      contentType: application/json
+      payload: {}
+    successCriteria:
+    - condition: $statusCode == 200
+  - stepId: readResources
+    description: List all registered resource names on the machine.
+    operationId: resourceNames
+    parameters:
+    - name: key
+      in: header
+      value: $inputs.apiKey
+    requestBody:
+      contentType: application/json
+      payload: {}
+    successCriteria:
+    - condition: $statusCode == 200
+  - stepId: readVersion
+    description: Read the viam-server version and platform metadata.
+    operationId: getVersion
+    parameters:
+    - name: key
+      in: header
+      value: $inputs.apiKey
+    requestBody:
+      contentType: application/json
+      payload: {}
+    successCriteria:
+    - condition: $statusCode == 200
+  - stepId: readCloudMetadata
+    description: Read the org/location/machine id the device is registered to.
+    operationId: getCloudMetadata
+    parameters:
+    - name: key
+      in: header
+      value: $inputs.apiKey
+    requestBody:
+      contentType: application/json
+      payload: {}
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      cloudMetadata: $response.body
+  outputs:
+    cloudMetadata: $steps.readCloudMetadata.outputs.cloudMetadata

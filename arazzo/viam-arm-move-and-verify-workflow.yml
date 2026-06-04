@@ -1,0 +1,94 @@
+arazzo: 1.0.1
+info:
+  title: Viam Arm Move and Verify
+  summary: Read an arm's pose, move it to a target, verify joints, then stop it.
+  description: >-
+    Drives a robotic arm component through a safe move-and-verify cycle. It reads
+    the current end-effector pose, commands a move to a target pose, reads the
+    resulting joint positions to verify the motion, and stops the arm. The
+    endpoint is the per-machine viam-server address, authenticated with a Viam
+    API key or location secret. Each request body is inlined so the motion can be
+    executed directly against the Viam Component APIs.
+  version: 1.0.0
+sourceDescriptions:
+- name: componentApis
+  url: ../openapi/viam-component-apis-openapi.yml
+  type: openapi
+workflows:
+- workflowId: arm-move-and-verify
+  summary: Read arm pose, move to a target pose, verify joints, and stop.
+  description: >-
+    Reads the arm's current end-effector pose, moves it to the supplied target
+    pose, reads the resulting joint positions, and stops the arm.
+  inputs:
+    type: object
+    required:
+    - apiKey
+    - armName
+    - targetPose
+    properties:
+      apiKey:
+        type: string
+        description: Viam API key or location secret sent in the key header.
+      armName:
+        type: string
+        description: Configured name of the arm component.
+      targetPose:
+        type: object
+        description: Target end-effector pose object to move the arm to.
+  steps:
+  - stepId: readPose
+    description: Read the current pose of the arm's end effector.
+    operationId: armGetEndPosition
+    parameters:
+    - name: key
+      in: header
+      value: $inputs.apiKey
+    requestBody:
+      contentType: application/json
+      payload:
+        name: $inputs.armName
+    successCriteria:
+    - condition: $statusCode == 200
+  - stepId: moveArm
+    description: Move the arm's end effector to the supplied target pose.
+    operationId: armMoveToPosition
+    parameters:
+    - name: key
+      in: header
+      value: $inputs.apiKey
+    requestBody:
+      contentType: application/json
+      payload:
+        name: $inputs.armName
+        to: $inputs.targetPose
+    successCriteria:
+    - condition: $statusCode == 200
+  - stepId: verifyJoints
+    description: Read the resulting joint positions to verify the arm moved.
+    operationId: armGetJointPositions
+    parameters:
+    - name: key
+      in: header
+      value: $inputs.apiKey
+    requestBody:
+      contentType: application/json
+      payload:
+        name: $inputs.armName
+    successCriteria:
+    - condition: $statusCode == 200
+  - stepId: stopArm
+    description: Stop the arm to leave it in a safe idle state.
+    operationId: armStop
+    parameters:
+    - name: key
+      in: header
+      value: $inputs.apiKey
+    requestBody:
+      contentType: application/json
+      payload:
+        name: $inputs.armName
+    successCriteria:
+    - condition: $statusCode == 200
+  outputs:
+    armName: $inputs.armName

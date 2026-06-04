@@ -1,0 +1,90 @@
+arazzo: 1.0.1
+info:
+  title: Viam Onboard an Organization Member
+  summary: Verify an organization, invite a new member, and confirm the pending invite.
+  description: >-
+    Adds a teammate to a Viam organization with role-based authorizations. The
+    flow confirms the organization exists, sends an invite to the supplied email
+    with the requested authorizations, and re-reads the member list so the
+    pending invite can be confirmed. Each request body is inlined so the
+    onboarding can be executed directly against the Viam Fleet Management API.
+  version: 1.0.0
+sourceDescriptions:
+- name: fleetManagementApi
+  url: ../openapi/viam-fleet-management-api-openapi.yml
+  type: openapi
+workflows:
+- workflowId: onboard-org-member
+  summary: Confirm an org, invite a member with authorizations, and verify the invite.
+  description: >-
+    Reads the organization to confirm it exists, creates an organization invite
+    for the supplied email with authorizations, and lists members to confirm the
+    pending invite appears.
+  inputs:
+    type: object
+    required:
+    - apiKey
+    - organizationId
+    - email
+    - authorizations
+    properties:
+      apiKey:
+        type: string
+        description: Viam API key value sent in the key header.
+      organizationId:
+        type: string
+        description: The organization to add the member to.
+      email:
+        type: string
+        description: Email address of the person being invited.
+      authorizations:
+        type: array
+        description: Authorization objects granting the member roles on resources.
+        items:
+          type: object
+  steps:
+  - stepId: confirmOrg
+    description: Read the organization by id to confirm it exists before inviting.
+    operationId: getOrganization
+    parameters:
+    - name: key
+      in: header
+      value: $inputs.apiKey
+    requestBody:
+      contentType: application/json
+      payload:
+        organization_id: $inputs.organizationId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      organizationId: $response.body#/organization/id
+  - stepId: inviteMember
+    description: Invite the supplied email to the organization with authorizations.
+    operationId: createOrganizationInvite
+    parameters:
+    - name: key
+      in: header
+      value: $inputs.apiKey
+    requestBody:
+      contentType: application/json
+      payload:
+        organization_id: $inputs.organizationId
+        email: $inputs.email
+        authorizations: $inputs.authorizations
+    successCriteria:
+    - condition: $statusCode == 200
+  - stepId: confirmInvite
+    description: List organization members and invites to confirm the pending invite.
+    operationId: listOrganizationMembers
+    parameters:
+    - name: key
+      in: header
+      value: $inputs.apiKey
+    requestBody:
+      contentType: application/json
+      payload:
+        organization_id: $inputs.organizationId
+    successCriteria:
+    - condition: $statusCode == 200
+  outputs:
+    organizationId: $steps.confirmOrg.outputs.organizationId

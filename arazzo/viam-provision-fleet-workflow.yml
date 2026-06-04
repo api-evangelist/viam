@@ -1,0 +1,119 @@
+arazzo: 1.0.1
+info:
+  title: Viam Provision a New Fleet
+  summary: Stand up a brand-new organization, location, and machine in one pass.
+  description: >-
+    The canonical greenfield onboarding flow for Viam Fleet Management. It
+    creates a tenant organization, adds a location under it, and registers a
+    first machine (robot) inside that location. Each step spells out its JSON
+    request body inline so the chain can be read and executed without opening the
+    underlying OpenAPI description. The created organization is confirmed by
+    re-reading it before the location and machine are created.
+  version: 1.0.0
+sourceDescriptions:
+- name: fleetManagementApi
+  url: ../openapi/viam-fleet-management-api-openapi.yml
+  type: openapi
+workflows:
+- workflowId: provision-fleet
+  summary: Create an organization, then a location under it, then a machine in that location.
+  description: >-
+    Creates an organization, lists organizations to resolve the new
+    organization id, creates a location under it, and finally registers a
+    machine inside the location.
+  inputs:
+    type: object
+    required:
+    - apiKey
+    - organizationName
+    - locationName
+    - machineName
+    properties:
+      apiKey:
+        type: string
+        description: Viam API key value sent in the key header.
+      organizationName:
+        type: string
+        description: Display name for the new organization.
+      locationName:
+        type: string
+        description: Display name for the new location.
+      machineName:
+        type: string
+        description: Display name for the new machine (robot).
+  steps:
+  - stepId: createOrg
+    description: Create the tenant organization that will own the location and machine.
+    operationId: createOrganization
+    parameters:
+    - name: key
+      in: header
+      value: $inputs.apiKey
+    requestBody:
+      contentType: application/json
+      payload:
+        name: $inputs.organizationName
+    successCriteria:
+    - condition: $statusCode == 200
+  - stepId: resolveOrg
+    description: >-
+      List organizations the caller can access and resolve the id of the
+      organization that was just created by matching its name.
+    operationId: listOrganizations
+    parameters:
+    - name: key
+      in: header
+      value: $inputs.apiKey
+    requestBody:
+      contentType: application/json
+      payload: {}
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      organizationId: $response.body#/organizations/0/id
+  - stepId: createLocation
+    description: Create a location under the resolved organization.
+    operationId: createLocation
+    parameters:
+    - name: key
+      in: header
+      value: $inputs.apiKey
+    requestBody:
+      contentType: application/json
+      payload:
+        organization_id: $steps.resolveOrg.outputs.organizationId
+        name: $inputs.locationName
+    successCriteria:
+    - condition: $statusCode == 200
+  - stepId: listLocations
+    description: List locations under the organization to resolve the new location id.
+    operationId: listLocations
+    parameters:
+    - name: key
+      in: header
+      value: $inputs.apiKey
+    requestBody:
+      contentType: application/json
+      payload:
+        organization_id: $steps.resolveOrg.outputs.organizationId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      locationId: $response.body#/locations/0/id
+  - stepId: createMachine
+    description: Register the first machine (robot) inside the resolved location.
+    operationId: newRobot
+    parameters:
+    - name: key
+      in: header
+      value: $inputs.apiKey
+    requestBody:
+      contentType: application/json
+      payload:
+        location: $steps.listLocations.outputs.locationId
+        name: $inputs.machineName
+    successCriteria:
+    - condition: $statusCode == 200
+  outputs:
+    organizationId: $steps.resolveOrg.outputs.organizationId
+    locationId: $steps.listLocations.outputs.locationId

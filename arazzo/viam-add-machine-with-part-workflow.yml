@@ -1,0 +1,100 @@
+arazzo: 1.0.1
+info:
+  title: Viam Add a Machine With a Part
+  summary: Create a machine in an existing location and add a viam-server part to it.
+  description: >-
+    Adds a new machine (robot) to an existing location and gives it a first
+    part — a single viam-server process. The flow lists the machines in the
+    location to resolve the new machine id, then creates a part under it and
+    re-reads the machine's parts to confirm. Every request body is inlined so the
+    chain can be executed directly against the Viam Fleet Management API.
+  version: 1.0.0
+sourceDescriptions:
+- name: fleetManagementApi
+  url: ../openapi/viam-fleet-management-api-openapi.yml
+  type: openapi
+workflows:
+- workflowId: add-machine-with-part
+  summary: Create a machine in a location, then add a part and confirm the part list.
+  description: >-
+    Creates a machine in the supplied location, lists machines to resolve its id,
+    creates a part on it, and reads the parts back to confirm the part was added.
+  inputs:
+    type: object
+    required:
+    - apiKey
+    - locationId
+    - machineName
+    - partName
+    properties:
+      apiKey:
+        type: string
+        description: Viam API key value sent in the key header.
+      locationId:
+        type: string
+        description: The location id the machine will be created under.
+      machineName:
+        type: string
+        description: Display name for the new machine.
+      partName:
+        type: string
+        description: Name for the new machine part.
+  steps:
+  - stepId: createMachine
+    description: Create a new machine under the supplied location.
+    operationId: newRobot
+    parameters:
+    - name: key
+      in: header
+      value: $inputs.apiKey
+    requestBody:
+      contentType: application/json
+      payload:
+        location: $inputs.locationId
+        name: $inputs.machineName
+    successCriteria:
+    - condition: $statusCode == 200
+  - stepId: resolveMachine
+    description: List machines in the location to resolve the id of the new machine.
+    operationId: listRobots
+    parameters:
+    - name: key
+      in: header
+      value: $inputs.apiKey
+    requestBody:
+      contentType: application/json
+      payload:
+        location_id: $inputs.locationId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      machineId: $response.body#/robots/0/id
+  - stepId: createPart
+    description: Create a viam-server part on the resolved machine.
+    operationId: newRobotPart
+    parameters:
+    - name: key
+      in: header
+      value: $inputs.apiKey
+    requestBody:
+      contentType: application/json
+      payload:
+        robot_id: $steps.resolveMachine.outputs.machineId
+        part_name: $inputs.partName
+    successCriteria:
+    - condition: $statusCode == 200
+  - stepId: confirmParts
+    description: Read the machine's parts back to confirm the new part is present.
+    operationId: getRobotParts
+    parameters:
+    - name: key
+      in: header
+      value: $inputs.apiKey
+    requestBody:
+      contentType: application/json
+      payload:
+        robot_id: $steps.resolveMachine.outputs.machineId
+    successCriteria:
+    - condition: $statusCode == 200
+  outputs:
+    machineId: $steps.resolveMachine.outputs.machineId

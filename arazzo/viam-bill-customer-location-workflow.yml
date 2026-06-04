@@ -1,0 +1,104 @@
+arazzo: 1.0.1
+info:
+  title: Viam Bill a Customer Location
+  summary: Reassign a location's billing org, read usage, and charge the customer.
+  description: >-
+    Supports Viam's "build a robotics business" billing features. The flow reads
+    a location's current billing organization, reassigns it to the supplied
+    billing organization, pulls current-month usage for that organization, and
+    creates an invoice that charges the customer immediately. Each request body
+    is inlined so the flow can be executed directly against the Viam Billing API.
+  version: 1.0.0
+sourceDescriptions:
+- name: billingApi
+  url: ../openapi/viam-billing-api-openapi.yml
+  type: openapi
+workflows:
+- workflowId: bill-customer-location
+  summary: Reassign a location billing org, read usage, and charge immediately.
+  description: >-
+    Reads the current billing organization for a location, reassigns it,
+    retrieves current-month usage for the billing organization, and creates an
+    immediate invoice charge.
+  inputs:
+    type: object
+    required:
+    - apiKey
+    - locationId
+    - billingOrganizationId
+    - amount
+    - description
+    properties:
+      apiKey:
+        type: string
+        description: Viam API key value sent in the key header.
+      locationId:
+        type: string
+        description: The location whose billing organization is reassigned.
+      billingOrganizationId:
+        type: string
+        description: The organization that should be billed for the location.
+      amount:
+        type: number
+        description: The amount to invoice and charge immediately.
+      description:
+        type: string
+        description: Human-readable description for the invoice charge.
+  steps:
+  - stepId: readBillingOrg
+    description: Read the location's current billing organization assignment.
+    operationId: getLocationBillingOrganization
+    parameters:
+    - name: key
+      in: header
+      value: $inputs.apiKey
+    requestBody:
+      contentType: application/json
+      payload:
+        location_id: $inputs.locationId
+    successCriteria:
+    - condition: $statusCode == 200
+  - stepId: assignBillingOrg
+    description: Reassign the location to the supplied billing organization.
+    operationId: updateLocationBillingOrganization
+    parameters:
+    - name: key
+      in: header
+      value: $inputs.apiKey
+    requestBody:
+      contentType: application/json
+      payload:
+        location_id: $inputs.locationId
+        billing_organization_id: $inputs.billingOrganizationId
+    successCriteria:
+    - condition: $statusCode == 200
+  - stepId: readUsage
+    description: Retrieve current-month usage for the billing organization.
+    operationId: getCurrentMonthUsage
+    parameters:
+    - name: key
+      in: header
+      value: $inputs.apiKey
+    requestBody:
+      contentType: application/json
+      payload:
+        org_id: $inputs.billingOrganizationId
+    successCriteria:
+    - condition: $statusCode == 200
+  - stepId: chargeCustomer
+    description: Create an invoice and charge the billing organization immediately.
+    operationId: createInvoiceAndChargeImmediately
+    parameters:
+    - name: key
+      in: header
+      value: $inputs.apiKey
+    requestBody:
+      contentType: application/json
+      payload:
+        org_id: $inputs.billingOrganizationId
+        amount: $inputs.amount
+        description: $inputs.description
+    successCriteria:
+    - condition: $statusCode == 200
+  outputs:
+    billingOrganizationId: $inputs.billingOrganizationId

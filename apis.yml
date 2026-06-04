@@ -333,6 +333,45 @@ kind: contract
 image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 access: 3rd-Party
 common:
+- type: ArazzoWorkflows
+  url: arazzo/
+  workflows:
+  - url: arazzo/viam-add-machine-with-part-workflow.yml
+    name: Viam Add a Machine With a Part
+    summary: Create a machine in an existing location and add a viam-server part to it.
+  - url: arazzo/viam-arm-move-and-verify-workflow.yml
+    name: Viam Arm Move and Verify
+    summary: Read an arm's pose, move it to a target, verify joints, then stop it.
+  - url: arazzo/viam-bill-customer-location-workflow.yml
+    name: Viam Bill a Customer Location
+    summary: Reassign a location's billing org, read usage, and charge the customer.
+  - url: arazzo/viam-curate-dataset-workflow.yml
+    name: Viam Curate a Training Dataset
+    summary: Find binary data by filter, tag the matches, and add them to a dataset.
+  - url: arazzo/viam-data-pipeline-lifecycle-workflow.yml
+    name: Viam Data Pipeline Lifecycle
+    summary: Create a scheduled MQL pipeline, resolve it, enable it, and list its runs.
+  - url: arazzo/viam-fragment-rollout-workflow.yml
+    name: Viam Roll Out a Configuration Fragment
+    summary: Create a reusable config fragment and restart a machine part to adopt it.
+  - url: arazzo/viam-machine-health-check-workflow.yml
+    name: Viam Machine Health Check
+    summary: Inspect a live machine's status, resources, version, and cloud identity.
+  - url: arazzo/viam-onboard-org-member-workflow.yml
+    name: Viam Onboard an Organization Member
+    summary: Verify an organization, invite a new member, and confirm the pending invite.
+  - url: arazzo/viam-provision-fleet-workflow.yml
+    name: Viam Provision a New Fleet
+    summary: Stand up a brand-new organization, location, and machine in one pass.
+  - url: arazzo/viam-provision-smart-machine-workflow.yml
+    name: Viam Provision a Smart Machine
+    summary: Bootstrap a fresh device onto Wi-Fi and into the Viam cloud over the hotspot.
+  - url: arazzo/viam-saved-query-lifecycle-workflow.yml
+    name: Viam Saved Query Lifecycle
+    summary: Create a saved SQL query, resolve it from the list, read it, and update it.
+  - url: arazzo/viam-train-and-monitor-model-workflow.yml
+    name: Viam Train and Monitor an ML Model
+    summary: Submit a TFLite training job, poll its status, and branch to logs or cancel.
 - url: https://www.viam.com
   type: Portal
 - url: https://docs.viam.com

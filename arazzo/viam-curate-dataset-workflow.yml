@@ -1,0 +1,94 @@
+arazzo: 1.0.1
+info:
+  title: Viam Curate a Training Dataset
+  summary: Find binary data by filter, tag the matches, and add them to a dataset.
+  description: >-
+    Prepares captured images for ML training. The flow queries binary data items
+    with a filter, applies tags to the supplied binary ids, and adds those items
+    to a dataset that can later feed a training job. Each request body is inlined
+    so the curation can be executed directly against the Viam Data Client API.
+  version: 1.0.0
+sourceDescriptions:
+- name: dataClientApi
+  url: ../openapi/viam-data-client-api-openapi.yml
+  type: openapi
+workflows:
+- workflowId: curate-dataset
+  summary: Query binary data, tag the items, and add them to a dataset.
+  description: >-
+    Runs a binary-data filter query, adds tags to the supplied binary ids, and
+    adds the same items to the target dataset.
+  inputs:
+    type: object
+    required:
+    - apiKey
+    - filter
+    - binaryIds
+    - tags
+    - datasetId
+    properties:
+      apiKey:
+        type: string
+        description: Viam API key value sent in the key header.
+      filter:
+        type: object
+        description: Data request filter object used to scope the binary-data query.
+      binaryIds:
+        type: array
+        description: Binary id objects to tag and add to the dataset.
+        items:
+          type: object
+      tags:
+        type: array
+        description: String tags to apply to the matched binary data items.
+        items:
+          type: string
+      datasetId:
+        type: string
+        description: The dataset the binary items are added to.
+  steps:
+  - stepId: findBinary
+    description: Query binary data items matching the supplied filter (metadata only).
+    operationId: binaryDataByFilter
+    parameters:
+    - name: key
+      in: header
+      value: $inputs.apiKey
+    requestBody:
+      contentType: application/json
+      payload:
+        data_request: $inputs.filter
+        include_binary: false
+        count_only: false
+    successCriteria:
+    - condition: $statusCode == 200
+  - stepId: tagBinary
+    description: Apply the supplied tags to the supplied binary data items.
+    operationId: addTagsToBinaryDataByIDs
+    parameters:
+    - name: key
+      in: header
+      value: $inputs.apiKey
+    requestBody:
+      contentType: application/json
+      payload:
+        binary_ids: $inputs.binaryIds
+        tags: $inputs.tags
+    successCriteria:
+    - condition: $statusCode == 200
+  - stepId: addToDataset
+    description: Add the tagged binary data items to the target dataset.
+    operationId: addBinaryDataToDatasetByIDs
+    parameters:
+    - name: key
+      in: header
+      value: $inputs.apiKey
+    requestBody:
+      contentType: application/json
+      payload:
+        binary_ids: $inputs.binaryIds
+        dataset_id: $inputs.datasetId
+    successCriteria:
+    - condition: $statusCode == 200
+  outputs:
+    datasetId: $inputs.datasetId

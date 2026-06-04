@@ -1,0 +1,107 @@
+arazzo: 1.0.1
+info:
+  title: Viam Roll Out a Configuration Fragment
+  summary: Create a reusable config fragment and restart a machine part to adopt it.
+  description: >-
+    Fragments are versioned, reusable machine-configuration snippets. This flow
+    creates a fragment in an organization, confirms it by reading it back, then
+    marks a target machine part for restart so it can pick up the new
+    configuration. Each request body is inlined so the rollout can be read and
+    executed without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: fleetManagementApi
+  url: ../openapi/viam-fleet-management-api-openapi.yml
+  type: openapi
+workflows:
+- workflowId: fragment-rollout
+  summary: Create a fragment, verify it, and restart a part to adopt the new config.
+  description: >-
+    Creates a configuration fragment in the organization, lists fragments to
+    resolve the new fragment id, reads it back to confirm, and marks the target
+    machine part for restart.
+  inputs:
+    type: object
+    required:
+    - apiKey
+    - organizationId
+    - fragmentName
+    - config
+    - partId
+    properties:
+      apiKey:
+        type: string
+        description: Viam API key value sent in the key header.
+      organizationId:
+        type: string
+        description: The organization the fragment belongs to.
+      fragmentName:
+        type: string
+        description: Name for the new fragment.
+      config:
+        type: object
+        description: The machine configuration object captured by the fragment.
+      partId:
+        type: string
+        description: The machine part id that should restart to adopt the fragment.
+  steps:
+  - stepId: createFragment
+    description: Create a private configuration fragment in the organization.
+    operationId: createFragment
+    parameters:
+    - name: key
+      in: header
+      value: $inputs.apiKey
+    requestBody:
+      contentType: application/json
+      payload:
+        name: $inputs.fragmentName
+        organization_id: $inputs.organizationId
+        config: $inputs.config
+        visibility: private
+    successCriteria:
+    - condition: $statusCode == 200
+  - stepId: resolveFragment
+    description: List fragments in the organization to resolve the new fragment id.
+    operationId: listFragments
+    parameters:
+    - name: key
+      in: header
+      value: $inputs.apiKey
+    requestBody:
+      contentType: application/json
+      payload:
+        organization_id: $inputs.organizationId
+        show_public: false
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      fragmentId: $response.body#/fragments/0/id
+  - stepId: verifyFragment
+    description: Read the fragment back by id to confirm it was created.
+    operationId: getFragment
+    parameters:
+    - name: key
+      in: header
+      value: $inputs.apiKey
+    requestBody:
+      contentType: application/json
+      payload:
+        id: $steps.resolveFragment.outputs.fragmentId
+    successCriteria:
+    - condition: $statusCode == 200
+  - stepId: restartPart
+    description: Mark the target machine part for restart so it adopts the new config.
+    operationId: markPartForRestart
+    parameters:
+    - name: key
+      in: header
+      value: $inputs.apiKey
+    requestBody:
+      contentType: application/json
+      payload:
+        part_id: $inputs.partId
+    successCriteria:
+    - condition: $statusCode == 200
+  outputs:
+    fragmentId: $steps.resolveFragment.outputs.fragmentId

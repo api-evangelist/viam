@@ -1,0 +1,90 @@
+arazzo: 1.0.1
+info:
+  title: Viam Provision a Smart Machine
+  summary: Bootstrap a fresh device onto Wi-Fi and into the Viam cloud over the hotspot.
+  description: >-
+    Bootstraps a fresh device that is exposing the viam-agent provisioning
+    hotspot. The flow lists visible Wi-Fi networks, submits Wi-Fi credentials,
+    submits Viam cloud credentials (machine part secret and app address), and
+    exits provisioning so the device boots into normal operation. The
+    provisioning endpoint is an unauthenticated local hotspot, so no API key is
+    sent. Each request body is inlined so the flow can be executed directly
+    against the Viam Provisioning API.
+  version: 1.0.0
+sourceDescriptions:
+- name: provisioningApi
+  url: ../openapi/viam-provisioning-api-openapi.yml
+  type: openapi
+workflows:
+- workflowId: provision-smart-machine
+  summary: List networks, set Wi-Fi and cloud credentials, then exit provisioning.
+  description: >-
+    Lists Wi-Fi networks visible to the device, submits the chosen Wi-Fi
+    credentials, submits Viam cloud credentials, and exits the provisioning
+    service so the device boots into normal operation.
+  inputs:
+    type: object
+    required:
+    - ssid
+    - psk
+    - machinePartId
+    - machinePartSecret
+    - appAddress
+    properties:
+      ssid:
+        type: string
+        description: SSID of the Wi-Fi network the device should join.
+      psk:
+        type: string
+        description: Pre-shared key (password) for the Wi-Fi network.
+      machinePartId:
+        type: string
+        description: The Viam machine part id the device represents.
+      machinePartSecret:
+        type: string
+        description: The machine part secret used to authenticate to the cloud.
+      appAddress:
+        type: string
+        description: The Viam app address the device registers against.
+  steps:
+  - stepId: listNetworks
+    description: List Wi-Fi networks visible to the device.
+    operationId: getNetworkList
+    requestBody:
+      contentType: application/json
+      payload: {}
+    successCriteria:
+    - condition: $statusCode == 200
+  - stepId: setWifi
+    description: Submit the chosen Wi-Fi credentials to the device.
+    operationId: setNetworkCredentials
+    requestBody:
+      contentType: application/json
+      payload:
+        type: wifi
+        ssid: $inputs.ssid
+        psk: $inputs.psk
+    successCriteria:
+    - condition: $statusCode == 200
+  - stepId: setCloud
+    description: Submit Viam cloud credentials so the device registers with viam.app.
+    operationId: setSmartMachineCredentials
+    requestBody:
+      contentType: application/json
+      payload:
+        cloud:
+          id: $inputs.machinePartId
+          secret: $inputs.machinePartSecret
+          app_address: $inputs.appAddress
+    successCriteria:
+    - condition: $statusCode == 200
+  - stepId: exitProvisioning
+    description: Exit the provisioning service so the device boots normally.
+    operationId: exitProvisioning
+    requestBody:
+      contentType: application/json
+      payload: {}
+    successCriteria:
+    - condition: $statusCode == 200
+  outputs:
+    machinePartId: $inputs.machinePartId

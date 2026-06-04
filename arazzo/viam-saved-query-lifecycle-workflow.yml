@@ -1,0 +1,110 @@
+arazzo: 1.0.1
+info:
+  title: Viam Saved Query Lifecycle
+  summary: Create a saved SQL query, resolve it from the list, read it, and update it.
+  description: >-
+    Saved queries are reusable SQL/MQL queries stored against a Viam
+    organization. This flow persists a named SQL query, lists saved queries to
+    resolve its id, reads it back to confirm, and updates its name and SQL.
+    Every request body is inlined so the lifecycle can be executed directly
+    against the Viam Data Client API.
+  version: 1.0.0
+sourceDescriptions:
+- name: dataClientApi
+  url: ../openapi/viam-data-client-api-openapi.yml
+  type: openapi
+workflows:
+- workflowId: saved-query-lifecycle
+  summary: Create a saved query, resolve its id, get it, then update it.
+  description: >-
+    Creates a named SQL saved query in the organization, lists saved queries to
+    resolve the new id, retrieves it by id, and applies an updated name and SQL.
+  inputs:
+    type: object
+    required:
+    - apiKey
+    - organizationId
+    - queryName
+    - sqlQuery
+    - updatedName
+    - updatedSqlQuery
+    properties:
+      apiKey:
+        type: string
+        description: Viam API key value sent in the key header.
+      organizationId:
+        type: string
+        description: The organization the saved query belongs to.
+      queryName:
+        type: string
+        description: Name for the new saved query.
+      sqlQuery:
+        type: string
+        description: The SQL statement to persist.
+      updatedName:
+        type: string
+        description: The new name to apply on update.
+      updatedSqlQuery:
+        type: string
+        description: The new SQL statement to apply on update.
+  steps:
+  - stepId: createQuery
+    description: Persist a named SQL saved query in the organization.
+    operationId: createSavedQuery
+    parameters:
+    - name: key
+      in: header
+      value: $inputs.apiKey
+    requestBody:
+      contentType: application/json
+      payload:
+        organization_id: $inputs.organizationId
+        name: $inputs.queryName
+        sql_query: $inputs.sqlQuery
+    successCriteria:
+    - condition: $statusCode == 200
+  - stepId: resolveQuery
+    description: List saved queries in the organization to resolve the new query id.
+    operationId: listSavedQueries
+    parameters:
+    - name: key
+      in: header
+      value: $inputs.apiKey
+    requestBody:
+      contentType: application/json
+      payload:
+        organization_id: $inputs.organizationId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      queryId: $response.body#/queries/0/id
+  - stepId: getQuery
+    description: Retrieve the saved query by id to confirm it was persisted.
+    operationId: getSavedQuery
+    parameters:
+    - name: key
+      in: header
+      value: $inputs.apiKey
+    requestBody:
+      contentType: application/json
+      payload:
+        id: $steps.resolveQuery.outputs.queryId
+    successCriteria:
+    - condition: $statusCode == 200
+  - stepId: updateQuery
+    description: Update the saved query's name and SQL statement.
+    operationId: updateSavedQuery
+    parameters:
+    - name: key
+      in: header
+      value: $inputs.apiKey
+    requestBody:
+      contentType: application/json
+      payload:
+        id: $steps.resolveQuery.outputs.queryId
+        name: $inputs.updatedName
+        sql_query: $inputs.updatedSqlQuery
+    successCriteria:
+    - condition: $statusCode == 200
+  outputs:
+    queryId: $steps.resolveQuery.outputs.queryId
