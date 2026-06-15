@@ -1,0 +1,251 @@
+{
+  "info": {
+    "_postman_id": "312fe776-ca62-4fb7-a5a6-45344e899da7",
+    "name": "Viam ML Model Service API",
+    "description": "REST/JSON transcoding of the Viam MLModelService gRPC API. Run device-side inference\nagainst deployed ML models (TFLite, ONNX, Triton) and inspect model input/output\nschemas via Metadata.\n\nCanonical contract: https://github.com/viamrobotics/api/blob/main/proto/viam/service/mlmodel/v1/mlmodel.proto\n\n\nContact Support:\n Name: Viam Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T15:19:52.000Z",
+    "updatedAt": "2026-06-05T15:19:52.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-312fe776-ca62-4fb7-a5a6-45344e899da7"
+  },
+  "item": [
+    {
+      "name": "viam.service.mlmodel.v1.MLModelService",
+      "item": [
+        {
+          "name": "Infer",
+          "item": [
+            {
+              "name": "Viam Infer",
+              "id": "d84534c1-aa8f-4a1c-9171-1e3f8b16dea5",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"input_tensors\": {}\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.service.mlmodel.v1.MLModelService/Infer",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.service.mlmodel.v1.MLModelService",
+                    "Infer"
+                  ]
+                },
+                "description": "Run inference against a deployed model with one or more input tensors."
+              },
+              "response": [
+                {
+                  "id": "9900da44-10fb-4096-8d36-32b1ea209f28",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"input_tensors\": {}\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.service.mlmodel.v1.MLModelService/Infer",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.service.mlmodel.v1.MLModelService",
+                        "Infer"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:52.000Z",
+                  "updatedAt": "2026-06-05T15:19:52.000Z",
+                  "uid": "35240-9900da44-10fb-4096-8d36-32b1ea209f28"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:52.000Z",
+              "updatedAt": "2026-06-05T15:19:52.000Z",
+              "uid": "35240-d84534c1-aa8f-4a1c-9171-1e3f8b16dea5"
+            }
+          ],
+          "id": "6f5c47f5-af2b-4e06-9040-4a4fb0279b37",
+          "createdAt": "2026-06-05T15:19:52.000Z",
+          "updatedAt": "2026-06-05T15:19:52.000Z",
+          "uid": "35240-6f5c47f5-af2b-4e06-9040-4a4fb0279b37"
+        },
+        {
+          "name": "Metadata",
+          "item": [
+            {
+              "name": "Viam Metadata",
+              "id": "6bd3ef62-61f0-483a-88f9-ef26bc13f8e9",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.service.mlmodel.v1.MLModelService/Metadata",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.service.mlmodel.v1.MLModelService",
+                    "Metadata"
+                  ]
+                },
+                "description": "Retrieve the model's input/output tensor schema."
+              },
+              "response": [
+                {
+                  "id": "af509237-86b3-41a5-9e09-ff4a790a52c6",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.service.mlmodel.v1.MLModelService/Metadata",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.service.mlmodel.v1.MLModelService",
+                        "Metadata"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:52.000Z",
+                  "updatedAt": "2026-06-05T15:19:52.000Z",
+                  "uid": "35240-af509237-86b3-41a5-9e09-ff4a790a52c6"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:52.000Z",
+              "updatedAt": "2026-06-05T15:19:52.000Z",
+              "uid": "35240-6bd3ef62-61f0-483a-88f9-ef26bc13f8e9"
+            }
+          ],
+          "id": "9319cc80-2e9f-4772-9501-be987a8c258b",
+          "createdAt": "2026-06-05T15:19:52.000Z",
+          "updatedAt": "2026-06-05T15:19:52.000Z",
+          "uid": "35240-9319cc80-2e9f-4772-9501-be987a8c258b"
+        }
+      ],
+      "id": "a70ee171-8471-4e47-a48b-490e9a38b5c9",
+      "createdAt": "2026-06-05T15:19:52.000Z",
+      "updatedAt": "2026-06-05T15:19:52.000Z",
+      "uid": "35240-a70ee171-8471-4e47-a48b-490e9a38b5c9"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "key",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "machine_address",
+      "value": "machine.local.viam.cloud:443"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{machine_address}}"
+    }
+  ]
+}

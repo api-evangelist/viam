@@ -1,0 +1,874 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Viam Component APIs",
+    "version": "2026.05"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "key",
+      "value": "{{key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Arm",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Viam Arm Get End Position",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{machine_address}/viam.component.arm.v1.ArmService/GetEndPosition",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Get the pose of the arm's end effector."
+        },
+        {
+          "info": {
+            "name": "Viam Arm Move To Position",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{machine_address}/viam.component.arm.v1.ArmService/MoveToPosition",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Move the arm's end effector to a target pose."
+        },
+        {
+          "info": {
+            "name": "Viam Arm Get Joint Positions",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{machine_address}/viam.component.arm.v1.ArmService/GetJointPositions",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Get the arm's current joint positions."
+        },
+        {
+          "info": {
+            "name": "Viam Arm Move To Joint Positions",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{machine_address}/viam.component.arm.v1.ArmService/MoveToJointPositions",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Move the arm to a specific joint configuration."
+        },
+        {
+          "info": {
+            "name": "Viam Arm Stop",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{machine_address}/viam.component.arm.v1.ArmService/Stop",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Stop the arm."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Base",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Viam Base Move Straight",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{machine_address}/viam.component.base.v1.BaseService/MoveStraight",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Move the base a specified distance at a velocity."
+        },
+        {
+          "info": {
+            "name": "Viam Base Spin",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{machine_address}/viam.component.base.v1.BaseService/Spin",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Spin the base by an angle at an angular velocity."
+        },
+        {
+          "info": {
+            "name": "Viam Base Set Power",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{machine_address}/viam.component.base.v1.BaseService/SetPower",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Set linear and angular power for the base."
+        },
+        {
+          "info": {
+            "name": "Viam Base Set Velocity",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{machine_address}/viam.component.base.v1.BaseService/SetVelocity",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Set linear and angular velocity for the base."
+        },
+        {
+          "info": {
+            "name": "Viam Base Stop",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{machine_address}/viam.component.base.v1.BaseService/Stop",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Stop the base."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Board",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Viam Board Set Gpio",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{machine_address}/viam.component.board.v1.BoardService/SetGPIO",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Set a GPIO pin high or low."
+        },
+        {
+          "info": {
+            "name": "Viam Board Get Gpio",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{machine_address}/viam.component.board.v1.BoardService/GetGPIO",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Read a GPIO pin's current value."
+        },
+        {
+          "info": {
+            "name": "Viam Board Set Pwm",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{machine_address}/viam.component.board.v1.BoardService/SetPWM",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Set a pin's PWM duty cycle."
+        },
+        {
+          "info": {
+            "name": "Viam Board Read Analog Reader",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{machine_address}/viam.component.board.v1.BoardService/ReadAnalogReader",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Read a value from an analog reader."
+        },
+        {
+          "info": {
+            "name": "Viam Board Stream Ticks",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{machine_address}/viam.component.board.v1.BoardService/StreamTicks",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Stream digital interrupt ticks for the given pin names."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Button",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Viam Button Push",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{machine_address}/viam.component.button.v1.ButtonService/Push",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Trigger a button press programmatically."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Camera",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Viam Camera Get Images",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{machine_address}/viam.component.camera.v1.CameraService/GetImages",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Capture one or more images from the camera."
+        },
+        {
+          "info": {
+            "name": "Viam Camera Get Point Cloud",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{machine_address}/viam.component.camera.v1.CameraService/GetPointCloud",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Capture a 3D point cloud from the camera."
+        },
+        {
+          "info": {
+            "name": "Viam Camera Get Properties",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{machine_address}/viam.component.camera.v1.CameraService/GetProperties",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Get camera intrinsics and supported MIME types."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Encoder",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Viam Encoder Get Position",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{machine_address}/viam.component.encoder.v1.EncoderService/GetPosition",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Read the encoder's current position."
+        },
+        {
+          "info": {
+            "name": "Viam Encoder Reset Position",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{machine_address}/viam.component.encoder.v1.EncoderService/ResetPosition",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Reset the encoder's zero position."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Gantry",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Viam Gantry Move To Position",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{machine_address}/viam.component.gantry.v1.GantryService/MoveToPosition",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Move the gantry axes to specified positions."
+        },
+        {
+          "info": {
+            "name": "Viam Gantry Home",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{machine_address}/viam.component.gantry.v1.GantryService/Home",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Home the gantry."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Gripper",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Viam Gripper Open",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{machine_address}/viam.component.gripper.v1.GripperService/Open",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Open the gripper."
+        },
+        {
+          "info": {
+            "name": "Viam Gripper Grab",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{machine_address}/viam.component.gripper.v1.GripperService/Grab",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Close the gripper and report whether anything was grasped."
+        },
+        {
+          "info": {
+            "name": "Viam Gripper Is Holding Something",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{machine_address}/viam.component.gripper.v1.GripperService/IsHoldingSomething",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Check whether the gripper is currently holding something."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Motor",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Viam Motor Set Power",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{machine_address}/viam.component.motor.v1.MotorService/SetPower",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Set the motor's power as a signed fraction of full power."
+        },
+        {
+          "info": {
+            "name": "Viam Motor Go For",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{machine_address}/viam.component.motor.v1.MotorService/GoFor",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Spin the motor at an RPM for a specified number of revolutions."
+        },
+        {
+          "info": {
+            "name": "Viam Motor Go To",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{machine_address}/viam.component.motor.v1.MotorService/GoTo",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Move the motor to a target position at an RPM."
+        },
+        {
+          "info": {
+            "name": "Viam Motor Set Rpm",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{machine_address}/viam.component.motor.v1.MotorService/SetRPM",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Spin the motor continuously at the requested RPM."
+        },
+        {
+          "info": {
+            "name": "Viam Motor Stop",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{machine_address}/viam.component.motor.v1.MotorService/Stop",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Stop the motor."
+        },
+        {
+          "info": {
+            "name": "Viam Motor Is Powered",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{machine_address}/viam.component.motor.v1.MotorService/IsPowered",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Check whether the motor is currently powered."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Movement Sensor",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Viam Movement Sensor Get Position",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{machine_address}/viam.component.movementsensor.v1.MovementSensorService/GetPosition",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Get GPS position (latitude, longitude, altitude)."
+        },
+        {
+          "info": {
+            "name": "Viam Movement Sensor Get Linear Velocity",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{machine_address}/viam.component.movementsensor.v1.MovementSensorService/GetLinearVelocity",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Get linear velocity in m/s."
+        },
+        {
+          "info": {
+            "name": "Viam Movement Sensor Get Angular Velocity",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{machine_address}/viam.component.movementsensor.v1.MovementSensorService/GetAngularVelocity",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Get angular velocity in deg/s."
+        },
+        {
+          "info": {
+            "name": "Viam Movement Sensor Get Compass Heading",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{machine_address}/viam.component.movementsensor.v1.MovementSensorService/GetCompassHeading",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Get compass heading in degrees."
+        },
+        {
+          "info": {
+            "name": "Viam Movement Sensor Get Orientation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{machine_address}/viam.component.movementsensor.v1.MovementSensorService/GetOrientation",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Get orientation as an orientation vector."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Power Sensor",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Viam Power Sensor Get Voltage",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{machine_address}/viam.component.powersensor.v1.PowerSensorService/GetVoltage",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Read voltage in volts."
+        },
+        {
+          "info": {
+            "name": "Viam Power Sensor Get Current",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{machine_address}/viam.component.powersensor.v1.PowerSensorService/GetCurrent",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Read current in amperes."
+        },
+        {
+          "info": {
+            "name": "Viam Power Sensor Get Power",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{machine_address}/viam.component.powersensor.v1.PowerSensorService/GetPower",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Read power in watts."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Sensor",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Viam Sensor Get Readings",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{machine_address}/viam.component.sensor.v1.SensorService/GetReadings",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Get the latest readings from a generic sensor."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Servo",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Viam Servo Move",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{machine_address}/viam.component.servo.v1.ServoService/Move",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Move the servo to an angle in degrees."
+        },
+        {
+          "info": {
+            "name": "Viam Servo Get Position",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{machine_address}/viam.component.servo.v1.ServoService/GetPosition",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Get the servo's current position."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Switch",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Viam Switch Set Position",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{machine_address}/viam.component.switch.v1.SwitchService/SetPosition",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Set the switch's position."
+        },
+        {
+          "info": {
+            "name": "Viam Switch Get Position",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{machine_address}/viam.component.switch.v1.SwitchService/GetPosition",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Get the switch's current position."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Audio In",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Viam Audio In Get Audio",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{machine_address}/viam.component.audioin.v1.AudioInService/GetAudio",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Capture audio from an input device."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Audio Out",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Viam Audio Out Play",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{machine_address}/viam.component.audioout.v1.AudioOutService/Play",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Play an audio payload on an output device."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Generic",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Viam Generic Do Command",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{machine_address}/viam.component.generic.v1.GenericService/DoCommand",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Send a custom model-specific command to a generic component."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

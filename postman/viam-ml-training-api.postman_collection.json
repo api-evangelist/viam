@@ -1,0 +1,854 @@
+{
+  "info": {
+    "_postman_id": "56d60e33-d0b2-4148-a633-8be8296b3da1",
+    "name": "Viam ML Training API",
+    "description": "REST/JSON transcoding of the Viam MLTrainingService gRPC API. Submit, monitor, and\nmanage cloud-hosted ML training jobs that produce models deployable to viam-server.\n\nCanonical contract: https://github.com/viamrobotics/api/blob/main/proto/viam/app/mltraining/v1/ml_training.proto\n\n\nContact Support:\n Name: Viam Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T15:19:44.000Z",
+    "updatedAt": "2026-06-05T15:19:45.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-56d60e33-d0b2-4148-a633-8be8296b3da1"
+  },
+  "item": [
+    {
+      "name": "viam.app.mltraining.v1.MLTrainingService",
+      "item": [
+        {
+          "name": "SubmitTrainingJob",
+          "item": [
+            {
+              "name": "Viam Submit Training Job",
+              "id": "a1ab3b1c-c08b-4b9d-bcae-36064a8dfd77",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"organization_id\": \"<string>\",\n  \"dataset_id\": \"<string>\",\n  \"model_name\": \"<string>\",\n  \"model_type\": \"object_detection\",\n  \"model_version\": \"<string>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.app.mltraining.v1.MLTrainingService/SubmitTrainingJob",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.app.mltraining.v1.MLTrainingService",
+                    "SubmitTrainingJob"
+                  ]
+                },
+                "description": "Submit a built-in TFLite training job against a dataset."
+              },
+              "response": [
+                {
+                  "id": "967f6bbe-7ed9-404c-9ccf-a604c99e97e7",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"organization_id\": \"<string>\",\n  \"dataset_id\": \"<string>\",\n  \"model_name\": \"<string>\",\n  \"model_type\": \"object_detection\",\n  \"model_version\": \"<string>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.app.mltraining.v1.MLTrainingService/SubmitTrainingJob",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.app.mltraining.v1.MLTrainingService",
+                        "SubmitTrainingJob"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\"\n}",
+                  "createdAt": "2026-06-05T15:19:45.000Z",
+                  "updatedAt": "2026-06-05T15:19:45.000Z",
+                  "uid": "35240-967f6bbe-7ed9-404c-9ccf-a604c99e97e7"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:45.000Z",
+              "updatedAt": "2026-06-05T15:19:45.000Z",
+              "uid": "35240-a1ab3b1c-c08b-4b9d-bcae-36064a8dfd77"
+            }
+          ],
+          "id": "d99ca1d8-1d24-496a-88dd-76cde6f4d9a9",
+          "createdAt": "2026-06-05T15:19:45.000Z",
+          "updatedAt": "2026-06-05T15:19:45.000Z",
+          "uid": "35240-d99ca1d8-1d24-496a-88dd-76cde6f4d9a9"
+        },
+        {
+          "name": "SubmitCustomTrainingJob",
+          "item": [
+            {
+              "name": "Viam Submit Custom Training Job",
+              "id": "cf08d802-6451-46bc-8e1d-1d1fa7c2582f",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"organization_id\": \"<string>\",\n  \"dataset_id\": \"<string>\",\n  \"registry_item_id\": \"<string>\",\n  \"model_name\": \"<string>\",\n  \"registry_item_version\": \"<string>\",\n  \"model_version\": \"<string>\",\n  \"arguments\": {}\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.app.mltraining.v1.MLTrainingService/SubmitCustomTrainingJob",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.app.mltraining.v1.MLTrainingService",
+                    "SubmitCustomTrainingJob"
+                  ]
+                },
+                "description": "Submit a custom containerized training job (registry container) against a dataset."
+              },
+              "response": [
+                {
+                  "id": "46bd927f-e60e-44be-a7be-cb5eb43fc639",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"organization_id\": \"<string>\",\n  \"dataset_id\": \"<string>\",\n  \"registry_item_id\": \"<string>\",\n  \"model_name\": \"<string>\",\n  \"registry_item_version\": \"<string>\",\n  \"model_version\": \"<string>\",\n  \"arguments\": {}\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.app.mltraining.v1.MLTrainingService/SubmitCustomTrainingJob",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.app.mltraining.v1.MLTrainingService",
+                        "SubmitCustomTrainingJob"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:45.000Z",
+                  "updatedAt": "2026-06-05T15:19:45.000Z",
+                  "uid": "35240-46bd927f-e60e-44be-a7be-cb5eb43fc639"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:45.000Z",
+              "updatedAt": "2026-06-05T15:19:45.000Z",
+              "uid": "35240-cf08d802-6451-46bc-8e1d-1d1fa7c2582f"
+            }
+          ],
+          "id": "6f5e7070-15c8-4e59-920e-a3cefa903c1c",
+          "createdAt": "2026-06-05T15:19:45.000Z",
+          "updatedAt": "2026-06-05T15:19:45.000Z",
+          "uid": "35240-6f5e7070-15c8-4e59-920e-a3cefa903c1c"
+        },
+        {
+          "name": "GetTrainingJob",
+          "item": [
+            {
+              "name": "Viam Get Training Job",
+              "id": "35390823-f4f0-4041-b245-9038848fcaf6",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.app.mltraining.v1.MLTrainingService/GetTrainingJob",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.app.mltraining.v1.MLTrainingService",
+                    "GetTrainingJob"
+                  ]
+                },
+                "description": "Retrieve a training job by id."
+              },
+              "response": [
+                {
+                  "id": "a0956a21-5f39-40ba-a406-5cbd5f4bdd7d",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"id\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.app.mltraining.v1.MLTrainingService/GetTrainingJob",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.app.mltraining.v1.MLTrainingService",
+                        "GetTrainingJob"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:45.000Z",
+                  "updatedAt": "2026-06-05T15:19:45.000Z",
+                  "uid": "35240-a0956a21-5f39-40ba-a406-5cbd5f4bdd7d"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:45.000Z",
+              "updatedAt": "2026-06-05T15:19:45.000Z",
+              "uid": "35240-35390823-f4f0-4041-b245-9038848fcaf6"
+            }
+          ],
+          "id": "744e83ae-2194-49f4-a86a-8f513f0b0257",
+          "createdAt": "2026-06-05T15:19:45.000Z",
+          "updatedAt": "2026-06-05T15:19:45.000Z",
+          "uid": "35240-744e83ae-2194-49f4-a86a-8f513f0b0257"
+        },
+        {
+          "name": "ListTrainingJobs",
+          "item": [
+            {
+              "name": "Viam List Training Jobs",
+              "id": "b2130866-8064-4626-b4c0-b26b9db27d8d",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"organization_id\": \"<string>\",\n  \"status\": \"canceled\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.app.mltraining.v1.MLTrainingService/ListTrainingJobs",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.app.mltraining.v1.MLTrainingService",
+                    "ListTrainingJobs"
+                  ]
+                },
+                "description": "List training jobs scoped to an organization."
+              },
+              "response": [
+                {
+                  "id": "035eeff5-34c5-4a78-9111-582f7b4617dd",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"organization_id\": \"<string>\",\n  \"status\": \"canceled\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.app.mltraining.v1.MLTrainingService/ListTrainingJobs",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.app.mltraining.v1.MLTrainingService",
+                        "ListTrainingJobs"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:45.000Z",
+                  "updatedAt": "2026-06-05T15:19:45.000Z",
+                  "uid": "35240-035eeff5-34c5-4a78-9111-582f7b4617dd"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:45.000Z",
+              "updatedAt": "2026-06-05T15:19:45.000Z",
+              "uid": "35240-b2130866-8064-4626-b4c0-b26b9db27d8d"
+            }
+          ],
+          "id": "bd0d1306-3767-4053-9390-8b3c7933bdb4",
+          "createdAt": "2026-06-05T15:19:45.000Z",
+          "updatedAt": "2026-06-05T15:19:45.000Z",
+          "uid": "35240-bd0d1306-3767-4053-9390-8b3c7933bdb4"
+        },
+        {
+          "name": "CancelTrainingJob",
+          "item": [
+            {
+              "name": "Viam Cancel Training Job",
+              "id": "73123130-2f80-473e-a090-30c3f06f5d6b",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.app.mltraining.v1.MLTrainingService/CancelTrainingJob",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.app.mltraining.v1.MLTrainingService",
+                    "CancelTrainingJob"
+                  ]
+                },
+                "description": "Cancel a pending or running training job."
+              },
+              "response": [
+                {
+                  "id": "57c4a9c5-dae0-4c4b-b6ae-ad8e0b4be2de",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"id\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.app.mltraining.v1.MLTrainingService/CancelTrainingJob",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.app.mltraining.v1.MLTrainingService",
+                        "CancelTrainingJob"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:45.000Z",
+                  "updatedAt": "2026-06-05T15:19:45.000Z",
+                  "uid": "35240-57c4a9c5-dae0-4c4b-b6ae-ad8e0b4be2de"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:45.000Z",
+              "updatedAt": "2026-06-05T15:19:45.000Z",
+              "uid": "35240-73123130-2f80-473e-a090-30c3f06f5d6b"
+            }
+          ],
+          "id": "26455ed9-c789-4eb6-96d0-bcb8c62b2fc0",
+          "createdAt": "2026-06-05T15:19:45.000Z",
+          "updatedAt": "2026-06-05T15:19:45.000Z",
+          "uid": "35240-26455ed9-c789-4eb6-96d0-bcb8c62b2fc0"
+        },
+        {
+          "name": "DeleteCompletedTrainingJob",
+          "item": [
+            {
+              "name": "Viam Delete Completed Training Job",
+              "id": "f095ec5a-229e-499b-a2c4-d0ff5272ffe9",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.app.mltraining.v1.MLTrainingService/DeleteCompletedTrainingJob",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.app.mltraining.v1.MLTrainingService",
+                    "DeleteCompletedTrainingJob"
+                  ]
+                },
+                "description": "Permanently delete a completed training job and its artifacts."
+              },
+              "response": [
+                {
+                  "id": "d42ae1b6-4b7b-4eed-810d-86ec55fbbce0",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"id\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.app.mltraining.v1.MLTrainingService/DeleteCompletedTrainingJob",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.app.mltraining.v1.MLTrainingService",
+                        "DeleteCompletedTrainingJob"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:45.000Z",
+                  "updatedAt": "2026-06-05T15:19:45.000Z",
+                  "uid": "35240-d42ae1b6-4b7b-4eed-810d-86ec55fbbce0"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:45.000Z",
+              "updatedAt": "2026-06-05T15:19:45.000Z",
+              "uid": "35240-f095ec5a-229e-499b-a2c4-d0ff5272ffe9"
+            }
+          ],
+          "id": "e0ab1add-3b01-43db-9588-66c6432b86cd",
+          "createdAt": "2026-06-05T15:19:45.000Z",
+          "updatedAt": "2026-06-05T15:19:45.000Z",
+          "uid": "35240-e0ab1add-3b01-43db-9588-66c6432b86cd"
+        },
+        {
+          "name": "GetTrainingJobLogs",
+          "item": [
+            {
+              "name": "Viam Get Training Job Logs",
+              "id": "3e1c6ef9-6636-458e-ba0d-073ab40aef64",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.app.mltraining.v1.MLTrainingService/GetTrainingJobLogs",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.app.mltraining.v1.MLTrainingService",
+                    "GetTrainingJobLogs"
+                  ]
+                },
+                "description": "Retrieve logs for a training job."
+              },
+              "response": [
+                {
+                  "id": "27e2e564-b5c7-45b5-9617-96c9021f7495",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"id\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.app.mltraining.v1.MLTrainingService/GetTrainingJobLogs",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.app.mltraining.v1.MLTrainingService",
+                        "GetTrainingJobLogs"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:45.000Z",
+                  "updatedAt": "2026-06-05T15:19:45.000Z",
+                  "uid": "35240-27e2e564-b5c7-45b5-9617-96c9021f7495"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:45.000Z",
+              "updatedAt": "2026-06-05T15:19:45.000Z",
+              "uid": "35240-3e1c6ef9-6636-458e-ba0d-073ab40aef64"
+            }
+          ],
+          "id": "897e5014-09cc-438a-bb1e-85b96e4d7392",
+          "createdAt": "2026-06-05T15:19:45.000Z",
+          "updatedAt": "2026-06-05T15:19:45.000Z",
+          "uid": "35240-897e5014-09cc-438a-bb1e-85b96e4d7392"
+        },
+        {
+          "name": "ListSupportedContainers",
+          "item": [
+            {
+              "name": "Viam List Supported Containers",
+              "id": "da38ee41-b619-4df5-831b-e3e47d2d48df",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.app.mltraining.v1.MLTrainingService/ListSupportedContainers",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.app.mltraining.v1.MLTrainingService",
+                    "ListSupportedContainers"
+                  ]
+                },
+                "description": "List the container images supported as custom training environments."
+              },
+              "response": [
+                {
+                  "id": "39752d82-ad15-4e7a-9df6-d3264154d511",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.app.mltraining.v1.MLTrainingService/ListSupportedContainers",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.app.mltraining.v1.MLTrainingService",
+                        "ListSupportedContainers"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:45.000Z",
+                  "updatedAt": "2026-06-05T15:19:45.000Z",
+                  "uid": "35240-39752d82-ad15-4e7a-9df6-d3264154d511"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:45.000Z",
+              "updatedAt": "2026-06-05T15:19:45.000Z",
+              "uid": "35240-da38ee41-b619-4df5-831b-e3e47d2d48df"
+            }
+          ],
+          "id": "5004a32e-5023-4ac9-b26f-96dc1af05d66",
+          "createdAt": "2026-06-05T15:19:45.000Z",
+          "updatedAt": "2026-06-05T15:19:45.000Z",
+          "uid": "35240-5004a32e-5023-4ac9-b26f-96dc1af05d66"
+        }
+      ],
+      "id": "a4e33aea-a060-42ea-a101-f87ab0e9e503",
+      "createdAt": "2026-06-05T15:19:45.000Z",
+      "updatedAt": "2026-06-05T15:19:45.000Z",
+      "uid": "35240-a4e33aea-a060-42ea-a101-f87ab0e9e503"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "key",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://app.viam.com"
+    }
+  ]
+}

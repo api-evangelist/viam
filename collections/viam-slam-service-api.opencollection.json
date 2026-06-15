@@ -1,0 +1,101 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Viam SLAM Service API",
+    "version": "2026.05"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "key",
+      "value": "{{key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "SLAM",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Viam Get Position",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{machine_address}/viam.service.slam.v1.SLAMService/GetPosition",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Return the machine's pose within the SLAM map."
+        },
+        {
+          "info": {
+            "name": "Viam Get Point Cloud Map",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{machine_address}/viam.service.slam.v1.SLAMService/GetPointCloudMap",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Stream the live point cloud map."
+        },
+        {
+          "info": {
+            "name": "Viam Get Internal State",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{machine_address}/viam.service.slam.v1.SLAMService/GetInternalState",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Stream the internal SLAM state (used for resume and offline analysis)."
+        },
+        {
+          "info": {
+            "name": "Viam Get Properties",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{machine_address}/viam.service.slam.v1.SLAMService/GetProperties",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Retrieve SLAM service properties (mapping vs localization, cloud vs local)."
+        },
+        {
+          "info": {
+            "name": "Viam Do Command",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{machine_address}/viam.service.slam.v1.SLAMService/DoCommand",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Model-specific custom commands."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,845 @@
+{
+  "info": {
+    "_postman_id": "0d625270-ac73-42c7-b7e5-d35ca80ff209",
+    "name": "Viam Motion Service API",
+    "description": "REST/JSON transcoding of the Viam MotionService gRPC API. Plan and execute motion\nfor a machine's components using kinematic chains, the frame system, and obstacle\navoidance.\n\nCanonical contract: https://github.com/viamrobotics/api/blob/main/proto/viam/service/motion/v1/motion.proto\n\n\nContact Support:\n Name: Viam Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T15:19:48.000Z",
+    "updatedAt": "2026-06-05T15:19:48.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-0d625270-ac73-42c7-b7e5-d35ca80ff209"
+  },
+  "item": [
+    {
+      "name": "viam.service.motion.v1.MotionService",
+      "item": [
+        {
+          "name": "Move",
+          "item": [
+            {
+              "name": "Viam Move",
+              "id": "51484208-5198-483c-886c-6f11cf9aa6e0",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"component_name\": {},\n  \"destination\": {},\n  \"world_state\": {},\n  \"constraints\": {},\n  \"extra\": {}\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.service.motion.v1.MotionService/Move",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.service.motion.v1.MotionService",
+                    "Move"
+                  ]
+                },
+                "description": "Plan and execute a motion to a destination pose for a component."
+              },
+              "response": [
+                {
+                  "id": "9851f1a3-577b-431a-811b-1a0a283ab3e3",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"component_name\": {},\n  \"destination\": {},\n  \"world_state\": {},\n  \"constraints\": {},\n  \"extra\": {}\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.service.motion.v1.MotionService/Move",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.service.motion.v1.MotionService",
+                        "Move"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:49.000Z",
+                  "updatedAt": "2026-06-05T15:19:49.000Z",
+                  "uid": "35240-9851f1a3-577b-431a-811b-1a0a283ab3e3"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:49.000Z",
+              "updatedAt": "2026-06-05T15:19:49.000Z",
+              "uid": "35240-51484208-5198-483c-886c-6f11cf9aa6e0"
+            }
+          ],
+          "id": "4d8ad3cf-f004-4d10-9e1d-8e7f18fafa07",
+          "createdAt": "2026-06-05T15:19:49.000Z",
+          "updatedAt": "2026-06-05T15:19:49.000Z",
+          "uid": "35240-4d8ad3cf-f004-4d10-9e1d-8e7f18fafa07"
+        },
+        {
+          "name": "MoveOnMap",
+          "item": [
+            {
+              "name": "Viam Move On Map",
+              "id": "7dccc340-72a5-4cfa-8f90-600932c909c9",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"destination\": {},\n  \"component_name\": {},\n  \"slam_service_name\": {},\n  \"motion_configuration\": {}\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.service.motion.v1.MotionService/MoveOnMap",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.service.motion.v1.MotionService",
+                    "MoveOnMap"
+                  ]
+                },
+                "description": "Move a base component to a destination on a SLAM map."
+              },
+              "response": [
+                {
+                  "id": "f5a43b78-10d2-4a7e-9087-1c12a7e4291a",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"destination\": {},\n  \"component_name\": {},\n  \"slam_service_name\": {},\n  \"motion_configuration\": {}\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.service.motion.v1.MotionService/MoveOnMap",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.service.motion.v1.MotionService",
+                        "MoveOnMap"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:49.000Z",
+                  "updatedAt": "2026-06-05T15:19:49.000Z",
+                  "uid": "35240-f5a43b78-10d2-4a7e-9087-1c12a7e4291a"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:49.000Z",
+              "updatedAt": "2026-06-05T15:19:49.000Z",
+              "uid": "35240-7dccc340-72a5-4cfa-8f90-600932c909c9"
+            }
+          ],
+          "id": "422eda29-dc0d-46b8-bf23-03ed73d1bb1f",
+          "createdAt": "2026-06-05T15:19:49.000Z",
+          "updatedAt": "2026-06-05T15:19:49.000Z",
+          "uid": "35240-422eda29-dc0d-46b8-bf23-03ed73d1bb1f"
+        },
+        {
+          "name": "MoveOnGlobe",
+          "item": [
+            {
+              "name": "Viam Move On Globe",
+              "id": "7ffc05e7-f662-4c46-a69e-2177729f0f23",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"destination\": {},\n  \"component_name\": {},\n  \"movement_sensor_name\": {},\n  \"heading\": \"<number>\",\n  \"motion_configuration\": {}\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.service.motion.v1.MotionService/MoveOnGlobe",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.service.motion.v1.MotionService",
+                    "MoveOnGlobe"
+                  ]
+                },
+                "description": "Move a base component to a destination on the globe using GPS coordinates."
+              },
+              "response": [
+                {
+                  "id": "da0cdd2c-94ad-4834-996d-1cbe3659146b",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"destination\": {},\n  \"component_name\": {},\n  \"movement_sensor_name\": {},\n  \"heading\": \"<number>\",\n  \"motion_configuration\": {}\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.service.motion.v1.MotionService/MoveOnGlobe",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.service.motion.v1.MotionService",
+                        "MoveOnGlobe"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:49.000Z",
+                  "updatedAt": "2026-06-05T15:19:49.000Z",
+                  "uid": "35240-da0cdd2c-94ad-4834-996d-1cbe3659146b"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:49.000Z",
+              "updatedAt": "2026-06-05T15:19:49.000Z",
+              "uid": "35240-7ffc05e7-f662-4c46-a69e-2177729f0f23"
+            }
+          ],
+          "id": "87da4b34-16bc-4972-8c96-7c99383ceb5f",
+          "createdAt": "2026-06-05T15:19:49.000Z",
+          "updatedAt": "2026-06-05T15:19:49.000Z",
+          "uid": "35240-87da4b34-16bc-4972-8c96-7c99383ceb5f"
+        },
+        {
+          "name": "GetPose",
+          "item": [
+            {
+              "name": "Viam Get Pose",
+              "id": "019bdbc8-b1ab-4eb3-834f-8bc01a7a83c3",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"component_name\": {},\n  \"destination_frame\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.service.motion.v1.MotionService/GetPose",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.service.motion.v1.MotionService",
+                    "GetPose"
+                  ]
+                },
+                "description": "Retrieve the pose of a component relative to a destination frame."
+              },
+              "response": [
+                {
+                  "id": "70a454d3-1700-48a6-b1ee-d68c8be1002f",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"component_name\": {},\n  \"destination_frame\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.service.motion.v1.MotionService/GetPose",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.service.motion.v1.MotionService",
+                        "GetPose"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:49.000Z",
+                  "updatedAt": "2026-06-05T15:19:49.000Z",
+                  "uid": "35240-70a454d3-1700-48a6-b1ee-d68c8be1002f"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:49.000Z",
+              "updatedAt": "2026-06-05T15:19:49.000Z",
+              "uid": "35240-019bdbc8-b1ab-4eb3-834f-8bc01a7a83c3"
+            }
+          ],
+          "id": "8f80cd29-c654-4275-8e18-45e7946ccf25",
+          "createdAt": "2026-06-05T15:19:49.000Z",
+          "updatedAt": "2026-06-05T15:19:49.000Z",
+          "uid": "35240-8f80cd29-c654-4275-8e18-45e7946ccf25"
+        },
+        {
+          "name": "StopPlan",
+          "item": [
+            {
+              "name": "Viam Stop Plan",
+              "id": "e9c3251e-a0e7-4171-bb7c-68be4720c0c0",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"component_name\": {}\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.service.motion.v1.MotionService/StopPlan",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.service.motion.v1.MotionService",
+                    "StopPlan"
+                  ]
+                },
+                "description": "Stop a running motion plan."
+              },
+              "response": [
+                {
+                  "id": "35e6e8a7-f599-41ad-ac78-14652200a306",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"component_name\": {}\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.service.motion.v1.MotionService/StopPlan",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.service.motion.v1.MotionService",
+                        "StopPlan"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:49.000Z",
+                  "updatedAt": "2026-06-05T15:19:49.000Z",
+                  "uid": "35240-35e6e8a7-f599-41ad-ac78-14652200a306"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:49.000Z",
+              "updatedAt": "2026-06-05T15:19:49.000Z",
+              "uid": "35240-e9c3251e-a0e7-4171-bb7c-68be4720c0c0"
+            }
+          ],
+          "id": "53484de7-e675-47df-bea5-5b2aa6152066",
+          "createdAt": "2026-06-05T15:19:49.000Z",
+          "updatedAt": "2026-06-05T15:19:49.000Z",
+          "uid": "35240-53484de7-e675-47df-bea5-5b2aa6152066"
+        },
+        {
+          "name": "ListPlanStatuses",
+          "item": [
+            {
+              "name": "Viam List Plan Statuses",
+              "id": "bef386e5-8ff5-4451-ba0a-bffbc84cdda3",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"only_active_plans\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.service.motion.v1.MotionService/ListPlanStatuses",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.service.motion.v1.MotionService",
+                    "ListPlanStatuses"
+                  ]
+                },
+                "description": "List status of motion plans on the machine."
+              },
+              "response": [
+                {
+                  "id": "53137a83-9454-4f7b-a1ea-aab4508ca43f",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"only_active_plans\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.service.motion.v1.MotionService/ListPlanStatuses",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.service.motion.v1.MotionService",
+                        "ListPlanStatuses"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:49.000Z",
+                  "updatedAt": "2026-06-05T15:19:49.000Z",
+                  "uid": "35240-53137a83-9454-4f7b-a1ea-aab4508ca43f"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:49.000Z",
+              "updatedAt": "2026-06-05T15:19:49.000Z",
+              "uid": "35240-bef386e5-8ff5-4451-ba0a-bffbc84cdda3"
+            }
+          ],
+          "id": "305022c6-7b1b-4e5b-b18c-1edaa747db5e",
+          "createdAt": "2026-06-05T15:19:49.000Z",
+          "updatedAt": "2026-06-05T15:19:49.000Z",
+          "uid": "35240-305022c6-7b1b-4e5b-b18c-1edaa747db5e"
+        },
+        {
+          "name": "GetPlan",
+          "item": [
+            {
+              "name": "Viam Get Plan",
+              "id": "088d6222-99c9-430c-bdf3-ad51c011be8d",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"component_name\": {},\n  \"execution_id\": \"<string>\",\n  \"last_plan_only\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.service.motion.v1.MotionService/GetPlan",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.service.motion.v1.MotionService",
+                    "GetPlan"
+                  ]
+                },
+                "description": "Retrieve a motion plan by execution id."
+              },
+              "response": [
+                {
+                  "id": "0826747d-8fa1-46c8-834a-e490dad0feb1",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"component_name\": {},\n  \"execution_id\": \"<string>\",\n  \"last_plan_only\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.service.motion.v1.MotionService/GetPlan",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.service.motion.v1.MotionService",
+                        "GetPlan"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:49.000Z",
+                  "updatedAt": "2026-06-05T15:19:49.000Z",
+                  "uid": "35240-0826747d-8fa1-46c8-834a-e490dad0feb1"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:49.000Z",
+              "updatedAt": "2026-06-05T15:19:49.000Z",
+              "uid": "35240-088d6222-99c9-430c-bdf3-ad51c011be8d"
+            }
+          ],
+          "id": "a7426098-0455-4342-a22c-0e8fbe625060",
+          "createdAt": "2026-06-05T15:19:49.000Z",
+          "updatedAt": "2026-06-05T15:19:49.000Z",
+          "uid": "35240-a7426098-0455-4342-a22c-0e8fbe625060"
+        },
+        {
+          "name": "DoCommand",
+          "item": [
+            {
+              "name": "Viam Do Command",
+              "id": "76199cb2-a879-49ce-9c5a-2fd1c7a30011",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"command\": {}\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.service.motion.v1.MotionService/DoCommand",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.service.motion.v1.MotionService",
+                    "DoCommand"
+                  ]
+                },
+                "description": "Model-specific custom commands."
+              },
+              "response": [
+                {
+                  "id": "8675b6c7-defe-47c0-9f76-0bbc0ea98a57",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"command\": {}\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.service.motion.v1.MotionService/DoCommand",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.service.motion.v1.MotionService",
+                        "DoCommand"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:49.000Z",
+                  "updatedAt": "2026-06-05T15:19:49.000Z",
+                  "uid": "35240-8675b6c7-defe-47c0-9f76-0bbc0ea98a57"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:49.000Z",
+              "updatedAt": "2026-06-05T15:19:49.000Z",
+              "uid": "35240-76199cb2-a879-49ce-9c5a-2fd1c7a30011"
+            }
+          ],
+          "id": "40ee024d-3c59-42c0-ac43-2868eb496cad",
+          "createdAt": "2026-06-05T15:19:49.000Z",
+          "updatedAt": "2026-06-05T15:19:49.000Z",
+          "uid": "35240-40ee024d-3c59-42c0-ac43-2868eb496cad"
+        }
+      ],
+      "id": "5fba056e-2faf-48b2-80db-4bf5bcc902b0",
+      "createdAt": "2026-06-05T15:19:49.000Z",
+      "updatedAt": "2026-06-05T15:19:49.000Z",
+      "uid": "35240-5fba056e-2faf-48b2-80db-4bf5bcc902b0"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "key",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "machine_address",
+      "value": "machine.local.viam.cloud:443"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{machine_address}}"
+    }
+  ]
+}

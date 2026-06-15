@@ -1,0 +1,146 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Viam ML Training API",
+    "version": "2026.05"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "key",
+      "value": "{{key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Training Jobs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Viam Submit Training Job",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.app.mltraining.v1.MLTrainingService/SubmitTrainingJob",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Submit a built-in TFLite training job against a dataset."
+        },
+        {
+          "info": {
+            "name": "Viam Submit Custom Training Job",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.app.mltraining.v1.MLTrainingService/SubmitCustomTrainingJob",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Submit a custom containerized training job (registry container) against a dataset."
+        },
+        {
+          "info": {
+            "name": "Viam Get Training Job",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.app.mltraining.v1.MLTrainingService/GetTrainingJob",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Retrieve a training job by id."
+        },
+        {
+          "info": {
+            "name": "Viam List Training Jobs",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.app.mltraining.v1.MLTrainingService/ListTrainingJobs",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "List training jobs scoped to an organization."
+        },
+        {
+          "info": {
+            "name": "Viam Cancel Training Job",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.app.mltraining.v1.MLTrainingService/CancelTrainingJob",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Cancel a pending or running training job."
+        },
+        {
+          "info": {
+            "name": "Viam Delete Completed Training Job",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.app.mltraining.v1.MLTrainingService/DeleteCompletedTrainingJob",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Permanently delete a completed training job and its artifacts."
+        },
+        {
+          "info": {
+            "name": "Viam Get Training Job Logs",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.app.mltraining.v1.MLTrainingService/GetTrainingJobLogs",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Retrieve logs for a training job."
+        },
+        {
+          "info": {
+            "name": "Viam List Supported Containers",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.app.mltraining.v1.MLTrainingService/ListSupportedContainers",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "List the container images supported as custom training environments."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

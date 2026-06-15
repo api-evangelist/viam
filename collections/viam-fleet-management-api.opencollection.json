@@ -1,0 +1,577 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Viam Fleet Management API",
+    "version": "2026.05"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "key",
+      "value": "{{key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Organizations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Viam List Organizations",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.app.v1.AppService/ListOrganizations",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "List organizations the caller has access to."
+        },
+        {
+          "info": {
+            "name": "Viam Get Organization",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.app.v1.AppService/GetOrganization",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Retrieve a single organization by id."
+        },
+        {
+          "info": {
+            "name": "Viam Create Organization",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.app.v1.AppService/CreateOrganization",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new organization."
+        },
+        {
+          "info": {
+            "name": "Viam Update Organization",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.app.v1.AppService/UpdateOrganization",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update an organization's name or public namespace."
+        },
+        {
+          "info": {
+            "name": "Viam Delete Organization",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.app.v1.AppService/DeleteOrganization",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Delete an organization."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Locations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Viam List Locations",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.app.v1.AppService/ListLocations",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "List locations under an organization."
+        },
+        {
+          "info": {
+            "name": "Viam Get Location",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.app.v1.AppService/GetLocation",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Retrieve a single location by id."
+        },
+        {
+          "info": {
+            "name": "Viam Create Location",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.app.v1.AppService/CreateLocation",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new location under an organization."
+        },
+        {
+          "info": {
+            "name": "Viam Update Location",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.app.v1.AppService/UpdateLocation",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a location's name or parent location."
+        },
+        {
+          "info": {
+            "name": "Viam Delete Location",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.app.v1.AppService/DeleteLocation",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Delete a location and all machines under it."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Machines",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Viam List Machines",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.app.v1.AppService/ListRobots",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "List machines (robots) in a location."
+        },
+        {
+          "info": {
+            "name": "Viam Get Machine",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.app.v1.AppService/GetRobot",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Retrieve a machine by id."
+        },
+        {
+          "info": {
+            "name": "Viam Create Machine",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.app.v1.AppService/NewRobot",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new machine under a location."
+        },
+        {
+          "info": {
+            "name": "Viam Update Machine",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.app.v1.AppService/UpdateRobot",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a machine's name or location."
+        },
+        {
+          "info": {
+            "name": "Viam Delete Machine",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.app.v1.AppService/DeleteRobot",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Delete a machine."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Machine Parts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Viam Get Machine Parts",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.app.v1.AppService/GetRobotParts",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "List parts (viam-server processes) that make up a machine."
+        },
+        {
+          "info": {
+            "name": "Viam Get Machine Part",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.app.v1.AppService/GetRobotPart",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Retrieve a single machine part."
+        },
+        {
+          "info": {
+            "name": "Viam Create Machine Part",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.app.v1.AppService/NewRobotPart",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new machine part."
+        },
+        {
+          "info": {
+            "name": "Viam Restart Machine Part",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.app.v1.AppService/MarkPartForRestart",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Schedule a restart for a machine part."
+        },
+        {
+          "info": {
+            "name": "Viam Get Machine Part Logs",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.app.v1.AppService/GetRobotPartLogs",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Retrieve logs from a machine part."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Fragments",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Viam List Fragments",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.app.v1.AppService/ListFragments",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "List configuration fragments in an organization."
+        },
+        {
+          "info": {
+            "name": "Viam Create Fragment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.app.v1.AppService/CreateFragment",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new configuration fragment."
+        },
+        {
+          "info": {
+            "name": "Viam Get Fragment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.app.v1.AppService/GetFragment",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Retrieve a fragment by id."
+        },
+        {
+          "info": {
+            "name": "Viam Update Fragment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.app.v1.AppService/UpdateFragment",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update an existing fragment."
+        },
+        {
+          "info": {
+            "name": "Viam Delete Fragment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.app.v1.AppService/DeleteFragment",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Delete a fragment."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Members",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Viam List Organization Members",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.app.v1.AppService/ListOrganizationMembers",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "List members and pending invites for an organization."
+        },
+        {
+          "info": {
+            "name": "Viam Invite Organization Member",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.app.v1.AppService/CreateOrganizationInvite",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Invite a user to an organization with one or more authorizations."
+        },
+        {
+          "info": {
+            "name": "Viam Remove Organization Member",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.app.v1.AppService/DeleteOrganizationMember",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Remove a member from an organization."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "OAuth Apps",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Viam Create Oauth App",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.app.v1.AppService/CreateOAuthApp",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Register a new OAuth application against an organization."
+        },
+        {
+          "info": {
+            "name": "Viam List Oauth Apps",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.app.v1.AppService/ListOAuthApps",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "List OAuth applications registered under an organization."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Secrets",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Viam Create Location Secret",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.app.v1.AppService/CreateLocationSecret",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new location-level secret used by SDKs to connect."
+        },
+        {
+          "info": {
+            "name": "Viam Delete Location Secret",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.app.v1.AppService/DeleteLocationSecret",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Revoke a location secret."
+        },
+        {
+          "info": {
+            "name": "Viam Get Machine Api Keys",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.app.v1.AppService/GetRobotAPIKeys",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "List API keys with access to a machine."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

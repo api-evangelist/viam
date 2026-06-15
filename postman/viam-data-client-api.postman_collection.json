@@ -1,0 +1,2722 @@
+{
+  "info": {
+    "_postman_id": "8bc8cdeb-cd2d-4df1-b486-04def4ded55f",
+    "name": "Viam Data Client API",
+    "description": "REST/JSON transcoding of the Viam DataService gRPC API. Upload, download, query,\ntag, and delete tabular and binary data captured from machines. Manage datasets,\nsaved queries, bounding boxes, sequences, and the cloud-hosted MongoDB connection.\n\nCanonical contract: https://github.com/viamrobotics/api/blob/main/proto/viam/app/data/v1/data.proto\n\n\nContact Support:\n Name: Viam Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T15:19:41.000Z",
+    "updatedAt": "2026-06-05T15:19:42.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-8bc8cdeb-cd2d-4df1-b486-04def4ded55f"
+  },
+  "item": [
+    {
+      "name": "viam.app.data.v1.DataService",
+      "item": [
+        {
+          "name": "TabularDataByFilter",
+          "item": [
+            {
+              "name": "Viam Tabular Data By Filter",
+              "id": "dda84e13-d57e-4427-a3f2-67517b184bc4",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data_request\": {},\n  \"count_only\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.app.data.v1.DataService/TabularDataByFilter",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.app.data.v1.DataService",
+                    "TabularDataByFilter"
+                  ]
+                },
+                "description": "Query tabular data using component, location, time-range, and tag filters."
+              },
+              "response": [
+                {
+                  "id": "f2b63b1f-ee35-4841-87c7-a5a055ae2561",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"data_request\": {},\n  \"count_only\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.app.data.v1.DataService/TabularDataByFilter",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.app.data.v1.DataService",
+                        "TabularDataByFilter"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:42.000Z",
+                  "updatedAt": "2026-06-05T15:19:42.000Z",
+                  "uid": "35240-f2b63b1f-ee35-4841-87c7-a5a055ae2561"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:42.000Z",
+              "updatedAt": "2026-06-05T15:19:42.000Z",
+              "uid": "35240-dda84e13-d57e-4427-a3f2-67517b184bc4"
+            }
+          ],
+          "id": "b78bd67d-b595-4dd9-97f1-619c309cfe55",
+          "createdAt": "2026-06-05T15:19:42.000Z",
+          "updatedAt": "2026-06-05T15:19:42.000Z",
+          "uid": "35240-b78bd67d-b595-4dd9-97f1-619c309cfe55"
+        },
+        {
+          "name": "TabularDataBySQL",
+          "item": [
+            {
+              "name": "Viam Tabular Data By Sql",
+              "id": "2517400c-2819-46b4-abf2-01ae3d1d2312",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"organization_id\": \"<string>\",\n  \"sql_query\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.app.data.v1.DataService/TabularDataBySQL",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.app.data.v1.DataService",
+                    "TabularDataBySQL"
+                  ]
+                },
+                "description": "Query tabular data with SQL against the Viam hot data store."
+              },
+              "response": [
+                {
+                  "id": "735da786-e115-4e7e-acc3-15675b90ac94",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"organization_id\": \"<string>\",\n  \"sql_query\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.app.data.v1.DataService/TabularDataBySQL",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.app.data.v1.DataService",
+                        "TabularDataBySQL"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:42.000Z",
+                  "updatedAt": "2026-06-05T15:19:42.000Z",
+                  "uid": "35240-735da786-e115-4e7e-acc3-15675b90ac94"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:42.000Z",
+              "updatedAt": "2026-06-05T15:19:42.000Z",
+              "uid": "35240-2517400c-2819-46b4-abf2-01ae3d1d2312"
+            }
+          ],
+          "id": "d7ab979b-16cd-4fc6-ae49-73d588483ff6",
+          "createdAt": "2026-06-05T15:19:42.000Z",
+          "updatedAt": "2026-06-05T15:19:42.000Z",
+          "uid": "35240-d7ab979b-16cd-4fc6-ae49-73d588483ff6"
+        },
+        {
+          "name": "TabularDataByMQL",
+          "item": [
+            {
+              "name": "Viam Tabular Data By Mql",
+              "id": "d29bd438-2706-4312-9b6f-0676a6e9bef4",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"organization_id\": \"<string>\",\n  \"mql_binary\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.app.data.v1.DataService/TabularDataByMQL",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.app.data.v1.DataService",
+                    "TabularDataByMQL"
+                  ]
+                },
+                "description": "Query tabular data with MongoDB Query Language."
+              },
+              "response": [
+                {
+                  "id": "21dda298-dc9a-4245-bc6e-56c947e92239",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"organization_id\": \"<string>\",\n  \"mql_binary\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.app.data.v1.DataService/TabularDataByMQL",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.app.data.v1.DataService",
+                        "TabularDataByMQL"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:42.000Z",
+                  "updatedAt": "2026-06-05T15:19:42.000Z",
+                  "uid": "35240-21dda298-dc9a-4245-bc6e-56c947e92239"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:42.000Z",
+              "updatedAt": "2026-06-05T15:19:42.000Z",
+              "uid": "35240-d29bd438-2706-4312-9b6f-0676a6e9bef4"
+            }
+          ],
+          "id": "4ace3233-009d-40f0-926a-6698af8e72c3",
+          "createdAt": "2026-06-05T15:19:42.000Z",
+          "updatedAt": "2026-06-05T15:19:42.000Z",
+          "uid": "35240-4ace3233-009d-40f0-926a-6698af8e72c3"
+        },
+        {
+          "name": "ExportTabularData",
+          "item": [
+            {
+              "name": "Viam Export Tabular Data",
+              "id": "a9704139-54c9-47bb-9b5d-d4ea7a42c26f",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"part_id\": \"<string>\",\n  \"resource_name\": \"<string>\",\n  \"resource_subtype\": \"<string>\",\n  \"method_name\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.app.data.v1.DataService/ExportTabularData",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.app.data.v1.DataService",
+                    "ExportTabularData"
+                  ]
+                },
+                "description": "Stream-export tabular data matching a filter."
+              },
+              "response": [
+                {
+                  "id": "48dc8ad5-4967-4062-97d3-9e2659947276",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"part_id\": \"<string>\",\n  \"resource_name\": \"<string>\",\n  \"resource_subtype\": \"<string>\",\n  \"method_name\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.app.data.v1.DataService/ExportTabularData",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.app.data.v1.DataService",
+                        "ExportTabularData"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:42.000Z",
+                  "updatedAt": "2026-06-05T15:19:42.000Z",
+                  "uid": "35240-48dc8ad5-4967-4062-97d3-9e2659947276"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:42.000Z",
+              "updatedAt": "2026-06-05T15:19:42.000Z",
+              "uid": "35240-a9704139-54c9-47bb-9b5d-d4ea7a42c26f"
+            }
+          ],
+          "id": "54a0c3ca-8e4f-4c64-8120-9c4e19d784b8",
+          "createdAt": "2026-06-05T15:19:42.000Z",
+          "updatedAt": "2026-06-05T15:19:42.000Z",
+          "uid": "35240-54a0c3ca-8e4f-4c64-8120-9c4e19d784b8"
+        },
+        {
+          "name": "GetLatestTabularData",
+          "item": [
+            {
+              "name": "Viam Get Latest Tabular Data",
+              "id": "9ce9e72d-4ad3-455b-aa7f-cb123c07d960",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"part_id\": \"<string>\",\n  \"resource_name\": \"<string>\",\n  \"resource_subtype\": \"<string>\",\n  \"method_name\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.app.data.v1.DataService/GetLatestTabularData",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.app.data.v1.DataService",
+                    "GetLatestTabularData"
+                  ]
+                },
+                "description": "Return the latest tabular data point for a component/method."
+              },
+              "response": [
+                {
+                  "id": "89398ce5-6973-4ead-953c-7e9e21ac9a1d",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"part_id\": \"<string>\",\n  \"resource_name\": \"<string>\",\n  \"resource_subtype\": \"<string>\",\n  \"method_name\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.app.data.v1.DataService/GetLatestTabularData",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.app.data.v1.DataService",
+                        "GetLatestTabularData"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:42.000Z",
+                  "updatedAt": "2026-06-05T15:19:42.000Z",
+                  "uid": "35240-89398ce5-6973-4ead-953c-7e9e21ac9a1d"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:42.000Z",
+              "updatedAt": "2026-06-05T15:19:42.000Z",
+              "uid": "35240-9ce9e72d-4ad3-455b-aa7f-cb123c07d960"
+            }
+          ],
+          "id": "e1fd941c-73a5-45f0-bdbf-46d197522807",
+          "createdAt": "2026-06-05T15:19:42.000Z",
+          "updatedAt": "2026-06-05T15:19:42.000Z",
+          "uid": "35240-e1fd941c-73a5-45f0-bdbf-46d197522807"
+        },
+        {
+          "name": "DeleteTabularData",
+          "item": [
+            {
+              "name": "Viam Delete Tabular Data",
+              "id": "f299de07-1f8b-43f5-8d6a-9315d84eb811",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"organization_id\": \"<string>\",\n  \"delete_older_than_days\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.app.data.v1.DataService/DeleteTabularData",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.app.data.v1.DataService",
+                    "DeleteTabularData"
+                  ]
+                },
+                "description": "Delete tabular data older than a given age in days."
+              },
+              "response": [
+                {
+                  "id": "935e4cce-2b95-4dee-a49d-e03c631001d4",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"organization_id\": \"<string>\",\n  \"delete_older_than_days\": \"<integer>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.app.data.v1.DataService/DeleteTabularData",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.app.data.v1.DataService",
+                        "DeleteTabularData"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:42.000Z",
+                  "updatedAt": "2026-06-05T15:19:42.000Z",
+                  "uid": "35240-935e4cce-2b95-4dee-a49d-e03c631001d4"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:42.000Z",
+              "updatedAt": "2026-06-05T15:19:42.000Z",
+              "uid": "35240-f299de07-1f8b-43f5-8d6a-9315d84eb811"
+            }
+          ],
+          "id": "7ee1b895-df30-4220-8640-26b3e87cf641",
+          "createdAt": "2026-06-05T15:19:42.000Z",
+          "updatedAt": "2026-06-05T15:19:42.000Z",
+          "uid": "35240-7ee1b895-df30-4220-8640-26b3e87cf641"
+        },
+        {
+          "name": "BinaryDataByFilter",
+          "item": [
+            {
+              "name": "Viam Binary Data By Filter",
+              "id": "4b2b193b-52b2-4437-9dd9-34d2ff183996",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data_request\": {},\n  \"include_binary\": \"<boolean>\",\n  \"count_only\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.app.data.v1.DataService/BinaryDataByFilter",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.app.data.v1.DataService",
+                    "BinaryDataByFilter"
+                  ]
+                },
+                "description": "Query binary data items using a filter and optional pagination."
+              },
+              "response": [
+                {
+                  "id": "73cbc018-128b-4d88-ac59-0f47c663ed96",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"data_request\": {},\n  \"include_binary\": \"<boolean>\",\n  \"count_only\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.app.data.v1.DataService/BinaryDataByFilter",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.app.data.v1.DataService",
+                        "BinaryDataByFilter"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:42.000Z",
+                  "updatedAt": "2026-06-05T15:19:42.000Z",
+                  "uid": "35240-73cbc018-128b-4d88-ac59-0f47c663ed96"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:42.000Z",
+              "updatedAt": "2026-06-05T15:19:42.000Z",
+              "uid": "35240-4b2b193b-52b2-4437-9dd9-34d2ff183996"
+            }
+          ],
+          "id": "b66bb2fb-1520-488a-b14f-39f31a31090f",
+          "createdAt": "2026-06-05T15:19:42.000Z",
+          "updatedAt": "2026-06-05T15:19:42.000Z",
+          "uid": "35240-b66bb2fb-1520-488a-b14f-39f31a31090f"
+        },
+        {
+          "name": "BinaryDataByIDs",
+          "item": [
+            {
+              "name": "Viam Binary Data By Ids",
+              "id": "1db43a40-3734-499d-9e5f-788b4db36da8",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"binary_ids\": [],\n  \"include_binary\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.app.data.v1.DataService/BinaryDataByIDs",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.app.data.v1.DataService",
+                    "BinaryDataByIDs"
+                  ]
+                },
+                "description": "Retrieve binary data items by their ids."
+              },
+              "response": [
+                {
+                  "id": "de95aef2-9e6a-4613-82e7-9b6ccb92cc9f",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"binary_ids\": [],\n  \"include_binary\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.app.data.v1.DataService/BinaryDataByIDs",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.app.data.v1.DataService",
+                        "BinaryDataByIDs"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:42.000Z",
+                  "updatedAt": "2026-06-05T15:19:42.000Z",
+                  "uid": "35240-de95aef2-9e6a-4613-82e7-9b6ccb92cc9f"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:42.000Z",
+              "updatedAt": "2026-06-05T15:19:42.000Z",
+              "uid": "35240-1db43a40-3734-499d-9e5f-788b4db36da8"
+            }
+          ],
+          "id": "74565c26-30b7-4636-b6af-318b23c04945",
+          "createdAt": "2026-06-05T15:19:42.000Z",
+          "updatedAt": "2026-06-05T15:19:42.000Z",
+          "uid": "35240-74565c26-30b7-4636-b6af-318b23c04945"
+        },
+        {
+          "name": "DeleteBinaryDataByFilter",
+          "item": [
+            {
+              "name": "Viam Delete Binary Data By Filter",
+              "id": "597ed125-9e36-48f6-9ca1-b0ed32af682f",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"filter\": {}\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.app.data.v1.DataService/DeleteBinaryDataByFilter",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.app.data.v1.DataService",
+                    "DeleteBinaryDataByFilter"
+                  ]
+                },
+                "description": "Delete binary data items matching a filter."
+              },
+              "response": [
+                {
+                  "id": "e0831984-590a-43de-8877-54cd17106a79",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"filter\": {}\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.app.data.v1.DataService/DeleteBinaryDataByFilter",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.app.data.v1.DataService",
+                        "DeleteBinaryDataByFilter"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:42.000Z",
+                  "updatedAt": "2026-06-05T15:19:42.000Z",
+                  "uid": "35240-e0831984-590a-43de-8877-54cd17106a79"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:42.000Z",
+              "updatedAt": "2026-06-05T15:19:42.000Z",
+              "uid": "35240-597ed125-9e36-48f6-9ca1-b0ed32af682f"
+            }
+          ],
+          "id": "9e111595-69ee-439b-a641-41611af5185b",
+          "createdAt": "2026-06-05T15:19:42.000Z",
+          "updatedAt": "2026-06-05T15:19:42.000Z",
+          "uid": "35240-9e111595-69ee-439b-a641-41611af5185b"
+        },
+        {
+          "name": "DeleteBinaryDataByIDs",
+          "item": [
+            {
+              "name": "Viam Delete Binary Data By Ids",
+              "id": "89c694bb-8938-46d6-8d39-52a49ccda705",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"binary_ids\": []\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.app.data.v1.DataService/DeleteBinaryDataByIDs",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.app.data.v1.DataService",
+                    "DeleteBinaryDataByIDs"
+                  ]
+                },
+                "description": "Delete binary data items by id."
+              },
+              "response": [
+                {
+                  "id": "4c796e2e-efb4-4200-aeaf-3f1f037c2bee",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"binary_ids\": []\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.app.data.v1.DataService/DeleteBinaryDataByIDs",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.app.data.v1.DataService",
+                        "DeleteBinaryDataByIDs"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:42.000Z",
+                  "updatedAt": "2026-06-05T15:19:42.000Z",
+                  "uid": "35240-4c796e2e-efb4-4200-aeaf-3f1f037c2bee"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:42.000Z",
+              "updatedAt": "2026-06-05T15:19:42.000Z",
+              "uid": "35240-89c694bb-8938-46d6-8d39-52a49ccda705"
+            }
+          ],
+          "id": "b3e6c6b0-2454-4bae-a833-c47a6fc70a96",
+          "createdAt": "2026-06-05T15:19:42.000Z",
+          "updatedAt": "2026-06-05T15:19:42.000Z",
+          "uid": "35240-b3e6c6b0-2454-4bae-a833-c47a6fc70a96"
+        },
+        {
+          "name": "CreateBinaryDataSignedURL",
+          "item": [
+            {
+              "name": "Viam Create Binary Data Signed Url",
+              "id": "b72d0d2c-12da-40d6-826e-d0ab6b943450",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"part_id\": \"<string>\",\n  \"file_extension\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.app.data.v1.DataService/CreateBinaryDataSignedURL",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.app.data.v1.DataService",
+                    "CreateBinaryDataSignedURL"
+                  ]
+                },
+                "description": "Generate a signed URL for direct upload of binary data."
+              },
+              "response": [
+                {
+                  "id": "c2fb7a3e-d64d-4d33-bbdd-964c1249430f",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"part_id\": \"<string>\",\n  \"file_extension\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.app.data.v1.DataService/CreateBinaryDataSignedURL",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.app.data.v1.DataService",
+                        "CreateBinaryDataSignedURL"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:42.000Z",
+                  "updatedAt": "2026-06-05T15:19:42.000Z",
+                  "uid": "35240-c2fb7a3e-d64d-4d33-bbdd-964c1249430f"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:42.000Z",
+              "updatedAt": "2026-06-05T15:19:42.000Z",
+              "uid": "35240-b72d0d2c-12da-40d6-826e-d0ab6b943450"
+            }
+          ],
+          "id": "a8a66e3f-7278-49df-a610-d8a32e506f82",
+          "createdAt": "2026-06-05T15:19:42.000Z",
+          "updatedAt": "2026-06-05T15:19:42.000Z",
+          "uid": "35240-a8a66e3f-7278-49df-a610-d8a32e506f82"
+        },
+        {
+          "name": "AddTagsToBinaryDataByIDs",
+          "item": [
+            {
+              "name": "Viam Add Tags To Binary Data By Ids",
+              "id": "e427d8b5-6c79-4444-9e1e-53e7a841ab8b",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"binary_ids\": [],\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.app.data.v1.DataService/AddTagsToBinaryDataByIDs",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.app.data.v1.DataService",
+                    "AddTagsToBinaryDataByIDs"
+                  ]
+                },
+                "description": "Add string tags to binary data items."
+              },
+              "response": [
+                {
+                  "id": "a77156b2-5e82-47a4-aa9a-2cefb3631aab",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"binary_ids\": [],\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.app.data.v1.DataService/AddTagsToBinaryDataByIDs",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.app.data.v1.DataService",
+                        "AddTagsToBinaryDataByIDs"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:42.000Z",
+                  "updatedAt": "2026-06-05T15:19:42.000Z",
+                  "uid": "35240-a77156b2-5e82-47a4-aa9a-2cefb3631aab"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:42.000Z",
+              "updatedAt": "2026-06-05T15:19:42.000Z",
+              "uid": "35240-e427d8b5-6c79-4444-9e1e-53e7a841ab8b"
+            }
+          ],
+          "id": "09c24f23-c490-4e80-a2a2-b66d5d929609",
+          "createdAt": "2026-06-05T15:19:42.000Z",
+          "updatedAt": "2026-06-05T15:19:42.000Z",
+          "uid": "35240-09c24f23-c490-4e80-a2a2-b66d5d929609"
+        },
+        {
+          "name": "RemoveTagsFromBinaryDataByIDs",
+          "item": [
+            {
+              "name": "Viam Remove Tags From Binary Data By Ids",
+              "id": "f14279d4-bf4d-425c-9a83-637841afa7fa",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"binary_ids\": [],\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.app.data.v1.DataService/RemoveTagsFromBinaryDataByIDs",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.app.data.v1.DataService",
+                    "RemoveTagsFromBinaryDataByIDs"
+                  ]
+                },
+                "description": "Remove string tags from binary data items."
+              },
+              "response": [
+                {
+                  "id": "1afda34d-d045-41cb-b456-9b53538a1424",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"binary_ids\": [],\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.app.data.v1.DataService/RemoveTagsFromBinaryDataByIDs",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.app.data.v1.DataService",
+                        "RemoveTagsFromBinaryDataByIDs"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:42.000Z",
+                  "updatedAt": "2026-06-05T15:19:42.000Z",
+                  "uid": "35240-1afda34d-d045-41cb-b456-9b53538a1424"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:42.000Z",
+              "updatedAt": "2026-06-05T15:19:42.000Z",
+              "uid": "35240-f14279d4-bf4d-425c-9a83-637841afa7fa"
+            }
+          ],
+          "id": "5032b1f9-1428-48c1-b701-3f445262447e",
+          "createdAt": "2026-06-05T15:19:42.000Z",
+          "updatedAt": "2026-06-05T15:19:42.000Z",
+          "uid": "35240-5032b1f9-1428-48c1-b701-3f445262447e"
+        },
+        {
+          "name": "TagsByFilter",
+          "item": [
+            {
+              "name": "Viam Tags By Filter",
+              "id": "b3ed47f9-57b0-4c0d-9de5-a11fb2845711",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"filter\": {}\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.app.data.v1.DataService/TagsByFilter",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.app.data.v1.DataService",
+                    "TagsByFilter"
+                  ]
+                },
+                "description": "List unique tags matching a filter."
+              },
+              "response": [
+                {
+                  "id": "4e3bbe8f-29e2-41b3-8ccb-02ad2a3ddfae",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"filter\": {}\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.app.data.v1.DataService/TagsByFilter",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.app.data.v1.DataService",
+                        "TagsByFilter"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:42.000Z",
+                  "updatedAt": "2026-06-05T15:19:42.000Z",
+                  "uid": "35240-4e3bbe8f-29e2-41b3-8ccb-02ad2a3ddfae"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:42.000Z",
+              "updatedAt": "2026-06-05T15:19:42.000Z",
+              "uid": "35240-b3ed47f9-57b0-4c0d-9de5-a11fb2845711"
+            }
+          ],
+          "id": "8aced38e-d90a-4f48-8937-7b936255a3bb",
+          "createdAt": "2026-06-05T15:19:42.000Z",
+          "updatedAt": "2026-06-05T15:19:42.000Z",
+          "uid": "35240-8aced38e-d90a-4f48-8937-7b936255a3bb"
+        },
+        {
+          "name": "AddBoundingBoxToImageByID",
+          "item": [
+            {
+              "name": "Viam Add Bounding Box To Image By Id",
+              "id": "eacbc670-dd91-458c-b3e2-31ec2e5db74a",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"binary_id\": {},\n  \"label\": \"<string>\",\n  \"x_min_normalized\": \"<number>\",\n  \"y_min_normalized\": \"<number>\",\n  \"x_max_normalized\": \"<number>\",\n  \"y_max_normalized\": \"<number>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.app.data.v1.DataService/AddBoundingBoxToImageByID",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.app.data.v1.DataService",
+                    "AddBoundingBoxToImageByID"
+                  ]
+                },
+                "description": "Add a bounding-box annotation to a binary image item."
+              },
+              "response": [
+                {
+                  "id": "71d38ef0-0033-43de-aafb-15673be94224",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"binary_id\": {},\n  \"label\": \"<string>\",\n  \"x_min_normalized\": \"<number>\",\n  \"y_min_normalized\": \"<number>\",\n  \"x_max_normalized\": \"<number>\",\n  \"y_max_normalized\": \"<number>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.app.data.v1.DataService/AddBoundingBoxToImageByID",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.app.data.v1.DataService",
+                        "AddBoundingBoxToImageByID"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:42.000Z",
+                  "updatedAt": "2026-06-05T15:19:42.000Z",
+                  "uid": "35240-71d38ef0-0033-43de-aafb-15673be94224"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:42.000Z",
+              "updatedAt": "2026-06-05T15:19:42.000Z",
+              "uid": "35240-eacbc670-dd91-458c-b3e2-31ec2e5db74a"
+            }
+          ],
+          "id": "95b0258b-47ff-4fd3-9273-52d49a340efe",
+          "createdAt": "2026-06-05T15:19:42.000Z",
+          "updatedAt": "2026-06-05T15:19:42.000Z",
+          "uid": "35240-95b0258b-47ff-4fd3-9273-52d49a340efe"
+        },
+        {
+          "name": "RemoveBoundingBoxFromImageByID",
+          "item": [
+            {
+              "name": "Viam Remove Bounding Box From Image By Id",
+              "id": "2ba2486a-f6cd-403e-a84d-821f5f7de063",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"binary_id\": {},\n  \"bbox_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.app.data.v1.DataService/RemoveBoundingBoxFromImageByID",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.app.data.v1.DataService",
+                    "RemoveBoundingBoxFromImageByID"
+                  ]
+                },
+                "description": "Remove a bounding-box annotation by id."
+              },
+              "response": [
+                {
+                  "id": "98071c29-5072-45f6-975d-59fbf927dbd5",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"binary_id\": {},\n  \"bbox_id\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.app.data.v1.DataService/RemoveBoundingBoxFromImageByID",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.app.data.v1.DataService",
+                        "RemoveBoundingBoxFromImageByID"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:42.000Z",
+                  "updatedAt": "2026-06-05T15:19:42.000Z",
+                  "uid": "35240-98071c29-5072-45f6-975d-59fbf927dbd5"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:42.000Z",
+              "updatedAt": "2026-06-05T15:19:42.000Z",
+              "uid": "35240-2ba2486a-f6cd-403e-a84d-821f5f7de063"
+            }
+          ],
+          "id": "069b7483-debf-4aad-b696-c2f3b8728f79",
+          "createdAt": "2026-06-05T15:19:42.000Z",
+          "updatedAt": "2026-06-05T15:19:42.000Z",
+          "uid": "35240-069b7483-debf-4aad-b696-c2f3b8728f79"
+        },
+        {
+          "name": "AddBinaryDataToDatasetByIDs",
+          "item": [
+            {
+              "name": "Viam Add Binary Data To Dataset",
+              "id": "2385c37d-fdc9-4ef7-be50-74d71dba1095",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"binary_ids\": [],\n  \"dataset_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.app.data.v1.DataService/AddBinaryDataToDatasetByIDs",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.app.data.v1.DataService",
+                    "AddBinaryDataToDatasetByIDs"
+                  ]
+                },
+                "description": "Add binary data items to a dataset."
+              },
+              "response": [
+                {
+                  "id": "42f9a78e-6fc1-48d8-b009-e88d241d5c17",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"binary_ids\": [],\n  \"dataset_id\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.app.data.v1.DataService/AddBinaryDataToDatasetByIDs",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.app.data.v1.DataService",
+                        "AddBinaryDataToDatasetByIDs"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:42.000Z",
+                  "updatedAt": "2026-06-05T15:19:42.000Z",
+                  "uid": "35240-42f9a78e-6fc1-48d8-b009-e88d241d5c17"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:42.000Z",
+              "updatedAt": "2026-06-05T15:19:42.000Z",
+              "uid": "35240-2385c37d-fdc9-4ef7-be50-74d71dba1095"
+            }
+          ],
+          "id": "83bbdbf0-5b8e-48ed-8b46-1d1420b9109f",
+          "createdAt": "2026-06-05T15:19:42.000Z",
+          "updatedAt": "2026-06-05T15:19:42.000Z",
+          "uid": "35240-83bbdbf0-5b8e-48ed-8b46-1d1420b9109f"
+        },
+        {
+          "name": "RemoveBinaryDataFromDatasetByIDs",
+          "item": [
+            {
+              "name": "Viam Remove Binary Data From Dataset",
+              "id": "8c83dfb2-5aa7-4e77-8475-941243ea8642",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"binary_ids\": [],\n  \"dataset_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.app.data.v1.DataService/RemoveBinaryDataFromDatasetByIDs",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.app.data.v1.DataService",
+                    "RemoveBinaryDataFromDatasetByIDs"
+                  ]
+                },
+                "description": "Remove binary data items from a dataset."
+              },
+              "response": [
+                {
+                  "id": "cc3a263c-ea40-4bcc-b0b8-c84aeeb1fd43",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"binary_ids\": [],\n  \"dataset_id\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.app.data.v1.DataService/RemoveBinaryDataFromDatasetByIDs",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.app.data.v1.DataService",
+                        "RemoveBinaryDataFromDatasetByIDs"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:42.000Z",
+                  "updatedAt": "2026-06-05T15:19:42.000Z",
+                  "uid": "35240-cc3a263c-ea40-4bcc-b0b8-c84aeeb1fd43"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:42.000Z",
+              "updatedAt": "2026-06-05T15:19:42.000Z",
+              "uid": "35240-8c83dfb2-5aa7-4e77-8475-941243ea8642"
+            }
+          ],
+          "id": "7cf6869b-228f-4a3f-b620-ab131a23c798",
+          "createdAt": "2026-06-05T15:19:42.000Z",
+          "updatedAt": "2026-06-05T15:19:42.000Z",
+          "uid": "35240-7cf6869b-228f-4a3f-b620-ab131a23c798"
+        },
+        {
+          "name": "CreateSavedQuery",
+          "item": [
+            {
+              "name": "Viam Create Saved Query",
+              "id": "f247749f-01d9-44af-b86b-f6235f2284cd",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"organization_id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"sql_query\": \"<string>\",\n  \"mql_binary\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.app.data.v1.DataService/CreateSavedQuery",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.app.data.v1.DataService",
+                    "CreateSavedQuery"
+                  ]
+                },
+                "description": "Persist a named SQL/MQL query in the organization."
+              },
+              "response": [
+                {
+                  "id": "ff0cb889-2506-445e-accd-0ab46667f7dc",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"organization_id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"sql_query\": \"<string>\",\n  \"mql_binary\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.app.data.v1.DataService/CreateSavedQuery",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.app.data.v1.DataService",
+                        "CreateSavedQuery"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:42.000Z",
+                  "updatedAt": "2026-06-05T15:19:42.000Z",
+                  "uid": "35240-ff0cb889-2506-445e-accd-0ab46667f7dc"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:42.000Z",
+              "updatedAt": "2026-06-05T15:19:42.000Z",
+              "uid": "35240-f247749f-01d9-44af-b86b-f6235f2284cd"
+            }
+          ],
+          "id": "787091d8-990c-4e74-9ab8-8784ef6f001c",
+          "createdAt": "2026-06-05T15:19:42.000Z",
+          "updatedAt": "2026-06-05T15:19:42.000Z",
+          "uid": "35240-787091d8-990c-4e74-9ab8-8784ef6f001c"
+        },
+        {
+          "name": "ListSavedQueries",
+          "item": [
+            {
+              "name": "Viam List Saved Queries",
+              "id": "6eca0234-31a0-444f-96cf-8e1894ccfaaf",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"organization_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.app.data.v1.DataService/ListSavedQueries",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.app.data.v1.DataService",
+                    "ListSavedQueries"
+                  ]
+                },
+                "description": "List saved queries in an organization."
+              },
+              "response": [
+                {
+                  "id": "68da98c5-988b-4bd7-8388-c86a99e419cb",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"organization_id\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.app.data.v1.DataService/ListSavedQueries",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.app.data.v1.DataService",
+                        "ListSavedQueries"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:42.000Z",
+                  "updatedAt": "2026-06-05T15:19:42.000Z",
+                  "uid": "35240-68da98c5-988b-4bd7-8388-c86a99e419cb"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:42.000Z",
+              "updatedAt": "2026-06-05T15:19:42.000Z",
+              "uid": "35240-6eca0234-31a0-444f-96cf-8e1894ccfaaf"
+            }
+          ],
+          "id": "86a8f6a0-5e3a-4d5c-b3cc-5234bcb549aa",
+          "createdAt": "2026-06-05T15:19:42.000Z",
+          "updatedAt": "2026-06-05T15:19:42.000Z",
+          "uid": "35240-86a8f6a0-5e3a-4d5c-b3cc-5234bcb549aa"
+        },
+        {
+          "name": "GetSavedQuery",
+          "item": [
+            {
+              "name": "Viam Get Saved Query",
+              "id": "57bc12bb-45f7-403c-85a9-055fa69a9d78",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.app.data.v1.DataService/GetSavedQuery",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.app.data.v1.DataService",
+                    "GetSavedQuery"
+                  ]
+                },
+                "description": "Retrieve a saved query by id."
+              },
+              "response": [
+                {
+                  "id": "80c597ab-bb2f-43b0-8954-31a7d769facc",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"id\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.app.data.v1.DataService/GetSavedQuery",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.app.data.v1.DataService",
+                        "GetSavedQuery"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:42.000Z",
+                  "updatedAt": "2026-06-05T15:19:42.000Z",
+                  "uid": "35240-80c597ab-bb2f-43b0-8954-31a7d769facc"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:42.000Z",
+              "updatedAt": "2026-06-05T15:19:42.000Z",
+              "uid": "35240-57bc12bb-45f7-403c-85a9-055fa69a9d78"
+            }
+          ],
+          "id": "303f5dc0-4614-4783-9c1b-086c131989d4",
+          "createdAt": "2026-06-05T15:19:42.000Z",
+          "updatedAt": "2026-06-05T15:19:42.000Z",
+          "uid": "35240-303f5dc0-4614-4783-9c1b-086c131989d4"
+        },
+        {
+          "name": "UpdateSavedQuery",
+          "item": [
+            {
+              "name": "Viam Update Saved Query",
+              "id": "2fb2e717-ebc1-4d6e-9cb9-c399b443e51b",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"sql_query\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.app.data.v1.DataService/UpdateSavedQuery",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.app.data.v1.DataService",
+                    "UpdateSavedQuery"
+                  ]
+                },
+                "description": "Update a saved query."
+              },
+              "response": [
+                {
+                  "id": "87ce452f-29e7-4b07-88d9-b9ff2c81cd5b",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"sql_query\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.app.data.v1.DataService/UpdateSavedQuery",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.app.data.v1.DataService",
+                        "UpdateSavedQuery"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:42.000Z",
+                  "updatedAt": "2026-06-05T15:19:42.000Z",
+                  "uid": "35240-87ce452f-29e7-4b07-88d9-b9ff2c81cd5b"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:42.000Z",
+              "updatedAt": "2026-06-05T15:19:42.000Z",
+              "uid": "35240-2fb2e717-ebc1-4d6e-9cb9-c399b443e51b"
+            }
+          ],
+          "id": "d24f4e29-2b7c-4cbc-8d93-7751914d2153",
+          "createdAt": "2026-06-05T15:19:42.000Z",
+          "updatedAt": "2026-06-05T15:19:42.000Z",
+          "uid": "35240-d24f4e29-2b7c-4cbc-8d93-7751914d2153"
+        },
+        {
+          "name": "DeleteSavedQuery",
+          "item": [
+            {
+              "name": "Viam Delete Saved Query",
+              "id": "5ef3c2c6-6beb-4a47-8b74-045fbb2cc9cb",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.app.data.v1.DataService/DeleteSavedQuery",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.app.data.v1.DataService",
+                    "DeleteSavedQuery"
+                  ]
+                },
+                "description": "Delete a saved query."
+              },
+              "response": [
+                {
+                  "id": "c0683aaf-dca2-45cb-80a4-de821ff0b508",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"id\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.app.data.v1.DataService/DeleteSavedQuery",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.app.data.v1.DataService",
+                        "DeleteSavedQuery"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:42.000Z",
+                  "updatedAt": "2026-06-05T15:19:42.000Z",
+                  "uid": "35240-c0683aaf-dca2-45cb-80a4-de821ff0b508"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:42.000Z",
+              "updatedAt": "2026-06-05T15:19:42.000Z",
+              "uid": "35240-5ef3c2c6-6beb-4a47-8b74-045fbb2cc9cb"
+            }
+          ],
+          "id": "4b156fe2-8c98-4e67-9874-342c068fa8de",
+          "createdAt": "2026-06-05T15:19:42.000Z",
+          "updatedAt": "2026-06-05T15:19:42.000Z",
+          "uid": "35240-4b156fe2-8c98-4e67-9874-342c068fa8de"
+        },
+        {
+          "name": "CreateSequence",
+          "item": [
+            {
+              "name": "Viam Create Sequence",
+              "id": "c508d4d9-5ef2-4fa5-8e33-c764df5708a8",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"organization_id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"dataset_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.app.data.v1.DataService/CreateSequence",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.app.data.v1.DataService",
+                    "CreateSequence"
+                  ]
+                },
+                "description": "Create a sequence of dataset items."
+              },
+              "response": [
+                {
+                  "id": "c903b3ab-2cf3-43aa-88bf-f3246d00fef5",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"organization_id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"dataset_id\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.app.data.v1.DataService/CreateSequence",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.app.data.v1.DataService",
+                        "CreateSequence"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:42.000Z",
+                  "updatedAt": "2026-06-05T15:19:42.000Z",
+                  "uid": "35240-c903b3ab-2cf3-43aa-88bf-f3246d00fef5"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:42.000Z",
+              "updatedAt": "2026-06-05T15:19:42.000Z",
+              "uid": "35240-c508d4d9-5ef2-4fa5-8e33-c764df5708a8"
+            }
+          ],
+          "id": "1856e7bc-b15a-45be-a066-1e1e3de83923",
+          "createdAt": "2026-06-05T15:19:42.000Z",
+          "updatedAt": "2026-06-05T15:19:42.000Z",
+          "uid": "35240-1856e7bc-b15a-45be-a066-1e1e3de83923"
+        },
+        {
+          "name": "ListSequences",
+          "item": [
+            {
+              "name": "Viam List Sequences",
+              "id": "28809492-5850-4961-87ab-344717c55c36",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"organization_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.app.data.v1.DataService/ListSequences",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.app.data.v1.DataService",
+                    "ListSequences"
+                  ]
+                },
+                "description": "List sequences in an organization."
+              },
+              "response": [
+                {
+                  "id": "c4851e6d-5f5a-4b02-b007-39c8ba7164e4",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"organization_id\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.app.data.v1.DataService/ListSequences",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.app.data.v1.DataService",
+                        "ListSequences"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:42.000Z",
+                  "updatedAt": "2026-06-05T15:19:42.000Z",
+                  "uid": "35240-c4851e6d-5f5a-4b02-b007-39c8ba7164e4"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:42.000Z",
+              "updatedAt": "2026-06-05T15:19:42.000Z",
+              "uid": "35240-28809492-5850-4961-87ab-344717c55c36"
+            }
+          ],
+          "id": "30e43942-5dfb-4c58-8522-fdf218e5fc1f",
+          "createdAt": "2026-06-05T15:19:42.000Z",
+          "updatedAt": "2026-06-05T15:19:42.000Z",
+          "uid": "35240-30e43942-5dfb-4c58-8522-fdf218e5fc1f"
+        },
+        {
+          "name": "GetDatabaseConnection",
+          "item": [
+            {
+              "name": "Viam Get Database Connection",
+              "id": "79b884b0-e113-4667-b2dd-82161003d45f",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"organization_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.app.data.v1.DataService/GetDatabaseConnection",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.app.data.v1.DataService",
+                    "GetDatabaseConnection"
+                  ]
+                },
+                "description": "Get the MongoDB connection string for direct analytics access."
+              },
+              "response": [
+                {
+                  "id": "88d2ef89-1fba-42d1-b9d5-464ba014ffea",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"organization_id\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.app.data.v1.DataService/GetDatabaseConnection",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.app.data.v1.DataService",
+                        "GetDatabaseConnection"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:42.000Z",
+                  "updatedAt": "2026-06-05T15:19:42.000Z",
+                  "uid": "35240-88d2ef89-1fba-42d1-b9d5-464ba014ffea"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:42.000Z",
+              "updatedAt": "2026-06-05T15:19:42.000Z",
+              "uid": "35240-79b884b0-e113-4667-b2dd-82161003d45f"
+            }
+          ],
+          "id": "57aee17a-ce17-4309-a5db-512f38623691",
+          "createdAt": "2026-06-05T15:19:42.000Z",
+          "updatedAt": "2026-06-05T15:19:42.000Z",
+          "uid": "35240-57aee17a-ce17-4309-a5db-512f38623691"
+        },
+        {
+          "name": "ConfigureDatabaseUser",
+          "item": [
+            {
+              "name": "Viam Configure Database User",
+              "id": "88772ff8-69fa-4e0d-aaec-c6f79388d450",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"organization_id\": \"<string>\",\n  \"password\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.app.data.v1.DataService/ConfigureDatabaseUser",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.app.data.v1.DataService",
+                    "ConfigureDatabaseUser"
+                  ]
+                },
+                "description": "Create or rotate a database user for direct analytics access."
+              },
+              "response": [
+                {
+                  "id": "38b3ef68-cb26-4944-860f-47fa797c1bca",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"organization_id\": \"<string>\",\n  \"password\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.app.data.v1.DataService/ConfigureDatabaseUser",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.app.data.v1.DataService",
+                        "ConfigureDatabaseUser"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:42.000Z",
+                  "updatedAt": "2026-06-05T15:19:42.000Z",
+                  "uid": "35240-38b3ef68-cb26-4944-860f-47fa797c1bca"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:42.000Z",
+              "updatedAt": "2026-06-05T15:19:42.000Z",
+              "uid": "35240-88772ff8-69fa-4e0d-aaec-c6f79388d450"
+            }
+          ],
+          "id": "d8bfefbc-4fdc-4ced-a73b-02c6e92a13b4",
+          "createdAt": "2026-06-05T15:19:42.000Z",
+          "updatedAt": "2026-06-05T15:19:42.000Z",
+          "uid": "35240-d8bfefbc-4fdc-4ced-a73b-02c6e92a13b4"
+        }
+      ],
+      "id": "9aa50978-225f-4107-bdbf-6e47c6ac21a0",
+      "createdAt": "2026-06-05T15:19:42.000Z",
+      "updatedAt": "2026-06-05T15:19:42.000Z",
+      "uid": "35240-9aa50978-225f-4107-bdbf-6e47c6ac21a0"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "key",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://app.viam.com"
+    }
+  ]
+}

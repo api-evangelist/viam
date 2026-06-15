@@ -1,0 +1,93 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Viam Provisioning API",
+    "version": "2026.05"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Provisioning",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Viam Get Smart Machine Status",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://192.168.4.1:4772/viam.provisioning.v1.ProvisioningService/GetSmartMachineStatus",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Retrieve the device's provisioning status (network connectivity, cloud config)."
+        },
+        {
+          "info": {
+            "name": "Viam Set Network Credentials",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://192.168.4.1:4772/viam.provisioning.v1.ProvisioningService/SetNetworkCredentials",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Submit Wi-Fi credentials to the device."
+        },
+        {
+          "info": {
+            "name": "Viam Set Smart Machine Credentials",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://192.168.4.1:4772/viam.provisioning.v1.ProvisioningService/SetSmartMachineCredentials",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Submit Viam cloud credentials (machine part secret + cloud config URL) to the device."
+        },
+        {
+          "info": {
+            "name": "Viam Get Network List",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://192.168.4.1:4772/viam.provisioning.v1.ProvisioningService/GetNetworkList",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "List Wi-Fi networks visible to the device."
+        },
+        {
+          "info": {
+            "name": "Viam Exit Provisioning",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://192.168.4.1:4772/viam.provisioning.v1.ProvisioningService/ExitProvisioning",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Exit the provisioning service after the device is configured."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

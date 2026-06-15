@@ -1,0 +1,56 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Viam ML Model Service API",
+    "version": "2026.05"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "key",
+      "value": "{{key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ML Model",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Viam Infer",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{machine_address}/viam.service.mlmodel.v1.MLModelService/Infer",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Run inference against a deployed model with one or more input tensors."
+        },
+        {
+          "info": {
+            "name": "Viam Metadata",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{machine_address}/viam.service.mlmodel.v1.MLModelService/Metadata",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Retrieve the model's input/output tensor schema."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,146 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Viam Data Pipelines API",
+    "version": "2026.05"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "key",
+      "value": "{{key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Pipelines",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Viam Get Data Pipeline",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.app.datapipelines.v1.DataPipelinesService/GetDataPipeline",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Retrieve a data pipeline by id."
+        },
+        {
+          "info": {
+            "name": "Viam List Data Pipelines",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.app.datapipelines.v1.DataPipelinesService/ListDataPipelines",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "List data pipelines in an organization."
+        },
+        {
+          "info": {
+            "name": "Viam Create Data Pipeline",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.app.datapipelines.v1.DataPipelinesService/CreateDataPipeline",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new MQL data pipeline."
+        },
+        {
+          "info": {
+            "name": "Viam Rename Data Pipeline",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.app.datapipelines.v1.DataPipelinesService/RenameDataPipeline",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Rename a data pipeline."
+        },
+        {
+          "info": {
+            "name": "Viam Delete Data Pipeline",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.app.datapipelines.v1.DataPipelinesService/DeleteDataPipeline",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Delete a data pipeline."
+        },
+        {
+          "info": {
+            "name": "Viam Enable Data Pipeline",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.app.datapipelines.v1.DataPipelinesService/EnableDataPipeline",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Enable a paused data pipeline."
+        },
+        {
+          "info": {
+            "name": "Viam Disable Data Pipeline",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.app.datapipelines.v1.DataPipelinesService/DisableDataPipeline",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Disable a running data pipeline."
+        },
+        {
+          "info": {
+            "name": "Viam List Data Pipeline Runs",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.app.datapipelines.v1.DataPipelinesService/ListDataPipelineRuns",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "List historical runs for a data pipeline."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

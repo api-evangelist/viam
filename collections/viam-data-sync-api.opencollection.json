@@ -1,0 +1,71 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Viam Data Sync API",
+    "version": "2026.05"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "key",
+      "value": "{{key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Upload",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Viam Data Capture Upload",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.app.datasync.v1.DataSyncService/DataCaptureUpload",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "One-shot upload of a batch of tabular or binary data captured during a method call."
+        },
+        {
+          "info": {
+            "name": "Viam File Upload",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.app.datasync.v1.DataSyncService/FileUpload",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Upload an arbitrary file (e.g., diagnostics) chunked via client streaming."
+        },
+        {
+          "info": {
+            "name": "Viam Streaming Data Capture Upload",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.app.datasync.v1.DataSyncService/StreamingDataCaptureUpload",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Stream large binary capture (e.g., long-running video) over a single upload session."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

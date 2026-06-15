@@ -1,0 +1,404 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Viam Machine Management API",
+    "version": "2026.05"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "key",
+      "value": "{{key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Operations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Viam Get Operations",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{machine_address}/viam.robot.v1.RobotService/GetOperations",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "List operations currently running on the machine."
+        },
+        {
+          "info": {
+            "name": "Viam Cancel Operation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{machine_address}/viam.robot.v1.RobotService/CancelOperation",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Cancel a running operation by id."
+        },
+        {
+          "info": {
+            "name": "Viam Block For Operation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{machine_address}/viam.robot.v1.RobotService/BlockForOperation",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Block the caller until an operation completes."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Resources",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Viam Resource Names",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{machine_address}/viam.robot.v1.RobotService/ResourceNames",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "List all registered resource names on the machine."
+        },
+        {
+          "info": {
+            "name": "Viam Resource Rpc Subtypes",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{machine_address}/viam.robot.v1.RobotService/ResourceRPCSubtypes",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "List supported resource RPC subtypes implemented on the machine."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Modules",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Viam Get Models From Modules",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{machine_address}/viam.robot.v1.RobotService/GetModelsFromModules",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Retrieve the list of resource models registered by all loaded modules."
+        },
+        {
+          "info": {
+            "name": "Viam Restart Module",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{machine_address}/viam.robot.v1.RobotService/RestartModule",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Restart a loaded module without restarting viam-server."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Sessions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Viam Start Session",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{machine_address}/viam.robot.v1.RobotService/StartSession",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Open a new session with the machine."
+        },
+        {
+          "info": {
+            "name": "Viam Send Session Heartbeat",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{machine_address}/viam.robot.v1.RobotService/SendSessionHeartbeat",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Send a heartbeat to keep the session alive."
+        },
+        {
+          "info": {
+            "name": "Viam Get Sessions",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{machine_address}/viam.robot.v1.RobotService/GetSessions",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "List active sessions on the machine."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Status",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Viam Get Machine Status",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{machine_address}/viam.robot.v1.RobotService/GetMachineStatus",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Retrieve the overall machine status including each resource's state."
+        },
+        {
+          "info": {
+            "name": "Viam Get Version",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{machine_address}/viam.robot.v1.RobotService/GetVersion",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Retrieve the viam-server version and platform metadata."
+        },
+        {
+          "info": {
+            "name": "Viam Get Cloud Metadata",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{machine_address}/viam.robot.v1.RobotService/GetCloudMetadata",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Retrieve the org/location/machine id that the device is registered to."
+        },
+        {
+          "info": {
+            "name": "Viam Shutdown",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{machine_address}/viam.robot.v1.RobotService/Shutdown",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Cleanly shut down viam-server on the device."
+        },
+        {
+          "info": {
+            "name": "Viam Stop All",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{machine_address}/viam.robot.v1.RobotService/StopAll",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Stop all components on the machine."
+        },
+        {
+          "info": {
+            "name": "Viam Log",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{machine_address}/viam.robot.v1.RobotService/Log",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Submit log entries to viam-server."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Frame System",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Viam Frame System Config",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{machine_address}/viam.robot.v1.RobotService/FrameSystemConfig",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Retrieve the current frame system configuration."
+        },
+        {
+          "info": {
+            "name": "Viam Get Pose",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{machine_address}/viam.robot.v1.RobotService/GetPose",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Retrieve a component's pose relative to a destination frame."
+        },
+        {
+          "info": {
+            "name": "Viam Transform Pose",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{machine_address}/viam.robot.v1.RobotService/TransformPose",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Transform a pose from one frame to another."
+        },
+        {
+          "info": {
+            "name": "Viam Transform Pcd",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{machine_address}/viam.robot.v1.RobotService/TransformPCD",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Transform a point cloud from one frame to another."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Tunneling",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Viam Tunnel",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{machine_address}/viam.robot.v1.RobotService/Tunnel",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Tunnel TCP traffic through viam-server (bidirectional stream)."
+        },
+        {
+          "info": {
+            "name": "Viam List Tunnels",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{machine_address}/viam.robot.v1.RobotService/ListTunnels",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "List active tunnels."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

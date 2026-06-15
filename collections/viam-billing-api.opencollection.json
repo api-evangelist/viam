@@ -1,0 +1,215 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Viam Billing API",
+    "version": "2026.05"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "key",
+      "value": "{{key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Usage",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Viam Get Current Month Usage",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.app.v1.BillingService/GetCurrentMonthUsage",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Retrieve current-month usage and projected cost for an organization."
+        },
+        {
+          "info": {
+            "name": "Viam Get Org Billing Information",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.app.v1.BillingService/GetOrgBillingInformation",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Retrieve billing information for an organization."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Invoices",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Viam Get Invoices Summary",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.app.v1.BillingService/GetInvoicesSummary",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Summarize invoices for an organization."
+        },
+        {
+          "info": {
+            "name": "Viam Get Invoice Pdf",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.app.v1.BillingService/GetInvoicePdf",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Retrieve an invoice PDF by id."
+        },
+        {
+          "info": {
+            "name": "Viam Send Payment Required Email",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.app.v1.BillingService/SendPaymentRequiredEmail",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Send a payment-required notification email to an organization owner."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Billing Tiers",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Viam Get Available Billing Tiers",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.app.v1.BillingService/GetAvailableBillingTiers",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "List billing tiers available for end-customer subscription."
+        },
+        {
+          "info": {
+            "name": "Viam Update Organization Billing Tier",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.app.v1.BillingService/UpdateOrganizationBillingTier",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Move an organization onto a new billing tier."
+        },
+        {
+          "info": {
+            "name": "Viam Get Location Billing Organization",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.app.v1.BillingService/GetLocationBillingOrganization",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Retrieve the organization billed for a location's usage."
+        },
+        {
+          "info": {
+            "name": "Viam Update Location Billing Organization",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.app.v1.BillingService/UpdateLocationBillingOrganization",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Reassign a location to a different billing organization."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Charges",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Viam Charge Organization",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.app.v1.BillingService/ChargeOrganization",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Charge an end-customer organization for usage outside the standard billing cycle."
+        },
+        {
+          "info": {
+            "name": "Viam Create Invoice And Charge Immediately",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.app.v1.BillingService/CreateInvoiceAndChargeImmediately",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create an invoice and charge the customer immediately."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

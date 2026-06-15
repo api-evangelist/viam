@@ -1,0 +1,328 @@
+{
+  "item": [
+    {
+      "id": "526e27f5-0ccf-4ab9-898a-faf32e34916f",
+      "name": "Upload",
+      "description": {
+        "content": "Streaming and one-shot uploads of captured data.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2addae4d-737e-438a-9845-7bc42cebfc8b",
+          "name": "Viam Data Capture Upload",
+          "request": {
+            "name": "Viam Data Capture Upload",
+            "description": {
+              "content": "One-shot upload of a batch of tabular or binary data captured during a method call.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "viam.app.datasync.v1.DataSyncService",
+                "DataCaptureUpload"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"metadata\": \"<object>\",\n  \"sensor_contents\": [\n    \"<object>\",\n    \"<object>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d96bd83d-b53f-40b6-9b2a-ad8818a4a58f",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "viam.app.datasync.v1.DataSyncService",
+                    "DataCaptureUpload"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"metadata\": \"<object>\",\n  \"sensor_contents\": [\n    \"<object>\",\n    \"<object>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2f21626f-b9cc-41db-9533-8a8e268b2494",
+          "name": "Viam File Upload",
+          "request": {
+            "name": "Viam File Upload",
+            "description": {
+              "content": "Upload an arbitrary file (e.g., diagnostics) chunked via client streaming.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "viam.app.datasync.v1.DataSyncService",
+                "FileUpload"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "34368040-175a-4fb1-bbb1-7134388dcb58",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "viam.app.datasync.v1.DataSyncService",
+                    "FileUpload"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5e41e038-3487-4879-9b93-8e09a9581cfd",
+          "name": "Viam Streaming Data Capture Upload",
+          "request": {
+            "name": "Viam Streaming Data Capture Upload",
+            "description": {
+              "content": "Stream large binary capture (e.g., long-running video) over a single upload session.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "viam.app.datasync.v1.DataSyncService",
+                "StreamingDataCaptureUpload"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c9363ae6-774e-4200-831d-246eaef0624a",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "viam.app.datasync.v1.DataSyncService",
+                    "StreamingDataCaptureUpload"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://app.viam.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "5939c25d-c42f-4cec-a1a2-f5076caf9f4c",
+    "name": "Viam Data Sync API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST/JSON transcoding of the Viam DataSyncService gRPC API. The ingest plane used by\nviam-server's Data Management Service to upload captured tabular data, binary data,\nand arbitrary files to the Viam cloud.\n\nCanonical contract: https://github.com/viamrobotics/api/blob/main/proto/viam/app/datasync/v1/data_sync.proto\n\n\nContact Support:\n Name: Viam Support",
+      "type": "text/plain"
+    }
+  }
+}

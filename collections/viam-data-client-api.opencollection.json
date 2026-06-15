@@ -1,0 +1,479 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Viam Data Client API",
+    "version": "2026.05"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "key",
+      "value": "{{key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Tabular Data",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Viam Tabular Data By Filter",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.app.data.v1.DataService/TabularDataByFilter",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Query tabular data using component, location, time-range, and tag filters."
+        },
+        {
+          "info": {
+            "name": "Viam Tabular Data By Sql",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.app.data.v1.DataService/TabularDataBySQL",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Query tabular data with SQL against the Viam hot data store."
+        },
+        {
+          "info": {
+            "name": "Viam Tabular Data By Mql",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.app.data.v1.DataService/TabularDataByMQL",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Query tabular data with MongoDB Query Language."
+        },
+        {
+          "info": {
+            "name": "Viam Export Tabular Data",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.app.data.v1.DataService/ExportTabularData",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Stream-export tabular data matching a filter."
+        },
+        {
+          "info": {
+            "name": "Viam Get Latest Tabular Data",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.app.data.v1.DataService/GetLatestTabularData",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Return the latest tabular data point for a component/method."
+        },
+        {
+          "info": {
+            "name": "Viam Delete Tabular Data",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.app.data.v1.DataService/DeleteTabularData",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Delete tabular data older than a given age in days."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Binary Data",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Viam Binary Data By Filter",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.app.data.v1.DataService/BinaryDataByFilter",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Query binary data items using a filter and optional pagination."
+        },
+        {
+          "info": {
+            "name": "Viam Binary Data By Ids",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.app.data.v1.DataService/BinaryDataByIDs",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Retrieve binary data items by their ids."
+        },
+        {
+          "info": {
+            "name": "Viam Delete Binary Data By Filter",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.app.data.v1.DataService/DeleteBinaryDataByFilter",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Delete binary data items matching a filter."
+        },
+        {
+          "info": {
+            "name": "Viam Delete Binary Data By Ids",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.app.data.v1.DataService/DeleteBinaryDataByIDs",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Delete binary data items by id."
+        },
+        {
+          "info": {
+            "name": "Viam Create Binary Data Signed Url",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.app.data.v1.DataService/CreateBinaryDataSignedURL",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Generate a signed URL for direct upload of binary data."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Tags",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Viam Add Tags To Binary Data By Ids",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.app.data.v1.DataService/AddTagsToBinaryDataByIDs",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add string tags to binary data items."
+        },
+        {
+          "info": {
+            "name": "Viam Remove Tags From Binary Data By Ids",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.app.data.v1.DataService/RemoveTagsFromBinaryDataByIDs",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Remove string tags from binary data items."
+        },
+        {
+          "info": {
+            "name": "Viam Tags By Filter",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.app.data.v1.DataService/TagsByFilter",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "List unique tags matching a filter."
+        },
+        {
+          "info": {
+            "name": "Viam Add Bounding Box To Image By Id",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.app.data.v1.DataService/AddBoundingBoxToImageByID",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add a bounding-box annotation to a binary image item."
+        },
+        {
+          "info": {
+            "name": "Viam Remove Bounding Box From Image By Id",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.app.data.v1.DataService/RemoveBoundingBoxFromImageByID",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Remove a bounding-box annotation by id."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Datasets",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Viam Add Binary Data To Dataset",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.app.data.v1.DataService/AddBinaryDataToDatasetByIDs",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add binary data items to a dataset."
+        },
+        {
+          "info": {
+            "name": "Viam Remove Binary Data From Dataset",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.app.data.v1.DataService/RemoveBinaryDataFromDatasetByIDs",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Remove binary data items from a dataset."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Saved Queries",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Viam Create Saved Query",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.app.data.v1.DataService/CreateSavedQuery",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Persist a named SQL/MQL query in the organization."
+        },
+        {
+          "info": {
+            "name": "Viam List Saved Queries",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.app.data.v1.DataService/ListSavedQueries",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "List saved queries in an organization."
+        },
+        {
+          "info": {
+            "name": "Viam Get Saved Query",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.app.data.v1.DataService/GetSavedQuery",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Retrieve a saved query by id."
+        },
+        {
+          "info": {
+            "name": "Viam Update Saved Query",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.app.data.v1.DataService/UpdateSavedQuery",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a saved query."
+        },
+        {
+          "info": {
+            "name": "Viam Delete Saved Query",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.app.data.v1.DataService/DeleteSavedQuery",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Delete a saved query."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Sequences",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Viam Create Sequence",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.app.data.v1.DataService/CreateSequence",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a sequence of dataset items."
+        },
+        {
+          "info": {
+            "name": "Viam List Sequences",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.app.data.v1.DataService/ListSequences",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "List sequences in an organization."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Database",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Viam Get Database Connection",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.app.data.v1.DataService/GetDatabaseConnection",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Get the MongoDB connection string for direct analytics access."
+        },
+        {
+          "info": {
+            "name": "Viam Configure Database User",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.app.data.v1.DataService/ConfigureDatabaseUser",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create or rotate a database user for direct analytics access."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

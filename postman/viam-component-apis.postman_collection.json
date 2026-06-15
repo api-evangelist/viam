@@ -1,0 +1,4949 @@
+{
+  "info": {
+    "_postman_id": "d799ae31-b00a-4476-a133-01c411dfe0bf",
+    "name": "Viam Component APIs",
+    "description": "REST/JSON transcoding of every Viam Component gRPC API \u2014 the hardware abstraction\nlayer that lets any client speak the same uniform contract to motors, cameras, arms,\nsensors, and every other supported component class regardless of model.\n\nCanonical contracts: https://github.com/viamrobotics/api/tree/main/proto/viam/component\n\nEvery component exposes DoCommand (model-specific extension), GetStatus, and\nGetGeometries in addition to its class-specific operations.\n\n\nContact Support:\n Name: Viam Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T15:19:54.000Z",
+    "updatedAt": "2026-06-05T15:19:54.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-d799ae31-b00a-4476-a133-01c411dfe0bf"
+  },
+  "item": [
+    {
+      "name": "viam.component.arm.v1.ArmService",
+      "item": [
+        {
+          "name": "GetEndPosition",
+          "item": [
+            {
+              "name": "Viam Arm Get End Position",
+              "id": "bc23a53e-6999-4545-838a-a3f3d40cb89b",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.component.arm.v1.ArmService/GetEndPosition",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.component.arm.v1.ArmService",
+                    "GetEndPosition"
+                  ]
+                },
+                "description": "Get the pose of the arm's end effector."
+              },
+              "response": [
+                {
+                  "id": "8cbcae9f-87d0-43fa-84cb-298537922cb1",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.component.arm.v1.ArmService/GetEndPosition",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.component.arm.v1.ArmService",
+                        "GetEndPosition"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:54.000Z",
+                  "updatedAt": "2026-06-05T15:19:54.000Z",
+                  "uid": "35240-8cbcae9f-87d0-43fa-84cb-298537922cb1"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:54.000Z",
+              "updatedAt": "2026-06-05T15:19:54.000Z",
+              "uid": "35240-bc23a53e-6999-4545-838a-a3f3d40cb89b"
+            }
+          ],
+          "id": "5ca56785-88bd-4941-a627-9ec4c0c8dc22",
+          "createdAt": "2026-06-05T15:19:54.000Z",
+          "updatedAt": "2026-06-05T15:19:54.000Z",
+          "uid": "35240-5ca56785-88bd-4941-a627-9ec4c0c8dc22"
+        },
+        {
+          "name": "MoveToPosition",
+          "item": [
+            {
+              "name": "Viam Arm Move To Position",
+              "id": "4748cb7f-260b-4d24-9dd2-aa565fa71496",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"to\": {}\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.component.arm.v1.ArmService/MoveToPosition",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.component.arm.v1.ArmService",
+                    "MoveToPosition"
+                  ]
+                },
+                "description": "Move the arm's end effector to a target pose."
+              },
+              "response": [
+                {
+                  "id": "d49fc5b8-931f-473b-85e2-f0541a10c3fc",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"to\": {}\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.component.arm.v1.ArmService/MoveToPosition",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.component.arm.v1.ArmService",
+                        "MoveToPosition"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:54.000Z",
+                  "updatedAt": "2026-06-05T15:19:54.000Z",
+                  "uid": "35240-d49fc5b8-931f-473b-85e2-f0541a10c3fc"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:54.000Z",
+              "updatedAt": "2026-06-05T15:19:54.000Z",
+              "uid": "35240-4748cb7f-260b-4d24-9dd2-aa565fa71496"
+            }
+          ],
+          "id": "7ca6f73b-57cc-4a2a-93b4-113ee433ad47",
+          "createdAt": "2026-06-05T15:19:54.000Z",
+          "updatedAt": "2026-06-05T15:19:54.000Z",
+          "uid": "35240-7ca6f73b-57cc-4a2a-93b4-113ee433ad47"
+        },
+        {
+          "name": "GetJointPositions",
+          "item": [
+            {
+              "name": "Viam Arm Get Joint Positions",
+              "id": "2c50ec77-5d28-40b0-afb8-635d35d16a80",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.component.arm.v1.ArmService/GetJointPositions",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.component.arm.v1.ArmService",
+                    "GetJointPositions"
+                  ]
+                },
+                "description": "Get the arm's current joint positions."
+              },
+              "response": [
+                {
+                  "id": "aefd71cf-de41-430b-b0fb-9019499b4f41",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.component.arm.v1.ArmService/GetJointPositions",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.component.arm.v1.ArmService",
+                        "GetJointPositions"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:54.000Z",
+                  "updatedAt": "2026-06-05T15:19:54.000Z",
+                  "uid": "35240-aefd71cf-de41-430b-b0fb-9019499b4f41"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:54.000Z",
+              "updatedAt": "2026-06-05T15:19:54.000Z",
+              "uid": "35240-2c50ec77-5d28-40b0-afb8-635d35d16a80"
+            }
+          ],
+          "id": "3171c35c-e602-4c57-9fef-0ef6d2db4c24",
+          "createdAt": "2026-06-05T15:19:54.000Z",
+          "updatedAt": "2026-06-05T15:19:54.000Z",
+          "uid": "35240-3171c35c-e602-4c57-9fef-0ef6d2db4c24"
+        },
+        {
+          "name": "MoveToJointPositions",
+          "item": [
+            {
+              "name": "Viam Arm Move To Joint Positions",
+              "id": "ddccd288-ac44-445e-b636-0dfe46b5e558",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"positions\": {}\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.component.arm.v1.ArmService/MoveToJointPositions",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.component.arm.v1.ArmService",
+                    "MoveToJointPositions"
+                  ]
+                },
+                "description": "Move the arm to a specific joint configuration."
+              },
+              "response": [
+                {
+                  "id": "98dcbd15-ba9b-42f7-ac70-cdf7f30b3e86",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"positions\": {}\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.component.arm.v1.ArmService/MoveToJointPositions",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.component.arm.v1.ArmService",
+                        "MoveToJointPositions"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:54.000Z",
+                  "updatedAt": "2026-06-05T15:19:54.000Z",
+                  "uid": "35240-98dcbd15-ba9b-42f7-ac70-cdf7f30b3e86"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:54.000Z",
+              "updatedAt": "2026-06-05T15:19:54.000Z",
+              "uid": "35240-ddccd288-ac44-445e-b636-0dfe46b5e558"
+            }
+          ],
+          "id": "1910842c-e8e0-4288-9297-0580870d1b82",
+          "createdAt": "2026-06-05T15:19:54.000Z",
+          "updatedAt": "2026-06-05T15:19:54.000Z",
+          "uid": "35240-1910842c-e8e0-4288-9297-0580870d1b82"
+        },
+        {
+          "name": "Stop",
+          "item": [
+            {
+              "name": "Viam Arm Stop",
+              "id": "5901a9ad-90fb-4119-b84b-6f42d961452e",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.component.arm.v1.ArmService/Stop",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.component.arm.v1.ArmService",
+                    "Stop"
+                  ]
+                },
+                "description": "Stop the arm."
+              },
+              "response": [
+                {
+                  "id": "c234bb9a-cfe5-4148-9a0d-378bb4457f52",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.component.arm.v1.ArmService/Stop",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.component.arm.v1.ArmService",
+                        "Stop"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:54.000Z",
+                  "updatedAt": "2026-06-05T15:19:54.000Z",
+                  "uid": "35240-c234bb9a-cfe5-4148-9a0d-378bb4457f52"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:54.000Z",
+              "updatedAt": "2026-06-05T15:19:54.000Z",
+              "uid": "35240-5901a9ad-90fb-4119-b84b-6f42d961452e"
+            }
+          ],
+          "id": "f437dac8-6c48-45fc-a0e0-9a81af8333de",
+          "createdAt": "2026-06-05T15:19:54.000Z",
+          "updatedAt": "2026-06-05T15:19:54.000Z",
+          "uid": "35240-f437dac8-6c48-45fc-a0e0-9a81af8333de"
+        }
+      ],
+      "id": "20f1adcf-2975-463f-bc02-26076b11410b",
+      "createdAt": "2026-06-05T15:19:54.000Z",
+      "updatedAt": "2026-06-05T15:19:54.000Z",
+      "uid": "35240-20f1adcf-2975-463f-bc02-26076b11410b"
+    },
+    {
+      "name": "viam.component.base.v1.BaseService",
+      "item": [
+        {
+          "name": "MoveStraight",
+          "item": [
+            {
+              "name": "Viam Base Move Straight",
+              "id": "0f07425e-5108-4bb7-ab03-35f5b29b0301",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"distance_mm\": \"<integer>\",\n  \"mm_per_sec\": \"<number>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.component.base.v1.BaseService/MoveStraight",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.component.base.v1.BaseService",
+                    "MoveStraight"
+                  ]
+                },
+                "description": "Move the base a specified distance at a velocity."
+              },
+              "response": [
+                {
+                  "id": "73322a38-f5a3-4c88-b86d-3a11ceb52544",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"distance_mm\": \"<integer>\",\n  \"mm_per_sec\": \"<number>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.component.base.v1.BaseService/MoveStraight",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.component.base.v1.BaseService",
+                        "MoveStraight"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:54.000Z",
+                  "updatedAt": "2026-06-05T15:19:54.000Z",
+                  "uid": "35240-73322a38-f5a3-4c88-b86d-3a11ceb52544"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:54.000Z",
+              "updatedAt": "2026-06-05T15:19:54.000Z",
+              "uid": "35240-0f07425e-5108-4bb7-ab03-35f5b29b0301"
+            }
+          ],
+          "id": "2d95452e-8ac4-477c-95e3-ab8d84cbb09e",
+          "createdAt": "2026-06-05T15:19:54.000Z",
+          "updatedAt": "2026-06-05T15:19:54.000Z",
+          "uid": "35240-2d95452e-8ac4-477c-95e3-ab8d84cbb09e"
+        },
+        {
+          "name": "Spin",
+          "item": [
+            {
+              "name": "Viam Base Spin",
+              "id": "d333c288-a7cb-4e35-aa99-e45ce65a5421",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"angle_deg\": \"<number>\",\n  \"degs_per_sec\": \"<number>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.component.base.v1.BaseService/Spin",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.component.base.v1.BaseService",
+                    "Spin"
+                  ]
+                },
+                "description": "Spin the base by an angle at an angular velocity."
+              },
+              "response": [
+                {
+                  "id": "c52100ae-fd57-486e-88ad-8ffc0f6c5787",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"angle_deg\": \"<number>\",\n  \"degs_per_sec\": \"<number>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.component.base.v1.BaseService/Spin",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.component.base.v1.BaseService",
+                        "Spin"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:54.000Z",
+                  "updatedAt": "2026-06-05T15:19:54.000Z",
+                  "uid": "35240-c52100ae-fd57-486e-88ad-8ffc0f6c5787"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:54.000Z",
+              "updatedAt": "2026-06-05T15:19:54.000Z",
+              "uid": "35240-d333c288-a7cb-4e35-aa99-e45ce65a5421"
+            }
+          ],
+          "id": "932d2a0a-e03f-4d2e-89f0-5b6f9fc3a791",
+          "createdAt": "2026-06-05T15:19:54.000Z",
+          "updatedAt": "2026-06-05T15:19:54.000Z",
+          "uid": "35240-932d2a0a-e03f-4d2e-89f0-5b6f9fc3a791"
+        },
+        {
+          "name": "SetPower",
+          "item": [
+            {
+              "name": "Viam Base Set Power",
+              "id": "7e9d394f-4f9b-4d62-94db-ca2ae3cb5126",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"linear\": {},\n  \"angular\": {}\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.component.base.v1.BaseService/SetPower",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.component.base.v1.BaseService",
+                    "SetPower"
+                  ]
+                },
+                "description": "Set linear and angular power for the base."
+              },
+              "response": [
+                {
+                  "id": "91695d76-c37e-4619-a554-6906537badc5",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"linear\": {},\n  \"angular\": {}\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.component.base.v1.BaseService/SetPower",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.component.base.v1.BaseService",
+                        "SetPower"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:54.000Z",
+                  "updatedAt": "2026-06-05T15:19:54.000Z",
+                  "uid": "35240-91695d76-c37e-4619-a554-6906537badc5"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:54.000Z",
+              "updatedAt": "2026-06-05T15:19:54.000Z",
+              "uid": "35240-7e9d394f-4f9b-4d62-94db-ca2ae3cb5126"
+            }
+          ],
+          "id": "715ffaa9-b418-461a-a9a0-644f1dc5f69d",
+          "createdAt": "2026-06-05T15:19:54.000Z",
+          "updatedAt": "2026-06-05T15:19:54.000Z",
+          "uid": "35240-715ffaa9-b418-461a-a9a0-644f1dc5f69d"
+        },
+        {
+          "name": "SetVelocity",
+          "item": [
+            {
+              "name": "Viam Base Set Velocity",
+              "id": "cf98016b-3ae2-4599-9d33-ca466fe95742",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"linear\": {},\n  \"angular\": {}\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.component.base.v1.BaseService/SetVelocity",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.component.base.v1.BaseService",
+                    "SetVelocity"
+                  ]
+                },
+                "description": "Set linear and angular velocity for the base."
+              },
+              "response": [
+                {
+                  "id": "ee4793fa-40a9-4721-a165-498b6d4da8c5",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"linear\": {},\n  \"angular\": {}\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.component.base.v1.BaseService/SetVelocity",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.component.base.v1.BaseService",
+                        "SetVelocity"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:54.000Z",
+                  "updatedAt": "2026-06-05T15:19:54.000Z",
+                  "uid": "35240-ee4793fa-40a9-4721-a165-498b6d4da8c5"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:54.000Z",
+              "updatedAt": "2026-06-05T15:19:54.000Z",
+              "uid": "35240-cf98016b-3ae2-4599-9d33-ca466fe95742"
+            }
+          ],
+          "id": "58628a72-90c8-43b2-a89c-4211d02f8135",
+          "createdAt": "2026-06-05T15:19:54.000Z",
+          "updatedAt": "2026-06-05T15:19:54.000Z",
+          "uid": "35240-58628a72-90c8-43b2-a89c-4211d02f8135"
+        },
+        {
+          "name": "Stop",
+          "item": [
+            {
+              "name": "Viam Base Stop",
+              "id": "40e6e1cd-c7a2-4ef2-beb3-d34a018c6866",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.component.base.v1.BaseService/Stop",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.component.base.v1.BaseService",
+                    "Stop"
+                  ]
+                },
+                "description": "Stop the base."
+              },
+              "response": [
+                {
+                  "id": "8831c88c-df58-4451-8574-ccae22f2daf9",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.component.base.v1.BaseService/Stop",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.component.base.v1.BaseService",
+                        "Stop"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:54.000Z",
+                  "updatedAt": "2026-06-05T15:19:54.000Z",
+                  "uid": "35240-8831c88c-df58-4451-8574-ccae22f2daf9"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:54.000Z",
+              "updatedAt": "2026-06-05T15:19:54.000Z",
+              "uid": "35240-40e6e1cd-c7a2-4ef2-beb3-d34a018c6866"
+            }
+          ],
+          "id": "07737ee9-c485-4562-b642-cf72b4d026fd",
+          "createdAt": "2026-06-05T15:19:54.000Z",
+          "updatedAt": "2026-06-05T15:19:54.000Z",
+          "uid": "35240-07737ee9-c485-4562-b642-cf72b4d026fd"
+        }
+      ],
+      "id": "573d779a-2a57-4e90-8458-7cbfdbbdc79e",
+      "createdAt": "2026-06-05T15:19:54.000Z",
+      "updatedAt": "2026-06-05T15:19:54.000Z",
+      "uid": "35240-573d779a-2a57-4e90-8458-7cbfdbbdc79e"
+    },
+    {
+      "name": "viam.component.board.v1.BoardService",
+      "item": [
+        {
+          "name": "SetGPIO",
+          "item": [
+            {
+              "name": "Viam Board Set Gpio",
+              "id": "183e01b7-77a4-402b-b127-173b948e76c3",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"pin\": \"<string>\",\n  \"high\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.component.board.v1.BoardService/SetGPIO",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.component.board.v1.BoardService",
+                    "SetGPIO"
+                  ]
+                },
+                "description": "Set a GPIO pin high or low."
+              },
+              "response": [
+                {
+                  "id": "f9cdd4fe-16df-4fa2-aef5-114e4ad46ce1",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"pin\": \"<string>\",\n  \"high\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.component.board.v1.BoardService/SetGPIO",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.component.board.v1.BoardService",
+                        "SetGPIO"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:54.000Z",
+                  "updatedAt": "2026-06-05T15:19:54.000Z",
+                  "uid": "35240-f9cdd4fe-16df-4fa2-aef5-114e4ad46ce1"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:54.000Z",
+              "updatedAt": "2026-06-05T15:19:54.000Z",
+              "uid": "35240-183e01b7-77a4-402b-b127-173b948e76c3"
+            }
+          ],
+          "id": "4f240a75-3df9-4d4b-975b-c78855d4ec74",
+          "createdAt": "2026-06-05T15:19:54.000Z",
+          "updatedAt": "2026-06-05T15:19:54.000Z",
+          "uid": "35240-4f240a75-3df9-4d4b-975b-c78855d4ec74"
+        },
+        {
+          "name": "GetGPIO",
+          "item": [
+            {
+              "name": "Viam Board Get Gpio",
+              "id": "0be61a4e-3b26-4a4c-bc09-37bef5bfe59e",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"pin\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.component.board.v1.BoardService/GetGPIO",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.component.board.v1.BoardService",
+                    "GetGPIO"
+                  ]
+                },
+                "description": "Read a GPIO pin's current value."
+              },
+              "response": [
+                {
+                  "id": "b4eefd69-942a-4143-b697-5caae50dae06",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"pin\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.component.board.v1.BoardService/GetGPIO",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.component.board.v1.BoardService",
+                        "GetGPIO"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:54.000Z",
+                  "updatedAt": "2026-06-05T15:19:54.000Z",
+                  "uid": "35240-b4eefd69-942a-4143-b697-5caae50dae06"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:54.000Z",
+              "updatedAt": "2026-06-05T15:19:54.000Z",
+              "uid": "35240-0be61a4e-3b26-4a4c-bc09-37bef5bfe59e"
+            }
+          ],
+          "id": "de4414da-4000-4ce7-8c69-dbb7073706ed",
+          "createdAt": "2026-06-05T15:19:54.000Z",
+          "updatedAt": "2026-06-05T15:19:54.000Z",
+          "uid": "35240-de4414da-4000-4ce7-8c69-dbb7073706ed"
+        },
+        {
+          "name": "SetPWM",
+          "item": [
+            {
+              "name": "Viam Board Set Pwm",
+              "id": "228d5379-22d6-4491-a04d-6c38a7912055",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"pin\": \"<string>\",\n  \"duty_cycle_pct\": \"<number>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.component.board.v1.BoardService/SetPWM",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.component.board.v1.BoardService",
+                    "SetPWM"
+                  ]
+                },
+                "description": "Set a pin's PWM duty cycle."
+              },
+              "response": [
+                {
+                  "id": "bb567a1f-16cf-46f0-aa85-f0bd54f12805",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"pin\": \"<string>\",\n  \"duty_cycle_pct\": \"<number>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.component.board.v1.BoardService/SetPWM",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.component.board.v1.BoardService",
+                        "SetPWM"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:54.000Z",
+                  "updatedAt": "2026-06-05T15:19:54.000Z",
+                  "uid": "35240-bb567a1f-16cf-46f0-aa85-f0bd54f12805"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:54.000Z",
+              "updatedAt": "2026-06-05T15:19:54.000Z",
+              "uid": "35240-228d5379-22d6-4491-a04d-6c38a7912055"
+            }
+          ],
+          "id": "64a81dcc-3f98-450e-a321-93408a9da641",
+          "createdAt": "2026-06-05T15:19:54.000Z",
+          "updatedAt": "2026-06-05T15:19:54.000Z",
+          "uid": "35240-64a81dcc-3f98-450e-a321-93408a9da641"
+        },
+        {
+          "name": "ReadAnalogReader",
+          "item": [
+            {
+              "name": "Viam Board Read Analog Reader",
+              "id": "7909201c-2a20-4cf7-9f49-fc36c807ac8c",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"board_name\": \"<string>\",\n  \"analog_reader_name\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.component.board.v1.BoardService/ReadAnalogReader",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.component.board.v1.BoardService",
+                    "ReadAnalogReader"
+                  ]
+                },
+                "description": "Read a value from an analog reader."
+              },
+              "response": [
+                {
+                  "id": "5c7cdcc1-e2c0-40e5-898b-e7bc827f415f",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"board_name\": \"<string>\",\n  \"analog_reader_name\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.component.board.v1.BoardService/ReadAnalogReader",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.component.board.v1.BoardService",
+                        "ReadAnalogReader"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:54.000Z",
+                  "updatedAt": "2026-06-05T15:19:54.000Z",
+                  "uid": "35240-5c7cdcc1-e2c0-40e5-898b-e7bc827f415f"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:54.000Z",
+              "updatedAt": "2026-06-05T15:19:54.000Z",
+              "uid": "35240-7909201c-2a20-4cf7-9f49-fc36c807ac8c"
+            }
+          ],
+          "id": "63d0c457-7a60-483d-a552-20c7f8ba53a8",
+          "createdAt": "2026-06-05T15:19:54.000Z",
+          "updatedAt": "2026-06-05T15:19:54.000Z",
+          "uid": "35240-63d0c457-7a60-483d-a552-20c7f8ba53a8"
+        },
+        {
+          "name": "StreamTicks",
+          "item": [
+            {
+              "name": "Viam Board Stream Ticks",
+              "id": "2c54e4dd-3afb-4f79-a817-e714f8e61ea8",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"pin_names\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.component.board.v1.BoardService/StreamTicks",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.component.board.v1.BoardService",
+                    "StreamTicks"
+                  ]
+                },
+                "description": "Stream digital interrupt ticks for the given pin names."
+              },
+              "response": [
+                {
+                  "id": "839dfcb7-4bcc-426c-8b64-c4053227a8a2",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"pin_names\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.component.board.v1.BoardService/StreamTicks",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.component.board.v1.BoardService",
+                        "StreamTicks"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:54.000Z",
+                  "updatedAt": "2026-06-05T15:19:54.000Z",
+                  "uid": "35240-839dfcb7-4bcc-426c-8b64-c4053227a8a2"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:54.000Z",
+              "updatedAt": "2026-06-05T15:19:54.000Z",
+              "uid": "35240-2c54e4dd-3afb-4f79-a817-e714f8e61ea8"
+            }
+          ],
+          "id": "9b91e8d8-c692-4ccf-85a5-1f499539a0b1",
+          "createdAt": "2026-06-05T15:19:54.000Z",
+          "updatedAt": "2026-06-05T15:19:54.000Z",
+          "uid": "35240-9b91e8d8-c692-4ccf-85a5-1f499539a0b1"
+        }
+      ],
+      "id": "4bb52c73-d1c9-4c4c-b8e9-05aa186e6570",
+      "createdAt": "2026-06-05T15:19:54.000Z",
+      "updatedAt": "2026-06-05T15:19:54.000Z",
+      "uid": "35240-4bb52c73-d1c9-4c4c-b8e9-05aa186e6570"
+    },
+    {
+      "name": "viam.component.button.v1.ButtonService",
+      "item": [
+        {
+          "name": "Push",
+          "item": [
+            {
+              "name": "Viam Button Push",
+              "id": "0984d9cb-84cc-4b70-8f6e-fe2e5f5c1f91",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.component.button.v1.ButtonService/Push",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.component.button.v1.ButtonService",
+                    "Push"
+                  ]
+                },
+                "description": "Trigger a button press programmatically."
+              },
+              "response": [
+                {
+                  "id": "b07c6d25-a95a-449c-82b1-3deeeb8adc4a",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.component.button.v1.ButtonService/Push",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.component.button.v1.ButtonService",
+                        "Push"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:54.000Z",
+                  "updatedAt": "2026-06-05T15:19:54.000Z",
+                  "uid": "35240-b07c6d25-a95a-449c-82b1-3deeeb8adc4a"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:54.000Z",
+              "updatedAt": "2026-06-05T15:19:54.000Z",
+              "uid": "35240-0984d9cb-84cc-4b70-8f6e-fe2e5f5c1f91"
+            }
+          ],
+          "id": "1d666c0b-6473-4d85-a227-5e7343cbc18e",
+          "createdAt": "2026-06-05T15:19:54.000Z",
+          "updatedAt": "2026-06-05T15:19:54.000Z",
+          "uid": "35240-1d666c0b-6473-4d85-a227-5e7343cbc18e"
+        }
+      ],
+      "id": "add9b9d5-42f0-406f-ac90-8dba35b1e12f",
+      "createdAt": "2026-06-05T15:19:54.000Z",
+      "updatedAt": "2026-06-05T15:19:54.000Z",
+      "uid": "35240-add9b9d5-42f0-406f-ac90-8dba35b1e12f"
+    },
+    {
+      "name": "viam.component.camera.v1.CameraService",
+      "item": [
+        {
+          "name": "GetImages",
+          "item": [
+            {
+              "name": "Viam Camera Get Images",
+              "id": "234470a8-5971-4d08-86be-fa57e6c8ba0b",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.component.camera.v1.CameraService/GetImages",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.component.camera.v1.CameraService",
+                    "GetImages"
+                  ]
+                },
+                "description": "Capture one or more images from the camera."
+              },
+              "response": [
+                {
+                  "id": "6ebd43a9-5eed-4338-b837-f2ad6b795770",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.component.camera.v1.CameraService/GetImages",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.component.camera.v1.CameraService",
+                        "GetImages"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:54.000Z",
+                  "updatedAt": "2026-06-05T15:19:54.000Z",
+                  "uid": "35240-6ebd43a9-5eed-4338-b837-f2ad6b795770"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:54.000Z",
+              "updatedAt": "2026-06-05T15:19:54.000Z",
+              "uid": "35240-234470a8-5971-4d08-86be-fa57e6c8ba0b"
+            }
+          ],
+          "id": "a454b247-58fc-4587-ace0-931195dccd95",
+          "createdAt": "2026-06-05T15:19:54.000Z",
+          "updatedAt": "2026-06-05T15:19:54.000Z",
+          "uid": "35240-a454b247-58fc-4587-ace0-931195dccd95"
+        },
+        {
+          "name": "GetPointCloud",
+          "item": [
+            {
+              "name": "Viam Camera Get Point Cloud",
+              "id": "7002161a-44b2-4bb1-84fe-64f1c68199ef",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"mime_type\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.component.camera.v1.CameraService/GetPointCloud",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.component.camera.v1.CameraService",
+                    "GetPointCloud"
+                  ]
+                },
+                "description": "Capture a 3D point cloud from the camera."
+              },
+              "response": [
+                {
+                  "id": "eb71a930-4687-4153-80ae-3c787775e1e0",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"mime_type\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.component.camera.v1.CameraService/GetPointCloud",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.component.camera.v1.CameraService",
+                        "GetPointCloud"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:54.000Z",
+                  "updatedAt": "2026-06-05T15:19:54.000Z",
+                  "uid": "35240-eb71a930-4687-4153-80ae-3c787775e1e0"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:54.000Z",
+              "updatedAt": "2026-06-05T15:19:54.000Z",
+              "uid": "35240-7002161a-44b2-4bb1-84fe-64f1c68199ef"
+            }
+          ],
+          "id": "eda95eb7-8cf8-4e59-84f9-5896fe61152d",
+          "createdAt": "2026-06-05T15:19:54.000Z",
+          "updatedAt": "2026-06-05T15:19:54.000Z",
+          "uid": "35240-eda95eb7-8cf8-4e59-84f9-5896fe61152d"
+        },
+        {
+          "name": "GetProperties",
+          "item": [
+            {
+              "name": "Viam Camera Get Properties",
+              "id": "81f41b18-d318-4d19-b253-8d3772edc639",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.component.camera.v1.CameraService/GetProperties",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.component.camera.v1.CameraService",
+                    "GetProperties"
+                  ]
+                },
+                "description": "Get camera intrinsics and supported MIME types."
+              },
+              "response": [
+                {
+                  "id": "d45c0058-aa69-42ff-bba9-91066ec40c23",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.component.camera.v1.CameraService/GetProperties",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.component.camera.v1.CameraService",
+                        "GetProperties"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:54.000Z",
+                  "updatedAt": "2026-06-05T15:19:54.000Z",
+                  "uid": "35240-d45c0058-aa69-42ff-bba9-91066ec40c23"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:54.000Z",
+              "updatedAt": "2026-06-05T15:19:54.000Z",
+              "uid": "35240-81f41b18-d318-4d19-b253-8d3772edc639"
+            }
+          ],
+          "id": "0f49c302-0acb-4582-93be-bd092a101edb",
+          "createdAt": "2026-06-05T15:19:54.000Z",
+          "updatedAt": "2026-06-05T15:19:54.000Z",
+          "uid": "35240-0f49c302-0acb-4582-93be-bd092a101edb"
+        }
+      ],
+      "id": "8f7db2f0-a5aa-472c-bc2a-75eef532927a",
+      "createdAt": "2026-06-05T15:19:54.000Z",
+      "updatedAt": "2026-06-05T15:19:54.000Z",
+      "uid": "35240-8f7db2f0-a5aa-472c-bc2a-75eef532927a"
+    },
+    {
+      "name": "viam.component.encoder.v1.EncoderService",
+      "item": [
+        {
+          "name": "GetPosition",
+          "item": [
+            {
+              "name": "Viam Encoder Get Position",
+              "id": "36c3c77e-6748-47bc-8a31-058031b45d65",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.component.encoder.v1.EncoderService/GetPosition",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.component.encoder.v1.EncoderService",
+                    "GetPosition"
+                  ]
+                },
+                "description": "Read the encoder's current position."
+              },
+              "response": [
+                {
+                  "id": "02521c94-673d-4758-875f-fa1068d73a02",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.component.encoder.v1.EncoderService/GetPosition",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.component.encoder.v1.EncoderService",
+                        "GetPosition"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:54.000Z",
+                  "updatedAt": "2026-06-05T15:19:54.000Z",
+                  "uid": "35240-02521c94-673d-4758-875f-fa1068d73a02"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:54.000Z",
+              "updatedAt": "2026-06-05T15:19:54.000Z",
+              "uid": "35240-36c3c77e-6748-47bc-8a31-058031b45d65"
+            }
+          ],
+          "id": "f53f4c5d-f88e-4de4-bbdb-aa723aa07924",
+          "createdAt": "2026-06-05T15:19:54.000Z",
+          "updatedAt": "2026-06-05T15:19:54.000Z",
+          "uid": "35240-f53f4c5d-f88e-4de4-bbdb-aa723aa07924"
+        },
+        {
+          "name": "ResetPosition",
+          "item": [
+            {
+              "name": "Viam Encoder Reset Position",
+              "id": "c8545f81-666d-4130-ad90-ec8aadfd2944",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.component.encoder.v1.EncoderService/ResetPosition",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.component.encoder.v1.EncoderService",
+                    "ResetPosition"
+                  ]
+                },
+                "description": "Reset the encoder's zero position."
+              },
+              "response": [
+                {
+                  "id": "a7112307-5413-4d60-95c9-af972190e5b0",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.component.encoder.v1.EncoderService/ResetPosition",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.component.encoder.v1.EncoderService",
+                        "ResetPosition"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:54.000Z",
+                  "updatedAt": "2026-06-05T15:19:54.000Z",
+                  "uid": "35240-a7112307-5413-4d60-95c9-af972190e5b0"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:54.000Z",
+              "updatedAt": "2026-06-05T15:19:54.000Z",
+              "uid": "35240-c8545f81-666d-4130-ad90-ec8aadfd2944"
+            }
+          ],
+          "id": "83f1cce2-bf83-4966-aff4-a72e0fcdb509",
+          "createdAt": "2026-06-05T15:19:54.000Z",
+          "updatedAt": "2026-06-05T15:19:54.000Z",
+          "uid": "35240-83f1cce2-bf83-4966-aff4-a72e0fcdb509"
+        }
+      ],
+      "id": "c9eacb4b-bde5-479a-9729-2b35614dbe82",
+      "createdAt": "2026-06-05T15:19:54.000Z",
+      "updatedAt": "2026-06-05T15:19:54.000Z",
+      "uid": "35240-c9eacb4b-bde5-479a-9729-2b35614dbe82"
+    },
+    {
+      "name": "viam.component.gantry.v1.GantryService",
+      "item": [
+        {
+          "name": "MoveToPosition",
+          "item": [
+            {
+              "name": "Viam Gantry Move To Position",
+              "id": "14cd2c39-9114-457f-90c0-fff4170d68b5",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"positions_mm\": [\n    \"<number>\",\n    \"<number>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.component.gantry.v1.GantryService/MoveToPosition",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.component.gantry.v1.GantryService",
+                    "MoveToPosition"
+                  ]
+                },
+                "description": "Move the gantry axes to specified positions."
+              },
+              "response": [
+                {
+                  "id": "dca0806f-56e9-4553-b3f2-ad23f4e1b8d1",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"positions_mm\": [\n    \"<number>\",\n    \"<number>\"\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.component.gantry.v1.GantryService/MoveToPosition",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.component.gantry.v1.GantryService",
+                        "MoveToPosition"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:54.000Z",
+                  "updatedAt": "2026-06-05T15:19:54.000Z",
+                  "uid": "35240-dca0806f-56e9-4553-b3f2-ad23f4e1b8d1"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:54.000Z",
+              "updatedAt": "2026-06-05T15:19:54.000Z",
+              "uid": "35240-14cd2c39-9114-457f-90c0-fff4170d68b5"
+            }
+          ],
+          "id": "438b0c5c-561d-432c-8b62-c8ec3888a3a0",
+          "createdAt": "2026-06-05T15:19:54.000Z",
+          "updatedAt": "2026-06-05T15:19:54.000Z",
+          "uid": "35240-438b0c5c-561d-432c-8b62-c8ec3888a3a0"
+        },
+        {
+          "name": "Home",
+          "item": [
+            {
+              "name": "Viam Gantry Home",
+              "id": "7ad9179d-f0c1-4aa9-ba7e-9dd5b2e8fc38",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.component.gantry.v1.GantryService/Home",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.component.gantry.v1.GantryService",
+                    "Home"
+                  ]
+                },
+                "description": "Home the gantry."
+              },
+              "response": [
+                {
+                  "id": "04dbba0b-0a7d-482f-9f4a-289679f426db",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.component.gantry.v1.GantryService/Home",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.component.gantry.v1.GantryService",
+                        "Home"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:54.000Z",
+                  "updatedAt": "2026-06-05T15:19:54.000Z",
+                  "uid": "35240-04dbba0b-0a7d-482f-9f4a-289679f426db"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:54.000Z",
+              "updatedAt": "2026-06-05T15:19:54.000Z",
+              "uid": "35240-7ad9179d-f0c1-4aa9-ba7e-9dd5b2e8fc38"
+            }
+          ],
+          "id": "8df4167a-7134-4f08-b341-78ba1786382b",
+          "createdAt": "2026-06-05T15:19:54.000Z",
+          "updatedAt": "2026-06-05T15:19:54.000Z",
+          "uid": "35240-8df4167a-7134-4f08-b341-78ba1786382b"
+        }
+      ],
+      "id": "5e2c6587-5bf6-4856-b650-32a47b250e23",
+      "createdAt": "2026-06-05T15:19:54.000Z",
+      "updatedAt": "2026-06-05T15:19:54.000Z",
+      "uid": "35240-5e2c6587-5bf6-4856-b650-32a47b250e23"
+    },
+    {
+      "name": "viam.component.gripper.v1.GripperService",
+      "item": [
+        {
+          "name": "Open",
+          "item": [
+            {
+              "name": "Viam Gripper Open",
+              "id": "4dacc157-1a1a-4c71-8815-6bf950e5baf9",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.component.gripper.v1.GripperService/Open",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.component.gripper.v1.GripperService",
+                    "Open"
+                  ]
+                },
+                "description": "Open the gripper."
+              },
+              "response": [
+                {
+                  "id": "396c1b6c-c650-4237-85d6-4d6c58d69a68",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.component.gripper.v1.GripperService/Open",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.component.gripper.v1.GripperService",
+                        "Open"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:54.000Z",
+                  "updatedAt": "2026-06-05T15:19:54.000Z",
+                  "uid": "35240-396c1b6c-c650-4237-85d6-4d6c58d69a68"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:54.000Z",
+              "updatedAt": "2026-06-05T15:19:54.000Z",
+              "uid": "35240-4dacc157-1a1a-4c71-8815-6bf950e5baf9"
+            }
+          ],
+          "id": "e9ce4361-d0a9-45ec-9a9f-58bfe20cac50",
+          "createdAt": "2026-06-05T15:19:54.000Z",
+          "updatedAt": "2026-06-05T15:19:54.000Z",
+          "uid": "35240-e9ce4361-d0a9-45ec-9a9f-58bfe20cac50"
+        },
+        {
+          "name": "Grab",
+          "item": [
+            {
+              "name": "Viam Gripper Grab",
+              "id": "b3ccccb5-ec82-47ce-995a-0a44fa189787",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.component.gripper.v1.GripperService/Grab",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.component.gripper.v1.GripperService",
+                    "Grab"
+                  ]
+                },
+                "description": "Close the gripper and report whether anything was grasped."
+              },
+              "response": [
+                {
+                  "id": "4d10eec8-f09c-4ee8-bdfd-74a63c93d624",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.component.gripper.v1.GripperService/Grab",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.component.gripper.v1.GripperService",
+                        "Grab"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:54.000Z",
+                  "updatedAt": "2026-06-05T15:19:54.000Z",
+                  "uid": "35240-4d10eec8-f09c-4ee8-bdfd-74a63c93d624"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:54.000Z",
+              "updatedAt": "2026-06-05T15:19:54.000Z",
+              "uid": "35240-b3ccccb5-ec82-47ce-995a-0a44fa189787"
+            }
+          ],
+          "id": "0afdcba8-2521-480f-ac35-4e1086e26a80",
+          "createdAt": "2026-06-05T15:19:54.000Z",
+          "updatedAt": "2026-06-05T15:19:54.000Z",
+          "uid": "35240-0afdcba8-2521-480f-ac35-4e1086e26a80"
+        },
+        {
+          "name": "IsHoldingSomething",
+          "item": [
+            {
+              "name": "Viam Gripper Is Holding Something",
+              "id": "e4e5c4d6-45df-4b3b-9b58-fe6c97085a43",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.component.gripper.v1.GripperService/IsHoldingSomething",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.component.gripper.v1.GripperService",
+                    "IsHoldingSomething"
+                  ]
+                },
+                "description": "Check whether the gripper is currently holding something."
+              },
+              "response": [
+                {
+                  "id": "0c4d0143-f275-430a-8b9a-24bf49b72fa8",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.component.gripper.v1.GripperService/IsHoldingSomething",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.component.gripper.v1.GripperService",
+                        "IsHoldingSomething"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:54.000Z",
+                  "updatedAt": "2026-06-05T15:19:54.000Z",
+                  "uid": "35240-0c4d0143-f275-430a-8b9a-24bf49b72fa8"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:54.000Z",
+              "updatedAt": "2026-06-05T15:19:54.000Z",
+              "uid": "35240-e4e5c4d6-45df-4b3b-9b58-fe6c97085a43"
+            }
+          ],
+          "id": "bf41d45a-4685-4082-994a-996f2b427f2b",
+          "createdAt": "2026-06-05T15:19:54.000Z",
+          "updatedAt": "2026-06-05T15:19:54.000Z",
+          "uid": "35240-bf41d45a-4685-4082-994a-996f2b427f2b"
+        }
+      ],
+      "id": "e3d9f432-95e7-4c1e-a8b5-db7493ab18ba",
+      "createdAt": "2026-06-05T15:19:54.000Z",
+      "updatedAt": "2026-06-05T15:19:54.000Z",
+      "uid": "35240-e3d9f432-95e7-4c1e-a8b5-db7493ab18ba"
+    },
+    {
+      "name": "viam.component.motor.v1.MotorService",
+      "item": [
+        {
+          "name": "SetPower",
+          "item": [
+            {
+              "name": "Viam Motor Set Power",
+              "id": "80f01883-2232-4839-9ee8-9b7918ab28f3",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"power_pct\": \"<number>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.component.motor.v1.MotorService/SetPower",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.component.motor.v1.MotorService",
+                    "SetPower"
+                  ]
+                },
+                "description": "Set the motor's power as a signed fraction of full power."
+              },
+              "response": [
+                {
+                  "id": "3bd2d7a5-3b03-4f16-b1f8-5eadc18de568",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"power_pct\": \"<number>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.component.motor.v1.MotorService/SetPower",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.component.motor.v1.MotorService",
+                        "SetPower"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:54.000Z",
+                  "updatedAt": "2026-06-05T15:19:54.000Z",
+                  "uid": "35240-3bd2d7a5-3b03-4f16-b1f8-5eadc18de568"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:54.000Z",
+              "updatedAt": "2026-06-05T15:19:54.000Z",
+              "uid": "35240-80f01883-2232-4839-9ee8-9b7918ab28f3"
+            }
+          ],
+          "id": "656b244d-dcf2-4b36-8dc3-e236427b94c0",
+          "createdAt": "2026-06-05T15:19:54.000Z",
+          "updatedAt": "2026-06-05T15:19:54.000Z",
+          "uid": "35240-656b244d-dcf2-4b36-8dc3-e236427b94c0"
+        },
+        {
+          "name": "GoFor",
+          "item": [
+            {
+              "name": "Viam Motor Go For",
+              "id": "8146c40f-9603-4189-ae4d-df40e8ee2367",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"rpm\": \"<number>\",\n  \"revolutions\": \"<number>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.component.motor.v1.MotorService/GoFor",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.component.motor.v1.MotorService",
+                    "GoFor"
+                  ]
+                },
+                "description": "Spin the motor at an RPM for a specified number of revolutions."
+              },
+              "response": [
+                {
+                  "id": "a07fbb1e-7b1c-4ea6-be8c-1a722802d0c8",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"rpm\": \"<number>\",\n  \"revolutions\": \"<number>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.component.motor.v1.MotorService/GoFor",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.component.motor.v1.MotorService",
+                        "GoFor"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:54.000Z",
+                  "updatedAt": "2026-06-05T15:19:54.000Z",
+                  "uid": "35240-a07fbb1e-7b1c-4ea6-be8c-1a722802d0c8"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:54.000Z",
+              "updatedAt": "2026-06-05T15:19:54.000Z",
+              "uid": "35240-8146c40f-9603-4189-ae4d-df40e8ee2367"
+            }
+          ],
+          "id": "a4f505d5-569d-4159-b74c-3c30fd0d8b77",
+          "createdAt": "2026-06-05T15:19:54.000Z",
+          "updatedAt": "2026-06-05T15:19:54.000Z",
+          "uid": "35240-a4f505d5-569d-4159-b74c-3c30fd0d8b77"
+        },
+        {
+          "name": "GoTo",
+          "item": [
+            {
+              "name": "Viam Motor Go To",
+              "id": "80688d9c-e6a6-4d0c-8f2d-9b497b303898",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"rpm\": \"<number>\",\n  \"position_revolutions\": \"<number>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.component.motor.v1.MotorService/GoTo",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.component.motor.v1.MotorService",
+                    "GoTo"
+                  ]
+                },
+                "description": "Move the motor to a target position at an RPM."
+              },
+              "response": [
+                {
+                  "id": "d962731d-4a5f-43cf-90ac-a95bd41909de",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"rpm\": \"<number>\",\n  \"position_revolutions\": \"<number>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.component.motor.v1.MotorService/GoTo",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.component.motor.v1.MotorService",
+                        "GoTo"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:54.000Z",
+                  "updatedAt": "2026-06-05T15:19:54.000Z",
+                  "uid": "35240-d962731d-4a5f-43cf-90ac-a95bd41909de"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:54.000Z",
+              "updatedAt": "2026-06-05T15:19:54.000Z",
+              "uid": "35240-80688d9c-e6a6-4d0c-8f2d-9b497b303898"
+            }
+          ],
+          "id": "20e95e1e-2c64-4e25-a7e7-852edba5c6b5",
+          "createdAt": "2026-06-05T15:19:54.000Z",
+          "updatedAt": "2026-06-05T15:19:54.000Z",
+          "uid": "35240-20e95e1e-2c64-4e25-a7e7-852edba5c6b5"
+        },
+        {
+          "name": "SetRPM",
+          "item": [
+            {
+              "name": "Viam Motor Set Rpm",
+              "id": "d8224bde-775d-47f1-953c-94cd8892d144",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"rpm\": \"<number>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.component.motor.v1.MotorService/SetRPM",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.component.motor.v1.MotorService",
+                    "SetRPM"
+                  ]
+                },
+                "description": "Spin the motor continuously at the requested RPM."
+              },
+              "response": [
+                {
+                  "id": "90661135-2d13-4741-a347-566719f7b077",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"rpm\": \"<number>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.component.motor.v1.MotorService/SetRPM",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.component.motor.v1.MotorService",
+                        "SetRPM"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:54.000Z",
+                  "updatedAt": "2026-06-05T15:19:54.000Z",
+                  "uid": "35240-90661135-2d13-4741-a347-566719f7b077"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:54.000Z",
+              "updatedAt": "2026-06-05T15:19:54.000Z",
+              "uid": "35240-d8224bde-775d-47f1-953c-94cd8892d144"
+            }
+          ],
+          "id": "c1bc6e38-3b83-4771-8970-6feaf4662a47",
+          "createdAt": "2026-06-05T15:19:54.000Z",
+          "updatedAt": "2026-06-05T15:19:54.000Z",
+          "uid": "35240-c1bc6e38-3b83-4771-8970-6feaf4662a47"
+        },
+        {
+          "name": "Stop",
+          "item": [
+            {
+              "name": "Viam Motor Stop",
+              "id": "8f9736f5-803b-49b8-bd8d-98957fbdf4d2",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.component.motor.v1.MotorService/Stop",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.component.motor.v1.MotorService",
+                    "Stop"
+                  ]
+                },
+                "description": "Stop the motor."
+              },
+              "response": [
+                {
+                  "id": "ef98dc74-8cb6-4f70-8e59-0362a5403e2e",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.component.motor.v1.MotorService/Stop",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.component.motor.v1.MotorService",
+                        "Stop"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:54.000Z",
+                  "updatedAt": "2026-06-05T15:19:54.000Z",
+                  "uid": "35240-ef98dc74-8cb6-4f70-8e59-0362a5403e2e"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:54.000Z",
+              "updatedAt": "2026-06-05T15:19:54.000Z",
+              "uid": "35240-8f9736f5-803b-49b8-bd8d-98957fbdf4d2"
+            }
+          ],
+          "id": "fb25fb53-d5cc-4128-891d-39fc2a3a86b8",
+          "createdAt": "2026-06-05T15:19:54.000Z",
+          "updatedAt": "2026-06-05T15:19:54.000Z",
+          "uid": "35240-fb25fb53-d5cc-4128-891d-39fc2a3a86b8"
+        },
+        {
+          "name": "IsPowered",
+          "item": [
+            {
+              "name": "Viam Motor Is Powered",
+              "id": "de1f2ad1-63ed-437a-8299-272c5802fa28",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.component.motor.v1.MotorService/IsPowered",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.component.motor.v1.MotorService",
+                    "IsPowered"
+                  ]
+                },
+                "description": "Check whether the motor is currently powered."
+              },
+              "response": [
+                {
+                  "id": "e7ed10c9-0800-4b23-a86a-5ada41d0bf34",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.component.motor.v1.MotorService/IsPowered",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.component.motor.v1.MotorService",
+                        "IsPowered"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:54.000Z",
+                  "updatedAt": "2026-06-05T15:19:54.000Z",
+                  "uid": "35240-e7ed10c9-0800-4b23-a86a-5ada41d0bf34"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:54.000Z",
+              "updatedAt": "2026-06-05T15:19:54.000Z",
+              "uid": "35240-de1f2ad1-63ed-437a-8299-272c5802fa28"
+            }
+          ],
+          "id": "e1d2d907-c925-4f35-b06c-f130ca208781",
+          "createdAt": "2026-06-05T15:19:54.000Z",
+          "updatedAt": "2026-06-05T15:19:54.000Z",
+          "uid": "35240-e1d2d907-c925-4f35-b06c-f130ca208781"
+        }
+      ],
+      "id": "a54d5f27-25de-4477-bd40-61b3cd64e710",
+      "createdAt": "2026-06-05T15:19:54.000Z",
+      "updatedAt": "2026-06-05T15:19:54.000Z",
+      "uid": "35240-a54d5f27-25de-4477-bd40-61b3cd64e710"
+    },
+    {
+      "name": "viam.component.movementsensor.v1.MovementSensorService",
+      "item": [
+        {
+          "name": "GetPosition",
+          "item": [
+            {
+              "name": "Viam Movement Sensor Get Position",
+              "id": "093dd5ee-0349-46bb-965a-e898292d255f",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.component.movementsensor.v1.MovementSensorService/GetPosition",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.component.movementsensor.v1.MovementSensorService",
+                    "GetPosition"
+                  ]
+                },
+                "description": "Get GPS position (latitude, longitude, altitude)."
+              },
+              "response": [
+                {
+                  "id": "648a3cfc-fa52-40db-a893-0d5b87c4c846",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.component.movementsensor.v1.MovementSensorService/GetPosition",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.component.movementsensor.v1.MovementSensorService",
+                        "GetPosition"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:54.000Z",
+                  "updatedAt": "2026-06-05T15:19:54.000Z",
+                  "uid": "35240-648a3cfc-fa52-40db-a893-0d5b87c4c846"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:54.000Z",
+              "updatedAt": "2026-06-05T15:19:54.000Z",
+              "uid": "35240-093dd5ee-0349-46bb-965a-e898292d255f"
+            }
+          ],
+          "id": "196419fa-5ec6-4198-8190-6fd31859fb11",
+          "createdAt": "2026-06-05T15:19:54.000Z",
+          "updatedAt": "2026-06-05T15:19:54.000Z",
+          "uid": "35240-196419fa-5ec6-4198-8190-6fd31859fb11"
+        },
+        {
+          "name": "GetLinearVelocity",
+          "item": [
+            {
+              "name": "Viam Movement Sensor Get Linear Velocity",
+              "id": "8d6ae7c5-1072-42f2-a776-06bc5f79c4e0",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.component.movementsensor.v1.MovementSensorService/GetLinearVelocity",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.component.movementsensor.v1.MovementSensorService",
+                    "GetLinearVelocity"
+                  ]
+                },
+                "description": "Get linear velocity in m/s."
+              },
+              "response": [
+                {
+                  "id": "f1a1f50f-4b83-4b0d-8098-e2b5641d5a95",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.component.movementsensor.v1.MovementSensorService/GetLinearVelocity",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.component.movementsensor.v1.MovementSensorService",
+                        "GetLinearVelocity"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:54.000Z",
+                  "updatedAt": "2026-06-05T15:19:54.000Z",
+                  "uid": "35240-f1a1f50f-4b83-4b0d-8098-e2b5641d5a95"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:54.000Z",
+              "updatedAt": "2026-06-05T15:19:54.000Z",
+              "uid": "35240-8d6ae7c5-1072-42f2-a776-06bc5f79c4e0"
+            }
+          ],
+          "id": "4baa4c85-f89f-40e9-b433-c4dbce2f6509",
+          "createdAt": "2026-06-05T15:19:54.000Z",
+          "updatedAt": "2026-06-05T15:19:54.000Z",
+          "uid": "35240-4baa4c85-f89f-40e9-b433-c4dbce2f6509"
+        },
+        {
+          "name": "GetAngularVelocity",
+          "item": [
+            {
+              "name": "Viam Movement Sensor Get Angular Velocity",
+              "id": "a9e17e3a-50e3-43b2-ad83-ad197b1f19b1",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.component.movementsensor.v1.MovementSensorService/GetAngularVelocity",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.component.movementsensor.v1.MovementSensorService",
+                    "GetAngularVelocity"
+                  ]
+                },
+                "description": "Get angular velocity in deg/s."
+              },
+              "response": [
+                {
+                  "id": "b7c52206-5c32-49cb-a69b-04269fefd646",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.component.movementsensor.v1.MovementSensorService/GetAngularVelocity",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.component.movementsensor.v1.MovementSensorService",
+                        "GetAngularVelocity"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:54.000Z",
+                  "updatedAt": "2026-06-05T15:19:54.000Z",
+                  "uid": "35240-b7c52206-5c32-49cb-a69b-04269fefd646"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:54.000Z",
+              "updatedAt": "2026-06-05T15:19:54.000Z",
+              "uid": "35240-a9e17e3a-50e3-43b2-ad83-ad197b1f19b1"
+            }
+          ],
+          "id": "8198ebea-606b-4892-bdde-6d9ed2485957",
+          "createdAt": "2026-06-05T15:19:54.000Z",
+          "updatedAt": "2026-06-05T15:19:54.000Z",
+          "uid": "35240-8198ebea-606b-4892-bdde-6d9ed2485957"
+        },
+        {
+          "name": "GetCompassHeading",
+          "item": [
+            {
+              "name": "Viam Movement Sensor Get Compass Heading",
+              "id": "f06b306d-4149-4b88-a06e-866cb0d6215e",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.component.movementsensor.v1.MovementSensorService/GetCompassHeading",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.component.movementsensor.v1.MovementSensorService",
+                    "GetCompassHeading"
+                  ]
+                },
+                "description": "Get compass heading in degrees."
+              },
+              "response": [
+                {
+                  "id": "8e8befdf-b9e2-45f8-936b-9795c4c00bd9",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.component.movementsensor.v1.MovementSensorService/GetCompassHeading",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.component.movementsensor.v1.MovementSensorService",
+                        "GetCompassHeading"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:54.000Z",
+                  "updatedAt": "2026-06-05T15:19:54.000Z",
+                  "uid": "35240-8e8befdf-b9e2-45f8-936b-9795c4c00bd9"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:54.000Z",
+              "updatedAt": "2026-06-05T15:19:54.000Z",
+              "uid": "35240-f06b306d-4149-4b88-a06e-866cb0d6215e"
+            }
+          ],
+          "id": "4b8f0833-9038-47d7-8983-1275622daef8",
+          "createdAt": "2026-06-05T15:19:54.000Z",
+          "updatedAt": "2026-06-05T15:19:54.000Z",
+          "uid": "35240-4b8f0833-9038-47d7-8983-1275622daef8"
+        },
+        {
+          "name": "GetOrientation",
+          "item": [
+            {
+              "name": "Viam Movement Sensor Get Orientation",
+              "id": "5c666c4c-a982-4ef2-a9fd-cf2c8c99492c",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.component.movementsensor.v1.MovementSensorService/GetOrientation",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.component.movementsensor.v1.MovementSensorService",
+                    "GetOrientation"
+                  ]
+                },
+                "description": "Get orientation as an orientation vector."
+              },
+              "response": [
+                {
+                  "id": "f07aedc3-8599-4f46-989b-317d5a569ebc",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.component.movementsensor.v1.MovementSensorService/GetOrientation",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.component.movementsensor.v1.MovementSensorService",
+                        "GetOrientation"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:54.000Z",
+                  "updatedAt": "2026-06-05T15:19:54.000Z",
+                  "uid": "35240-f07aedc3-8599-4f46-989b-317d5a569ebc"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:54.000Z",
+              "updatedAt": "2026-06-05T15:19:54.000Z",
+              "uid": "35240-5c666c4c-a982-4ef2-a9fd-cf2c8c99492c"
+            }
+          ],
+          "id": "f2bcace2-6e92-4fd2-b2b0-417fe187a0ed",
+          "createdAt": "2026-06-05T15:19:54.000Z",
+          "updatedAt": "2026-06-05T15:19:54.000Z",
+          "uid": "35240-f2bcace2-6e92-4fd2-b2b0-417fe187a0ed"
+        }
+      ],
+      "id": "5372df8e-ea78-4d4f-bd06-ead21eef0eae",
+      "createdAt": "2026-06-05T15:19:54.000Z",
+      "updatedAt": "2026-06-05T15:19:54.000Z",
+      "uid": "35240-5372df8e-ea78-4d4f-bd06-ead21eef0eae"
+    },
+    {
+      "name": "viam.component.powersensor.v1.PowerSensorService",
+      "item": [
+        {
+          "name": "GetVoltage",
+          "item": [
+            {
+              "name": "Viam Power Sensor Get Voltage",
+              "id": "ebbd6e87-b091-45b3-9514-387e2b648766",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.component.powersensor.v1.PowerSensorService/GetVoltage",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.component.powersensor.v1.PowerSensorService",
+                    "GetVoltage"
+                  ]
+                },
+                "description": "Read voltage in volts."
+              },
+              "response": [
+                {
+                  "id": "c1beabd5-486f-413d-a755-39a29728bb37",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.component.powersensor.v1.PowerSensorService/GetVoltage",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.component.powersensor.v1.PowerSensorService",
+                        "GetVoltage"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:54.000Z",
+                  "updatedAt": "2026-06-05T15:19:54.000Z",
+                  "uid": "35240-c1beabd5-486f-413d-a755-39a29728bb37"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:54.000Z",
+              "updatedAt": "2026-06-05T15:19:54.000Z",
+              "uid": "35240-ebbd6e87-b091-45b3-9514-387e2b648766"
+            }
+          ],
+          "id": "ee27e3e5-22c6-4922-b82b-b4ffae9aec9a",
+          "createdAt": "2026-06-05T15:19:54.000Z",
+          "updatedAt": "2026-06-05T15:19:54.000Z",
+          "uid": "35240-ee27e3e5-22c6-4922-b82b-b4ffae9aec9a"
+        },
+        {
+          "name": "GetCurrent",
+          "item": [
+            {
+              "name": "Viam Power Sensor Get Current",
+              "id": "68a4aa9c-734f-403f-b538-bb8d060812fc",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.component.powersensor.v1.PowerSensorService/GetCurrent",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.component.powersensor.v1.PowerSensorService",
+                    "GetCurrent"
+                  ]
+                },
+                "description": "Read current in amperes."
+              },
+              "response": [
+                {
+                  "id": "9c8c5b18-427a-4786-a0c7-8155f6c30576",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.component.powersensor.v1.PowerSensorService/GetCurrent",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.component.powersensor.v1.PowerSensorService",
+                        "GetCurrent"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:54.000Z",
+                  "updatedAt": "2026-06-05T15:19:54.000Z",
+                  "uid": "35240-9c8c5b18-427a-4786-a0c7-8155f6c30576"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:54.000Z",
+              "updatedAt": "2026-06-05T15:19:54.000Z",
+              "uid": "35240-68a4aa9c-734f-403f-b538-bb8d060812fc"
+            }
+          ],
+          "id": "c838f64c-5b4b-4285-8a8b-993f36de9924",
+          "createdAt": "2026-06-05T15:19:54.000Z",
+          "updatedAt": "2026-06-05T15:19:54.000Z",
+          "uid": "35240-c838f64c-5b4b-4285-8a8b-993f36de9924"
+        },
+        {
+          "name": "GetPower",
+          "item": [
+            {
+              "name": "Viam Power Sensor Get Power",
+              "id": "5d298a95-70f2-4249-b0c0-cafb9d7ba574",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.component.powersensor.v1.PowerSensorService/GetPower",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.component.powersensor.v1.PowerSensorService",
+                    "GetPower"
+                  ]
+                },
+                "description": "Read power in watts."
+              },
+              "response": [
+                {
+                  "id": "9d23e1d2-6c3b-4451-9514-8ba6764e38de",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.component.powersensor.v1.PowerSensorService/GetPower",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.component.powersensor.v1.PowerSensorService",
+                        "GetPower"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:54.000Z",
+                  "updatedAt": "2026-06-05T15:19:54.000Z",
+                  "uid": "35240-9d23e1d2-6c3b-4451-9514-8ba6764e38de"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:54.000Z",
+              "updatedAt": "2026-06-05T15:19:54.000Z",
+              "uid": "35240-5d298a95-70f2-4249-b0c0-cafb9d7ba574"
+            }
+          ],
+          "id": "2b5f7ed3-45a1-4724-99d3-9debbc318f39",
+          "createdAt": "2026-06-05T15:19:54.000Z",
+          "updatedAt": "2026-06-05T15:19:54.000Z",
+          "uid": "35240-2b5f7ed3-45a1-4724-99d3-9debbc318f39"
+        }
+      ],
+      "id": "5a363320-0653-4b83-bd99-52874badba9c",
+      "createdAt": "2026-06-05T15:19:54.000Z",
+      "updatedAt": "2026-06-05T15:19:54.000Z",
+      "uid": "35240-5a363320-0653-4b83-bd99-52874badba9c"
+    },
+    {
+      "name": "viam.component.sensor.v1.SensorService",
+      "item": [
+        {
+          "name": "GetReadings",
+          "item": [
+            {
+              "name": "Viam Sensor Get Readings",
+              "id": "ea05d993-8186-423e-bc9e-4377a0bf14f6",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.component.sensor.v1.SensorService/GetReadings",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.component.sensor.v1.SensorService",
+                    "GetReadings"
+                  ]
+                },
+                "description": "Get the latest readings from a generic sensor."
+              },
+              "response": [
+                {
+                  "id": "1b100748-714a-4ca7-bea4-aa23ec955bef",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.component.sensor.v1.SensorService/GetReadings",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.component.sensor.v1.SensorService",
+                        "GetReadings"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:54.000Z",
+                  "updatedAt": "2026-06-05T15:19:54.000Z",
+                  "uid": "35240-1b100748-714a-4ca7-bea4-aa23ec955bef"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:54.000Z",
+              "updatedAt": "2026-06-05T15:19:54.000Z",
+              "uid": "35240-ea05d993-8186-423e-bc9e-4377a0bf14f6"
+            }
+          ],
+          "id": "a4ba30a9-0337-4018-a7fb-69c97ff51e6f",
+          "createdAt": "2026-06-05T15:19:54.000Z",
+          "updatedAt": "2026-06-05T15:19:54.000Z",
+          "uid": "35240-a4ba30a9-0337-4018-a7fb-69c97ff51e6f"
+        }
+      ],
+      "id": "13a29ea5-6cb1-4595-9498-ce9dcea93e5c",
+      "createdAt": "2026-06-05T15:19:54.000Z",
+      "updatedAt": "2026-06-05T15:19:54.000Z",
+      "uid": "35240-13a29ea5-6cb1-4595-9498-ce9dcea93e5c"
+    },
+    {
+      "name": "viam.component.servo.v1.ServoService",
+      "item": [
+        {
+          "name": "Move",
+          "item": [
+            {
+              "name": "Viam Servo Move",
+              "id": "d11abc24-0e44-4c05-a1d4-a2543f7d8f2e",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"angle_deg\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.component.servo.v1.ServoService/Move",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.component.servo.v1.ServoService",
+                    "Move"
+                  ]
+                },
+                "description": "Move the servo to an angle in degrees."
+              },
+              "response": [
+                {
+                  "id": "2ade2eb9-3bbe-4125-a4c1-4524eb9d9328",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"angle_deg\": \"<integer>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.component.servo.v1.ServoService/Move",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.component.servo.v1.ServoService",
+                        "Move"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:54.000Z",
+                  "updatedAt": "2026-06-05T15:19:54.000Z",
+                  "uid": "35240-2ade2eb9-3bbe-4125-a4c1-4524eb9d9328"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:54.000Z",
+              "updatedAt": "2026-06-05T15:19:54.000Z",
+              "uid": "35240-d11abc24-0e44-4c05-a1d4-a2543f7d8f2e"
+            }
+          ],
+          "id": "0c889b59-e840-4867-9912-387225ee37bf",
+          "createdAt": "2026-06-05T15:19:54.000Z",
+          "updatedAt": "2026-06-05T15:19:54.000Z",
+          "uid": "35240-0c889b59-e840-4867-9912-387225ee37bf"
+        },
+        {
+          "name": "GetPosition",
+          "item": [
+            {
+              "name": "Viam Servo Get Position",
+              "id": "5f06b4ec-487d-47d2-b258-e82bc0e34e07",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.component.servo.v1.ServoService/GetPosition",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.component.servo.v1.ServoService",
+                    "GetPosition"
+                  ]
+                },
+                "description": "Get the servo's current position."
+              },
+              "response": [
+                {
+                  "id": "fca8ce83-38a8-4e03-bf8b-955273277552",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.component.servo.v1.ServoService/GetPosition",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.component.servo.v1.ServoService",
+                        "GetPosition"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:54.000Z",
+                  "updatedAt": "2026-06-05T15:19:54.000Z",
+                  "uid": "35240-fca8ce83-38a8-4e03-bf8b-955273277552"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:54.000Z",
+              "updatedAt": "2026-06-05T15:19:54.000Z",
+              "uid": "35240-5f06b4ec-487d-47d2-b258-e82bc0e34e07"
+            }
+          ],
+          "id": "78c7d5ae-a8eb-4ad0-a0f8-1d4e0582ba2e",
+          "createdAt": "2026-06-05T15:19:54.000Z",
+          "updatedAt": "2026-06-05T15:19:54.000Z",
+          "uid": "35240-78c7d5ae-a8eb-4ad0-a0f8-1d4e0582ba2e"
+        }
+      ],
+      "id": "928473dd-c7cd-43a8-9f98-c94dd19ab247",
+      "createdAt": "2026-06-05T15:19:54.000Z",
+      "updatedAt": "2026-06-05T15:19:54.000Z",
+      "uid": "35240-928473dd-c7cd-43a8-9f98-c94dd19ab247"
+    },
+    {
+      "name": "viam.component.switch.v1.SwitchService",
+      "item": [
+        {
+          "name": "SetPosition",
+          "item": [
+            {
+              "name": "Viam Switch Set Position",
+              "id": "2937288f-4178-42d4-80d9-518575830b71",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"position\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.component.switch.v1.SwitchService/SetPosition",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.component.switch.v1.SwitchService",
+                    "SetPosition"
+                  ]
+                },
+                "description": "Set the switch's position."
+              },
+              "response": [
+                {
+                  "id": "929b6ead-0cd4-4f45-9b5a-64071cbbc6d2",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"position\": \"<integer>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.component.switch.v1.SwitchService/SetPosition",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.component.switch.v1.SwitchService",
+                        "SetPosition"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:54.000Z",
+                  "updatedAt": "2026-06-05T15:19:54.000Z",
+                  "uid": "35240-929b6ead-0cd4-4f45-9b5a-64071cbbc6d2"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:54.000Z",
+              "updatedAt": "2026-06-05T15:19:54.000Z",
+              "uid": "35240-2937288f-4178-42d4-80d9-518575830b71"
+            }
+          ],
+          "id": "81388be0-9efc-4356-8a14-6f44b415d1fa",
+          "createdAt": "2026-06-05T15:19:54.000Z",
+          "updatedAt": "2026-06-05T15:19:54.000Z",
+          "uid": "35240-81388be0-9efc-4356-8a14-6f44b415d1fa"
+        },
+        {
+          "name": "GetPosition",
+          "item": [
+            {
+              "name": "Viam Switch Get Position",
+              "id": "ed287c15-9446-4b3b-a021-d24560470266",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.component.switch.v1.SwitchService/GetPosition",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.component.switch.v1.SwitchService",
+                    "GetPosition"
+                  ]
+                },
+                "description": "Get the switch's current position."
+              },
+              "response": [
+                {
+                  "id": "2a208c31-9af6-4b96-8146-5934629efe09",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.component.switch.v1.SwitchService/GetPosition",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.component.switch.v1.SwitchService",
+                        "GetPosition"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:54.000Z",
+                  "updatedAt": "2026-06-05T15:19:54.000Z",
+                  "uid": "35240-2a208c31-9af6-4b96-8146-5934629efe09"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:54.000Z",
+              "updatedAt": "2026-06-05T15:19:54.000Z",
+              "uid": "35240-ed287c15-9446-4b3b-a021-d24560470266"
+            }
+          ],
+          "id": "afc79837-9b56-4e70-8053-af25da324f05",
+          "createdAt": "2026-06-05T15:19:54.000Z",
+          "updatedAt": "2026-06-05T15:19:54.000Z",
+          "uid": "35240-afc79837-9b56-4e70-8053-af25da324f05"
+        }
+      ],
+      "id": "b9cdef0e-c989-47b8-8d89-ceb74fda3532",
+      "createdAt": "2026-06-05T15:19:54.000Z",
+      "updatedAt": "2026-06-05T15:19:54.000Z",
+      "uid": "35240-b9cdef0e-c989-47b8-8d89-ceb74fda3532"
+    },
+    {
+      "name": "viam.component.audioin.v1.AudioInService",
+      "item": [
+        {
+          "name": "GetAudio",
+          "item": [
+            {
+              "name": "Viam Audio In Get Audio",
+              "id": "ff5cb511-290b-47f2-bf4a-23a74ed9c6b8",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.component.audioin.v1.AudioInService/GetAudio",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.component.audioin.v1.AudioInService",
+                    "GetAudio"
+                  ]
+                },
+                "description": "Capture audio from an input device."
+              },
+              "response": [
+                {
+                  "id": "17a3dec3-9a13-4567-83ca-ac659373a442",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.component.audioin.v1.AudioInService/GetAudio",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.component.audioin.v1.AudioInService",
+                        "GetAudio"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:54.000Z",
+                  "updatedAt": "2026-06-05T15:19:54.000Z",
+                  "uid": "35240-17a3dec3-9a13-4567-83ca-ac659373a442"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:54.000Z",
+              "updatedAt": "2026-06-05T15:19:54.000Z",
+              "uid": "35240-ff5cb511-290b-47f2-bf4a-23a74ed9c6b8"
+            }
+          ],
+          "id": "a45b8016-efd0-449d-a130-952325d17cb7",
+          "createdAt": "2026-06-05T15:19:54.000Z",
+          "updatedAt": "2026-06-05T15:19:54.000Z",
+          "uid": "35240-a45b8016-efd0-449d-a130-952325d17cb7"
+        }
+      ],
+      "id": "b214b61a-fd10-49e0-a707-3ee2a024d23a",
+      "createdAt": "2026-06-05T15:19:54.000Z",
+      "updatedAt": "2026-06-05T15:19:54.000Z",
+      "uid": "35240-b214b61a-fd10-49e0-a707-3ee2a024d23a"
+    },
+    {
+      "name": "viam.component.audioout.v1.AudioOutService",
+      "item": [
+        {
+          "name": "Play",
+          "item": [
+            {
+              "name": "Viam Audio Out Play",
+              "id": "f89d37b4-4d40-4a22-82cf-30b56f2da4e5",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"audio\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.component.audioout.v1.AudioOutService/Play",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.component.audioout.v1.AudioOutService",
+                    "Play"
+                  ]
+                },
+                "description": "Play an audio payload on an output device."
+              },
+              "response": [
+                {
+                  "id": "80b95d11-a62c-4e42-98ac-dc22a69c7713",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"audio\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.component.audioout.v1.AudioOutService/Play",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.component.audioout.v1.AudioOutService",
+                        "Play"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:54.000Z",
+                  "updatedAt": "2026-06-05T15:19:54.000Z",
+                  "uid": "35240-80b95d11-a62c-4e42-98ac-dc22a69c7713"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:54.000Z",
+              "updatedAt": "2026-06-05T15:19:54.000Z",
+              "uid": "35240-f89d37b4-4d40-4a22-82cf-30b56f2da4e5"
+            }
+          ],
+          "id": "971cf4d7-af39-4e49-861e-d1a74e978d1f",
+          "createdAt": "2026-06-05T15:19:54.000Z",
+          "updatedAt": "2026-06-05T15:19:54.000Z",
+          "uid": "35240-971cf4d7-af39-4e49-861e-d1a74e978d1f"
+        }
+      ],
+      "id": "f09083f3-2cb2-4188-a911-a7758b36bccd",
+      "createdAt": "2026-06-05T15:19:54.000Z",
+      "updatedAt": "2026-06-05T15:19:54.000Z",
+      "uid": "35240-f09083f3-2cb2-4188-a911-a7758b36bccd"
+    },
+    {
+      "name": "viam.component.generic.v1.GenericService",
+      "item": [
+        {
+          "name": "DoCommand",
+          "item": [
+            {
+              "name": "Viam Generic Do Command",
+              "id": "38ea9bd0-cc47-4284-988b-3d3a479162fe",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"command\": {}\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.component.generic.v1.GenericService/DoCommand",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.component.generic.v1.GenericService",
+                    "DoCommand"
+                  ]
+                },
+                "description": "Send a custom model-specific command to a generic component."
+              },
+              "response": [
+                {
+                  "id": "8deb5410-f234-466c-873e-d18305f51058",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"command\": {}\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.component.generic.v1.GenericService/DoCommand",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.component.generic.v1.GenericService",
+                        "DoCommand"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:54.000Z",
+                  "updatedAt": "2026-06-05T15:19:54.000Z",
+                  "uid": "35240-8deb5410-f234-466c-873e-d18305f51058"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:54.000Z",
+              "updatedAt": "2026-06-05T15:19:54.000Z",
+              "uid": "35240-38ea9bd0-cc47-4284-988b-3d3a479162fe"
+            }
+          ],
+          "id": "05061df7-3506-467f-8c6b-94675f842c3d",
+          "createdAt": "2026-06-05T15:19:54.000Z",
+          "updatedAt": "2026-06-05T15:19:54.000Z",
+          "uid": "35240-05061df7-3506-467f-8c6b-94675f842c3d"
+        }
+      ],
+      "id": "9f4d00a1-53c9-4a7d-b73b-de07173caf22",
+      "createdAt": "2026-06-05T15:19:54.000Z",
+      "updatedAt": "2026-06-05T15:19:54.000Z",
+      "uid": "35240-9f4d00a1-53c9-4a7d-b73b-de07173caf22"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "key",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "machine_address",
+      "value": "machine.local.viam.cloud:443"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{machine_address}}"
+    }
+  ]
+}

@@ -1,0 +1,146 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Viam Vision Service API",
+    "version": "2026.05"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "key",
+      "value": "{{key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Vision",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Viam Get Detections From Camera",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{machine_address}/viam.service.vision.v1.VisionService/GetDetectionsFromCamera",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Run object detection against a configured camera component."
+        },
+        {
+          "info": {
+            "name": "Viam Get Detections",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{machine_address}/viam.service.vision.v1.VisionService/GetDetections",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Run object detection against a provided image."
+        },
+        {
+          "info": {
+            "name": "Viam Get Classifications From Camera",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{machine_address}/viam.service.vision.v1.VisionService/GetClassificationsFromCamera",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Run image classification against a configured camera component."
+        },
+        {
+          "info": {
+            "name": "Viam Get Classifications",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{machine_address}/viam.service.vision.v1.VisionService/GetClassifications",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Run image classification against a provided image."
+        },
+        {
+          "info": {
+            "name": "Viam Get Object Point Clouds",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{machine_address}/viam.service.vision.v1.VisionService/GetObjectPointClouds",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Segment 3D point clouds from a camera component into discrete objects."
+        },
+        {
+          "info": {
+            "name": "Viam Capture All From Camera",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{machine_address}/viam.service.vision.v1.VisionService/CaptureAllFromCamera",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Return image, detections, classifications, and point clouds in a single call."
+        },
+        {
+          "info": {
+            "name": "Viam Get Properties",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{machine_address}/viam.service.vision.v1.VisionService/GetProperties",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Retrieve properties of the vision service."
+        },
+        {
+          "info": {
+            "name": "Viam Do Command",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{machine_address}/viam.service.vision.v1.VisionService/DoCommand",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Model-specific custom commands."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

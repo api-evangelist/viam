@@ -1,0 +1,845 @@
+{
+  "info": {
+    "_postman_id": "cb0cc627-ab59-49f0-aee2-d9963109bea2",
+    "name": "Viam Vision Service API",
+    "description": "REST/JSON transcoding of the Viam VisionService gRPC API. Run object detection,\nimage classification, and 3D segmentation against a configured camera component.\n\nCanonical contract: https://github.com/viamrobotics/api/blob/main/proto/viam/service/vision/v1/vision.proto\n\n\nContact Support:\n Name: Viam Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T15:19:50.000Z",
+    "updatedAt": "2026-06-05T15:19:50.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-cb0cc627-ab59-49f0-aee2-d9963109bea2"
+  },
+  "item": [
+    {
+      "name": "viam.service.vision.v1.VisionService",
+      "item": [
+        {
+          "name": "GetDetectionsFromCamera",
+          "item": [
+            {
+              "name": "Viam Get Detections From Camera",
+              "id": "7b7f9c5b-8b3c-4c3d-a618-7f1a1f885a50",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"camera_name\": \"<string>\",\n  \"extra\": {}\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.service.vision.v1.VisionService/GetDetectionsFromCamera",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.service.vision.v1.VisionService",
+                    "GetDetectionsFromCamera"
+                  ]
+                },
+                "description": "Run object detection against a configured camera component."
+              },
+              "response": [
+                {
+                  "id": "f88c28ee-4705-474c-bb60-8c77e8107046",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"camera_name\": \"<string>\",\n  \"extra\": {}\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.service.vision.v1.VisionService/GetDetectionsFromCamera",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.service.vision.v1.VisionService",
+                        "GetDetectionsFromCamera"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:50.000Z",
+                  "updatedAt": "2026-06-05T15:19:50.000Z",
+                  "uid": "35240-f88c28ee-4705-474c-bb60-8c77e8107046"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:50.000Z",
+              "updatedAt": "2026-06-05T15:19:50.000Z",
+              "uid": "35240-7b7f9c5b-8b3c-4c3d-a618-7f1a1f885a50"
+            }
+          ],
+          "id": "7519e00a-7491-44e1-a615-9e325e7565e5",
+          "createdAt": "2026-06-05T15:19:50.000Z",
+          "updatedAt": "2026-06-05T15:19:50.000Z",
+          "uid": "35240-7519e00a-7491-44e1-a615-9e325e7565e5"
+        },
+        {
+          "name": "GetDetections",
+          "item": [
+            {
+              "name": "Viam Get Detections",
+              "id": "69945952-5880-4850-9b2c-622f1d08cbfa",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"image\": \"<string>\",\n  \"width\": \"<integer>\",\n  \"height\": \"<integer>\",\n  \"mime_type\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.service.vision.v1.VisionService/GetDetections",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.service.vision.v1.VisionService",
+                    "GetDetections"
+                  ]
+                },
+                "description": "Run object detection against a provided image."
+              },
+              "response": [
+                {
+                  "id": "add75104-c0a2-448d-b803-f0075db703e4",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"image\": \"<string>\",\n  \"width\": \"<integer>\",\n  \"height\": \"<integer>\",\n  \"mime_type\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.service.vision.v1.VisionService/GetDetections",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.service.vision.v1.VisionService",
+                        "GetDetections"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:50.000Z",
+                  "updatedAt": "2026-06-05T15:19:50.000Z",
+                  "uid": "35240-add75104-c0a2-448d-b803-f0075db703e4"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:50.000Z",
+              "updatedAt": "2026-06-05T15:19:50.000Z",
+              "uid": "35240-69945952-5880-4850-9b2c-622f1d08cbfa"
+            }
+          ],
+          "id": "60bc1922-6207-4da0-ada2-c24d696637d6",
+          "createdAt": "2026-06-05T15:19:50.000Z",
+          "updatedAt": "2026-06-05T15:19:50.000Z",
+          "uid": "35240-60bc1922-6207-4da0-ada2-c24d696637d6"
+        },
+        {
+          "name": "GetClassificationsFromCamera",
+          "item": [
+            {
+              "name": "Viam Get Classifications From Camera",
+              "id": "bf3abf16-e0ee-4e66-9103-afe02582e581",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"camera_name\": \"<string>\",\n  \"n\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.service.vision.v1.VisionService/GetClassificationsFromCamera",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.service.vision.v1.VisionService",
+                    "GetClassificationsFromCamera"
+                  ]
+                },
+                "description": "Run image classification against a configured camera component."
+              },
+              "response": [
+                {
+                  "id": "1af13d4d-189d-413f-b379-4c934abf81a0",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"camera_name\": \"<string>\",\n  \"n\": \"<integer>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.service.vision.v1.VisionService/GetClassificationsFromCamera",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.service.vision.v1.VisionService",
+                        "GetClassificationsFromCamera"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:50.000Z",
+                  "updatedAt": "2026-06-05T15:19:50.000Z",
+                  "uid": "35240-1af13d4d-189d-413f-b379-4c934abf81a0"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:50.000Z",
+              "updatedAt": "2026-06-05T15:19:50.000Z",
+              "uid": "35240-bf3abf16-e0ee-4e66-9103-afe02582e581"
+            }
+          ],
+          "id": "12507c86-0a84-4cf5-9182-88ceb457653a",
+          "createdAt": "2026-06-05T15:19:50.000Z",
+          "updatedAt": "2026-06-05T15:19:50.000Z",
+          "uid": "35240-12507c86-0a84-4cf5-9182-88ceb457653a"
+        },
+        {
+          "name": "GetClassifications",
+          "item": [
+            {
+              "name": "Viam Get Classifications",
+              "id": "1744e6ab-3f2e-46a7-9e5f-9846fbfb3a2d",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"image\": \"<string>\",\n  \"width\": \"<integer>\",\n  \"height\": \"<integer>\",\n  \"mime_type\": \"<string>\",\n  \"n\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.service.vision.v1.VisionService/GetClassifications",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.service.vision.v1.VisionService",
+                    "GetClassifications"
+                  ]
+                },
+                "description": "Run image classification against a provided image."
+              },
+              "response": [
+                {
+                  "id": "0b0b9818-3a53-45b8-8628-901324715d18",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"image\": \"<string>\",\n  \"width\": \"<integer>\",\n  \"height\": \"<integer>\",\n  \"mime_type\": \"<string>\",\n  \"n\": \"<integer>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.service.vision.v1.VisionService/GetClassifications",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.service.vision.v1.VisionService",
+                        "GetClassifications"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:50.000Z",
+                  "updatedAt": "2026-06-05T15:19:50.000Z",
+                  "uid": "35240-0b0b9818-3a53-45b8-8628-901324715d18"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:50.000Z",
+              "updatedAt": "2026-06-05T15:19:50.000Z",
+              "uid": "35240-1744e6ab-3f2e-46a7-9e5f-9846fbfb3a2d"
+            }
+          ],
+          "id": "b65f0ab6-45d9-4afa-9c44-4c6570a5f4d4",
+          "createdAt": "2026-06-05T15:19:50.000Z",
+          "updatedAt": "2026-06-05T15:19:50.000Z",
+          "uid": "35240-b65f0ab6-45d9-4afa-9c44-4c6570a5f4d4"
+        },
+        {
+          "name": "GetObjectPointClouds",
+          "item": [
+            {
+              "name": "Viam Get Object Point Clouds",
+              "id": "c998e401-0c26-4c03-a656-e239616ff3df",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"camera_name\": \"<string>\",\n  \"mime_type\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.service.vision.v1.VisionService/GetObjectPointClouds",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.service.vision.v1.VisionService",
+                    "GetObjectPointClouds"
+                  ]
+                },
+                "description": "Segment 3D point clouds from a camera component into discrete objects."
+              },
+              "response": [
+                {
+                  "id": "a2a94785-a416-4e97-9d45-8c3f7b980c1e",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"camera_name\": \"<string>\",\n  \"mime_type\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.service.vision.v1.VisionService/GetObjectPointClouds",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.service.vision.v1.VisionService",
+                        "GetObjectPointClouds"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:50.000Z",
+                  "updatedAt": "2026-06-05T15:19:50.000Z",
+                  "uid": "35240-a2a94785-a416-4e97-9d45-8c3f7b980c1e"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:50.000Z",
+              "updatedAt": "2026-06-05T15:19:50.000Z",
+              "uid": "35240-c998e401-0c26-4c03-a656-e239616ff3df"
+            }
+          ],
+          "id": "b8c068ce-d219-46bf-b3a1-bef38f2dad95",
+          "createdAt": "2026-06-05T15:19:50.000Z",
+          "updatedAt": "2026-06-05T15:19:50.000Z",
+          "uid": "35240-b8c068ce-d219-46bf-b3a1-bef38f2dad95"
+        },
+        {
+          "name": "CaptureAllFromCamera",
+          "item": [
+            {
+              "name": "Viam Capture All From Camera",
+              "id": "4851ca03-5a66-4558-939e-0ffef3d4e7bb",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"camera_name\": \"<string>\",\n  \"return_image\": \"<boolean>\",\n  \"return_classifications\": \"<boolean>\",\n  \"return_detections\": \"<boolean>\",\n  \"return_object_point_clouds\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.service.vision.v1.VisionService/CaptureAllFromCamera",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.service.vision.v1.VisionService",
+                    "CaptureAllFromCamera"
+                  ]
+                },
+                "description": "Return image, detections, classifications, and point clouds in a single call."
+              },
+              "response": [
+                {
+                  "id": "6c391b88-2744-4b49-a398-6f93c5ea8fb0",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"camera_name\": \"<string>\",\n  \"return_image\": \"<boolean>\",\n  \"return_classifications\": \"<boolean>\",\n  \"return_detections\": \"<boolean>\",\n  \"return_object_point_clouds\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.service.vision.v1.VisionService/CaptureAllFromCamera",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.service.vision.v1.VisionService",
+                        "CaptureAllFromCamera"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:50.000Z",
+                  "updatedAt": "2026-06-05T15:19:50.000Z",
+                  "uid": "35240-6c391b88-2744-4b49-a398-6f93c5ea8fb0"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:50.000Z",
+              "updatedAt": "2026-06-05T15:19:50.000Z",
+              "uid": "35240-4851ca03-5a66-4558-939e-0ffef3d4e7bb"
+            }
+          ],
+          "id": "4536b9ae-d004-4783-989f-3262b3458727",
+          "createdAt": "2026-06-05T15:19:50.000Z",
+          "updatedAt": "2026-06-05T15:19:50.000Z",
+          "uid": "35240-4536b9ae-d004-4783-989f-3262b3458727"
+        },
+        {
+          "name": "GetProperties",
+          "item": [
+            {
+              "name": "Viam Get Properties",
+              "id": "40f6fc08-62e9-4b53-bcf6-9c44d245dee3",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.service.vision.v1.VisionService/GetProperties",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.service.vision.v1.VisionService",
+                    "GetProperties"
+                  ]
+                },
+                "description": "Retrieve properties of the vision service."
+              },
+              "response": [
+                {
+                  "id": "18b29c86-11e8-4c73-a939-86b62a69f70c",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.service.vision.v1.VisionService/GetProperties",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.service.vision.v1.VisionService",
+                        "GetProperties"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:50.000Z",
+                  "updatedAt": "2026-06-05T15:19:50.000Z",
+                  "uid": "35240-18b29c86-11e8-4c73-a939-86b62a69f70c"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:50.000Z",
+              "updatedAt": "2026-06-05T15:19:50.000Z",
+              "uid": "35240-40f6fc08-62e9-4b53-bcf6-9c44d245dee3"
+            }
+          ],
+          "id": "70e8db45-13c9-4a8f-b834-3323a76927e1",
+          "createdAt": "2026-06-05T15:19:50.000Z",
+          "updatedAt": "2026-06-05T15:19:50.000Z",
+          "uid": "35240-70e8db45-13c9-4a8f-b834-3323a76927e1"
+        },
+        {
+          "name": "DoCommand",
+          "item": [
+            {
+              "name": "Viam Do Command",
+              "id": "a59844ec-f79c-4699-8971-ca19465cf6a4",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"command\": {}\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.service.vision.v1.VisionService/DoCommand",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.service.vision.v1.VisionService",
+                    "DoCommand"
+                  ]
+                },
+                "description": "Model-specific custom commands."
+              },
+              "response": [
+                {
+                  "id": "d83e55a7-1ff9-49b2-8d21-6d704994e5fb",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"command\": {}\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.service.vision.v1.VisionService/DoCommand",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.service.vision.v1.VisionService",
+                        "DoCommand"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:50.000Z",
+                  "updatedAt": "2026-06-05T15:19:50.000Z",
+                  "uid": "35240-d83e55a7-1ff9-49b2-8d21-6d704994e5fb"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:50.000Z",
+              "updatedAt": "2026-06-05T15:19:50.000Z",
+              "uid": "35240-a59844ec-f79c-4699-8971-ca19465cf6a4"
+            }
+          ],
+          "id": "2b7e4023-d4c0-4a87-804c-c72c48086e59",
+          "createdAt": "2026-06-05T15:19:50.000Z",
+          "updatedAt": "2026-06-05T15:19:50.000Z",
+          "uid": "35240-2b7e4023-d4c0-4a87-804c-c72c48086e59"
+        }
+      ],
+      "id": "5958cdc2-40d3-4488-8660-7399c8cefffa",
+      "createdAt": "2026-06-05T15:19:50.000Z",
+      "updatedAt": "2026-06-05T15:19:50.000Z",
+      "uid": "35240-5958cdc2-40d3-4488-8660-7399c8cefffa"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "key",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "machine_address",
+      "value": "machine.local.viam.cloud:443"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{machine_address}}"
+    }
+  ]
+}

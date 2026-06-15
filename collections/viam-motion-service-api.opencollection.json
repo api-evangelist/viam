@@ -1,0 +1,146 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Viam Motion Service API",
+    "version": "2026.05"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "key",
+      "value": "{{key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Motion",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Viam Move",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{machine_address}/viam.service.motion.v1.MotionService/Move",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Plan and execute a motion to a destination pose for a component."
+        },
+        {
+          "info": {
+            "name": "Viam Move On Map",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{machine_address}/viam.service.motion.v1.MotionService/MoveOnMap",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Move a base component to a destination on a SLAM map."
+        },
+        {
+          "info": {
+            "name": "Viam Move On Globe",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{machine_address}/viam.service.motion.v1.MotionService/MoveOnGlobe",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Move a base component to a destination on the globe using GPS coordinates."
+        },
+        {
+          "info": {
+            "name": "Viam Get Pose",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{machine_address}/viam.service.motion.v1.MotionService/GetPose",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Retrieve the pose of a component relative to a destination frame."
+        },
+        {
+          "info": {
+            "name": "Viam Stop Plan",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{machine_address}/viam.service.motion.v1.MotionService/StopPlan",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Stop a running motion plan."
+        },
+        {
+          "info": {
+            "name": "Viam List Plan Statuses",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{machine_address}/viam.service.motion.v1.MotionService/ListPlanStatuses",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "List status of motion plans on the machine."
+        },
+        {
+          "info": {
+            "name": "Viam Get Plan",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{machine_address}/viam.service.motion.v1.MotionService/GetPlan",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Retrieve a motion plan by execution id."
+        },
+        {
+          "info": {
+            "name": "Viam Do Command",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{machine_address}/viam.service.motion.v1.MotionService/DoCommand",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Model-specific custom commands."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

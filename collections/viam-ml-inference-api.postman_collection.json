@@ -1,0 +1,142 @@
+{
+  "item": [
+    {
+      "id": "76456a79-6fea-4c23-a188-faece94c482c",
+      "name": "Inference",
+      "description": {
+        "content": "Cloud-hosted inference against registry-deployed models.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "99baed84-de17-4d53-a3ac-ca5ad2bd5ec8",
+          "name": "Viam Get Inference",
+          "request": {
+            "name": "Viam Get Inference",
+            "description": {
+              "content": "Run inference against a registry-deployed model with binary input data.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "viam.app.mlinference.v1.MLInferenceService",
+                "GetInference"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"registry_item_id\": \"<string>\",\n  \"registry_item_version\": \"<string>\",\n  \"binary_id\": \"<object>\",\n  \"organization_id\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2c6f0245-44ee-4718-ab0f-25836418cc80",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "viam.app.mlinference.v1.MLInferenceService",
+                    "GetInference"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"registry_item_id\": \"<string>\",\n  \"registry_item_version\": \"<string>\",\n  \"binary_id\": \"<object>\",\n  \"organization_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://app.viam.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "09db35f6-f5d5-4fcc-8815-27a620e6ef6a",
+    "name": "Viam ML Inference API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST/JSON transcoding of the Viam MLInferenceService gRPC API. Run cloud-hosted\ninference against models registered in the Viam ML registry.\n\nCanonical contract: https://github.com/viamrobotics/api/blob/main/proto/viam/app/mlinference/v1/ml_inference.proto\n\n\nContact Support:\n Name: Viam Support",
+      "type": "text/plain"
+    }
+  }
+}

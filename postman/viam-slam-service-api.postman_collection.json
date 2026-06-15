@@ -1,0 +1,548 @@
+{
+  "info": {
+    "_postman_id": "417037a1-3341-4ac4-9af5-1e3cf2706d90",
+    "name": "Viam SLAM Service API",
+    "description": "REST/JSON transcoding of the Viam SLAMService gRPC API. Simultaneous Localization\nAnd Mapping \u2014 GetPosition returns the machine's pose within the map; GetPointCloudMap\nand GetInternalState stream the live map.\n\nCanonical contract: https://github.com/viamrobotics/api/blob/main/proto/viam/service/slam/v1/slam.proto\n\n\nContact Support:\n Name: Viam Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T15:19:51.000Z",
+    "updatedAt": "2026-06-05T15:19:51.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-417037a1-3341-4ac4-9af5-1e3cf2706d90"
+  },
+  "item": [
+    {
+      "name": "viam.service.slam.v1.SLAMService",
+      "item": [
+        {
+          "name": "GetPosition",
+          "item": [
+            {
+              "name": "Viam Get Position",
+              "id": "1ec59568-86ab-491e-85c0-f14b04a0bb20",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.service.slam.v1.SLAMService/GetPosition",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.service.slam.v1.SLAMService",
+                    "GetPosition"
+                  ]
+                },
+                "description": "Return the machine's pose within the SLAM map."
+              },
+              "response": [
+                {
+                  "id": "6414c586-524d-44eb-ba7d-75affb194628",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.service.slam.v1.SLAMService/GetPosition",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.service.slam.v1.SLAMService",
+                        "GetPosition"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:51.000Z",
+                  "updatedAt": "2026-06-05T15:19:51.000Z",
+                  "uid": "35240-6414c586-524d-44eb-ba7d-75affb194628"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:51.000Z",
+              "updatedAt": "2026-06-05T15:19:51.000Z",
+              "uid": "35240-1ec59568-86ab-491e-85c0-f14b04a0bb20"
+            }
+          ],
+          "id": "b048a4dc-dadd-4874-88fb-d16bf0ce12f9",
+          "createdAt": "2026-06-05T15:19:51.000Z",
+          "updatedAt": "2026-06-05T15:19:51.000Z",
+          "uid": "35240-b048a4dc-dadd-4874-88fb-d16bf0ce12f9"
+        },
+        {
+          "name": "GetPointCloudMap",
+          "item": [
+            {
+              "name": "Viam Get Point Cloud Map",
+              "id": "c58acea5-e644-4372-afed-eb33847a6315",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"return_edges_only\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.service.slam.v1.SLAMService/GetPointCloudMap",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.service.slam.v1.SLAMService",
+                    "GetPointCloudMap"
+                  ]
+                },
+                "description": "Stream the live point cloud map."
+              },
+              "response": [
+                {
+                  "id": "e9a78c4a-b1ff-431d-b329-e47e88cd27ae",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"return_edges_only\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.service.slam.v1.SLAMService/GetPointCloudMap",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.service.slam.v1.SLAMService",
+                        "GetPointCloudMap"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:51.000Z",
+                  "updatedAt": "2026-06-05T15:19:51.000Z",
+                  "uid": "35240-e9a78c4a-b1ff-431d-b329-e47e88cd27ae"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:51.000Z",
+              "updatedAt": "2026-06-05T15:19:51.000Z",
+              "uid": "35240-c58acea5-e644-4372-afed-eb33847a6315"
+            }
+          ],
+          "id": "9bbe5bf7-4fc8-4165-998b-35b0639b20b4",
+          "createdAt": "2026-06-05T15:19:51.000Z",
+          "updatedAt": "2026-06-05T15:19:51.000Z",
+          "uid": "35240-9bbe5bf7-4fc8-4165-998b-35b0639b20b4"
+        },
+        {
+          "name": "GetInternalState",
+          "item": [
+            {
+              "name": "Viam Get Internal State",
+              "id": "4c5d8488-90a2-429a-9aca-ed51fb6fcca8",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.service.slam.v1.SLAMService/GetInternalState",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.service.slam.v1.SLAMService",
+                    "GetInternalState"
+                  ]
+                },
+                "description": "Stream the internal SLAM state (used for resume and offline analysis)."
+              },
+              "response": [
+                {
+                  "id": "6b1b8948-8455-47f9-a79d-303e769066ed",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.service.slam.v1.SLAMService/GetInternalState",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.service.slam.v1.SLAMService",
+                        "GetInternalState"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:51.000Z",
+                  "updatedAt": "2026-06-05T15:19:51.000Z",
+                  "uid": "35240-6b1b8948-8455-47f9-a79d-303e769066ed"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:51.000Z",
+              "updatedAt": "2026-06-05T15:19:51.000Z",
+              "uid": "35240-4c5d8488-90a2-429a-9aca-ed51fb6fcca8"
+            }
+          ],
+          "id": "02552560-fb33-43c3-8694-7f0b94e1262b",
+          "createdAt": "2026-06-05T15:19:51.000Z",
+          "updatedAt": "2026-06-05T15:19:51.000Z",
+          "uid": "35240-02552560-fb33-43c3-8694-7f0b94e1262b"
+        },
+        {
+          "name": "GetProperties",
+          "item": [
+            {
+              "name": "Viam Get Properties",
+              "id": "7f75e496-f6f4-40dd-af5b-0e5dfdc76a7b",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.service.slam.v1.SLAMService/GetProperties",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.service.slam.v1.SLAMService",
+                    "GetProperties"
+                  ]
+                },
+                "description": "Retrieve SLAM service properties (mapping vs localization, cloud vs local)."
+              },
+              "response": [
+                {
+                  "id": "aca65acc-e1e8-4e89-9ae3-fdc19fa426ea",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.service.slam.v1.SLAMService/GetProperties",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.service.slam.v1.SLAMService",
+                        "GetProperties"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:51.000Z",
+                  "updatedAt": "2026-06-05T15:19:51.000Z",
+                  "uid": "35240-aca65acc-e1e8-4e89-9ae3-fdc19fa426ea"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:51.000Z",
+              "updatedAt": "2026-06-05T15:19:51.000Z",
+              "uid": "35240-7f75e496-f6f4-40dd-af5b-0e5dfdc76a7b"
+            }
+          ],
+          "id": "9d47338f-5e17-430a-81e5-47cf5f68fe39",
+          "createdAt": "2026-06-05T15:19:51.000Z",
+          "updatedAt": "2026-06-05T15:19:51.000Z",
+          "uid": "35240-9d47338f-5e17-430a-81e5-47cf5f68fe39"
+        },
+        {
+          "name": "DoCommand",
+          "item": [
+            {
+              "name": "Viam Do Command",
+              "id": "3a50eb04-a557-4b2e-b0cc-05716c35792b",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"command\": {}\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.service.slam.v1.SLAMService/DoCommand",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.service.slam.v1.SLAMService",
+                    "DoCommand"
+                  ]
+                },
+                "description": "Model-specific custom commands."
+              },
+              "response": [
+                {
+                  "id": "14b13007-2c3b-4e4e-8e99-c01714c59c35",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"command\": {}\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.service.slam.v1.SLAMService/DoCommand",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.service.slam.v1.SLAMService",
+                        "DoCommand"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:51.000Z",
+                  "updatedAt": "2026-06-05T15:19:51.000Z",
+                  "uid": "35240-14b13007-2c3b-4e4e-8e99-c01714c59c35"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:51.000Z",
+              "updatedAt": "2026-06-05T15:19:51.000Z",
+              "uid": "35240-3a50eb04-a557-4b2e-b0cc-05716c35792b"
+            }
+          ],
+          "id": "83448181-18ab-4c16-ae6a-10b7be117a87",
+          "createdAt": "2026-06-05T15:19:51.000Z",
+          "updatedAt": "2026-06-05T15:19:51.000Z",
+          "uid": "35240-83448181-18ab-4c16-ae6a-10b7be117a87"
+        }
+      ],
+      "id": "34e194ad-1f81-4fb5-a50b-0f5bb491394e",
+      "createdAt": "2026-06-05T15:19:51.000Z",
+      "updatedAt": "2026-06-05T15:19:51.000Z",
+      "uid": "35240-34e194ad-1f81-4fb5-a50b-0f5bb491394e"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "key",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "machine_address",
+      "value": "machine.local.viam.cloud:443"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{machine_address}}"
+    }
+  ]
+}

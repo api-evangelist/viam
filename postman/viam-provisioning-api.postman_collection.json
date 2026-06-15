@@ -1,0 +1,499 @@
+{
+  "info": {
+    "_postman_id": "57845e6e-fe6c-4ebf-b85c-1292c74dd1d4",
+    "name": "Viam Provisioning API",
+    "description": "REST/JSON transcoding of the Viam ProvisioningService gRPC API. Bootstrap a smart\nmachine onto Wi-Fi and into the viam.app cloud over Bluetooth or hotspot. Used by\nFlutter provisioning widgets and viam-agent.\n\nCanonical contract: https://github.com/viamrobotics/api/blob/main/proto/viam/provisioning/v1/provisioning.proto\n\n\nContact Support:\n Name: Viam Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T15:20:15.000Z",
+    "updatedAt": "2026-06-05T15:20:16.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-57845e6e-fe6c-4ebf-b85c-1292c74dd1d4"
+  },
+  "item": [
+    {
+      "name": "viam.provisioning.v1.ProvisioningService",
+      "item": [
+        {
+          "name": "GetSmartMachineStatus",
+          "item": [
+            {
+              "name": "Viam Get Smart Machine Status",
+              "id": "216212bb-4188-4726-8f64-1adf723636ac",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.provisioning.v1.ProvisioningService/GetSmartMachineStatus",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.provisioning.v1.ProvisioningService",
+                    "GetSmartMachineStatus"
+                  ]
+                },
+                "description": "Retrieve the device's provisioning status (network connectivity, cloud config)."
+              },
+              "response": [
+                {
+                  "id": "07980893-745d-44f9-8a6f-14f45f7e36d8",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.provisioning.v1.ProvisioningService/GetSmartMachineStatus",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.provisioning.v1.ProvisioningService",
+                        "GetSmartMachineStatus"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:20:16.000Z",
+                  "updatedAt": "2026-06-05T15:20:16.000Z",
+                  "uid": "35240-07980893-745d-44f9-8a6f-14f45f7e36d8"
+                }
+              ],
+              "createdAt": "2026-06-05T15:20:16.000Z",
+              "updatedAt": "2026-06-05T15:20:16.000Z",
+              "uid": "35240-216212bb-4188-4726-8f64-1adf723636ac"
+            }
+          ],
+          "id": "43e2d89b-602c-4d90-a237-8d829994f60d",
+          "createdAt": "2026-06-05T15:20:16.000Z",
+          "updatedAt": "2026-06-05T15:20:16.000Z",
+          "uid": "35240-43e2d89b-602c-4d90-a237-8d829994f60d"
+        },
+        {
+          "name": "SetNetworkCredentials",
+          "item": [
+            {
+              "name": "Viam Set Network Credentials",
+              "id": "d6000599-90bd-4b87-85b8-32fe74a4795f",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"type\": \"wifi\",\n  \"ssid\": \"<string>\",\n  \"psk\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.provisioning.v1.ProvisioningService/SetNetworkCredentials",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.provisioning.v1.ProvisioningService",
+                    "SetNetworkCredentials"
+                  ]
+                },
+                "description": "Submit Wi-Fi credentials to the device."
+              },
+              "response": [
+                {
+                  "id": "00e5c8cd-e7cf-4a7e-a3db-ffb0517d9731",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"type\": \"wifi\",\n  \"ssid\": \"<string>\",\n  \"psk\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.provisioning.v1.ProvisioningService/SetNetworkCredentials",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.provisioning.v1.ProvisioningService",
+                        "SetNetworkCredentials"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:20:16.000Z",
+                  "updatedAt": "2026-06-05T15:20:16.000Z",
+                  "uid": "35240-00e5c8cd-e7cf-4a7e-a3db-ffb0517d9731"
+                }
+              ],
+              "createdAt": "2026-06-05T15:20:16.000Z",
+              "updatedAt": "2026-06-05T15:20:16.000Z",
+              "uid": "35240-d6000599-90bd-4b87-85b8-32fe74a4795f"
+            }
+          ],
+          "id": "6d237a74-fb91-4585-b1a5-9d0232fea6ff",
+          "createdAt": "2026-06-05T15:20:16.000Z",
+          "updatedAt": "2026-06-05T15:20:16.000Z",
+          "uid": "35240-6d237a74-fb91-4585-b1a5-9d0232fea6ff"
+        },
+        {
+          "name": "SetSmartMachineCredentials",
+          "item": [
+            {
+              "name": "Viam Set Smart Machine Credentials",
+              "id": "afc29a7f-abc1-4da2-8fee-b8f743ad5c2e",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"cloud\": {\n    \"id\": \"<string>\",\n    \"secret\": \"<string>\",\n    \"app_address\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.provisioning.v1.ProvisioningService/SetSmartMachineCredentials",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.provisioning.v1.ProvisioningService",
+                    "SetSmartMachineCredentials"
+                  ]
+                },
+                "description": "Submit Viam cloud credentials (machine part secret + cloud config URL) to the device."
+              },
+              "response": [
+                {
+                  "id": "b51c33b7-5c81-4c62-aa50-6d314844e0ef",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"cloud\": {\n    \"id\": \"<string>\",\n    \"secret\": \"<string>\",\n    \"app_address\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.provisioning.v1.ProvisioningService/SetSmartMachineCredentials",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.provisioning.v1.ProvisioningService",
+                        "SetSmartMachineCredentials"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:20:16.000Z",
+                  "updatedAt": "2026-06-05T15:20:16.000Z",
+                  "uid": "35240-b51c33b7-5c81-4c62-aa50-6d314844e0ef"
+                }
+              ],
+              "createdAt": "2026-06-05T15:20:16.000Z",
+              "updatedAt": "2026-06-05T15:20:16.000Z",
+              "uid": "35240-afc29a7f-abc1-4da2-8fee-b8f743ad5c2e"
+            }
+          ],
+          "id": "8ff71cb5-7224-4656-8b35-9b78eca2830f",
+          "createdAt": "2026-06-05T15:20:16.000Z",
+          "updatedAt": "2026-06-05T15:20:16.000Z",
+          "uid": "35240-8ff71cb5-7224-4656-8b35-9b78eca2830f"
+        },
+        {
+          "name": "GetNetworkList",
+          "item": [
+            {
+              "name": "Viam Get Network List",
+              "id": "41bef58d-4bb0-4fe0-8778-fb2cfe3e5eb7",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.provisioning.v1.ProvisioningService/GetNetworkList",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.provisioning.v1.ProvisioningService",
+                    "GetNetworkList"
+                  ]
+                },
+                "description": "List Wi-Fi networks visible to the device."
+              },
+              "response": [
+                {
+                  "id": "4bcb63d7-36aa-483b-b8b1-0b6c2931df20",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.provisioning.v1.ProvisioningService/GetNetworkList",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.provisioning.v1.ProvisioningService",
+                        "GetNetworkList"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:20:16.000Z",
+                  "updatedAt": "2026-06-05T15:20:16.000Z",
+                  "uid": "35240-4bcb63d7-36aa-483b-b8b1-0b6c2931df20"
+                }
+              ],
+              "createdAt": "2026-06-05T15:20:16.000Z",
+              "updatedAt": "2026-06-05T15:20:16.000Z",
+              "uid": "35240-41bef58d-4bb0-4fe0-8778-fb2cfe3e5eb7"
+            }
+          ],
+          "id": "b95267af-8ab7-4675-ac18-ea4b3480f8d6",
+          "createdAt": "2026-06-05T15:20:16.000Z",
+          "updatedAt": "2026-06-05T15:20:16.000Z",
+          "uid": "35240-b95267af-8ab7-4675-ac18-ea4b3480f8d6"
+        },
+        {
+          "name": "ExitProvisioning",
+          "item": [
+            {
+              "name": "Viam Exit Provisioning",
+              "id": "7e1875bb-f950-4601-ac16-0b6275a07f5a",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.provisioning.v1.ProvisioningService/ExitProvisioning",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.provisioning.v1.ProvisioningService",
+                    "ExitProvisioning"
+                  ]
+                },
+                "description": "Exit the provisioning service after the device is configured."
+              },
+              "response": [
+                {
+                  "id": "20ca5c42-6d7f-40fa-8ea5-0d8f45d8b15d",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.provisioning.v1.ProvisioningService/ExitProvisioning",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.provisioning.v1.ProvisioningService",
+                        "ExitProvisioning"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:20:16.000Z",
+                  "updatedAt": "2026-06-05T15:20:16.000Z",
+                  "uid": "35240-20ca5c42-6d7f-40fa-8ea5-0d8f45d8b15d"
+                }
+              ],
+              "createdAt": "2026-06-05T15:20:16.000Z",
+              "updatedAt": "2026-06-05T15:20:16.000Z",
+              "uid": "35240-7e1875bb-f950-4601-ac16-0b6275a07f5a"
+            }
+          ],
+          "id": "b81a0cf7-a494-443c-a5e2-55295b4e0551",
+          "createdAt": "2026-06-05T15:20:16.000Z",
+          "updatedAt": "2026-06-05T15:20:16.000Z",
+          "uid": "35240-b81a0cf7-a494-443c-a5e2-55295b4e0551"
+        }
+      ],
+      "id": "b4b0b637-ac0e-4ca5-a7fa-d5f5509d74e7",
+      "createdAt": "2026-06-05T15:20:16.000Z",
+      "updatedAt": "2026-06-05T15:20:16.000Z",
+      "uid": "35240-b4b0b637-ac0e-4ca5-a7fa-d5f5509d74e7"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://192.168.4.1:4772"
+    }
+  ]
+}

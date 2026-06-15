@@ -1,0 +1,841 @@
+{
+  "info": {
+    "_postman_id": "fe910fb8-3721-486c-97ae-c85477dd29d4",
+    "name": "Viam Data Pipelines API",
+    "description": "REST/JSON transcoding of the Viam DataPipelinesService gRPC API. Create, list, rename,\nenable, disable, and delete scheduled MQL data pipelines that aggregate captured\nmachine data into the Viam hot data store.\n\nCanonical contract: https://github.com/viamrobotics/api/blob/main/proto/viam/app/datapipelines/v1/data_pipelines.proto\n\n\nContact Support:\n Name: Viam Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T15:20:14.000Z",
+    "updatedAt": "2026-06-05T15:20:14.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-fe910fb8-3721-486c-97ae-c85477dd29d4"
+  },
+  "item": [
+    {
+      "name": "viam.app.datapipelines.v1.DataPipelinesService",
+      "item": [
+        {
+          "name": "GetDataPipeline",
+          "item": [
+            {
+              "name": "Viam Get Data Pipeline",
+              "id": "5c6cc036-e71b-4e96-80e8-4cdca64e3d4b",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.app.datapipelines.v1.DataPipelinesService/GetDataPipeline",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.app.datapipelines.v1.DataPipelinesService",
+                    "GetDataPipeline"
+                  ]
+                },
+                "description": "Retrieve a data pipeline by id."
+              },
+              "response": [
+                {
+                  "id": "60ee71f9-2d87-4bc8-8245-64c725e53835",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"id\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.app.datapipelines.v1.DataPipelinesService/GetDataPipeline",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.app.datapipelines.v1.DataPipelinesService",
+                        "GetDataPipeline"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:20:14.000Z",
+                  "updatedAt": "2026-06-05T15:20:14.000Z",
+                  "uid": "35240-60ee71f9-2d87-4bc8-8245-64c725e53835"
+                }
+              ],
+              "createdAt": "2026-06-05T15:20:14.000Z",
+              "updatedAt": "2026-06-05T15:20:14.000Z",
+              "uid": "35240-5c6cc036-e71b-4e96-80e8-4cdca64e3d4b"
+            }
+          ],
+          "id": "f029e7cf-56c8-4591-9af3-48d8b440723a",
+          "createdAt": "2026-06-05T15:20:14.000Z",
+          "updatedAt": "2026-06-05T15:20:14.000Z",
+          "uid": "35240-f029e7cf-56c8-4591-9af3-48d8b440723a"
+        },
+        {
+          "name": "ListDataPipelines",
+          "item": [
+            {
+              "name": "Viam List Data Pipelines",
+              "id": "52527750-9843-433f-acfe-cf97c60c5f71",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"organization_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.app.datapipelines.v1.DataPipelinesService/ListDataPipelines",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.app.datapipelines.v1.DataPipelinesService",
+                    "ListDataPipelines"
+                  ]
+                },
+                "description": "List data pipelines in an organization."
+              },
+              "response": [
+                {
+                  "id": "cd8fb051-d594-4e85-b4fd-8f0365cb4c6c",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"organization_id\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.app.datapipelines.v1.DataPipelinesService/ListDataPipelines",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.app.datapipelines.v1.DataPipelinesService",
+                        "ListDataPipelines"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:20:14.000Z",
+                  "updatedAt": "2026-06-05T15:20:14.000Z",
+                  "uid": "35240-cd8fb051-d594-4e85-b4fd-8f0365cb4c6c"
+                }
+              ],
+              "createdAt": "2026-06-05T15:20:14.000Z",
+              "updatedAt": "2026-06-05T15:20:14.000Z",
+              "uid": "35240-52527750-9843-433f-acfe-cf97c60c5f71"
+            }
+          ],
+          "id": "445863f0-2dcd-481e-a8e5-5a42e0c86704",
+          "createdAt": "2026-06-05T15:20:14.000Z",
+          "updatedAt": "2026-06-05T15:20:14.000Z",
+          "uid": "35240-445863f0-2dcd-481e-a8e5-5a42e0c86704"
+        },
+        {
+          "name": "CreateDataPipeline",
+          "item": [
+            {
+              "name": "Viam Create Data Pipeline",
+              "id": "471c01e9-9a1c-471b-aa17-8db040895369",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"organization_id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"mql_binary\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"schedule\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.app.datapipelines.v1.DataPipelinesService/CreateDataPipeline",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.app.datapipelines.v1.DataPipelinesService",
+                    "CreateDataPipeline"
+                  ]
+                },
+                "description": "Create a new MQL data pipeline."
+              },
+              "response": [
+                {
+                  "id": "4052de3b-b17b-4457-b0cd-0ff8c92b00f5",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"organization_id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"mql_binary\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"schedule\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.app.datapipelines.v1.DataPipelinesService/CreateDataPipeline",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.app.datapipelines.v1.DataPipelinesService",
+                        "CreateDataPipeline"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:20:14.000Z",
+                  "updatedAt": "2026-06-05T15:20:14.000Z",
+                  "uid": "35240-4052de3b-b17b-4457-b0cd-0ff8c92b00f5"
+                }
+              ],
+              "createdAt": "2026-06-05T15:20:14.000Z",
+              "updatedAt": "2026-06-05T15:20:14.000Z",
+              "uid": "35240-471c01e9-9a1c-471b-aa17-8db040895369"
+            }
+          ],
+          "id": "91943312-2f6a-4e36-9532-e002c7724395",
+          "createdAt": "2026-06-05T15:20:14.000Z",
+          "updatedAt": "2026-06-05T15:20:14.000Z",
+          "uid": "35240-91943312-2f6a-4e36-9532-e002c7724395"
+        },
+        {
+          "name": "RenameDataPipeline",
+          "item": [
+            {
+              "name": "Viam Rename Data Pipeline",
+              "id": "fd9ea37a-8d9e-4038-8eef-9447704eaa15",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.app.datapipelines.v1.DataPipelinesService/RenameDataPipeline",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.app.datapipelines.v1.DataPipelinesService",
+                    "RenameDataPipeline"
+                  ]
+                },
+                "description": "Rename a data pipeline."
+              },
+              "response": [
+                {
+                  "id": "8804b218-0f24-416c-a7e6-6cc393f3335b",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.app.datapipelines.v1.DataPipelinesService/RenameDataPipeline",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.app.datapipelines.v1.DataPipelinesService",
+                        "RenameDataPipeline"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:20:14.000Z",
+                  "updatedAt": "2026-06-05T15:20:14.000Z",
+                  "uid": "35240-8804b218-0f24-416c-a7e6-6cc393f3335b"
+                }
+              ],
+              "createdAt": "2026-06-05T15:20:14.000Z",
+              "updatedAt": "2026-06-05T15:20:14.000Z",
+              "uid": "35240-fd9ea37a-8d9e-4038-8eef-9447704eaa15"
+            }
+          ],
+          "id": "d1da16b9-8427-4354-ba55-fbf8ae38e17a",
+          "createdAt": "2026-06-05T15:20:14.000Z",
+          "updatedAt": "2026-06-05T15:20:14.000Z",
+          "uid": "35240-d1da16b9-8427-4354-ba55-fbf8ae38e17a"
+        },
+        {
+          "name": "DeleteDataPipeline",
+          "item": [
+            {
+              "name": "Viam Delete Data Pipeline",
+              "id": "ea315b71-1bf7-415f-8e3c-00057907b795",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.app.datapipelines.v1.DataPipelinesService/DeleteDataPipeline",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.app.datapipelines.v1.DataPipelinesService",
+                    "DeleteDataPipeline"
+                  ]
+                },
+                "description": "Delete a data pipeline."
+              },
+              "response": [
+                {
+                  "id": "f189d751-b31c-4476-bc32-4f40fa9b85d9",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"id\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.app.datapipelines.v1.DataPipelinesService/DeleteDataPipeline",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.app.datapipelines.v1.DataPipelinesService",
+                        "DeleteDataPipeline"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:20:14.000Z",
+                  "updatedAt": "2026-06-05T15:20:14.000Z",
+                  "uid": "35240-f189d751-b31c-4476-bc32-4f40fa9b85d9"
+                }
+              ],
+              "createdAt": "2026-06-05T15:20:14.000Z",
+              "updatedAt": "2026-06-05T15:20:14.000Z",
+              "uid": "35240-ea315b71-1bf7-415f-8e3c-00057907b795"
+            }
+          ],
+          "id": "dccf21ee-3162-4b1f-8c51-0bf99ff6582d",
+          "createdAt": "2026-06-05T15:20:14.000Z",
+          "updatedAt": "2026-06-05T15:20:14.000Z",
+          "uid": "35240-dccf21ee-3162-4b1f-8c51-0bf99ff6582d"
+        },
+        {
+          "name": "EnableDataPipeline",
+          "item": [
+            {
+              "name": "Viam Enable Data Pipeline",
+              "id": "72953b98-1eb9-4128-b389-451f9d8739de",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.app.datapipelines.v1.DataPipelinesService/EnableDataPipeline",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.app.datapipelines.v1.DataPipelinesService",
+                    "EnableDataPipeline"
+                  ]
+                },
+                "description": "Enable a paused data pipeline."
+              },
+              "response": [
+                {
+                  "id": "c31b42cc-a738-45e9-852f-8cb5111f96f3",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"id\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.app.datapipelines.v1.DataPipelinesService/EnableDataPipeline",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.app.datapipelines.v1.DataPipelinesService",
+                        "EnableDataPipeline"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:20:14.000Z",
+                  "updatedAt": "2026-06-05T15:20:14.000Z",
+                  "uid": "35240-c31b42cc-a738-45e9-852f-8cb5111f96f3"
+                }
+              ],
+              "createdAt": "2026-06-05T15:20:14.000Z",
+              "updatedAt": "2026-06-05T15:20:14.000Z",
+              "uid": "35240-72953b98-1eb9-4128-b389-451f9d8739de"
+            }
+          ],
+          "id": "26586f2d-b786-4426-9e94-bb5090a713de",
+          "createdAt": "2026-06-05T15:20:14.000Z",
+          "updatedAt": "2026-06-05T15:20:14.000Z",
+          "uid": "35240-26586f2d-b786-4426-9e94-bb5090a713de"
+        },
+        {
+          "name": "DisableDataPipeline",
+          "item": [
+            {
+              "name": "Viam Disable Data Pipeline",
+              "id": "217a38b8-42c7-471c-9fda-be1b2eac6e71",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.app.datapipelines.v1.DataPipelinesService/DisableDataPipeline",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.app.datapipelines.v1.DataPipelinesService",
+                    "DisableDataPipeline"
+                  ]
+                },
+                "description": "Disable a running data pipeline."
+              },
+              "response": [
+                {
+                  "id": "acd2f780-56b3-4f56-8d91-e53e7b904127",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"id\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.app.datapipelines.v1.DataPipelinesService/DisableDataPipeline",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.app.datapipelines.v1.DataPipelinesService",
+                        "DisableDataPipeline"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:20:14.000Z",
+                  "updatedAt": "2026-06-05T15:20:14.000Z",
+                  "uid": "35240-acd2f780-56b3-4f56-8d91-e53e7b904127"
+                }
+              ],
+              "createdAt": "2026-06-05T15:20:14.000Z",
+              "updatedAt": "2026-06-05T15:20:14.000Z",
+              "uid": "35240-217a38b8-42c7-471c-9fda-be1b2eac6e71"
+            }
+          ],
+          "id": "4e6cd1af-f19c-48cf-9616-058016862c8d",
+          "createdAt": "2026-06-05T15:20:14.000Z",
+          "updatedAt": "2026-06-05T15:20:14.000Z",
+          "uid": "35240-4e6cd1af-f19c-48cf-9616-058016862c8d"
+        },
+        {
+          "name": "ListDataPipelineRuns",
+          "item": [
+            {
+              "name": "Viam List Data Pipeline Runs",
+              "id": "5621db99-aa66-4dd8-a554-b62fb8541e7a",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"page_size\": \"<integer>\",\n  \"page_token\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.app.datapipelines.v1.DataPipelinesService/ListDataPipelineRuns",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.app.datapipelines.v1.DataPipelinesService",
+                    "ListDataPipelineRuns"
+                  ]
+                },
+                "description": "List historical runs for a data pipeline."
+              },
+              "response": [
+                {
+                  "id": "950da6dd-edd0-45d7-86dd-d827531f5f50",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"id\": \"<string>\",\n  \"page_size\": \"<integer>\",\n  \"page_token\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.app.datapipelines.v1.DataPipelinesService/ListDataPipelineRuns",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.app.datapipelines.v1.DataPipelinesService",
+                        "ListDataPipelineRuns"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:20:14.000Z",
+                  "updatedAt": "2026-06-05T15:20:14.000Z",
+                  "uid": "35240-950da6dd-edd0-45d7-86dd-d827531f5f50"
+                }
+              ],
+              "createdAt": "2026-06-05T15:20:14.000Z",
+              "updatedAt": "2026-06-05T15:20:14.000Z",
+              "uid": "35240-5621db99-aa66-4dd8-a554-b62fb8541e7a"
+            }
+          ],
+          "id": "556c1027-6feb-4de5-92e3-0b56d88dd1e2",
+          "createdAt": "2026-06-05T15:20:14.000Z",
+          "updatedAt": "2026-06-05T15:20:14.000Z",
+          "uid": "35240-556c1027-6feb-4de5-92e3-0b56d88dd1e2"
+        }
+      ],
+      "id": "0fe14202-52f8-495b-80f6-44eaba4ce7b3",
+      "createdAt": "2026-06-05T15:20:14.000Z",
+      "updatedAt": "2026-06-05T15:20:14.000Z",
+      "uid": "35240-0fe14202-52f8-495b-80f6-44eaba4ce7b3"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "key",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://app.viam.com"
+    }
+  ]
+}

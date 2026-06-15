@@ -1,0 +1,2231 @@
+{
+  "info": {
+    "_postman_id": "e3868570-590e-4645-bda4-f1c918638dff",
+    "name": "Viam Machine Management API",
+    "description": "REST/JSON transcoding of the Viam RobotService gRPC API. Connect to a viam-server\ninstance running on a device to inspect resources, manage sessions, retrieve status,\ntransform poses, and tunnel TCP traffic.\n\nCanonical contract: https://github.com/viamrobotics/api/blob/main/proto/viam/robot/v1/robot.proto\n\n\nContact Support:\n Name: Viam Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T15:19:39.000Z",
+    "updatedAt": "2026-06-05T15:19:40.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-e3868570-590e-4645-bda4-f1c918638dff"
+  },
+  "item": [
+    {
+      "name": "viam.robot.v1.RobotService",
+      "item": [
+        {
+          "name": "GetOperations",
+          "item": [
+            {
+              "name": "Viam Get Operations",
+              "id": "f36ed351-d5b9-40bc-bf1a-4b3dc9356964",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.robot.v1.RobotService/GetOperations",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.robot.v1.RobotService",
+                    "GetOperations"
+                  ]
+                },
+                "description": "List operations currently running on the machine."
+              },
+              "response": [
+                {
+                  "id": "11761d2d-f4d5-45a6-97af-3129904c9567",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.robot.v1.RobotService/GetOperations",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.robot.v1.RobotService",
+                        "GetOperations"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:40.000Z",
+                  "updatedAt": "2026-06-05T15:19:40.000Z",
+                  "uid": "35240-11761d2d-f4d5-45a6-97af-3129904c9567"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:40.000Z",
+              "updatedAt": "2026-06-05T15:19:40.000Z",
+              "uid": "35240-f36ed351-d5b9-40bc-bf1a-4b3dc9356964"
+            }
+          ],
+          "id": "60240009-9090-497c-af6b-82b23693e21f",
+          "createdAt": "2026-06-05T15:19:40.000Z",
+          "updatedAt": "2026-06-05T15:19:40.000Z",
+          "uid": "35240-60240009-9090-497c-af6b-82b23693e21f"
+        },
+        {
+          "name": "CancelOperation",
+          "item": [
+            {
+              "name": "Viam Cancel Operation",
+              "id": "2a486d33-9240-469d-9bd7-7eacbb519805",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.robot.v1.RobotService/CancelOperation",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.robot.v1.RobotService",
+                    "CancelOperation"
+                  ]
+                },
+                "description": "Cancel a running operation by id."
+              },
+              "response": [
+                {
+                  "id": "3badf02f-9dc0-4669-82ad-7c2d8396400a",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"id\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.robot.v1.RobotService/CancelOperation",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.robot.v1.RobotService",
+                        "CancelOperation"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:40.000Z",
+                  "updatedAt": "2026-06-05T15:19:40.000Z",
+                  "uid": "35240-3badf02f-9dc0-4669-82ad-7c2d8396400a"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:40.000Z",
+              "updatedAt": "2026-06-05T15:19:40.000Z",
+              "uid": "35240-2a486d33-9240-469d-9bd7-7eacbb519805"
+            }
+          ],
+          "id": "8a18a911-6ff5-4bae-a726-edf753efcb76",
+          "createdAt": "2026-06-05T15:19:40.000Z",
+          "updatedAt": "2026-06-05T15:19:40.000Z",
+          "uid": "35240-8a18a911-6ff5-4bae-a726-edf753efcb76"
+        },
+        {
+          "name": "BlockForOperation",
+          "item": [
+            {
+              "name": "Viam Block For Operation",
+              "id": "39acad4d-429e-497d-9f50-c90bdf786bb8",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.robot.v1.RobotService/BlockForOperation",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.robot.v1.RobotService",
+                    "BlockForOperation"
+                  ]
+                },
+                "description": "Block the caller until an operation completes."
+              },
+              "response": [
+                {
+                  "id": "a85d3cb8-9cfa-43d3-95bf-21fffc2325f1",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"id\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.robot.v1.RobotService/BlockForOperation",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.robot.v1.RobotService",
+                        "BlockForOperation"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:40.000Z",
+                  "updatedAt": "2026-06-05T15:19:40.000Z",
+                  "uid": "35240-a85d3cb8-9cfa-43d3-95bf-21fffc2325f1"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:40.000Z",
+              "updatedAt": "2026-06-05T15:19:40.000Z",
+              "uid": "35240-39acad4d-429e-497d-9f50-c90bdf786bb8"
+            }
+          ],
+          "id": "b5e87bfd-b6e2-4d6e-a7f4-18f25fb77889",
+          "createdAt": "2026-06-05T15:19:40.000Z",
+          "updatedAt": "2026-06-05T15:19:40.000Z",
+          "uid": "35240-b5e87bfd-b6e2-4d6e-a7f4-18f25fb77889"
+        },
+        {
+          "name": "ResourceNames",
+          "item": [
+            {
+              "name": "Viam Resource Names",
+              "id": "1a46e1e7-f8f8-4b93-a2c9-05ea716421ba",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.robot.v1.RobotService/ResourceNames",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.robot.v1.RobotService",
+                    "ResourceNames"
+                  ]
+                },
+                "description": "List all registered resource names on the machine."
+              },
+              "response": [
+                {
+                  "id": "c24730ab-7604-40fb-8d0f-e1bbadf8c761",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.robot.v1.RobotService/ResourceNames",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.robot.v1.RobotService",
+                        "ResourceNames"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:40.000Z",
+                  "updatedAt": "2026-06-05T15:19:40.000Z",
+                  "uid": "35240-c24730ab-7604-40fb-8d0f-e1bbadf8c761"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:40.000Z",
+              "updatedAt": "2026-06-05T15:19:40.000Z",
+              "uid": "35240-1a46e1e7-f8f8-4b93-a2c9-05ea716421ba"
+            }
+          ],
+          "id": "1865fe75-0a97-442b-b970-7172dc9199a4",
+          "createdAt": "2026-06-05T15:19:40.000Z",
+          "updatedAt": "2026-06-05T15:19:40.000Z",
+          "uid": "35240-1865fe75-0a97-442b-b970-7172dc9199a4"
+        },
+        {
+          "name": "ResourceRPCSubtypes",
+          "item": [
+            {
+              "name": "Viam Resource Rpc Subtypes",
+              "id": "f2d513bd-030b-49ae-9125-8179aae1f599",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.robot.v1.RobotService/ResourceRPCSubtypes",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.robot.v1.RobotService",
+                    "ResourceRPCSubtypes"
+                  ]
+                },
+                "description": "List supported resource RPC subtypes implemented on the machine."
+              },
+              "response": [
+                {
+                  "id": "7efd225b-2447-403f-a98e-4c63d2f1a9bb",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.robot.v1.RobotService/ResourceRPCSubtypes",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.robot.v1.RobotService",
+                        "ResourceRPCSubtypes"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:40.000Z",
+                  "updatedAt": "2026-06-05T15:19:40.000Z",
+                  "uid": "35240-7efd225b-2447-403f-a98e-4c63d2f1a9bb"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:40.000Z",
+              "updatedAt": "2026-06-05T15:19:40.000Z",
+              "uid": "35240-f2d513bd-030b-49ae-9125-8179aae1f599"
+            }
+          ],
+          "id": "48aa2d2b-d8ae-4f05-a673-75e7cd5d5c35",
+          "createdAt": "2026-06-05T15:19:40.000Z",
+          "updatedAt": "2026-06-05T15:19:40.000Z",
+          "uid": "35240-48aa2d2b-d8ae-4f05-a673-75e7cd5d5c35"
+        },
+        {
+          "name": "GetModelsFromModules",
+          "item": [
+            {
+              "name": "Viam Get Models From Modules",
+              "id": "1d4f7a12-24b3-43d9-a0f8-11f9cbffe4ed",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.robot.v1.RobotService/GetModelsFromModules",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.robot.v1.RobotService",
+                    "GetModelsFromModules"
+                  ]
+                },
+                "description": "Retrieve the list of resource models registered by all loaded modules."
+              },
+              "response": [
+                {
+                  "id": "ede1d3f9-5ec9-4e7e-95be-e50f867bff78",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.robot.v1.RobotService/GetModelsFromModules",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.robot.v1.RobotService",
+                        "GetModelsFromModules"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:40.000Z",
+                  "updatedAt": "2026-06-05T15:19:40.000Z",
+                  "uid": "35240-ede1d3f9-5ec9-4e7e-95be-e50f867bff78"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:40.000Z",
+              "updatedAt": "2026-06-05T15:19:40.000Z",
+              "uid": "35240-1d4f7a12-24b3-43d9-a0f8-11f9cbffe4ed"
+            }
+          ],
+          "id": "d7361685-505e-419c-b67a-5bb4bd4ba183",
+          "createdAt": "2026-06-05T15:19:40.000Z",
+          "updatedAt": "2026-06-05T15:19:40.000Z",
+          "uid": "35240-d7361685-505e-419c-b67a-5bb4bd4ba183"
+        },
+        {
+          "name": "RestartModule",
+          "item": [
+            {
+              "name": "Viam Restart Module",
+              "id": "17b41bb7-8de6-487b-9b93-1bf3d8db7b2b",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"module_id\": \"<string>\",\n  \"module_name\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.robot.v1.RobotService/RestartModule",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.robot.v1.RobotService",
+                    "RestartModule"
+                  ]
+                },
+                "description": "Restart a loaded module without restarting viam-server."
+              },
+              "response": [
+                {
+                  "id": "4a6e96d4-217d-42d1-8e8d-c20c0f2f300e",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"module_id\": \"<string>\",\n  \"module_name\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.robot.v1.RobotService/RestartModule",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.robot.v1.RobotService",
+                        "RestartModule"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:40.000Z",
+                  "updatedAt": "2026-06-05T15:19:40.000Z",
+                  "uid": "35240-4a6e96d4-217d-42d1-8e8d-c20c0f2f300e"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:40.000Z",
+              "updatedAt": "2026-06-05T15:19:40.000Z",
+              "uid": "35240-17b41bb7-8de6-487b-9b93-1bf3d8db7b2b"
+            }
+          ],
+          "id": "6e9a92f8-7f14-46ad-8e99-81b64db34cbd",
+          "createdAt": "2026-06-05T15:19:40.000Z",
+          "updatedAt": "2026-06-05T15:19:40.000Z",
+          "uid": "35240-6e9a92f8-7f14-46ad-8e99-81b64db34cbd"
+        },
+        {
+          "name": "StartSession",
+          "item": [
+            {
+              "name": "Viam Start Session",
+              "id": "6dfb5c52-a563-419b-9bd0-874e1be2ba19",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"resume\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.robot.v1.RobotService/StartSession",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.robot.v1.RobotService",
+                    "StartSession"
+                  ]
+                },
+                "description": "Open a new session with the machine."
+              },
+              "response": [
+                {
+                  "id": "87341950-bb19-4bf6-b4c2-36c21ad38715",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"resume\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.robot.v1.RobotService/StartSession",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.robot.v1.RobotService",
+                        "StartSession"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:40.000Z",
+                  "updatedAt": "2026-06-05T15:19:40.000Z",
+                  "uid": "35240-87341950-bb19-4bf6-b4c2-36c21ad38715"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:40.000Z",
+              "updatedAt": "2026-06-05T15:19:40.000Z",
+              "uid": "35240-6dfb5c52-a563-419b-9bd0-874e1be2ba19"
+            }
+          ],
+          "id": "ca633010-fc14-4167-aa3c-b63e31dee26b",
+          "createdAt": "2026-06-05T15:19:40.000Z",
+          "updatedAt": "2026-06-05T15:19:40.000Z",
+          "uid": "35240-ca633010-fc14-4167-aa3c-b63e31dee26b"
+        },
+        {
+          "name": "SendSessionHeartbeat",
+          "item": [
+            {
+              "name": "Viam Send Session Heartbeat",
+              "id": "92aadc59-84b7-470d-8730-4d20e07651a5",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.robot.v1.RobotService/SendSessionHeartbeat",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.robot.v1.RobotService",
+                    "SendSessionHeartbeat"
+                  ]
+                },
+                "description": "Send a heartbeat to keep the session alive."
+              },
+              "response": [
+                {
+                  "id": "ceffd079-0709-42b8-bcf9-96581c354b34",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"id\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.robot.v1.RobotService/SendSessionHeartbeat",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.robot.v1.RobotService",
+                        "SendSessionHeartbeat"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:40.000Z",
+                  "updatedAt": "2026-06-05T15:19:40.000Z",
+                  "uid": "35240-ceffd079-0709-42b8-bcf9-96581c354b34"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:40.000Z",
+              "updatedAt": "2026-06-05T15:19:40.000Z",
+              "uid": "35240-92aadc59-84b7-470d-8730-4d20e07651a5"
+            }
+          ],
+          "id": "8b2c6695-5ac0-4d52-9065-3ac0c4f03b17",
+          "createdAt": "2026-06-05T15:19:40.000Z",
+          "updatedAt": "2026-06-05T15:19:40.000Z",
+          "uid": "35240-8b2c6695-5ac0-4d52-9065-3ac0c4f03b17"
+        },
+        {
+          "name": "GetSessions",
+          "item": [
+            {
+              "name": "Viam Get Sessions",
+              "id": "e65dba53-6ea1-4a65-b6fd-ae81a21ea2c1",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.robot.v1.RobotService/GetSessions",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.robot.v1.RobotService",
+                    "GetSessions"
+                  ]
+                },
+                "description": "List active sessions on the machine."
+              },
+              "response": [
+                {
+                  "id": "0d375ceb-5bc8-4b26-bdcb-081421e7c31c",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.robot.v1.RobotService/GetSessions",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.robot.v1.RobotService",
+                        "GetSessions"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:40.000Z",
+                  "updatedAt": "2026-06-05T15:19:40.000Z",
+                  "uid": "35240-0d375ceb-5bc8-4b26-bdcb-081421e7c31c"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:40.000Z",
+              "updatedAt": "2026-06-05T15:19:40.000Z",
+              "uid": "35240-e65dba53-6ea1-4a65-b6fd-ae81a21ea2c1"
+            }
+          ],
+          "id": "7fba1dc7-831d-448f-932d-fd4650bb1036",
+          "createdAt": "2026-06-05T15:19:40.000Z",
+          "updatedAt": "2026-06-05T15:19:40.000Z",
+          "uid": "35240-7fba1dc7-831d-448f-932d-fd4650bb1036"
+        },
+        {
+          "name": "GetMachineStatus",
+          "item": [
+            {
+              "name": "Viam Get Machine Status",
+              "id": "4d30ed3e-84e7-4926-ab97-a23da162ed9d",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.robot.v1.RobotService/GetMachineStatus",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.robot.v1.RobotService",
+                    "GetMachineStatus"
+                  ]
+                },
+                "description": "Retrieve the overall machine status including each resource's state."
+              },
+              "response": [
+                {
+                  "id": "9623fa22-2c73-4877-b416-eacfc3c55436",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.robot.v1.RobotService/GetMachineStatus",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.robot.v1.RobotService",
+                        "GetMachineStatus"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:40.000Z",
+                  "updatedAt": "2026-06-05T15:19:40.000Z",
+                  "uid": "35240-9623fa22-2c73-4877-b416-eacfc3c55436"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:40.000Z",
+              "updatedAt": "2026-06-05T15:19:40.000Z",
+              "uid": "35240-4d30ed3e-84e7-4926-ab97-a23da162ed9d"
+            }
+          ],
+          "id": "f613d05e-9b98-4bf7-99fb-32bbdea237cf",
+          "createdAt": "2026-06-05T15:19:40.000Z",
+          "updatedAt": "2026-06-05T15:19:40.000Z",
+          "uid": "35240-f613d05e-9b98-4bf7-99fb-32bbdea237cf"
+        },
+        {
+          "name": "GetVersion",
+          "item": [
+            {
+              "name": "Viam Get Version",
+              "id": "4a2e3969-dced-48c8-8b65-381e9fe69443",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.robot.v1.RobotService/GetVersion",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.robot.v1.RobotService",
+                    "GetVersion"
+                  ]
+                },
+                "description": "Retrieve the viam-server version and platform metadata."
+              },
+              "response": [
+                {
+                  "id": "e99f51c7-8440-4567-a5f9-9e73ece9617c",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.robot.v1.RobotService/GetVersion",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.robot.v1.RobotService",
+                        "GetVersion"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:40.000Z",
+                  "updatedAt": "2026-06-05T15:19:40.000Z",
+                  "uid": "35240-e99f51c7-8440-4567-a5f9-9e73ece9617c"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:40.000Z",
+              "updatedAt": "2026-06-05T15:19:40.000Z",
+              "uid": "35240-4a2e3969-dced-48c8-8b65-381e9fe69443"
+            }
+          ],
+          "id": "e8174c6d-36dd-48e1-9ebd-be5419f292a3",
+          "createdAt": "2026-06-05T15:19:40.000Z",
+          "updatedAt": "2026-06-05T15:19:40.000Z",
+          "uid": "35240-e8174c6d-36dd-48e1-9ebd-be5419f292a3"
+        },
+        {
+          "name": "GetCloudMetadata",
+          "item": [
+            {
+              "name": "Viam Get Cloud Metadata",
+              "id": "4607231e-a036-41d3-b040-0f0e17076027",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.robot.v1.RobotService/GetCloudMetadata",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.robot.v1.RobotService",
+                    "GetCloudMetadata"
+                  ]
+                },
+                "description": "Retrieve the org/location/machine id that the device is registered to."
+              },
+              "response": [
+                {
+                  "id": "8647587c-b761-4772-a4a4-02a99a56d0c7",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.robot.v1.RobotService/GetCloudMetadata",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.robot.v1.RobotService",
+                        "GetCloudMetadata"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:40.000Z",
+                  "updatedAt": "2026-06-05T15:19:40.000Z",
+                  "uid": "35240-8647587c-b761-4772-a4a4-02a99a56d0c7"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:40.000Z",
+              "updatedAt": "2026-06-05T15:19:40.000Z",
+              "uid": "35240-4607231e-a036-41d3-b040-0f0e17076027"
+            }
+          ],
+          "id": "064fb4e1-716e-467d-96ce-906ae6a6ec09",
+          "createdAt": "2026-06-05T15:19:40.000Z",
+          "updatedAt": "2026-06-05T15:19:40.000Z",
+          "uid": "35240-064fb4e1-716e-467d-96ce-906ae6a6ec09"
+        },
+        {
+          "name": "Shutdown",
+          "item": [
+            {
+              "name": "Viam Shutdown",
+              "id": "84f8feea-6698-4f54-a740-9b3eb246e7c7",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.robot.v1.RobotService/Shutdown",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.robot.v1.RobotService",
+                    "Shutdown"
+                  ]
+                },
+                "description": "Cleanly shut down viam-server on the device."
+              },
+              "response": [
+                {
+                  "id": "f00a2c03-3a11-4b73-8bf8-f58ce7ae1f0e",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.robot.v1.RobotService/Shutdown",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.robot.v1.RobotService",
+                        "Shutdown"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:40.000Z",
+                  "updatedAt": "2026-06-05T15:19:40.000Z",
+                  "uid": "35240-f00a2c03-3a11-4b73-8bf8-f58ce7ae1f0e"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:40.000Z",
+              "updatedAt": "2026-06-05T15:19:40.000Z",
+              "uid": "35240-84f8feea-6698-4f54-a740-9b3eb246e7c7"
+            }
+          ],
+          "id": "bce4493b-ca11-478f-b79b-3c8a0d9e7903",
+          "createdAt": "2026-06-05T15:19:40.000Z",
+          "updatedAt": "2026-06-05T15:19:40.000Z",
+          "uid": "35240-bce4493b-ca11-478f-b79b-3c8a0d9e7903"
+        },
+        {
+          "name": "StopAll",
+          "item": [
+            {
+              "name": "Viam Stop All",
+              "id": "6cf7b339-bdf5-45bd-ad41-02a23e1ebee6",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.robot.v1.RobotService/StopAll",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.robot.v1.RobotService",
+                    "StopAll"
+                  ]
+                },
+                "description": "Stop all components on the machine."
+              },
+              "response": [
+                {
+                  "id": "e2464334-4797-487a-9524-af2176ae6c6b",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.robot.v1.RobotService/StopAll",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.robot.v1.RobotService",
+                        "StopAll"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:40.000Z",
+                  "updatedAt": "2026-06-05T15:19:40.000Z",
+                  "uid": "35240-e2464334-4797-487a-9524-af2176ae6c6b"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:40.000Z",
+              "updatedAt": "2026-06-05T15:19:40.000Z",
+              "uid": "35240-6cf7b339-bdf5-45bd-ad41-02a23e1ebee6"
+            }
+          ],
+          "id": "dd0535f0-3b20-470d-ab41-3c8a94b765c3",
+          "createdAt": "2026-06-05T15:19:40.000Z",
+          "updatedAt": "2026-06-05T15:19:40.000Z",
+          "uid": "35240-dd0535f0-3b20-470d-ab41-3c8a94b765c3"
+        },
+        {
+          "name": "FrameSystemConfig",
+          "item": [
+            {
+              "name": "Viam Frame System Config",
+              "id": "d6dcf8f2-94d0-44d6-9339-54b525e17285",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.robot.v1.RobotService/FrameSystemConfig",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.robot.v1.RobotService",
+                    "FrameSystemConfig"
+                  ]
+                },
+                "description": "Retrieve the current frame system configuration."
+              },
+              "response": [
+                {
+                  "id": "f5e10ad1-888a-4ff2-ae03-6a953b56cf21",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.robot.v1.RobotService/FrameSystemConfig",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.robot.v1.RobotService",
+                        "FrameSystemConfig"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:40.000Z",
+                  "updatedAt": "2026-06-05T15:19:40.000Z",
+                  "uid": "35240-f5e10ad1-888a-4ff2-ae03-6a953b56cf21"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:40.000Z",
+              "updatedAt": "2026-06-05T15:19:40.000Z",
+              "uid": "35240-d6dcf8f2-94d0-44d6-9339-54b525e17285"
+            }
+          ],
+          "id": "38f3db57-f2b8-4c2b-a311-d907e90ab4f4",
+          "createdAt": "2026-06-05T15:19:40.000Z",
+          "updatedAt": "2026-06-05T15:19:40.000Z",
+          "uid": "35240-38f3db57-f2b8-4c2b-a311-d907e90ab4f4"
+        },
+        {
+          "name": "GetPose",
+          "item": [
+            {
+              "name": "Viam Get Pose",
+              "id": "28c3ab6f-b6ec-4999-ba8f-e20f2bc590f7",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"component_name\": \"<string>\",\n  \"destination_frame\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.robot.v1.RobotService/GetPose",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.robot.v1.RobotService",
+                    "GetPose"
+                  ]
+                },
+                "description": "Retrieve a component's pose relative to a destination frame."
+              },
+              "response": [
+                {
+                  "id": "79ef5bee-ed5e-4621-abe7-efe1a7a3773b",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"component_name\": \"<string>\",\n  \"destination_frame\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.robot.v1.RobotService/GetPose",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.robot.v1.RobotService",
+                        "GetPose"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:40.000Z",
+                  "updatedAt": "2026-06-05T15:19:40.000Z",
+                  "uid": "35240-79ef5bee-ed5e-4621-abe7-efe1a7a3773b"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:40.000Z",
+              "updatedAt": "2026-06-05T15:19:40.000Z",
+              "uid": "35240-28c3ab6f-b6ec-4999-ba8f-e20f2bc590f7"
+            }
+          ],
+          "id": "9eae05d1-f979-4d98-92ac-4d0be2a4fe6c",
+          "createdAt": "2026-06-05T15:19:40.000Z",
+          "updatedAt": "2026-06-05T15:19:40.000Z",
+          "uid": "35240-9eae05d1-f979-4d98-92ac-4d0be2a4fe6c"
+        },
+        {
+          "name": "TransformPose",
+          "item": [
+            {
+              "name": "Viam Transform Pose",
+              "id": "40e17b09-a127-46a7-9321-90641bd2ee0c",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"source\": {},\n  \"destination\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.robot.v1.RobotService/TransformPose",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.robot.v1.RobotService",
+                    "TransformPose"
+                  ]
+                },
+                "description": "Transform a pose from one frame to another."
+              },
+              "response": [
+                {
+                  "id": "27faf10f-8fca-46e4-b452-5c82f400f7df",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"source\": {},\n  \"destination\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.robot.v1.RobotService/TransformPose",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.robot.v1.RobotService",
+                        "TransformPose"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:40.000Z",
+                  "updatedAt": "2026-06-05T15:19:40.000Z",
+                  "uid": "35240-27faf10f-8fca-46e4-b452-5c82f400f7df"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:40.000Z",
+              "updatedAt": "2026-06-05T15:19:40.000Z",
+              "uid": "35240-40e17b09-a127-46a7-9321-90641bd2ee0c"
+            }
+          ],
+          "id": "9c38a09a-f5b6-4004-8f8e-8d0e2015e0c0",
+          "createdAt": "2026-06-05T15:19:40.000Z",
+          "updatedAt": "2026-06-05T15:19:40.000Z",
+          "uid": "35240-9c38a09a-f5b6-4004-8f8e-8d0e2015e0c0"
+        },
+        {
+          "name": "TransformPCD",
+          "item": [
+            {
+              "name": "Viam Transform Pcd",
+              "id": "04af217e-8b55-4efa-8e3c-c25113ae9f68",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.robot.v1.RobotService/TransformPCD",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.robot.v1.RobotService",
+                    "TransformPCD"
+                  ]
+                },
+                "description": "Transform a point cloud from one frame to another."
+              },
+              "response": [
+                {
+                  "id": "366ae4a0-309a-4943-9efa-28d770c471b6",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.robot.v1.RobotService/TransformPCD",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.robot.v1.RobotService",
+                        "TransformPCD"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:40.000Z",
+                  "updatedAt": "2026-06-05T15:19:40.000Z",
+                  "uid": "35240-366ae4a0-309a-4943-9efa-28d770c471b6"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:40.000Z",
+              "updatedAt": "2026-06-05T15:19:40.000Z",
+              "uid": "35240-04af217e-8b55-4efa-8e3c-c25113ae9f68"
+            }
+          ],
+          "id": "ded480eb-d635-43ff-b722-b02372f591ad",
+          "createdAt": "2026-06-05T15:19:40.000Z",
+          "updatedAt": "2026-06-05T15:19:40.000Z",
+          "uid": "35240-ded480eb-d635-43ff-b722-b02372f591ad"
+        },
+        {
+          "name": "Log",
+          "item": [
+            {
+              "name": "Viam Log",
+              "id": "09db662b-797f-42a6-bff6-0eff2f8340a8",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"logs\": []\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.robot.v1.RobotService/Log",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.robot.v1.RobotService",
+                    "Log"
+                  ]
+                },
+                "description": "Submit log entries to viam-server."
+              },
+              "response": [
+                {
+                  "id": "4e1a7ef2-7347-4fe4-96c4-08c9d221231e",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"logs\": []\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.robot.v1.RobotService/Log",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.robot.v1.RobotService",
+                        "Log"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:40.000Z",
+                  "updatedAt": "2026-06-05T15:19:40.000Z",
+                  "uid": "35240-4e1a7ef2-7347-4fe4-96c4-08c9d221231e"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:40.000Z",
+              "updatedAt": "2026-06-05T15:19:40.000Z",
+              "uid": "35240-09db662b-797f-42a6-bff6-0eff2f8340a8"
+            }
+          ],
+          "id": "15dd2627-324a-4174-9925-061e3073ca9f",
+          "createdAt": "2026-06-05T15:19:40.000Z",
+          "updatedAt": "2026-06-05T15:19:40.000Z",
+          "uid": "35240-15dd2627-324a-4174-9925-061e3073ca9f"
+        },
+        {
+          "name": "Tunnel",
+          "item": [
+            {
+              "name": "Viam Tunnel",
+              "id": "a3c99cc4-edaa-482d-aa7f-997919c72ed7",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.robot.v1.RobotService/Tunnel",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.robot.v1.RobotService",
+                    "Tunnel"
+                  ]
+                },
+                "description": "Tunnel TCP traffic through viam-server (bidirectional stream)."
+              },
+              "response": [
+                {
+                  "id": "1e6bf5a6-9028-4292-8017-1579f8d68a29",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.robot.v1.RobotService/Tunnel",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.robot.v1.RobotService",
+                        "Tunnel"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:40.000Z",
+                  "updatedAt": "2026-06-05T15:19:40.000Z",
+                  "uid": "35240-1e6bf5a6-9028-4292-8017-1579f8d68a29"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:40.000Z",
+              "updatedAt": "2026-06-05T15:19:40.000Z",
+              "uid": "35240-a3c99cc4-edaa-482d-aa7f-997919c72ed7"
+            }
+          ],
+          "id": "3f4daba9-4de2-4893-b2e3-e530132f75df",
+          "createdAt": "2026-06-05T15:19:40.000Z",
+          "updatedAt": "2026-06-05T15:19:40.000Z",
+          "uid": "35240-3f4daba9-4de2-4893-b2e3-e530132f75df"
+        },
+        {
+          "name": "ListTunnels",
+          "item": [
+            {
+              "name": "Viam List Tunnels",
+              "id": "c9a896c1-4379-4cc9-b0f7-5705263d2030",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/viam.robot.v1.RobotService/ListTunnels",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "viam.robot.v1.RobotService",
+                    "ListTunnels"
+                  ]
+                },
+                "description": "List active tunnels."
+              },
+              "response": [
+                {
+                  "id": "8c322d14-673b-4343-835a-ba710ed4ccb7",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/viam.robot.v1.RobotService/ListTunnels",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "viam.robot.v1.RobotService",
+                        "ListTunnels"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:19:40.000Z",
+                  "updatedAt": "2026-06-05T15:19:40.000Z",
+                  "uid": "35240-8c322d14-673b-4343-835a-ba710ed4ccb7"
+                }
+              ],
+              "createdAt": "2026-06-05T15:19:40.000Z",
+              "updatedAt": "2026-06-05T15:19:40.000Z",
+              "uid": "35240-c9a896c1-4379-4cc9-b0f7-5705263d2030"
+            }
+          ],
+          "id": "42e716af-88e9-40af-95ab-464f183959d2",
+          "createdAt": "2026-06-05T15:19:40.000Z",
+          "updatedAt": "2026-06-05T15:19:40.000Z",
+          "uid": "35240-42e716af-88e9-40af-95ab-464f183959d2"
+        }
+      ],
+      "id": "5a9354aa-1560-48f0-a391-55f2591341ec",
+      "createdAt": "2026-06-05T15:19:40.000Z",
+      "updatedAt": "2026-06-05T15:19:40.000Z",
+      "uid": "35240-5a9354aa-1560-48f0-a391-55f2591341ec"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "key",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "machine_address",
+      "value": "machine.local.viam.cloud:443"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{machine_address}}"
+    }
+  ]
+}
