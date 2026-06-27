@@ -293,45 +293,42 @@ access: 3rd-Party
 common:
   - type: PostmanWorkspace
     url: https://www.postman.com/kinlaneapi/viam/overview
-  - type: ArazzoWorkflows
-    url: arazzo/
-    workflows:
-      - url: arazzo/viam-add-machine-with-part-workflow.yml
-        name: Viam Add a Machine With a Part
-        summary: Create a machine in an existing location and add a viam-server part to it.
-      - url: arazzo/viam-arm-move-and-verify-workflow.yml
-        name: Viam Arm Move and Verify
-        summary: Read an arm's pose, move it to a target, verify joints, then stop it.
-      - url: arazzo/viam-bill-customer-location-workflow.yml
-        name: Viam Bill a Customer Location
-        summary: Reassign a location's billing org, read usage, and charge the customer.
-      - url: arazzo/viam-curate-dataset-workflow.yml
-        name: Viam Curate a Training Dataset
-        summary: Find binary data by filter, tag the matches, and add them to a dataset.
-      - url: arazzo/viam-data-pipeline-lifecycle-workflow.yml
-        name: Viam Data Pipeline Lifecycle
-        summary: Create a scheduled MQL pipeline, resolve it, enable it, and list its runs.
-      - url: arazzo/viam-fragment-rollout-workflow.yml
-        name: Viam Roll Out a Configuration Fragment
-        summary: Create a reusable config fragment and restart a machine part to adopt it.
-      - url: arazzo/viam-machine-health-check-workflow.yml
-        name: Viam Machine Health Check
-        summary: Inspect a live machine's status, resources, version, and cloud identity.
-      - url: arazzo/viam-onboard-org-member-workflow.yml
-        name: Viam Onboard an Organization Member
-        summary: Verify an organization, invite a new member, and confirm the pending invite.
-      - url: arazzo/viam-provision-fleet-workflow.yml
-        name: Viam Provision a New Fleet
-        summary: Stand up a brand-new organization, location, and machine in one pass.
-      - url: arazzo/viam-provision-smart-machine-workflow.yml
-        name: Viam Provision a Smart Machine
-        summary: Bootstrap a fresh device onto Wi-Fi and into the Viam cloud over the hotspot.
-      - url: arazzo/viam-saved-query-lifecycle-workflow.yml
-        name: Viam Saved Query Lifecycle
-        summary: Create a saved SQL query, resolve it from the list, read it, and update it.
-      - url: arazzo/viam-train-and-monitor-model-workflow.yml
-        name: Viam Train and Monitor an ML Model
-        summary: Submit a TFLite training job, poll its status, and branch to logs or cancel.
+  - type: Arazzo
+    url: arazzo/viam-add-machine-with-part-workflow.yml
+    name: Viam Add a Machine With a Part
+  - type: Arazzo
+    url: arazzo/viam-arm-move-and-verify-workflow.yml
+    name: Viam Arm Move and Verify
+  - type: Arazzo
+    url: arazzo/viam-bill-customer-location-workflow.yml
+    name: Viam Bill a Customer Location
+  - type: Arazzo
+    url: arazzo/viam-curate-dataset-workflow.yml
+    name: Viam Curate a Training Dataset
+  - type: Arazzo
+    url: arazzo/viam-data-pipeline-lifecycle-workflow.yml
+    name: Viam Data Pipeline Lifecycle
+  - type: Arazzo
+    url: arazzo/viam-fragment-rollout-workflow.yml
+    name: Viam Roll Out a Configuration Fragment
+  - type: Arazzo
+    url: arazzo/viam-machine-health-check-workflow.yml
+    name: Viam Machine Health Check
+  - type: Arazzo
+    url: arazzo/viam-onboard-org-member-workflow.yml
+    name: Viam Onboard an Organization Member
+  - type: Arazzo
+    url: arazzo/viam-provision-fleet-workflow.yml
+    name: Viam Provision a New Fleet
+  - type: Arazzo
+    url: arazzo/viam-provision-smart-machine-workflow.yml
+    name: Viam Provision a Smart Machine
+  - type: Arazzo
+    url: arazzo/viam-saved-query-lifecycle-workflow.yml
+    name: Viam Saved Query Lifecycle
+  - type: Arazzo
+    url: arazzo/viam-train-and-monitor-model-workflow.yml
+    name: Viam Train and Monitor an ML Model
   - url: https://www.viam.com
     type: Portal
   - url: https://docs.viam.com
@@ -345,7 +342,7 @@ common:
     type: Documentation
   - url: https://app.viam.com
     name: Viam App
-    type: SignUp
+    type: Signup
   - url: https://app.viam.com
     name: Viam Cloud Console
     type: Sandbox
@@ -369,46 +366,46 @@ common:
     type: Protobuf
   - url: https://github.com/viamrobotics/rdk
     name: Viam RDK (viam-server, Go)
-    type: SDK
+    type: SDKs
   - url: https://github.com/viamrobotics/micro-rdk
     name: Viam Micro-RDK (microcontroller, Rust)
-    type: SDK
+    type: SDKs
   - url: https://github.com/viamrobotics/viam-python-sdk
     name: Python SDK
-    type: SDK
+    type: SDKs
   - url: https://github.com/viamrobotics/viam-typescript-sdk
     name: TypeScript SDK
-    type: SDK
+    type: SDKs
   - url: https://github.com/viamrobotics/viam-rust-sdk
     name: Rust SDK
-    type: SDK
+    type: SDKs
   - url: https://github.com/viamrobotics/viam-cpp-sdk
     name: C++ SDK
-    type: SDK
+    type: SDKs
   - url: https://github.com/viamrobotics/viam-flutter-sdk
     name: Flutter SDK
-    type: SDK
+    type: SDKs
   - url: https://github.com/viamrobotics/viam-java-sdk
     name: Java SDK
-    type: SDK
+    type: SDKs
   - url: https://github.com/viamrobotics/viam-dotnet-sdk
     name: .NET SDK
-    type: SDK
+    type: SDKs
   - url: https://github.com/viamrobotics/viam-svelte-sdk
     name: Svelte SDK
-    type: SDK
+    type: SDKs
   - url: https://github.com/viamrobotics/agent
     name: Viam Agent
-    type: Tool
+    type: Tools
   - url: https://github.com/viamrobotics/build-action
     name: Viam Module Build GitHub Action
-    type: Tool
+    type: Tools
   - url: https://github.com/viamrobotics/upload-module
     name: Upload Module to Registry
-    type: Tool
+    type: Tools
   - url: https://github.com/viamrobotics/visualization
     name: Motion and Spatial Visualization
-    type: Tool
+    type: Tools
   - url: https://github.com/viamrobotics/samples
     name: Sample Apps and Templates
     type: CodeExamples
@@ -423,16 +420,16 @@ common:
     type: Documentation
   - url: https://github.com/viamrobotics/prime
     name: Prime UI Library
-    type: Tool
+    type: Tools
   - url: https://github.com/viamrobotics/three
     name: Three.js Viam Utilities
-    type: Tool
+    type: Tools
   - url: https://app.viam.com/registry
     name: Viam Registry (modular components and ML models)
     type: Portal
   - url: https://discord.gg/viam
     name: Viam Discord
-    type: Forum
+    type: Forums
   - url: https://www.viam.com/blog
     name: Blog
     type: Blog
