@@ -1,0 +1,32 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/viam-billing-api-openapi.yml, openapi/viam-component-apis-openapi.yml, openapi/viam-data-client-api-openapi.yml,
+  openapi/viam-data-pipelines-api-openapi.yml, openapi/viam-data-sync-api-openapi.yml, openapi/viam-fleet-management-api-openapi.yml,
+  openapi/viam-machine-management-api-openapi.yml, openapi/viam-ml-inference-api-openapi.yml,
+  openapi/viam-ml-model-service-api-openapi.yml, openapi/viam-ml-training-api-openapi.yml, openapi/viam-motion-service-api-openapi.yml,
+  openapi/viam-slam-service-api-openapi.yml ...
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+schemes:
+- name: ApiKeyAuth
+  type: apiKey
+  in: header
+  parameter: key
+  description: Viam API key.
+  sources:
+  - openapi/viam-billing-api-openapi.yml
+  - openapi/viam-component-apis-openapi.yml
+  - openapi/viam-data-client-api-openapi.yml
+  - openapi/viam-data-pipelines-api-openapi.yml
+  - openapi/viam-data-sync-api-openapi.yml
+  - openapi/viam-fleet-management-api-openapi.yml
+  - openapi/viam-machine-management-api-openapi.yml
+  - openapi/viam-ml-inference-api-openapi.yml
+  - openapi/viam-ml-model-service-api-openapi.yml
+  - openapi/viam-ml-training-api-openapi.yml
+  - openapi/viam-motion-service-api-openapi.yml
+  - openapi/viam-slam-service-api-openapi.yml
+  - openapi/viam-vision-service-api-openapi.yml
