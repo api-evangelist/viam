@@ -1,6 +1,6 @@
 openapi: 3.1.0
 info:
-  title: Viam Billing Arm Provisioning API
+  title: Viam Billing Arm Fragments API
   description: 'REST/JSON transcoding of the Viam BillingService gRPC API. Retrieve current-month
 
     usage, invoice summaries, invoice PDFs, billing tiers, and the location-level billing
@@ -21,32 +21,16 @@ servers:
 security:
 - ApiKeyAuth: []
 tags:
-- name: Provisioning
-  description: Network and cloud credentials onboarding.
+- name: Fragments
+  description: Reusable machine configuration snippets, versioned and shareable across orgs.
 paths:
-  /viam.provisioning.v1.ProvisioningService/GetSmartMachineStatus:
+  /viam.app.v1.AppService/ListFragments:
     post:
-      summary: Viam Get Smart Machine Status
-      description: Retrieve the device's provisioning status (network connectivity, cloud config).
-      operationId: getSmartMachineStatus
+      summary: Viam List Fragments
+      description: List configuration fragments in an organization.
+      operationId: listFragments
       tags:
-      - Provisioning
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-      responses:
-        '200':
-          description: Successful response.
-  /viam.provisioning.v1.ProvisioningService/SetNetworkCredentials:
-    post:
-      summary: Viam Set Network Credentials
-      description: Submit Wi-Fi credentials to the device.
-      operationId: setNetworkCredentials
-      tags:
-      - Provisioning
+      - Fragments
       requestBody:
         required: true
         content:
@@ -54,28 +38,54 @@ paths:
             schema:
               type: object
               required:
-              - type
-              - ssid
-              - psk
+              - organization_id
               properties:
-                type:
+                organization_id:
+                  type: string
+                show_public:
+                  type: boolean
+      responses:
+        '200':
+          description: Successful response.
+  /viam.app.v1.AppService/CreateFragment:
+    post:
+      summary: Viam Create Fragment
+      description: Create a new configuration fragment.
+      operationId: createFragment
+      tags:
+      - Fragments
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - name
+              - organization_id
+              - config
+              properties:
+                name:
+                  type: string
+                organization_id:
+                  type: string
+                config:
+                  type: object
+                visibility:
                   type: string
                   enum:
-                  - wifi
-                ssid:
-                  type: string
-                psk:
-                  type: string
+                  - private
+                  - public
       responses:
         '200':
           description: Successful response.
-  /viam.provisioning.v1.ProvisioningService/SetSmartMachineCredentials:
+  /viam.app.v1.AppService/GetFragment:
     post:
-      summary: Viam Set Smart Machine Credentials
-      description: Submit Viam cloud credentials (machine part secret + cloud config URL) to the device.
-      operationId: setSmartMachineCredentials
+      summary: Viam Get Fragment
+      description: Retrieve a fragment by id.
+      operationId: getFragment
       tags:
-      - Provisioning
+      - Fragments
       requestBody:
         required: true
         content:
@@ -83,49 +93,58 @@ paths:
             schema:
               type: object
               required:
-              - cloud
+              - id
               properties:
-                cloud:
+                id:
+                  type: string
+      responses:
+        '200':
+          description: Successful response.
+  /viam.app.v1.AppService/UpdateFragment:
+    post:
+      summary: Viam Update Fragment
+      description: Update an existing fragment.
+      operationId: updateFragment
+      tags:
+      - Fragments
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - id
+              properties:
+                id:
+                  type: string
+                name:
+                  type: string
+                config:
                   type: object
-                  properties:
-                    id:
-                      type: string
-                    secret:
-                      type: string
-                    app_address:
-                      type: string
+                visibility:
+                  type: string
       responses:
         '200':
           description: Successful response.
-  /viam.provisioning.v1.ProvisioningService/GetNetworkList:
+  /viam.app.v1.AppService/DeleteFragment:
     post:
-      summary: Viam Get Network List
-      description: List Wi-Fi networks visible to the device.
-      operationId: getNetworkList
+      summary: Viam Delete Fragment
+      description: Delete a fragment.
+      operationId: deleteFragment
       tags:
-      - Provisioning
+      - Fragments
       requestBody:
         required: true
         content:
           application/json:
             schema:
               type: object
-      responses:
-        '200':
-          description: Successful response.
-  /viam.provisioning.v1.ProvisioningService/ExitProvisioning:
-    post:
-      summary: Viam Exit Provisioning
-      description: Exit the provisioning service after the device is configured.
-      operationId: exitProvisioning
-      tags:
-      - Provisioning
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
+              required:
+              - id
+              properties:
+                id:
+                  type: string
       responses:
         '200':
           description: Successful response.

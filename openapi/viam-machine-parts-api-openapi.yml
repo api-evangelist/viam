@@ -1,6 +1,6 @@
 openapi: 3.1.0
 info:
-  title: Viam Billing Arm Provisioning API
+  title: Viam Billing Arm Machine Parts API
   description: 'REST/JSON transcoding of the Viam BillingService gRPC API. Retrieve current-month
 
     usage, invoice summaries, invoice PDFs, billing tiers, and the location-level billing
@@ -21,32 +21,16 @@ servers:
 security:
 - ApiKeyAuth: []
 tags:
-- name: Provisioning
-  description: Network and cloud credentials onboarding.
+- name: Machine Parts
+  description: A single viam-server process running on a device. A machine can have multiple parts.
 paths:
-  /viam.provisioning.v1.ProvisioningService/GetSmartMachineStatus:
+  /viam.app.v1.AppService/GetRobotParts:
     post:
-      summary: Viam Get Smart Machine Status
-      description: Retrieve the device's provisioning status (network connectivity, cloud config).
-      operationId: getSmartMachineStatus
+      summary: Viam Get Machine Parts
+      description: List parts (viam-server processes) that make up a machine.
+      operationId: getRobotParts
       tags:
-      - Provisioning
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-      responses:
-        '200':
-          description: Successful response.
-  /viam.provisioning.v1.ProvisioningService/SetNetworkCredentials:
-    post:
-      summary: Viam Set Network Credentials
-      description: Submit Wi-Fi credentials to the device.
-      operationId: setNetworkCredentials
-      tags:
-      - Provisioning
+      - Machine Parts
       requestBody:
         required: true
         content:
@@ -54,28 +38,20 @@ paths:
             schema:
               type: object
               required:
-              - type
-              - ssid
-              - psk
+              - robot_id
               properties:
-                type:
-                  type: string
-                  enum:
-                  - wifi
-                ssid:
-                  type: string
-                psk:
+                robot_id:
                   type: string
       responses:
         '200':
           description: Successful response.
-  /viam.provisioning.v1.ProvisioningService/SetSmartMachineCredentials:
+  /viam.app.v1.AppService/GetRobotPart:
     post:
-      summary: Viam Set Smart Machine Credentials
-      description: Submit Viam cloud credentials (machine part secret + cloud config URL) to the device.
-      operationId: setSmartMachineCredentials
+      summary: Viam Get Machine Part
+      description: Retrieve a single machine part.
+      operationId: getRobotPart
       tags:
-      - Provisioning
+      - Machine Parts
       requestBody:
         required: true
         content:
@@ -83,49 +59,80 @@ paths:
             schema:
               type: object
               required:
-              - cloud
+              - id
               properties:
-                cloud:
-                  type: object
-                  properties:
-                    id:
-                      type: string
-                    secret:
-                      type: string
-                    app_address:
-                      type: string
+                id:
+                  type: string
       responses:
         '200':
           description: Successful response.
-  /viam.provisioning.v1.ProvisioningService/GetNetworkList:
+  /viam.app.v1.AppService/NewRobotPart:
     post:
-      summary: Viam Get Network List
-      description: List Wi-Fi networks visible to the device.
-      operationId: getNetworkList
+      summary: Viam Create Machine Part
+      description: Create a new machine part.
+      operationId: newRobotPart
       tags:
-      - Provisioning
+      - Machine Parts
       requestBody:
         required: true
         content:
           application/json:
             schema:
               type: object
+              required:
+              - robot_id
+              - part_name
+              properties:
+                robot_id:
+                  type: string
+                part_name:
+                  type: string
       responses:
         '200':
           description: Successful response.
-  /viam.provisioning.v1.ProvisioningService/ExitProvisioning:
+  /viam.app.v1.AppService/MarkPartForRestart:
     post:
-      summary: Viam Exit Provisioning
-      description: Exit the provisioning service after the device is configured.
-      operationId: exitProvisioning
+      summary: Viam Restart Machine Part
+      description: Schedule a restart for a machine part.
+      operationId: markPartForRestart
       tags:
-      - Provisioning
+      - Machine Parts
       requestBody:
         required: true
         content:
           application/json:
             schema:
               type: object
+              required:
+              - part_id
+              properties:
+                part_id:
+                  type: string
+      responses:
+        '200':
+          description: Successful response.
+  /viam.app.v1.AppService/GetRobotPartLogs:
+    post:
+      summary: Viam Get Machine Part Logs
+      description: Retrieve logs from a machine part.
+      operationId: getRobotPartLogs
+      tags:
+      - Machine Parts
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - id
+              properties:
+                id:
+                  type: string
+                errors_only:
+                  type: boolean
+                filter:
+                  type: string
       responses:
         '200':
           description: Successful response.

@@ -1,6 +1,6 @@
 openapi: 3.1.0
 info:
-  title: Viam Billing Arm Provisioning API
+  title: Viam Billing Arm Saved Queries API
   description: 'REST/JSON transcoding of the Viam BillingService gRPC API. Retrieve current-month
 
     usage, invoice summaries, invoice PDFs, billing tiers, and the location-level billing
@@ -21,32 +21,16 @@ servers:
 security:
 - ApiKeyAuth: []
 tags:
-- name: Provisioning
-  description: Network and cloud credentials onboarding.
+- name: Saved Queries
+  description: Reusable SQL/MQL queries stored in the cloud.
 paths:
-  /viam.provisioning.v1.ProvisioningService/GetSmartMachineStatus:
+  /viam.app.data.v1.DataService/CreateSavedQuery:
     post:
-      summary: Viam Get Smart Machine Status
-      description: Retrieve the device's provisioning status (network connectivity, cloud config).
-      operationId: getSmartMachineStatus
+      summary: Viam Create Saved Query
+      description: Persist a named SQL/MQL query in the organization.
+      operationId: createSavedQuery
       tags:
-      - Provisioning
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-      responses:
-        '200':
-          description: Successful response.
-  /viam.provisioning.v1.ProvisioningService/SetNetworkCredentials:
-    post:
-      summary: Viam Set Network Credentials
-      description: Submit Wi-Fi credentials to the device.
-      operationId: setNetworkCredentials
-      tags:
-      - Provisioning
+      - Saved Queries
       requestBody:
         required: true
         content:
@@ -54,28 +38,30 @@ paths:
             schema:
               type: object
               required:
-              - type
-              - ssid
-              - psk
+              - organization_id
+              - name
               properties:
-                type:
+                organization_id:
                   type: string
-                  enum:
-                  - wifi
-                ssid:
+                name:
                   type: string
-                psk:
+                sql_query:
                   type: string
+                mql_binary:
+                  type: array
+                  items:
+                    type: string
+                    format: byte
       responses:
         '200':
           description: Successful response.
-  /viam.provisioning.v1.ProvisioningService/SetSmartMachineCredentials:
+  /viam.app.data.v1.DataService/ListSavedQueries:
     post:
-      summary: Viam Set Smart Machine Credentials
-      description: Submit Viam cloud credentials (machine part secret + cloud config URL) to the device.
-      operationId: setSmartMachineCredentials
+      summary: Viam List Saved Queries
+      description: List saved queries in an organization.
+      operationId: listSavedQueries
       tags:
-      - Provisioning
+      - Saved Queries
       requestBody:
         required: true
         content:
@@ -83,49 +69,77 @@ paths:
             schema:
               type: object
               required:
-              - cloud
+              - organization_id
               properties:
-                cloud:
-                  type: object
-                  properties:
-                    id:
-                      type: string
-                    secret:
-                      type: string
-                    app_address:
-                      type: string
+                organization_id:
+                  type: string
       responses:
         '200':
           description: Successful response.
-  /viam.provisioning.v1.ProvisioningService/GetNetworkList:
+  /viam.app.data.v1.DataService/GetSavedQuery:
     post:
-      summary: Viam Get Network List
-      description: List Wi-Fi networks visible to the device.
-      operationId: getNetworkList
+      summary: Viam Get Saved Query
+      description: Retrieve a saved query by id.
+      operationId: getSavedQuery
       tags:
-      - Provisioning
+      - Saved Queries
       requestBody:
         required: true
         content:
           application/json:
             schema:
               type: object
+              required:
+              - id
+              properties:
+                id:
+                  type: string
       responses:
         '200':
           description: Successful response.
-  /viam.provisioning.v1.ProvisioningService/ExitProvisioning:
+  /viam.app.data.v1.DataService/UpdateSavedQuery:
     post:
-      summary: Viam Exit Provisioning
-      description: Exit the provisioning service after the device is configured.
-      operationId: exitProvisioning
+      summary: Viam Update Saved Query
+      description: Update a saved query.
+      operationId: updateSavedQuery
       tags:
-      - Provisioning
+      - Saved Queries
       requestBody:
         required: true
         content:
           application/json:
             schema:
               type: object
+              required:
+              - id
+              properties:
+                id:
+                  type: string
+                name:
+                  type: string
+                sql_query:
+                  type: string
+      responses:
+        '200':
+          description: Successful response.
+  /viam.app.data.v1.DataService/DeleteSavedQuery:
+    post:
+      summary: Viam Delete Saved Query
+      description: Delete a saved query.
+      operationId: deleteSavedQuery
+      tags:
+      - Saved Queries
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - id
+              properties:
+                id:
+                  type: string
       responses:
         '200':
           description: Successful response.

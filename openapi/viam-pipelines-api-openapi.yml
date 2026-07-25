@@ -1,40 +1,47 @@
 openapi: 3.1.0
 info:
-  title: Viam Data Pipelines API
-  description: |
-    REST/JSON transcoding of the Viam DataPipelinesService gRPC API. Create, list, rename,
-    enable, disable, and delete scheduled MQL data pipelines that aggregate captured
-    machine data into the Viam hot data store.
+  title: Viam Billing Arm Pipelines API
+  description: 'REST/JSON transcoding of the Viam BillingService gRPC API. Retrieve current-month
 
-    Canonical contract: https://github.com/viamrobotics/api/blob/main/proto/viam/app/datapipelines/v1/data_pipelines.proto
+    usage, invoice summaries, invoice PDFs, billing tiers, and the location-level billing
+
+    organization assignment used by Viam''s "build a robotics business" features.
+
+
+    Canonical contract: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/billing.proto
+
+    '
   version: '2026.05'
   contact:
     name: Viam Support
     url: https://www.viam.com/contact
 servers:
-  - url: https://app.viam.com
-    description: Viam production cloud.
+- url: https://app.viam.com
+  description: Viam production cloud.
 security:
-  - ApiKeyAuth: []
+- ApiKeyAuth: []
 tags:
-  - name: Pipelines
-    description: Scheduled MQL aggregation pipelines.
+- name: Pipelines
+  description: Scheduled MQL aggregation pipelines.
 paths:
   /viam.app.datapipelines.v1.DataPipelinesService/GetDataPipeline:
     post:
       summary: Viam Get Data Pipeline
       description: Retrieve a data pipeline by id.
       operationId: getDataPipeline
-      tags: [Pipelines]
+      tags:
+      - Pipelines
       requestBody:
         required: true
         content:
           application/json:
             schema:
               type: object
-              required: [id]
+              required:
+              - id
               properties:
-                id: { type: string }
+                id:
+                  type: string
       responses:
         '200':
           description: Successful response.
@@ -43,16 +50,19 @@ paths:
       summary: Viam List Data Pipelines
       description: List data pipelines in an organization.
       operationId: listDataPipelines
-      tags: [Pipelines]
+      tags:
+      - Pipelines
       requestBody:
         required: true
         content:
           application/json:
             schema:
               type: object
-              required: [organization_id]
+              required:
+              - organization_id
               properties:
-                organization_id: { type: string }
+                organization_id:
+                  type: string
       responses:
         '200':
           description: Successful response.
@@ -61,19 +71,32 @@ paths:
       summary: Viam Create Data Pipeline
       description: Create a new MQL data pipeline.
       operationId: createDataPipeline
-      tags: [Pipelines]
+      tags:
+      - Pipelines
       requestBody:
         required: true
         content:
           application/json:
             schema:
               type: object
-              required: [organization_id, name, mql_binary, schedule]
+              required:
+              - organization_id
+              - name
+              - mql_binary
+              - schedule
               properties:
-                organization_id: { type: string }
-                name: { type: string }
-                mql_binary: { type: array, items: { type: string, format: byte } }
-                schedule: { type: string, description: 'Cron expression' }
+                organization_id:
+                  type: string
+                name:
+                  type: string
+                mql_binary:
+                  type: array
+                  items:
+                    type: string
+                    format: byte
+                schedule:
+                  type: string
+                  description: Cron expression
       responses:
         '200':
           description: Successful response.
@@ -82,17 +105,22 @@ paths:
       summary: Viam Rename Data Pipeline
       description: Rename a data pipeline.
       operationId: renameDataPipeline
-      tags: [Pipelines]
+      tags:
+      - Pipelines
       requestBody:
         required: true
         content:
           application/json:
             schema:
               type: object
-              required: [id, name]
+              required:
+              - id
+              - name
               properties:
-                id: { type: string }
-                name: { type: string }
+                id:
+                  type: string
+                name:
+                  type: string
       responses:
         '200':
           description: Successful response.
@@ -101,16 +129,19 @@ paths:
       summary: Viam Delete Data Pipeline
       description: Delete a data pipeline.
       operationId: deleteDataPipeline
-      tags: [Pipelines]
+      tags:
+      - Pipelines
       requestBody:
         required: true
         content:
           application/json:
             schema:
               type: object
-              required: [id]
+              required:
+              - id
               properties:
-                id: { type: string }
+                id:
+                  type: string
       responses:
         '200':
           description: Successful response.
@@ -119,16 +150,19 @@ paths:
       summary: Viam Enable Data Pipeline
       description: Enable a paused data pipeline.
       operationId: enableDataPipeline
-      tags: [Pipelines]
+      tags:
+      - Pipelines
       requestBody:
         required: true
         content:
           application/json:
             schema:
               type: object
-              required: [id]
+              required:
+              - id
               properties:
-                id: { type: string }
+                id:
+                  type: string
       responses:
         '200':
           description: Successful response.
@@ -137,16 +171,19 @@ paths:
       summary: Viam Disable Data Pipeline
       description: Disable a running data pipeline.
       operationId: disableDataPipeline
-      tags: [Pipelines]
+      tags:
+      - Pipelines
       requestBody:
         required: true
         content:
           application/json:
             schema:
               type: object
-              required: [id]
+              required:
+              - id
               properties:
-                id: { type: string }
+                id:
+                  type: string
       responses:
         '200':
           description: Successful response.
@@ -155,18 +192,23 @@ paths:
       summary: Viam List Data Pipeline Runs
       description: List historical runs for a data pipeline.
       operationId: listDataPipelineRuns
-      tags: [Pipelines]
+      tags:
+      - Pipelines
       requestBody:
         required: true
         content:
           application/json:
             schema:
               type: object
-              required: [id]
+              required:
+              - id
               properties:
-                id: { type: string }
-                page_size: { type: integer }
-                page_token: { type: string }
+                id:
+                  type: string
+                page_size:
+                  type: integer
+                page_token:
+                  type: string
       responses:
         '200':
           description: Successful response.

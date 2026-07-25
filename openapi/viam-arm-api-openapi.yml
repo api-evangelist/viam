@@ -1,6 +1,6 @@
 openapi: 3.1.0
 info:
-  title: Viam Billing Arm Provisioning API
+  title: Viam Billing Arm API
   description: 'REST/JSON transcoding of the Viam BillingService gRPC API. Retrieve current-month
 
     usage, invoice summaries, invoice PDFs, billing tiers, and the location-level billing
@@ -21,32 +21,16 @@ servers:
 security:
 - ApiKeyAuth: []
 tags:
-- name: Provisioning
-  description: Network and cloud credentials onboarding.
+- name: Arm
+  description: Robotic arms — joint and end-effector control.
 paths:
-  /viam.provisioning.v1.ProvisioningService/GetSmartMachineStatus:
+  /viam.component.arm.v1.ArmService/GetEndPosition:
     post:
-      summary: Viam Get Smart Machine Status
-      description: Retrieve the device's provisioning status (network connectivity, cloud config).
-      operationId: getSmartMachineStatus
+      summary: Viam Arm Get End Position
+      description: Get the pose of the arm's end effector.
+      operationId: armGetEndPosition
       tags:
-      - Provisioning
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-      responses:
-        '200':
-          description: Successful response.
-  /viam.provisioning.v1.ProvisioningService/SetNetworkCredentials:
-    post:
-      summary: Viam Set Network Credentials
-      description: Submit Wi-Fi credentials to the device.
-      operationId: setNetworkCredentials
-      tags:
-      - Provisioning
+      - Arm
       requestBody:
         required: true
         content:
@@ -54,28 +38,20 @@ paths:
             schema:
               type: object
               required:
-              - type
-              - ssid
-              - psk
+              - name
               properties:
-                type:
-                  type: string
-                  enum:
-                  - wifi
-                ssid:
-                  type: string
-                psk:
+                name:
                   type: string
       responses:
         '200':
           description: Successful response.
-  /viam.provisioning.v1.ProvisioningService/SetSmartMachineCredentials:
+  /viam.component.arm.v1.ArmService/MoveToPosition:
     post:
-      summary: Viam Set Smart Machine Credentials
-      description: Submit Viam cloud credentials (machine part secret + cloud config URL) to the device.
-      operationId: setSmartMachineCredentials
+      summary: Viam Arm Move To Position
+      description: Move the arm's end effector to a target pose.
+      operationId: armMoveToPosition
       tags:
-      - Provisioning
+      - Arm
       requestBody:
         required: true
         content:
@@ -83,49 +59,79 @@ paths:
             schema:
               type: object
               required:
-              - cloud
+              - name
+              - to
               properties:
-                cloud:
+                name:
+                  type: string
+                to:
                   type: object
-                  properties:
-                    id:
-                      type: string
-                    secret:
-                      type: string
-                    app_address:
-                      type: string
       responses:
         '200':
           description: Successful response.
-  /viam.provisioning.v1.ProvisioningService/GetNetworkList:
+  /viam.component.arm.v1.ArmService/GetJointPositions:
     post:
-      summary: Viam Get Network List
-      description: List Wi-Fi networks visible to the device.
-      operationId: getNetworkList
+      summary: Viam Arm Get Joint Positions
+      description: Get the arm's current joint positions.
+      operationId: armGetJointPositions
       tags:
-      - Provisioning
+      - Arm
       requestBody:
         required: true
         content:
           application/json:
             schema:
               type: object
+              required:
+              - name
+              properties:
+                name:
+                  type: string
       responses:
         '200':
           description: Successful response.
-  /viam.provisioning.v1.ProvisioningService/ExitProvisioning:
+  /viam.component.arm.v1.ArmService/MoveToJointPositions:
     post:
-      summary: Viam Exit Provisioning
-      description: Exit the provisioning service after the device is configured.
-      operationId: exitProvisioning
+      summary: Viam Arm Move To Joint Positions
+      description: Move the arm to a specific joint configuration.
+      operationId: armMoveToJointPositions
       tags:
-      - Provisioning
+      - Arm
       requestBody:
         required: true
         content:
           application/json:
             schema:
               type: object
+              required:
+              - name
+              - positions
+              properties:
+                name:
+                  type: string
+                positions:
+                  type: object
+      responses:
+        '200':
+          description: Successful response.
+  /viam.component.arm.v1.ArmService/Stop:
+    post:
+      summary: Viam Arm Stop
+      description: Stop the arm.
+      operationId: armStop
+      tags:
+      - Arm
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - name
+              properties:
+                name:
+                  type: string
       responses:
         '200':
           description: Successful response.

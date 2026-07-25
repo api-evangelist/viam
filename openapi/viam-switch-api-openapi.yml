@@ -1,0 +1,78 @@
+openapi: 3.1.0
+info:
+  title: Viam Billing Arm Switch API
+  description: 'REST/JSON transcoding of the Viam BillingService gRPC API. Retrieve current-month
+
+    usage, invoice summaries, invoice PDFs, billing tiers, and the location-level billing
+
+    organization assignment used by Viam''s "build a robotics business" features.
+
+
+    Canonical contract: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/billing.proto
+
+    '
+  version: '2026.05'
+  contact:
+    name: Viam Support
+    url: https://www.viam.com/contact
+servers:
+- url: https://app.viam.com
+  description: Viam production cloud.
+security:
+- ApiKeyAuth: []
+tags:
+- name: Switch
+  description: Multi-position switches.
+paths:
+  /viam.component.switch.v1.SwitchService/SetPosition:
+    post:
+      summary: Viam Switch Set Position
+      description: Set the switch's position.
+      operationId: switchSetPosition
+      tags:
+      - Switch
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - name
+              - position
+              properties:
+                name:
+                  type: string
+                position:
+                  type: integer
+      responses:
+        '200':
+          description: Successful response.
+  /viam.component.switch.v1.SwitchService/GetPosition:
+    post:
+      summary: Viam Switch Get Position
+      description: Get the switch's current position.
+      operationId: switchGetPosition
+      tags:
+      - Switch
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - name
+              properties:
+                name:
+                  type: string
+      responses:
+        '200':
+          description: Successful response.
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: key
+      description: Viam API key.

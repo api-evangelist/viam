@@ -1,41 +1,52 @@
 openapi: 3.1.0
 info:
-  title: Viam Data Sync API
-  description: |
-    REST/JSON transcoding of the Viam DataSyncService gRPC API. The ingest plane used by
-    viam-server's Data Management Service to upload captured tabular data, binary data,
-    and arbitrary files to the Viam cloud.
+  title: Viam Billing Arm Upload API
+  description: 'REST/JSON transcoding of the Viam BillingService gRPC API. Retrieve current-month
 
-    Canonical contract: https://github.com/viamrobotics/api/blob/main/proto/viam/app/datasync/v1/data_sync.proto
+    usage, invoice summaries, invoice PDFs, billing tiers, and the location-level billing
+
+    organization assignment used by Viam''s "build a robotics business" features.
+
+
+    Canonical contract: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/billing.proto
+
+    '
   version: '2026.05'
   contact:
     name: Viam Support
     url: https://www.viam.com/contact
 servers:
-  - url: https://app.viam.com
-    description: Viam production cloud.
+- url: https://app.viam.com
+  description: Viam production cloud.
 security:
-  - ApiKeyAuth: []
+- ApiKeyAuth: []
 tags:
-  - name: Upload
-    description: Streaming and one-shot uploads of captured data.
+- name: Upload
+  description: Streaming and one-shot uploads of captured data.
 paths:
   /viam.app.datasync.v1.DataSyncService/DataCaptureUpload:
     post:
       summary: Viam Data Capture Upload
       description: One-shot upload of a batch of tabular or binary data captured during a method call.
       operationId: dataCaptureUpload
-      tags: [Upload]
+      tags:
+      - Upload
       requestBody:
         required: true
         content:
           application/json:
             schema:
               type: object
-              required: [metadata, sensor_contents]
+              required:
+              - metadata
+              - sensor_contents
               properties:
-                metadata: { type: object }
-                sensor_contents: { type: array, items: { type: object } }
+                metadata:
+                  type: object
+                sensor_contents:
+                  type: array
+                  items:
+                    type: object
       responses:
         '200':
           description: Successful response.
@@ -44,12 +55,14 @@ paths:
       summary: Viam File Upload
       description: Upload an arbitrary file (e.g., diagnostics) chunked via client streaming.
       operationId: fileUpload
-      tags: [Upload]
+      tags:
+      - Upload
       requestBody:
         required: true
         content:
           application/json:
-            schema: { type: object }
+            schema:
+              type: object
       responses:
         '200':
           description: Successful response.
@@ -58,12 +71,14 @@ paths:
       summary: Viam Streaming Data Capture Upload
       description: Stream large binary capture (e.g., long-running video) over a single upload session.
       operationId: streamingDataCaptureUpload
-      tags: [Upload]
+      tags:
+      - Upload
       requestBody:
         required: true
         content:
           application/json:
-            schema: { type: object }
+            schema:
+              type: object
       responses:
         '200':
           description: Successful response.
