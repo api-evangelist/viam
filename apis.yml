@@ -1,282 +1,3852 @@
 aid: viam
 url: https://raw.githubusercontent.com/api-evangelist/viam/refs/heads/main/apis.yml
 apis:
-  - aid: viam:viam-fleet-management-api
-    name: Viam Fleet Management API
-    tags:
-      - Robotics
-      - Fleet Management
-      - Organizations
-      - Locations
-      - Machines
-    humanURL: https://docs.viam.com/dev/reference/apis/fleet/
-    properties:
-      - url: https://docs.viam.com/dev/reference/apis/fleet/
-        type: Documentation
-      - url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/app.proto
-        type: Protobuf
-      - url: openapi/viam-fleet-management-api-openapi.yml
-        type: OpenAPI
-      - url: json-schema/viam-organization-schema.json
-        type: JSONSchema
-      - url: json-schema/viam-location-schema.json
-        type: JSONSchema
-      - url: json-schema/viam-machine-schema.json
-        type: JSONSchema
-      - url: json-ld/viam-context.jsonld
-        type: JSONLD
-    description: >-
-      Create and manage organizations, locations, machines, machine parts, fragments, OAuth apps, API keys, and team
-      memberships in the viam.app cloud. Backed by the AppService gRPC service in viamrobotics/api with REST/JSON
-      transcoding over app.viam.com:443.
-  - aid: viam:viam-machine-management-api
-    name: Viam Machine Management API
-    tags:
-      - Robotics
-      - Machines
-      - Sessions
-      - Operations
-    humanURL: https://docs.viam.com/dev/reference/apis/robot/
-    properties:
-      - url: https://docs.viam.com/dev/reference/apis/robot/
-        type: Documentation
-      - url: https://github.com/viamrobotics/api/blob/main/proto/viam/robot/v1/robot.proto
-        type: Protobuf
-      - url: openapi/viam-machine-management-api-openapi.yml
-        type: OpenAPI
-    description: >-
-      Connect directly to a viam-server instance running on a device to inspect resources, run operations, manage
-      sessions, retrieve machine status and version, transform poses, and tunnel TCP traffic. The Robot Service is the
-      entry point for every machine-side gRPC call.
-  - aid: viam:viam-data-client-api
-    name: Viam Data Client API
-    tags:
-      - Robotics
-      - Data
-      - Tabular Data
-      - Binary Data
-      - Datasets
-    humanURL: https://docs.viam.com/dev/reference/apis/data-client/
-    properties:
-      - url: https://docs.viam.com/dev/reference/apis/data-client/
-        type: Documentation
-      - url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/data/v1/data.proto
-        type: Protobuf
-      - url: openapi/viam-data-client-api-openapi.yml
-        type: OpenAPI
-      - url: json-schema/viam-tabular-data-schema.json
-        type: JSONSchema
-      - url: json-schema/viam-binary-data-schema.json
-        type: JSONSchema
-    description: >-
-      Upload, download, query (SQL/MQL), tag, and delete tabular and binary data captured from machines. Manage
-      datasets, saved queries, bounding boxes, sequences, and the cloud-hosted MongoDB connection used for analytics
-      workloads.
-  - aid: viam:viam-data-sync-api
-    name: Viam Data Sync API
-    tags:
-      - Robotics
-      - Data
-      - Sync
-      - Capture
-    humanURL: https://docs.viam.com/data-ai/capture-data/capture-sync/
-    properties:
-      - url: https://docs.viam.com/data-ai/capture-data/capture-sync/
-        type: Documentation
-      - url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/datasync/v1/data_sync.proto
-        type: Protobuf
-      - url: openapi/viam-data-sync-api-openapi.yml
-        type: OpenAPI
-    description: >-
-      Upload captured data from viam-server to the cloud via DataCaptureUpload, FileUpload, and
-      StreamingDataCaptureUpload. This is the ingest plane that backs the Data Management Service running on every
-      machine.
-  - aid: viam:viam-ml-training-api
-    name: Viam ML Training API
-    tags:
-      - Robotics
-      - Machine Learning
-      - Training
-      - Edge AI
-    humanURL: https://docs.viam.com/data-ai/train/train-tflite/
-    properties:
-      - url: https://docs.viam.com/data-ai/train/train-tflite/
-        type: Documentation
-      - url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/mltraining/v1/ml_training.proto
-        type: Protobuf
-      - url: openapi/viam-ml-training-api-openapi.yml
-        type: OpenAPI
-    description: >-
-      Submit and manage cloud-hosted ML training jobs that produce models deployable to viam-server. Supports built-in
-      TFLite trainers and custom containerized trainers via SubmitTrainingJob and SubmitCustomTrainingJob.
-  - aid: viam:viam-ml-inference-api
-    name: Viam ML Inference API
-    tags:
-      - Robotics
-      - Machine Learning
-      - Inference
-      - Edge AI
-    humanURL: https://docs.viam.com/services/ml/deploy/
-    properties:
-      - url: https://docs.viam.com/services/ml/deploy/
-        type: Documentation
-      - url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/mlinference/v1/ml_inference.proto
-        type: Protobuf
-      - url: openapi/viam-ml-inference-api-openapi.yml
-        type: OpenAPI
-    description: >-
-      Run cloud-hosted inference against models registered in the Viam ML registry via GetInference. Complements the
-      device-side ML Model Service for cases where compute must live in the cloud.
-  - aid: viam:viam-billing-api
-    name: Viam Billing API
-    tags:
-      - Robotics
-      - Billing
-      - FinOps
-      - Invoices
-    humanURL: https://docs.viam.com/manage/manage/billing/
-    properties:
-      - url: https://docs.viam.com/manage/manage/billing/
-        type: Documentation
-      - url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/billing.proto
-        type: Protobuf
-      - url: openapi/viam-billing-api-openapi.yml
-        type: OpenAPI
-    description: >-
-      Retrieve current-month usage, billing tier metadata, invoice summaries, invoice PDFs, and organization billing
-      information. Supports custom billing tiers and the location-level billing organization assignment used by Viam's
-      "build a robotics business" features.
-  - aid: viam:viam-motion-service-api
-    name: Viam Motion Service API
-    tags:
-      - Robotics
-      - Motion Planning
-      - Services
-    humanURL: https://docs.viam.com/services/motion/
-    properties:
-      - url: https://docs.viam.com/services/motion/
-        type: Documentation
-      - url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/motion/v1/motion.proto
-        type: Protobuf
-      - url: openapi/viam-motion-service-api-openapi.yml
-        type: OpenAPI
-    description: >-
-      Plan and execute motion for a machine's components — Move, MoveOnMap, MoveOnGlobe, GetPose, StopPlan,
-      ListPlanStatuses, GetPlan. Runs on viam-server as a machine-level service combining kinematic chains, frame
-      system, and obstacle avoidance.
-  - aid: viam:viam-vision-service-api
-    name: Viam Vision Service API
-    tags:
-      - Robotics
-      - Vision
-      - Computer Vision
-      - Services
-    humanURL: https://docs.viam.com/services/vision/
-    properties:
-      - url: https://docs.viam.com/services/vision/
-        type: Documentation
-      - url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/vision/v1/vision.proto
-        type: Protobuf
-      - url: openapi/viam-vision-service-api-openapi.yml
-        type: OpenAPI
-    description: >-
-      Run object detection, image classification, and 3D segmentation against a configured camera component. Supports
-      GetDetectionsFromCamera, GetClassificationsFromCamera, GetObjectPointClouds, and CaptureAllFromCamera.
-  - aid: viam:viam-slam-service-api
-    name: Viam SLAM Service API
-    tags:
-      - Robotics
-      - SLAM
-      - Mapping
-      - Services
-    humanURL: https://docs.viam.com/services/slam/
-    properties:
-      - url: https://docs.viam.com/services/slam/
-        type: Documentation
-      - url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/slam/v1/slam.proto
-        type: Protobuf
-      - url: openapi/viam-slam-service-api-openapi.yml
-        type: OpenAPI
-    description: >-
-      Simultaneous Localization And Mapping. GetPosition returns the machine's pose within the map; GetPointCloudMap and
-      GetInternalState stream the live map. Backed by Viam's ORB-SLAM3 and Cartographer integrations and the Cloud SLAM
-      service.
-  - aid: viam:viam-ml-model-service-api
-    name: Viam ML Model Service API
-    tags:
-      - Robotics
-      - Machine Learning
-      - Inference
-      - Edge AI
-      - Services
-    humanURL: https://docs.viam.com/services/ml/deploy/
-    properties:
-      - url: https://docs.viam.com/services/ml/deploy/
-        type: Documentation
-      - url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/mlmodel/v1/mlmodel.proto
-        type: Protobuf
-      - url: openapi/viam-ml-model-service-api-openapi.yml
-        type: OpenAPI
-    description: >-
-      Device-side inference. Infer runs a deployed model against tensors; Metadata returns model input and output
-      schemas. Pairs with TFLite, ONNX, and Triton ML model implementations.
-  - aid: viam:viam-component-apis
-    name: Viam Component APIs
-    tags:
-      - Robotics
-      - Components
-      - Hardware
-      - Sensors
-      - Actuators
-    humanURL: https://docs.viam.com/dev/reference/apis/
-    properties:
-      - url: https://docs.viam.com/dev/reference/apis/
-        type: Documentation
-      - url: https://github.com/viamrobotics/api/tree/main/proto/viam/component
-        type: Protobuf
-      - url: openapi/viam-component-apis-openapi.yml
-        type: OpenAPI
-    description: >-
-      Hardware abstraction for every supported component class — arm, audio in/out, base, board, button, camera,
-      encoder, gantry, generic, gripper, input controller, motor, movement sensor, pose tracker, power sensor, sensor,
-      servo, switch. Each component class exposes a uniform gRPC contract.
-  - aid: viam:viam-data-pipelines-api
-    name: Viam Data Pipelines API
-    tags:
-      - Robotics
-      - Data
-      - Pipelines
-      - Analytics
-    humanURL: https://docs.viam.com/data-ai/data/data-pipelines/
-    properties:
-      - url: https://docs.viam.com/data-ai/data/data-pipelines/
-        type: Documentation
-      - url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/datapipelines/v1/data_pipelines.proto
-        type: Protobuf
-      - url: openapi/viam-data-pipelines-api-openapi.yml
-        type: OpenAPI
-    description: >-
-      Create, list, rename, enable, disable, and delete scheduled MQL data pipelines that aggregate captured machine
-      data into the Viam hot data store. Backed by ListDataPipelineRuns for execution history.
-  - aid: viam:viam-provisioning-api
-    name: Viam Provisioning API
-    tags:
-      - Robotics
-      - Provisioning
-      - Onboarding
-      - Bluetooth
-    humanURL: https://docs.viam.com/manage/configure/provisioning/
-    properties:
-      - url: https://docs.viam.com/manage/configure/provisioning/
-        type: Documentation
-      - url: https://github.com/viamrobotics/api/blob/main/proto/viam/provisioning/v1/provisioning.proto
-        type: Protobuf
-      - url: openapi/viam-provisioning-api-openapi.yml
-        type: OpenAPI
-    description: >-
-      Bootstrap a smart machine onto Wi-Fi and into the viam.app cloud over Bluetooth or hotspot. SetNetworkCredentials,
-      SetSmartMachineCredentials, GetNetworkList, GetSmartMachineStatus, and ExitProvisioning are used by the Flutter
-      provisioning widgets and viam-agent.
+- aid: viam:viam-provisioning-api
+  name: Viam Provisioning API
+  tags:
+  - Robotics
+  - Provisioning
+  - Onboarding
+  - Bluetooth
+  humanURL: https://docs.viam.com/manage/configure/provisioning/
+  properties:
+  - url: https://docs.viam.com/manage/configure/provisioning/
+    type: Documentation
+  - url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/provisioning/v1/provisioning.proto
+    type: Protobuf
+  - url: openapi/viam-provisioning-api-openapi.yml
+    type: OpenAPI
+  description: >-
+    Bootstrap a smart machine onto Wi-Fi and into the viam.app cloud over Bluetooth or hotspot. SetNetworkCredentials,
+    SetSmartMachineCredentials, GetNetworkList, GetSmartMachineStatus, and ExitProvisioning are used by
+    the Flutter provisioning widgets and viam-agent.
+- aid: viam:viam-arm-api
+  name: Viam Arm API
+  description: Robotic arms — joint and end-effector control.
+  humanURL: https://docs.viam.com/dev/reference/apis/fleet/
+  tags:
+  - Arm
+  properties:
+  - type: OpenAPI
+    url: openapi/viam-arm-api-openapi.yml
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/fleet/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/app.proto
+  - type: JSONSchema
+    url: json-schema/viam-organization-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-location-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-machine-schema.json
+  - type: JSONLD
+    url: json-ld/viam-context.jsonld
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/robot/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/robot/v1/robot.proto
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/data-client/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/data/v1/data.proto
+  - type: JSONSchema
+    url: json-schema/viam-tabular-data-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-binary-data-schema.json
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/capture-data/capture-sync/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/datasync/v1/data_sync.proto
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/train/train-tflite/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/mltraining/v1/ml_training.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/ml/deploy/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/mlinference/v1/ml_inference.proto
+  - type: Documentation
+    url: https://docs.viam.com/manage/manage/billing/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/billing.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/motion/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/motion/v1/motion.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/vision/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/vision/v1/vision.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/slam/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/slam/v1/slam.proto
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/service/mlmodel/v1/mlmodel.proto
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/tree/main/proto/viam/component
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/data/data-pipelines/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/datapipelines/v1/data_pipelines.proto
+- aid: viam:viam-audio-in-api
+  name: Viam Audio In API
+  description: Audio capture devices.
+  humanURL: https://docs.viam.com/dev/reference/apis/fleet/
+  tags:
+  - Audio In
+  properties:
+  - type: OpenAPI
+    url: openapi/viam-audio-in-api-openapi.yml
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/fleet/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/app.proto
+  - type: JSONSchema
+    url: json-schema/viam-organization-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-location-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-machine-schema.json
+  - type: JSONLD
+    url: json-ld/viam-context.jsonld
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/robot/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/robot/v1/robot.proto
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/data-client/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/data/v1/data.proto
+  - type: JSONSchema
+    url: json-schema/viam-tabular-data-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-binary-data-schema.json
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/capture-data/capture-sync/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/datasync/v1/data_sync.proto
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/train/train-tflite/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/mltraining/v1/ml_training.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/ml/deploy/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/mlinference/v1/ml_inference.proto
+  - type: Documentation
+    url: https://docs.viam.com/manage/manage/billing/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/billing.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/motion/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/motion/v1/motion.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/vision/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/vision/v1/vision.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/slam/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/slam/v1/slam.proto
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/service/mlmodel/v1/mlmodel.proto
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/tree/main/proto/viam/component
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/data/data-pipelines/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/datapipelines/v1/data_pipelines.proto
+- aid: viam:viam-audio-out-api
+  name: Viam Audio Out API
+  description: Audio playback devices.
+  humanURL: https://docs.viam.com/dev/reference/apis/fleet/
+  tags:
+  - Audio Out
+  properties:
+  - type: OpenAPI
+    url: openapi/viam-audio-out-api-openapi.yml
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/fleet/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/app.proto
+  - type: JSONSchema
+    url: json-schema/viam-organization-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-location-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-machine-schema.json
+  - type: JSONLD
+    url: json-ld/viam-context.jsonld
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/robot/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/robot/v1/robot.proto
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/data-client/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/data/v1/data.proto
+  - type: JSONSchema
+    url: json-schema/viam-tabular-data-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-binary-data-schema.json
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/capture-data/capture-sync/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/datasync/v1/data_sync.proto
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/train/train-tflite/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/mltraining/v1/ml_training.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/ml/deploy/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/mlinference/v1/ml_inference.proto
+  - type: Documentation
+    url: https://docs.viam.com/manage/manage/billing/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/billing.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/motion/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/motion/v1/motion.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/vision/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/vision/v1/vision.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/slam/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/slam/v1/slam.proto
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/service/mlmodel/v1/mlmodel.proto
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/tree/main/proto/viam/component
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/data/data-pipelines/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/datapipelines/v1/data_pipelines.proto
+- aid: viam:viam-base-api
+  name: Viam Base API
+  description: Mobile platforms (wheeled, tracked).
+  humanURL: https://docs.viam.com/dev/reference/apis/fleet/
+  tags:
+  - Base
+  properties:
+  - type: OpenAPI
+    url: openapi/viam-base-api-openapi.yml
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/fleet/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/app.proto
+  - type: JSONSchema
+    url: json-schema/viam-organization-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-location-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-machine-schema.json
+  - type: JSONLD
+    url: json-ld/viam-context.jsonld
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/robot/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/robot/v1/robot.proto
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/data-client/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/data/v1/data.proto
+  - type: JSONSchema
+    url: json-schema/viam-tabular-data-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-binary-data-schema.json
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/capture-data/capture-sync/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/datasync/v1/data_sync.proto
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/train/train-tflite/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/mltraining/v1/ml_training.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/ml/deploy/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/mlinference/v1/ml_inference.proto
+  - type: Documentation
+    url: https://docs.viam.com/manage/manage/billing/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/billing.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/motion/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/motion/v1/motion.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/vision/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/vision/v1/vision.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/slam/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/slam/v1/slam.proto
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/service/mlmodel/v1/mlmodel.proto
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/tree/main/proto/viam/component
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/data/data-pipelines/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/datapipelines/v1/data_pipelines.proto
+- aid: viam:viam-billing-tiers-api
+  name: Viam Billing Tiers API
+  description: Available billing tiers for end-customer billing.
+  humanURL: https://docs.viam.com/dev/reference/apis/fleet/
+  tags:
+  - Billing Tiers
+  properties:
+  - type: OpenAPI
+    url: openapi/viam-billing-tiers-api-openapi.yml
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/fleet/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/app.proto
+  - type: JSONSchema
+    url: json-schema/viam-organization-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-location-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-machine-schema.json
+  - type: JSONLD
+    url: json-ld/viam-context.jsonld
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/robot/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/robot/v1/robot.proto
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/data-client/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/data/v1/data.proto
+  - type: JSONSchema
+    url: json-schema/viam-tabular-data-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-binary-data-schema.json
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/capture-data/capture-sync/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/datasync/v1/data_sync.proto
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/train/train-tflite/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/mltraining/v1/ml_training.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/ml/deploy/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/mlinference/v1/ml_inference.proto
+  - type: Documentation
+    url: https://docs.viam.com/manage/manage/billing/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/billing.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/motion/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/motion/v1/motion.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/vision/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/vision/v1/vision.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/slam/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/slam/v1/slam.proto
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/service/mlmodel/v1/mlmodel.proto
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/tree/main/proto/viam/component
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/data/data-pipelines/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/datapipelines/v1/data_pipelines.proto
+- aid: viam:viam-binary-data-api
+  name: Viam Binary Data API
+  description: Images, video, audio, and other binary blobs captured by cameras and audio components.
+  humanURL: https://docs.viam.com/dev/reference/apis/fleet/
+  tags:
+  - Binary Data
+  properties:
+  - type: OpenAPI
+    url: openapi/viam-binary-data-api-openapi.yml
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/fleet/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/app.proto
+  - type: JSONSchema
+    url: json-schema/viam-organization-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-location-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-machine-schema.json
+  - type: JSONLD
+    url: json-ld/viam-context.jsonld
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/robot/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/robot/v1/robot.proto
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/data-client/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/data/v1/data.proto
+  - type: JSONSchema
+    url: json-schema/viam-tabular-data-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-binary-data-schema.json
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/capture-data/capture-sync/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/datasync/v1/data_sync.proto
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/train/train-tflite/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/mltraining/v1/ml_training.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/ml/deploy/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/mlinference/v1/ml_inference.proto
+  - type: Documentation
+    url: https://docs.viam.com/manage/manage/billing/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/billing.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/motion/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/motion/v1/motion.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/vision/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/vision/v1/vision.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/slam/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/slam/v1/slam.proto
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/service/mlmodel/v1/mlmodel.proto
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/tree/main/proto/viam/component
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/data/data-pipelines/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/datapipelines/v1/data_pipelines.proto
+- aid: viam:viam-board-api
+  name: Viam Board API
+  description: GPIO boards (Raspberry Pi, Jetson, ESP32).
+  humanURL: https://docs.viam.com/dev/reference/apis/fleet/
+  tags:
+  - Board
+  properties:
+  - type: OpenAPI
+    url: openapi/viam-board-api-openapi.yml
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/fleet/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/app.proto
+  - type: JSONSchema
+    url: json-schema/viam-organization-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-location-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-machine-schema.json
+  - type: JSONLD
+    url: json-ld/viam-context.jsonld
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/robot/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/robot/v1/robot.proto
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/data-client/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/data/v1/data.proto
+  - type: JSONSchema
+    url: json-schema/viam-tabular-data-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-binary-data-schema.json
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/capture-data/capture-sync/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/datasync/v1/data_sync.proto
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/train/train-tflite/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/mltraining/v1/ml_training.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/ml/deploy/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/mlinference/v1/ml_inference.proto
+  - type: Documentation
+    url: https://docs.viam.com/manage/manage/billing/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/billing.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/motion/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/motion/v1/motion.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/vision/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/vision/v1/vision.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/slam/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/slam/v1/slam.proto
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/service/mlmodel/v1/mlmodel.proto
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/tree/main/proto/viam/component
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/data/data-pipelines/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/datapipelines/v1/data_pipelines.proto
+- aid: viam:viam-button-api
+  name: Viam Button API
+  description: Physical buttons.
+  humanURL: https://docs.viam.com/dev/reference/apis/fleet/
+  tags:
+  - Button
+  properties:
+  - type: OpenAPI
+    url: openapi/viam-button-api-openapi.yml
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/fleet/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/app.proto
+  - type: JSONSchema
+    url: json-schema/viam-organization-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-location-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-machine-schema.json
+  - type: JSONLD
+    url: json-ld/viam-context.jsonld
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/robot/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/robot/v1/robot.proto
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/data-client/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/data/v1/data.proto
+  - type: JSONSchema
+    url: json-schema/viam-tabular-data-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-binary-data-schema.json
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/capture-data/capture-sync/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/datasync/v1/data_sync.proto
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/train/train-tflite/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/mltraining/v1/ml_training.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/ml/deploy/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/mlinference/v1/ml_inference.proto
+  - type: Documentation
+    url: https://docs.viam.com/manage/manage/billing/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/billing.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/motion/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/motion/v1/motion.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/vision/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/vision/v1/vision.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/slam/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/slam/v1/slam.proto
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/service/mlmodel/v1/mlmodel.proto
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/tree/main/proto/viam/component
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/data/data-pipelines/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/datapipelines/v1/data_pipelines.proto
+- aid: viam:viam-camera-api
+  name: Viam Camera API
+  description: 2D image and 3D point cloud sources.
+  humanURL: https://docs.viam.com/dev/reference/apis/fleet/
+  tags:
+  - Camera
+  properties:
+  - type: OpenAPI
+    url: openapi/viam-camera-api-openapi.yml
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/fleet/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/app.proto
+  - type: JSONSchema
+    url: json-schema/viam-organization-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-location-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-machine-schema.json
+  - type: JSONLD
+    url: json-ld/viam-context.jsonld
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/robot/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/robot/v1/robot.proto
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/data-client/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/data/v1/data.proto
+  - type: JSONSchema
+    url: json-schema/viam-tabular-data-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-binary-data-schema.json
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/capture-data/capture-sync/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/datasync/v1/data_sync.proto
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/train/train-tflite/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/mltraining/v1/ml_training.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/ml/deploy/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/mlinference/v1/ml_inference.proto
+  - type: Documentation
+    url: https://docs.viam.com/manage/manage/billing/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/billing.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/motion/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/motion/v1/motion.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/vision/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/vision/v1/vision.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/slam/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/slam/v1/slam.proto
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/service/mlmodel/v1/mlmodel.proto
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/tree/main/proto/viam/component
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/data/data-pipelines/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/datapipelines/v1/data_pipelines.proto
+- aid: viam:viam-charges-api
+  name: Viam Charges API
+  description: Charge an organization or create-and-charge an invoice.
+  humanURL: https://docs.viam.com/dev/reference/apis/fleet/
+  tags:
+  - Charges
+  properties:
+  - type: OpenAPI
+    url: openapi/viam-charges-api-openapi.yml
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/fleet/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/app.proto
+  - type: JSONSchema
+    url: json-schema/viam-organization-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-location-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-machine-schema.json
+  - type: JSONLD
+    url: json-ld/viam-context.jsonld
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/robot/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/robot/v1/robot.proto
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/data-client/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/data/v1/data.proto
+  - type: JSONSchema
+    url: json-schema/viam-tabular-data-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-binary-data-schema.json
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/capture-data/capture-sync/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/datasync/v1/data_sync.proto
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/train/train-tflite/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/mltraining/v1/ml_training.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/ml/deploy/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/mlinference/v1/ml_inference.proto
+  - type: Documentation
+    url: https://docs.viam.com/manage/manage/billing/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/billing.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/motion/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/motion/v1/motion.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/vision/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/vision/v1/vision.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/slam/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/slam/v1/slam.proto
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/service/mlmodel/v1/mlmodel.proto
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/tree/main/proto/viam/component
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/data/data-pipelines/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/datapipelines/v1/data_pipelines.proto
+- aid: viam:viam-database-api
+  name: Viam Database API
+  description: Direct database connection (MongoDB) for advanced analytics.
+  humanURL: https://docs.viam.com/dev/reference/apis/fleet/
+  tags:
+  - Database
+  properties:
+  - type: OpenAPI
+    url: openapi/viam-database-api-openapi.yml
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/fleet/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/app.proto
+  - type: JSONSchema
+    url: json-schema/viam-organization-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-location-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-machine-schema.json
+  - type: JSONLD
+    url: json-ld/viam-context.jsonld
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/robot/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/robot/v1/robot.proto
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/data-client/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/data/v1/data.proto
+  - type: JSONSchema
+    url: json-schema/viam-tabular-data-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-binary-data-schema.json
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/capture-data/capture-sync/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/datasync/v1/data_sync.proto
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/train/train-tflite/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/mltraining/v1/ml_training.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/ml/deploy/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/mlinference/v1/ml_inference.proto
+  - type: Documentation
+    url: https://docs.viam.com/manage/manage/billing/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/billing.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/motion/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/motion/v1/motion.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/vision/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/vision/v1/vision.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/slam/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/slam/v1/slam.proto
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/service/mlmodel/v1/mlmodel.proto
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/tree/main/proto/viam/component
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/data/data-pipelines/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/datapipelines/v1/data_pipelines.proto
+- aid: viam:viam-datasets-api
+  name: Viam Datasets API
+  description: Curated collections of binary data used for ML training.
+  humanURL: https://docs.viam.com/dev/reference/apis/fleet/
+  tags:
+  - Datasets
+  properties:
+  - type: OpenAPI
+    url: openapi/viam-datasets-api-openapi.yml
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/fleet/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/app.proto
+  - type: JSONSchema
+    url: json-schema/viam-organization-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-location-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-machine-schema.json
+  - type: JSONLD
+    url: json-ld/viam-context.jsonld
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/robot/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/robot/v1/robot.proto
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/data-client/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/data/v1/data.proto
+  - type: JSONSchema
+    url: json-schema/viam-tabular-data-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-binary-data-schema.json
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/capture-data/capture-sync/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/datasync/v1/data_sync.proto
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/train/train-tflite/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/mltraining/v1/ml_training.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/ml/deploy/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/mlinference/v1/ml_inference.proto
+  - type: Documentation
+    url: https://docs.viam.com/manage/manage/billing/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/billing.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/motion/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/motion/v1/motion.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/vision/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/vision/v1/vision.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/slam/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/slam/v1/slam.proto
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/service/mlmodel/v1/mlmodel.proto
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/tree/main/proto/viam/component
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/data/data-pipelines/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/datapipelines/v1/data_pipelines.proto
+- aid: viam:viam-encoder-api
+  name: Viam Encoder API
+  description: Position encoders.
+  humanURL: https://docs.viam.com/dev/reference/apis/fleet/
+  tags:
+  - Encoder
+  properties:
+  - type: OpenAPI
+    url: openapi/viam-encoder-api-openapi.yml
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/fleet/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/app.proto
+  - type: JSONSchema
+    url: json-schema/viam-organization-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-location-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-machine-schema.json
+  - type: JSONLD
+    url: json-ld/viam-context.jsonld
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/robot/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/robot/v1/robot.proto
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/data-client/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/data/v1/data.proto
+  - type: JSONSchema
+    url: json-schema/viam-tabular-data-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-binary-data-schema.json
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/capture-data/capture-sync/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/datasync/v1/data_sync.proto
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/train/train-tflite/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/mltraining/v1/ml_training.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/ml/deploy/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/mlinference/v1/ml_inference.proto
+  - type: Documentation
+    url: https://docs.viam.com/manage/manage/billing/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/billing.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/motion/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/motion/v1/motion.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/vision/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/vision/v1/vision.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/slam/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/slam/v1/slam.proto
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/service/mlmodel/v1/mlmodel.proto
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/tree/main/proto/viam/component
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/data/data-pipelines/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/datapipelines/v1/data_pipelines.proto
+- aid: viam:viam-fragments-api
+  name: Viam Fragments API
+  description: Reusable machine configuration snippets, versioned and shareable across orgs.
+  humanURL: https://docs.viam.com/dev/reference/apis/fleet/
+  tags:
+  - Fragments
+  properties:
+  - type: OpenAPI
+    url: openapi/viam-fragments-api-openapi.yml
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/fleet/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/app.proto
+  - type: JSONSchema
+    url: json-schema/viam-organization-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-location-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-machine-schema.json
+  - type: JSONLD
+    url: json-ld/viam-context.jsonld
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/robot/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/robot/v1/robot.proto
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/data-client/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/data/v1/data.proto
+  - type: JSONSchema
+    url: json-schema/viam-tabular-data-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-binary-data-schema.json
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/capture-data/capture-sync/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/datasync/v1/data_sync.proto
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/train/train-tflite/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/mltraining/v1/ml_training.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/ml/deploy/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/mlinference/v1/ml_inference.proto
+  - type: Documentation
+    url: https://docs.viam.com/manage/manage/billing/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/billing.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/motion/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/motion/v1/motion.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/vision/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/vision/v1/vision.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/slam/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/slam/v1/slam.proto
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/service/mlmodel/v1/mlmodel.proto
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/tree/main/proto/viam/component
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/data/data-pipelines/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/datapipelines/v1/data_pipelines.proto
+- aid: viam:viam-frame-system-api
+  name: Viam Frame System API
+  description: Frame system config and pose transformations.
+  humanURL: https://docs.viam.com/dev/reference/apis/fleet/
+  tags:
+  - Frame System
+  properties:
+  - type: OpenAPI
+    url: openapi/viam-frame-system-api-openapi.yml
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/fleet/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/app.proto
+  - type: JSONSchema
+    url: json-schema/viam-organization-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-location-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-machine-schema.json
+  - type: JSONLD
+    url: json-ld/viam-context.jsonld
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/robot/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/robot/v1/robot.proto
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/data-client/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/data/v1/data.proto
+  - type: JSONSchema
+    url: json-schema/viam-tabular-data-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-binary-data-schema.json
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/capture-data/capture-sync/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/datasync/v1/data_sync.proto
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/train/train-tflite/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/mltraining/v1/ml_training.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/ml/deploy/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/mlinference/v1/ml_inference.proto
+  - type: Documentation
+    url: https://docs.viam.com/manage/manage/billing/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/billing.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/motion/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/motion/v1/motion.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/vision/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/vision/v1/vision.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/slam/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/slam/v1/slam.proto
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/service/mlmodel/v1/mlmodel.proto
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/tree/main/proto/viam/component
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/data/data-pipelines/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/datapipelines/v1/data_pipelines.proto
+- aid: viam:viam-gantry-api
+  name: Viam Gantry API
+  description: Linear actuator coordination.
+  humanURL: https://docs.viam.com/dev/reference/apis/fleet/
+  tags:
+  - Gantry
+  properties:
+  - type: OpenAPI
+    url: openapi/viam-gantry-api-openapi.yml
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/fleet/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/app.proto
+  - type: JSONSchema
+    url: json-schema/viam-organization-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-location-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-machine-schema.json
+  - type: JSONLD
+    url: json-ld/viam-context.jsonld
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/robot/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/robot/v1/robot.proto
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/data-client/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/data/v1/data.proto
+  - type: JSONSchema
+    url: json-schema/viam-tabular-data-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-binary-data-schema.json
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/capture-data/capture-sync/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/datasync/v1/data_sync.proto
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/train/train-tflite/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/mltraining/v1/ml_training.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/ml/deploy/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/mlinference/v1/ml_inference.proto
+  - type: Documentation
+    url: https://docs.viam.com/manage/manage/billing/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/billing.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/motion/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/motion/v1/motion.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/vision/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/vision/v1/vision.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/slam/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/slam/v1/slam.proto
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/service/mlmodel/v1/mlmodel.proto
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/tree/main/proto/viam/component
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/data/data-pipelines/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/datapipelines/v1/data_pipelines.proto
+- aid: viam:viam-generic-api
+  name: Viam Generic API
+  description: Custom component with DoCommand-only interface.
+  humanURL: https://docs.viam.com/dev/reference/apis/fleet/
+  tags:
+  - Generic
+  properties:
+  - type: OpenAPI
+    url: openapi/viam-generic-api-openapi.yml
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/fleet/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/app.proto
+  - type: JSONSchema
+    url: json-schema/viam-organization-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-location-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-machine-schema.json
+  - type: JSONLD
+    url: json-ld/viam-context.jsonld
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/robot/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/robot/v1/robot.proto
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/data-client/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/data/v1/data.proto
+  - type: JSONSchema
+    url: json-schema/viam-tabular-data-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-binary-data-schema.json
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/capture-data/capture-sync/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/datasync/v1/data_sync.proto
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/train/train-tflite/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/mltraining/v1/ml_training.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/ml/deploy/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/mlinference/v1/ml_inference.proto
+  - type: Documentation
+    url: https://docs.viam.com/manage/manage/billing/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/billing.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/motion/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/motion/v1/motion.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/vision/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/vision/v1/vision.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/slam/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/slam/v1/slam.proto
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/service/mlmodel/v1/mlmodel.proto
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/tree/main/proto/viam/component
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/data/data-pipelines/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/datapipelines/v1/data_pipelines.proto
+- aid: viam:viam-gripper-api
+  name: Viam Gripper API
+  description: End-effector grippers.
+  humanURL: https://docs.viam.com/dev/reference/apis/fleet/
+  tags:
+  - Gripper
+  properties:
+  - type: OpenAPI
+    url: openapi/viam-gripper-api-openapi.yml
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/fleet/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/app.proto
+  - type: JSONSchema
+    url: json-schema/viam-organization-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-location-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-machine-schema.json
+  - type: JSONLD
+    url: json-ld/viam-context.jsonld
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/robot/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/robot/v1/robot.proto
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/data-client/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/data/v1/data.proto
+  - type: JSONSchema
+    url: json-schema/viam-tabular-data-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-binary-data-schema.json
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/capture-data/capture-sync/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/datasync/v1/data_sync.proto
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/train/train-tflite/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/mltraining/v1/ml_training.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/ml/deploy/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/mlinference/v1/ml_inference.proto
+  - type: Documentation
+    url: https://docs.viam.com/manage/manage/billing/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/billing.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/motion/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/motion/v1/motion.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/vision/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/vision/v1/vision.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/slam/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/slam/v1/slam.proto
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/service/mlmodel/v1/mlmodel.proto
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/tree/main/proto/viam/component
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/data/data-pipelines/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/datapipelines/v1/data_pipelines.proto
+- aid: viam:viam-inference-api
+  name: Viam Inference API
+  description: Cloud-hosted inference against registry-deployed models.
+  humanURL: https://docs.viam.com/dev/reference/apis/fleet/
+  tags:
+  - Inference
+  properties:
+  - type: OpenAPI
+    url: openapi/viam-inference-api-openapi.yml
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/fleet/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/app.proto
+  - type: JSONSchema
+    url: json-schema/viam-organization-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-location-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-machine-schema.json
+  - type: JSONLD
+    url: json-ld/viam-context.jsonld
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/robot/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/robot/v1/robot.proto
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/data-client/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/data/v1/data.proto
+  - type: JSONSchema
+    url: json-schema/viam-tabular-data-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-binary-data-schema.json
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/capture-data/capture-sync/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/datasync/v1/data_sync.proto
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/train/train-tflite/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/mltraining/v1/ml_training.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/ml/deploy/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/mlinference/v1/ml_inference.proto
+  - type: Documentation
+    url: https://docs.viam.com/manage/manage/billing/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/billing.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/motion/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/motion/v1/motion.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/vision/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/vision/v1/vision.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/slam/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/slam/v1/slam.proto
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/service/mlmodel/v1/mlmodel.proto
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/tree/main/proto/viam/component
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/data/data-pipelines/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/datapipelines/v1/data_pipelines.proto
+- aid: viam:viam-invoices-api
+  name: Viam Invoices API
+  description: Invoices and invoice PDFs.
+  humanURL: https://docs.viam.com/dev/reference/apis/fleet/
+  tags:
+  - Invoices
+  properties:
+  - type: OpenAPI
+    url: openapi/viam-invoices-api-openapi.yml
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/fleet/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/app.proto
+  - type: JSONSchema
+    url: json-schema/viam-organization-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-location-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-machine-schema.json
+  - type: JSONLD
+    url: json-ld/viam-context.jsonld
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/robot/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/robot/v1/robot.proto
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/data-client/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/data/v1/data.proto
+  - type: JSONSchema
+    url: json-schema/viam-tabular-data-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-binary-data-schema.json
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/capture-data/capture-sync/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/datasync/v1/data_sync.proto
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/train/train-tflite/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/mltraining/v1/ml_training.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/ml/deploy/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/mlinference/v1/ml_inference.proto
+  - type: Documentation
+    url: https://docs.viam.com/manage/manage/billing/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/billing.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/motion/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/motion/v1/motion.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/vision/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/vision/v1/vision.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/slam/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/slam/v1/slam.proto
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/service/mlmodel/v1/mlmodel.proto
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/tree/main/proto/viam/component
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/data/data-pipelines/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/datapipelines/v1/data_pipelines.proto
+- aid: viam:viam-locations-api
+  name: Viam Locations API
+  description: Logical grouping of machines (e.g., a building, site, or robot fleet).
+  humanURL: https://docs.viam.com/dev/reference/apis/fleet/
+  tags:
+  - Locations
+  properties:
+  - type: OpenAPI
+    url: openapi/viam-locations-api-openapi.yml
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/fleet/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/app.proto
+  - type: JSONSchema
+    url: json-schema/viam-organization-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-location-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-machine-schema.json
+  - type: JSONLD
+    url: json-ld/viam-context.jsonld
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/robot/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/robot/v1/robot.proto
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/data-client/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/data/v1/data.proto
+  - type: JSONSchema
+    url: json-schema/viam-tabular-data-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-binary-data-schema.json
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/capture-data/capture-sync/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/datasync/v1/data_sync.proto
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/train/train-tflite/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/mltraining/v1/ml_training.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/ml/deploy/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/mlinference/v1/ml_inference.proto
+  - type: Documentation
+    url: https://docs.viam.com/manage/manage/billing/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/billing.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/motion/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/motion/v1/motion.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/vision/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/vision/v1/vision.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/slam/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/slam/v1/slam.proto
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/service/mlmodel/v1/mlmodel.proto
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/tree/main/proto/viam/component
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/data/data-pipelines/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/datapipelines/v1/data_pipelines.proto
+- aid: viam:viam-machine-parts-api
+  name: Viam Machine Parts API
+  description: A single viam-server process running on a device. A machine can have multiple parts.
+  humanURL: https://docs.viam.com/dev/reference/apis/fleet/
+  tags:
+  - Machine Parts
+  properties:
+  - type: OpenAPI
+    url: openapi/viam-machine-parts-api-openapi.yml
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/fleet/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/app.proto
+  - type: JSONSchema
+    url: json-schema/viam-organization-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-location-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-machine-schema.json
+  - type: JSONLD
+    url: json-ld/viam-context.jsonld
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/robot/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/robot/v1/robot.proto
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/data-client/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/data/v1/data.proto
+  - type: JSONSchema
+    url: json-schema/viam-tabular-data-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-binary-data-schema.json
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/capture-data/capture-sync/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/datasync/v1/data_sync.proto
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/train/train-tflite/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/mltraining/v1/ml_training.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/ml/deploy/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/mlinference/v1/ml_inference.proto
+  - type: Documentation
+    url: https://docs.viam.com/manage/manage/billing/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/billing.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/motion/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/motion/v1/motion.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/vision/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/vision/v1/vision.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/slam/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/slam/v1/slam.proto
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/service/mlmodel/v1/mlmodel.proto
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/tree/main/proto/viam/component
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/data/data-pipelines/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/datapipelines/v1/data_pipelines.proto
+- aid: viam:viam-machines-api
+  name: Viam Machines API
+  description: A robot or smart machine running viam-server. Composed of one or more parts.
+  humanURL: https://docs.viam.com/dev/reference/apis/fleet/
+  tags:
+  - Machines
+  properties:
+  - type: OpenAPI
+    url: openapi/viam-machines-api-openapi.yml
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/fleet/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/app.proto
+  - type: JSONSchema
+    url: json-schema/viam-organization-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-location-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-machine-schema.json
+  - type: JSONLD
+    url: json-ld/viam-context.jsonld
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/robot/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/robot/v1/robot.proto
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/data-client/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/data/v1/data.proto
+  - type: JSONSchema
+    url: json-schema/viam-tabular-data-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-binary-data-schema.json
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/capture-data/capture-sync/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/datasync/v1/data_sync.proto
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/train/train-tflite/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/mltraining/v1/ml_training.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/ml/deploy/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/mlinference/v1/ml_inference.proto
+  - type: Documentation
+    url: https://docs.viam.com/manage/manage/billing/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/billing.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/motion/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/motion/v1/motion.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/vision/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/vision/v1/vision.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/slam/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/slam/v1/slam.proto
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/service/mlmodel/v1/mlmodel.proto
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/tree/main/proto/viam/component
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/data/data-pipelines/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/datapipelines/v1/data_pipelines.proto
+- aid: viam:viam-members-api
+  name: Viam Members API
+  description: Organization membership, invites, and authorizations (RBAC).
+  humanURL: https://docs.viam.com/dev/reference/apis/fleet/
+  tags:
+  - Members
+  properties:
+  - type: OpenAPI
+    url: openapi/viam-members-api-openapi.yml
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/fleet/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/app.proto
+  - type: JSONSchema
+    url: json-schema/viam-organization-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-location-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-machine-schema.json
+  - type: JSONLD
+    url: json-ld/viam-context.jsonld
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/robot/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/robot/v1/robot.proto
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/data-client/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/data/v1/data.proto
+  - type: JSONSchema
+    url: json-schema/viam-tabular-data-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-binary-data-schema.json
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/capture-data/capture-sync/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/datasync/v1/data_sync.proto
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/train/train-tflite/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/mltraining/v1/ml_training.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/ml/deploy/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/mlinference/v1/ml_inference.proto
+  - type: Documentation
+    url: https://docs.viam.com/manage/manage/billing/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/billing.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/motion/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/motion/v1/motion.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/vision/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/vision/v1/vision.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/slam/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/slam/v1/slam.proto
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/service/mlmodel/v1/mlmodel.proto
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/tree/main/proto/viam/component
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/data/data-pipelines/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/datapipelines/v1/data_pipelines.proto
+- aid: viam:viam-ml-model-api
+  name: Viam ML Model API
+  description: Device-side ML inference.
+  humanURL: https://docs.viam.com/dev/reference/apis/fleet/
+  tags:
+  - ML Model
+  properties:
+  - type: OpenAPI
+    url: openapi/viam-ml-model-api-openapi.yml
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/fleet/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/app.proto
+  - type: JSONSchema
+    url: json-schema/viam-organization-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-location-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-machine-schema.json
+  - type: JSONLD
+    url: json-ld/viam-context.jsonld
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/robot/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/robot/v1/robot.proto
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/data-client/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/data/v1/data.proto
+  - type: JSONSchema
+    url: json-schema/viam-tabular-data-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-binary-data-schema.json
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/capture-data/capture-sync/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/datasync/v1/data_sync.proto
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/train/train-tflite/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/mltraining/v1/ml_training.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/ml/deploy/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/mlinference/v1/ml_inference.proto
+  - type: Documentation
+    url: https://docs.viam.com/manage/manage/billing/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/billing.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/motion/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/motion/v1/motion.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/vision/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/vision/v1/vision.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/slam/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/slam/v1/slam.proto
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/service/mlmodel/v1/mlmodel.proto
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/tree/main/proto/viam/component
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/data/data-pipelines/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/datapipelines/v1/data_pipelines.proto
+- aid: viam:viam-modules-api
+  name: Viam Modules API
+  description: Modular component and service lifecycle.
+  humanURL: https://docs.viam.com/dev/reference/apis/fleet/
+  tags:
+  - Modules
+  properties:
+  - type: OpenAPI
+    url: openapi/viam-modules-api-openapi.yml
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/fleet/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/app.proto
+  - type: JSONSchema
+    url: json-schema/viam-organization-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-location-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-machine-schema.json
+  - type: JSONLD
+    url: json-ld/viam-context.jsonld
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/robot/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/robot/v1/robot.proto
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/data-client/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/data/v1/data.proto
+  - type: JSONSchema
+    url: json-schema/viam-tabular-data-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-binary-data-schema.json
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/capture-data/capture-sync/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/datasync/v1/data_sync.proto
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/train/train-tflite/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/mltraining/v1/ml_training.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/ml/deploy/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/mlinference/v1/ml_inference.proto
+  - type: Documentation
+    url: https://docs.viam.com/manage/manage/billing/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/billing.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/motion/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/motion/v1/motion.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/vision/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/vision/v1/vision.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/slam/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/slam/v1/slam.proto
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/service/mlmodel/v1/mlmodel.proto
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/tree/main/proto/viam/component
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/data/data-pipelines/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/datapipelines/v1/data_pipelines.proto
+- aid: viam:viam-motion-api
+  name: Viam Motion API
+  description: Plan and execute motion across components.
+  humanURL: https://docs.viam.com/dev/reference/apis/fleet/
+  tags:
+  - Motion
+  properties:
+  - type: OpenAPI
+    url: openapi/viam-motion-api-openapi.yml
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/fleet/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/app.proto
+  - type: JSONSchema
+    url: json-schema/viam-organization-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-location-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-machine-schema.json
+  - type: JSONLD
+    url: json-ld/viam-context.jsonld
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/robot/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/robot/v1/robot.proto
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/data-client/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/data/v1/data.proto
+  - type: JSONSchema
+    url: json-schema/viam-tabular-data-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-binary-data-schema.json
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/capture-data/capture-sync/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/datasync/v1/data_sync.proto
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/train/train-tflite/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/mltraining/v1/ml_training.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/ml/deploy/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/mlinference/v1/ml_inference.proto
+  - type: Documentation
+    url: https://docs.viam.com/manage/manage/billing/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/billing.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/motion/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/motion/v1/motion.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/vision/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/vision/v1/vision.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/slam/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/slam/v1/slam.proto
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/service/mlmodel/v1/mlmodel.proto
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/tree/main/proto/viam/component
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/data/data-pipelines/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/datapipelines/v1/data_pipelines.proto
+- aid: viam:viam-motor-api
+  name: Viam Motor API
+  description: DC, servo, and stepper motors.
+  humanURL: https://docs.viam.com/dev/reference/apis/fleet/
+  tags:
+  - Motor
+  properties:
+  - type: OpenAPI
+    url: openapi/viam-motor-api-openapi.yml
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/fleet/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/app.proto
+  - type: JSONSchema
+    url: json-schema/viam-organization-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-location-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-machine-schema.json
+  - type: JSONLD
+    url: json-ld/viam-context.jsonld
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/robot/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/robot/v1/robot.proto
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/data-client/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/data/v1/data.proto
+  - type: JSONSchema
+    url: json-schema/viam-tabular-data-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-binary-data-schema.json
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/capture-data/capture-sync/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/datasync/v1/data_sync.proto
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/train/train-tflite/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/mltraining/v1/ml_training.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/ml/deploy/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/mlinference/v1/ml_inference.proto
+  - type: Documentation
+    url: https://docs.viam.com/manage/manage/billing/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/billing.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/motion/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/motion/v1/motion.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/vision/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/vision/v1/vision.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/slam/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/slam/v1/slam.proto
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/service/mlmodel/v1/mlmodel.proto
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/tree/main/proto/viam/component
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/data/data-pipelines/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/datapipelines/v1/data_pipelines.proto
+- aid: viam:viam-movement-sensor-api
+  name: Viam Movement Sensor API
+  description: GPS, IMU, odometry.
+  humanURL: https://docs.viam.com/dev/reference/apis/fleet/
+  tags:
+  - Movement Sensor
+  properties:
+  - type: OpenAPI
+    url: openapi/viam-movement-sensor-api-openapi.yml
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/fleet/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/app.proto
+  - type: JSONSchema
+    url: json-schema/viam-organization-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-location-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-machine-schema.json
+  - type: JSONLD
+    url: json-ld/viam-context.jsonld
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/robot/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/robot/v1/robot.proto
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/data-client/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/data/v1/data.proto
+  - type: JSONSchema
+    url: json-schema/viam-tabular-data-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-binary-data-schema.json
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/capture-data/capture-sync/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/datasync/v1/data_sync.proto
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/train/train-tflite/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/mltraining/v1/ml_training.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/ml/deploy/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/mlinference/v1/ml_inference.proto
+  - type: Documentation
+    url: https://docs.viam.com/manage/manage/billing/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/billing.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/motion/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/motion/v1/motion.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/vision/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/vision/v1/vision.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/slam/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/slam/v1/slam.proto
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/service/mlmodel/v1/mlmodel.proto
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/tree/main/proto/viam/component
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/data/data-pipelines/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/datapipelines/v1/data_pipelines.proto
+- aid: viam:viam-oauth-apps-api
+  name: Viam OAuth Apps API
+  description: OAuth applications registered against a Viam organization for third-party integrations.
+  humanURL: https://docs.viam.com/dev/reference/apis/fleet/
+  tags:
+  - OAuth Apps
+  properties:
+  - type: OpenAPI
+    url: openapi/viam-oauth-apps-api-openapi.yml
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/fleet/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/app.proto
+  - type: JSONSchema
+    url: json-schema/viam-organization-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-location-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-machine-schema.json
+  - type: JSONLD
+    url: json-ld/viam-context.jsonld
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/robot/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/robot/v1/robot.proto
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/data-client/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/data/v1/data.proto
+  - type: JSONSchema
+    url: json-schema/viam-tabular-data-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-binary-data-schema.json
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/capture-data/capture-sync/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/datasync/v1/data_sync.proto
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/train/train-tflite/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/mltraining/v1/ml_training.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/ml/deploy/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/mlinference/v1/ml_inference.proto
+  - type: Documentation
+    url: https://docs.viam.com/manage/manage/billing/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/billing.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/motion/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/motion/v1/motion.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/vision/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/vision/v1/vision.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/slam/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/slam/v1/slam.proto
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/service/mlmodel/v1/mlmodel.proto
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/tree/main/proto/viam/component
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/data/data-pipelines/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/datapipelines/v1/data_pipelines.proto
+- aid: viam:viam-operations-api
+  name: Viam Operations API
+  description: Long-running operations executing on the machine.
+  humanURL: https://docs.viam.com/dev/reference/apis/fleet/
+  tags:
+  - Operations
+  properties:
+  - type: OpenAPI
+    url: openapi/viam-operations-api-openapi.yml
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/fleet/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/app.proto
+  - type: JSONSchema
+    url: json-schema/viam-organization-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-location-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-machine-schema.json
+  - type: JSONLD
+    url: json-ld/viam-context.jsonld
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/robot/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/robot/v1/robot.proto
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/data-client/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/data/v1/data.proto
+  - type: JSONSchema
+    url: json-schema/viam-tabular-data-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-binary-data-schema.json
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/capture-data/capture-sync/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/datasync/v1/data_sync.proto
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/train/train-tflite/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/mltraining/v1/ml_training.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/ml/deploy/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/mlinference/v1/ml_inference.proto
+  - type: Documentation
+    url: https://docs.viam.com/manage/manage/billing/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/billing.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/motion/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/motion/v1/motion.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/vision/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/vision/v1/vision.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/slam/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/slam/v1/slam.proto
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/service/mlmodel/v1/mlmodel.proto
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/tree/main/proto/viam/component
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/data/data-pipelines/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/datapipelines/v1/data_pipelines.proto
+- aid: viam:viam-organizations-api
+  name: Viam Organizations API
+  description: >-
+    Tenant boundary for Viam — owns locations, machines, members, billing, and registry items.
+  humanURL: https://docs.viam.com/dev/reference/apis/fleet/
+  tags:
+  - Organizations
+  properties:
+  - type: OpenAPI
+    url: openapi/viam-organizations-api-openapi.yml
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/fleet/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/app.proto
+  - type: JSONSchema
+    url: json-schema/viam-organization-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-location-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-machine-schema.json
+  - type: JSONLD
+    url: json-ld/viam-context.jsonld
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/robot/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/robot/v1/robot.proto
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/data-client/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/data/v1/data.proto
+  - type: JSONSchema
+    url: json-schema/viam-tabular-data-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-binary-data-schema.json
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/capture-data/capture-sync/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/datasync/v1/data_sync.proto
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/train/train-tflite/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/mltraining/v1/ml_training.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/ml/deploy/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/mlinference/v1/ml_inference.proto
+  - type: Documentation
+    url: https://docs.viam.com/manage/manage/billing/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/billing.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/motion/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/motion/v1/motion.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/vision/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/vision/v1/vision.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/slam/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/slam/v1/slam.proto
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/service/mlmodel/v1/mlmodel.proto
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/tree/main/proto/viam/component
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/data/data-pipelines/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/datapipelines/v1/data_pipelines.proto
+- aid: viam:viam-pipelines-api
+  name: Viam Pipelines API
+  description: Scheduled MQL aggregation pipelines.
+  humanURL: https://docs.viam.com/dev/reference/apis/fleet/
+  tags:
+  - Pipelines
+  properties:
+  - type: OpenAPI
+    url: openapi/viam-pipelines-api-openapi.yml
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/fleet/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/app.proto
+  - type: JSONSchema
+    url: json-schema/viam-organization-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-location-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-machine-schema.json
+  - type: JSONLD
+    url: json-ld/viam-context.jsonld
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/robot/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/robot/v1/robot.proto
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/data-client/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/data/v1/data.proto
+  - type: JSONSchema
+    url: json-schema/viam-tabular-data-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-binary-data-schema.json
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/capture-data/capture-sync/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/datasync/v1/data_sync.proto
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/train/train-tflite/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/mltraining/v1/ml_training.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/ml/deploy/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/mlinference/v1/ml_inference.proto
+  - type: Documentation
+    url: https://docs.viam.com/manage/manage/billing/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/billing.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/motion/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/motion/v1/motion.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/vision/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/vision/v1/vision.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/slam/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/slam/v1/slam.proto
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/service/mlmodel/v1/mlmodel.proto
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/tree/main/proto/viam/component
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/data/data-pipelines/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/datapipelines/v1/data_pipelines.proto
+- aid: viam:viam-power-sensor-api
+  name: Viam Power Sensor API
+  description: Voltage, current, and power measurements.
+  humanURL: https://docs.viam.com/dev/reference/apis/fleet/
+  tags:
+  - Power Sensor
+  properties:
+  - type: OpenAPI
+    url: openapi/viam-power-sensor-api-openapi.yml
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/fleet/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/app.proto
+  - type: JSONSchema
+    url: json-schema/viam-organization-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-location-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-machine-schema.json
+  - type: JSONLD
+    url: json-ld/viam-context.jsonld
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/robot/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/robot/v1/robot.proto
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/data-client/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/data/v1/data.proto
+  - type: JSONSchema
+    url: json-schema/viam-tabular-data-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-binary-data-schema.json
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/capture-data/capture-sync/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/datasync/v1/data_sync.proto
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/train/train-tflite/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/mltraining/v1/ml_training.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/ml/deploy/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/mlinference/v1/ml_inference.proto
+  - type: Documentation
+    url: https://docs.viam.com/manage/manage/billing/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/billing.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/motion/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/motion/v1/motion.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/vision/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/vision/v1/vision.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/slam/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/slam/v1/slam.proto
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/service/mlmodel/v1/mlmodel.proto
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/tree/main/proto/viam/component
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/data/data-pipelines/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/datapipelines/v1/data_pipelines.proto
+- aid: viam:viam-resources-api
+  name: Viam Resources API
+  description: Resources (components and services) registered on the machine.
+  humanURL: https://docs.viam.com/dev/reference/apis/fleet/
+  tags:
+  - Resources
+  properties:
+  - type: OpenAPI
+    url: openapi/viam-resources-api-openapi.yml
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/fleet/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/app.proto
+  - type: JSONSchema
+    url: json-schema/viam-organization-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-location-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-machine-schema.json
+  - type: JSONLD
+    url: json-ld/viam-context.jsonld
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/robot/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/robot/v1/robot.proto
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/data-client/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/data/v1/data.proto
+  - type: JSONSchema
+    url: json-schema/viam-tabular-data-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-binary-data-schema.json
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/capture-data/capture-sync/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/datasync/v1/data_sync.proto
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/train/train-tflite/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/mltraining/v1/ml_training.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/ml/deploy/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/mlinference/v1/ml_inference.proto
+  - type: Documentation
+    url: https://docs.viam.com/manage/manage/billing/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/billing.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/motion/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/motion/v1/motion.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/vision/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/vision/v1/vision.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/slam/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/slam/v1/slam.proto
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/service/mlmodel/v1/mlmodel.proto
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/tree/main/proto/viam/component
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/data/data-pipelines/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/datapipelines/v1/data_pipelines.proto
+- aid: viam:viam-saved-queries-api
+  name: Viam Saved Queries API
+  description: Reusable SQL/MQL queries stored in the cloud.
+  humanURL: https://docs.viam.com/dev/reference/apis/fleet/
+  tags:
+  - Saved Queries
+  properties:
+  - type: OpenAPI
+    url: openapi/viam-saved-queries-api-openapi.yml
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/fleet/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/app.proto
+  - type: JSONSchema
+    url: json-schema/viam-organization-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-location-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-machine-schema.json
+  - type: JSONLD
+    url: json-ld/viam-context.jsonld
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/robot/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/robot/v1/robot.proto
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/data-client/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/data/v1/data.proto
+  - type: JSONSchema
+    url: json-schema/viam-tabular-data-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-binary-data-schema.json
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/capture-data/capture-sync/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/datasync/v1/data_sync.proto
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/train/train-tflite/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/mltraining/v1/ml_training.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/ml/deploy/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/mlinference/v1/ml_inference.proto
+  - type: Documentation
+    url: https://docs.viam.com/manage/manage/billing/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/billing.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/motion/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/motion/v1/motion.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/vision/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/vision/v1/vision.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/slam/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/slam/v1/slam.proto
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/service/mlmodel/v1/mlmodel.proto
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/tree/main/proto/viam/component
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/data/data-pipelines/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/datapipelines/v1/data_pipelines.proto
+- aid: viam:viam-secrets-api
+  name: Viam Secrets API
+  description: Location and machine-part secrets used by SDKs to authenticate.
+  humanURL: https://docs.viam.com/dev/reference/apis/fleet/
+  tags:
+  - Secrets
+  properties:
+  - type: OpenAPI
+    url: openapi/viam-secrets-api-openapi.yml
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/fleet/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/app.proto
+  - type: JSONSchema
+    url: json-schema/viam-organization-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-location-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-machine-schema.json
+  - type: JSONLD
+    url: json-ld/viam-context.jsonld
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/robot/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/robot/v1/robot.proto
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/data-client/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/data/v1/data.proto
+  - type: JSONSchema
+    url: json-schema/viam-tabular-data-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-binary-data-schema.json
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/capture-data/capture-sync/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/datasync/v1/data_sync.proto
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/train/train-tflite/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/mltraining/v1/ml_training.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/ml/deploy/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/mlinference/v1/ml_inference.proto
+  - type: Documentation
+    url: https://docs.viam.com/manage/manage/billing/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/billing.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/motion/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/motion/v1/motion.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/vision/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/vision/v1/vision.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/slam/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/slam/v1/slam.proto
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/service/mlmodel/v1/mlmodel.proto
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/tree/main/proto/viam/component
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/data/data-pipelines/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/datapipelines/v1/data_pipelines.proto
+- aid: viam:viam-sensor-api
+  name: Viam Sensor API
+  description: Generic sensor readings.
+  humanURL: https://docs.viam.com/dev/reference/apis/fleet/
+  tags:
+  - Sensor
+  properties:
+  - type: OpenAPI
+    url: openapi/viam-sensor-api-openapi.yml
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/fleet/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/app.proto
+  - type: JSONSchema
+    url: json-schema/viam-organization-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-location-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-machine-schema.json
+  - type: JSONLD
+    url: json-ld/viam-context.jsonld
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/robot/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/robot/v1/robot.proto
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/data-client/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/data/v1/data.proto
+  - type: JSONSchema
+    url: json-schema/viam-tabular-data-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-binary-data-schema.json
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/capture-data/capture-sync/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/datasync/v1/data_sync.proto
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/train/train-tflite/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/mltraining/v1/ml_training.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/ml/deploy/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/mlinference/v1/ml_inference.proto
+  - type: Documentation
+    url: https://docs.viam.com/manage/manage/billing/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/billing.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/motion/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/motion/v1/motion.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/vision/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/vision/v1/vision.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/slam/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/slam/v1/slam.proto
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/service/mlmodel/v1/mlmodel.proto
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/tree/main/proto/viam/component
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/data/data-pipelines/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/datapipelines/v1/data_pipelines.proto
+- aid: viam:viam-sequences-api
+  name: Viam Sequences API
+  description: Ordered sequences of dataset items for time-series training.
+  humanURL: https://docs.viam.com/dev/reference/apis/fleet/
+  tags:
+  - Sequences
+  properties:
+  - type: OpenAPI
+    url: openapi/viam-sequences-api-openapi.yml
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/fleet/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/app.proto
+  - type: JSONSchema
+    url: json-schema/viam-organization-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-location-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-machine-schema.json
+  - type: JSONLD
+    url: json-ld/viam-context.jsonld
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/robot/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/robot/v1/robot.proto
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/data-client/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/data/v1/data.proto
+  - type: JSONSchema
+    url: json-schema/viam-tabular-data-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-binary-data-schema.json
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/capture-data/capture-sync/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/datasync/v1/data_sync.proto
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/train/train-tflite/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/mltraining/v1/ml_training.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/ml/deploy/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/mlinference/v1/ml_inference.proto
+  - type: Documentation
+    url: https://docs.viam.com/manage/manage/billing/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/billing.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/motion/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/motion/v1/motion.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/vision/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/vision/v1/vision.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/slam/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/slam/v1/slam.proto
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/service/mlmodel/v1/mlmodel.proto
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/tree/main/proto/viam/component
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/data/data-pipelines/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/datapipelines/v1/data_pipelines.proto
+- aid: viam:viam-servo-api
+  name: Viam Servo API
+  description: Angular-position servos.
+  humanURL: https://docs.viam.com/dev/reference/apis/fleet/
+  tags:
+  - Servo
+  properties:
+  - type: OpenAPI
+    url: openapi/viam-servo-api-openapi.yml
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/fleet/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/app.proto
+  - type: JSONSchema
+    url: json-schema/viam-organization-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-location-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-machine-schema.json
+  - type: JSONLD
+    url: json-ld/viam-context.jsonld
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/robot/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/robot/v1/robot.proto
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/data-client/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/data/v1/data.proto
+  - type: JSONSchema
+    url: json-schema/viam-tabular-data-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-binary-data-schema.json
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/capture-data/capture-sync/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/datasync/v1/data_sync.proto
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/train/train-tflite/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/mltraining/v1/ml_training.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/ml/deploy/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/mlinference/v1/ml_inference.proto
+  - type: Documentation
+    url: https://docs.viam.com/manage/manage/billing/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/billing.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/motion/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/motion/v1/motion.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/vision/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/vision/v1/vision.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/slam/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/slam/v1/slam.proto
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/service/mlmodel/v1/mlmodel.proto
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/tree/main/proto/viam/component
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/data/data-pipelines/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/datapipelines/v1/data_pipelines.proto
+- aid: viam:viam-sessions-api
+  name: Viam Sessions API
+  description: Client sessions with safety-timeout heartbeats.
+  humanURL: https://docs.viam.com/dev/reference/apis/fleet/
+  tags:
+  - Sessions
+  properties:
+  - type: OpenAPI
+    url: openapi/viam-sessions-api-openapi.yml
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/fleet/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/app.proto
+  - type: JSONSchema
+    url: json-schema/viam-organization-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-location-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-machine-schema.json
+  - type: JSONLD
+    url: json-ld/viam-context.jsonld
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/robot/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/robot/v1/robot.proto
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/data-client/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/data/v1/data.proto
+  - type: JSONSchema
+    url: json-schema/viam-tabular-data-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-binary-data-schema.json
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/capture-data/capture-sync/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/datasync/v1/data_sync.proto
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/train/train-tflite/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/mltraining/v1/ml_training.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/ml/deploy/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/mlinference/v1/ml_inference.proto
+  - type: Documentation
+    url: https://docs.viam.com/manage/manage/billing/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/billing.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/motion/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/motion/v1/motion.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/vision/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/vision/v1/vision.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/slam/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/slam/v1/slam.proto
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/service/mlmodel/v1/mlmodel.proto
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/tree/main/proto/viam/component
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/data/data-pipelines/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/datapipelines/v1/data_pipelines.proto
+- aid: viam:viam-slam-api
+  name: Viam SLAM API
+  description: Simultaneous Localization And Mapping.
+  humanURL: https://docs.viam.com/dev/reference/apis/fleet/
+  tags:
+  - SLAM
+  properties:
+  - type: OpenAPI
+    url: openapi/viam-slam-api-openapi.yml
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/fleet/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/app.proto
+  - type: JSONSchema
+    url: json-schema/viam-organization-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-location-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-machine-schema.json
+  - type: JSONLD
+    url: json-ld/viam-context.jsonld
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/robot/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/robot/v1/robot.proto
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/data-client/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/data/v1/data.proto
+  - type: JSONSchema
+    url: json-schema/viam-tabular-data-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-binary-data-schema.json
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/capture-data/capture-sync/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/datasync/v1/data_sync.proto
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/train/train-tflite/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/mltraining/v1/ml_training.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/ml/deploy/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/mlinference/v1/ml_inference.proto
+  - type: Documentation
+    url: https://docs.viam.com/manage/manage/billing/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/billing.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/motion/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/motion/v1/motion.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/vision/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/vision/v1/vision.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/slam/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/slam/v1/slam.proto
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/service/mlmodel/v1/mlmodel.proto
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/tree/main/proto/viam/component
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/data/data-pipelines/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/datapipelines/v1/data_pipelines.proto
+- aid: viam:viam-status-api
+  name: Viam Status API
+  description: Status, version, cloud metadata, and machine state.
+  humanURL: https://docs.viam.com/dev/reference/apis/fleet/
+  tags:
+  - Status
+  properties:
+  - type: OpenAPI
+    url: openapi/viam-status-api-openapi.yml
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/fleet/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/app.proto
+  - type: JSONSchema
+    url: json-schema/viam-organization-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-location-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-machine-schema.json
+  - type: JSONLD
+    url: json-ld/viam-context.jsonld
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/robot/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/robot/v1/robot.proto
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/data-client/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/data/v1/data.proto
+  - type: JSONSchema
+    url: json-schema/viam-tabular-data-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-binary-data-schema.json
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/capture-data/capture-sync/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/datasync/v1/data_sync.proto
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/train/train-tflite/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/mltraining/v1/ml_training.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/ml/deploy/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/mlinference/v1/ml_inference.proto
+  - type: Documentation
+    url: https://docs.viam.com/manage/manage/billing/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/billing.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/motion/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/motion/v1/motion.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/vision/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/vision/v1/vision.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/slam/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/slam/v1/slam.proto
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/service/mlmodel/v1/mlmodel.proto
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/tree/main/proto/viam/component
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/data/data-pipelines/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/datapipelines/v1/data_pipelines.proto
+- aid: viam:viam-switch-api
+  name: Viam Switch API
+  description: Multi-position switches.
+  humanURL: https://docs.viam.com/dev/reference/apis/fleet/
+  tags:
+  - Switch
+  properties:
+  - type: OpenAPI
+    url: openapi/viam-switch-api-openapi.yml
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/fleet/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/app.proto
+  - type: JSONSchema
+    url: json-schema/viam-organization-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-location-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-machine-schema.json
+  - type: JSONLD
+    url: json-ld/viam-context.jsonld
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/robot/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/robot/v1/robot.proto
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/data-client/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/data/v1/data.proto
+  - type: JSONSchema
+    url: json-schema/viam-tabular-data-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-binary-data-schema.json
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/capture-data/capture-sync/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/datasync/v1/data_sync.proto
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/train/train-tflite/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/mltraining/v1/ml_training.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/ml/deploy/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/mlinference/v1/ml_inference.proto
+  - type: Documentation
+    url: https://docs.viam.com/manage/manage/billing/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/billing.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/motion/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/motion/v1/motion.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/vision/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/vision/v1/vision.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/slam/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/slam/v1/slam.proto
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/service/mlmodel/v1/mlmodel.proto
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/tree/main/proto/viam/component
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/data/data-pipelines/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/datapipelines/v1/data_pipelines.proto
+- aid: viam:viam-tabular-data-api
+  name: Viam Tabular Data API
+  description: Time-series and structured data captured by sensor and movement-sensor components.
+  humanURL: https://docs.viam.com/dev/reference/apis/fleet/
+  tags:
+  - Tabular Data
+  properties:
+  - type: OpenAPI
+    url: openapi/viam-tabular-data-api-openapi.yml
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/fleet/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/app.proto
+  - type: JSONSchema
+    url: json-schema/viam-organization-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-location-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-machine-schema.json
+  - type: JSONLD
+    url: json-ld/viam-context.jsonld
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/robot/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/robot/v1/robot.proto
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/data-client/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/data/v1/data.proto
+  - type: JSONSchema
+    url: json-schema/viam-tabular-data-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-binary-data-schema.json
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/capture-data/capture-sync/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/datasync/v1/data_sync.proto
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/train/train-tflite/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/mltraining/v1/ml_training.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/ml/deploy/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/mlinference/v1/ml_inference.proto
+  - type: Documentation
+    url: https://docs.viam.com/manage/manage/billing/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/billing.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/motion/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/motion/v1/motion.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/vision/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/vision/v1/vision.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/slam/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/slam/v1/slam.proto
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/service/mlmodel/v1/mlmodel.proto
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/tree/main/proto/viam/component
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/data/data-pipelines/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/datapipelines/v1/data_pipelines.proto
+- aid: viam:viam-tags-api
+  name: Viam Tags API
+  description: Bounding boxes and labels applied to binary data items.
+  humanURL: https://docs.viam.com/dev/reference/apis/fleet/
+  tags:
+  - Tags
+  properties:
+  - type: OpenAPI
+    url: openapi/viam-tags-api-openapi.yml
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/fleet/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/app.proto
+  - type: JSONSchema
+    url: json-schema/viam-organization-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-location-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-machine-schema.json
+  - type: JSONLD
+    url: json-ld/viam-context.jsonld
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/robot/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/robot/v1/robot.proto
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/data-client/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/data/v1/data.proto
+  - type: JSONSchema
+    url: json-schema/viam-tabular-data-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-binary-data-schema.json
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/capture-data/capture-sync/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/datasync/v1/data_sync.proto
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/train/train-tflite/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/mltraining/v1/ml_training.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/ml/deploy/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/mlinference/v1/ml_inference.proto
+  - type: Documentation
+    url: https://docs.viam.com/manage/manage/billing/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/billing.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/motion/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/motion/v1/motion.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/vision/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/vision/v1/vision.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/slam/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/slam/v1/slam.proto
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/service/mlmodel/v1/mlmodel.proto
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/tree/main/proto/viam/component
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/data/data-pipelines/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/datapipelines/v1/data_pipelines.proto
+- aid: viam:viam-training-jobs-api
+  name: Viam Training Jobs API
+  description: Built-in TFLite trainers and custom containerized trainers.
+  humanURL: https://docs.viam.com/dev/reference/apis/fleet/
+  tags:
+  - Training Jobs
+  properties:
+  - type: OpenAPI
+    url: openapi/viam-training-jobs-api-openapi.yml
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/fleet/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/app.proto
+  - type: JSONSchema
+    url: json-schema/viam-organization-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-location-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-machine-schema.json
+  - type: JSONLD
+    url: json-ld/viam-context.jsonld
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/robot/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/robot/v1/robot.proto
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/data-client/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/data/v1/data.proto
+  - type: JSONSchema
+    url: json-schema/viam-tabular-data-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-binary-data-schema.json
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/capture-data/capture-sync/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/datasync/v1/data_sync.proto
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/train/train-tflite/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/mltraining/v1/ml_training.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/ml/deploy/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/mlinference/v1/ml_inference.proto
+  - type: Documentation
+    url: https://docs.viam.com/manage/manage/billing/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/billing.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/motion/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/motion/v1/motion.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/vision/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/vision/v1/vision.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/slam/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/slam/v1/slam.proto
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/service/mlmodel/v1/mlmodel.proto
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/tree/main/proto/viam/component
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/data/data-pipelines/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/datapipelines/v1/data_pipelines.proto
+- aid: viam:viam-tunneling-api
+  name: Viam Tunneling API
+  description: TCP tunneling through the machine.
+  humanURL: https://docs.viam.com/dev/reference/apis/fleet/
+  tags:
+  - Tunneling
+  properties:
+  - type: OpenAPI
+    url: openapi/viam-tunneling-api-openapi.yml
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/fleet/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/app.proto
+  - type: JSONSchema
+    url: json-schema/viam-organization-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-location-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-machine-schema.json
+  - type: JSONLD
+    url: json-ld/viam-context.jsonld
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/robot/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/robot/v1/robot.proto
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/data-client/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/data/v1/data.proto
+  - type: JSONSchema
+    url: json-schema/viam-tabular-data-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-binary-data-schema.json
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/capture-data/capture-sync/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/datasync/v1/data_sync.proto
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/train/train-tflite/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/mltraining/v1/ml_training.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/ml/deploy/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/mlinference/v1/ml_inference.proto
+  - type: Documentation
+    url: https://docs.viam.com/manage/manage/billing/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/billing.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/motion/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/motion/v1/motion.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/vision/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/vision/v1/vision.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/slam/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/slam/v1/slam.proto
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/service/mlmodel/v1/mlmodel.proto
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/tree/main/proto/viam/component
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/data/data-pipelines/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/datapipelines/v1/data_pipelines.proto
+- aid: viam:viam-upload-api
+  name: Viam Upload API
+  description: Streaming and one-shot uploads of captured data.
+  humanURL: https://docs.viam.com/dev/reference/apis/fleet/
+  tags:
+  - Upload
+  properties:
+  - type: OpenAPI
+    url: openapi/viam-upload-api-openapi.yml
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/fleet/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/app.proto
+  - type: JSONSchema
+    url: json-schema/viam-organization-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-location-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-machine-schema.json
+  - type: JSONLD
+    url: json-ld/viam-context.jsonld
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/robot/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/robot/v1/robot.proto
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/data-client/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/data/v1/data.proto
+  - type: JSONSchema
+    url: json-schema/viam-tabular-data-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-binary-data-schema.json
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/capture-data/capture-sync/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/datasync/v1/data_sync.proto
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/train/train-tflite/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/mltraining/v1/ml_training.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/ml/deploy/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/mlinference/v1/ml_inference.proto
+  - type: Documentation
+    url: https://docs.viam.com/manage/manage/billing/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/billing.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/motion/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/motion/v1/motion.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/vision/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/vision/v1/vision.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/slam/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/slam/v1/slam.proto
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/service/mlmodel/v1/mlmodel.proto
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/tree/main/proto/viam/component
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/data/data-pipelines/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/datapipelines/v1/data_pipelines.proto
+- aid: viam:viam-usage-api
+  name: Viam Usage API
+  description: Current-month usage reporting.
+  humanURL: https://docs.viam.com/dev/reference/apis/fleet/
+  tags:
+  - Usage
+  properties:
+  - type: OpenAPI
+    url: openapi/viam-usage-api-openapi.yml
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/fleet/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/app.proto
+  - type: JSONSchema
+    url: json-schema/viam-organization-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-location-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-machine-schema.json
+  - type: JSONLD
+    url: json-ld/viam-context.jsonld
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/robot/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/robot/v1/robot.proto
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/data-client/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/data/v1/data.proto
+  - type: JSONSchema
+    url: json-schema/viam-tabular-data-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-binary-data-schema.json
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/capture-data/capture-sync/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/datasync/v1/data_sync.proto
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/train/train-tflite/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/mltraining/v1/ml_training.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/ml/deploy/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/mlinference/v1/ml_inference.proto
+  - type: Documentation
+    url: https://docs.viam.com/manage/manage/billing/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/billing.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/motion/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/motion/v1/motion.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/vision/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/vision/v1/vision.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/slam/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/slam/v1/slam.proto
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/service/mlmodel/v1/mlmodel.proto
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/tree/main/proto/viam/component
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/data/data-pipelines/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/datapipelines/v1/data_pipelines.proto
+- aid: viam:viam-vision-api
+  name: Viam Vision API
+  description: Detections, classifications, and 3D segmentation.
+  humanURL: https://docs.viam.com/dev/reference/apis/fleet/
+  tags:
+  - Vision
+  properties:
+  - type: OpenAPI
+    url: openapi/viam-vision-api-openapi.yml
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/fleet/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/app.proto
+  - type: JSONSchema
+    url: json-schema/viam-organization-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-location-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-machine-schema.json
+  - type: JSONLD
+    url: json-ld/viam-context.jsonld
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/robot/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/robot/v1/robot.proto
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/data-client/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/data/v1/data.proto
+  - type: JSONSchema
+    url: json-schema/viam-tabular-data-schema.json
+  - type: JSONSchema
+    url: json-schema/viam-binary-data-schema.json
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/capture-data/capture-sync/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/datasync/v1/data_sync.proto
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/train/train-tflite/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/mltraining/v1/ml_training.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/ml/deploy/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/mlinference/v1/ml_inference.proto
+  - type: Documentation
+    url: https://docs.viam.com/manage/manage/billing/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/billing.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/motion/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/motion/v1/motion.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/vision/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/vision/v1/vision.proto
+  - type: Documentation
+    url: https://docs.viam.com/services/slam/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/blob/main/proto/viam/service/slam/v1/slam.proto
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/service/mlmodel/v1/mlmodel.proto
+  - type: Documentation
+    url: https://docs.viam.com/dev/reference/apis/
+  - type: Protobuf
+    url: https://github.com/viamrobotics/api/tree/main/proto/viam/component
+  - type: Documentation
+    url: https://docs.viam.com/data-ai/data/data-pipelines/
+  - type: Protobuf
+    url: >-
+      https://github.com/viamrobotics/api/blob/main/proto/viam/app/datapipelines/v1/data_pipelines.proto
 name: Viam
 tags:
   - Robotics
@@ -288,7 +3858,20 @@ tags:
   - Embedded
   - gRPC
 kind: contract
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/viam.png
 access: 3rd-Party
 common:
   - type: AgenticAccess
