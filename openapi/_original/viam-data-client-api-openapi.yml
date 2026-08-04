@@ -1,0 +1,555 @@
+openapi: 3.1.0
+info:
+  title: Viam Data Client API
+  description: |
+    REST/JSON transcoding of the Viam DataService gRPC API. Upload, download, query,
+    tag, and delete tabular and binary data captured from machines. Manage datasets,
+    saved queries, bounding boxes, sequences, and the cloud-hosted MongoDB connection.
+
+    Canonical contract: https://github.com/viamrobotics/api/blob/main/proto/viam/app/data/v1/data.proto
+  version: '2026.05'
+  contact:
+    name: Viam Support
+    url: https://www.viam.com/contact
+servers:
+  - url: https://app.viam.com
+    description: Viam production cloud.
+security:
+  - ApiKeyAuth: []
+tags:
+  - name: Tabular Data
+    description: Time-series and structured data captured by sensor and movement-sensor components.
+  - name: Binary Data
+    description: Images, video, audio, and other binary blobs captured by cameras and audio components.
+  - name: Tags
+    description: Bounding boxes and labels applied to binary data items.
+  - name: Datasets
+    description: Curated collections of binary data used for ML training.
+  - name: Saved Queries
+    description: Reusable SQL/MQL queries stored in the cloud.
+  - name: Sequences
+    description: Ordered sequences of dataset items for time-series training.
+  - name: Database
+    description: Direct database connection (MongoDB) for advanced analytics.
+paths:
+  /viam.app.data.v1.DataService/TabularDataByFilter:
+    post:
+      summary: Viam Tabular Data By Filter
+      description: Query tabular data using component, location, time-range, and tag filters.
+      operationId: tabularDataByFilter
+      tags: [Tabular Data]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                data_request: { type: object }
+                count_only: { type: boolean }
+      responses:
+        '200':
+          description: Successful response.
+  /viam.app.data.v1.DataService/TabularDataBySQL:
+    post:
+      summary: Viam Tabular Data By Sql
+      description: Query tabular data with SQL against the Viam hot data store.
+      operationId: tabularDataBySQL
+      tags: [Tabular Data]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [organization_id, sql_query]
+              properties:
+                organization_id: { type: string }
+                sql_query: { type: string }
+      responses:
+        '200':
+          description: Successful response.
+  /viam.app.data.v1.DataService/TabularDataByMQL:
+    post:
+      summary: Viam Tabular Data By Mql
+      description: Query tabular data with MongoDB Query Language.
+      operationId: tabularDataByMQL
+      tags: [Tabular Data]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [organization_id, mql_binary]
+              properties:
+                organization_id: { type: string }
+                mql_binary: { type: array, items: { type: string, format: byte } }
+      responses:
+        '200':
+          description: Successful response.
+  /viam.app.data.v1.DataService/ExportTabularData:
+    post:
+      summary: Viam Export Tabular Data
+      description: Stream-export tabular data matching a filter.
+      operationId: exportTabularData
+      tags: [Tabular Data]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [part_id, resource_name, resource_subtype, method_name]
+              properties:
+                part_id: { type: string }
+                resource_name: { type: string }
+                resource_subtype: { type: string }
+                method_name: { type: string }
+      responses:
+        '200':
+          description: Successful response.
+  /viam.app.data.v1.DataService/GetLatestTabularData:
+    post:
+      summary: Viam Get Latest Tabular Data
+      description: Return the latest tabular data point for a component/method.
+      operationId: getLatestTabularData
+      tags: [Tabular Data]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [part_id, resource_name, resource_subtype, method_name]
+              properties:
+                part_id: { type: string }
+                resource_name: { type: string }
+                resource_subtype: { type: string }
+                method_name: { type: string }
+      responses:
+        '200':
+          description: Successful response.
+  /viam.app.data.v1.DataService/DeleteTabularData:
+    post:
+      summary: Viam Delete Tabular Data
+      description: Delete tabular data older than a given age in days.
+      operationId: deleteTabularData
+      tags: [Tabular Data]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [organization_id, delete_older_than_days]
+              properties:
+                organization_id: { type: string }
+                delete_older_than_days: { type: integer }
+      responses:
+        '200':
+          description: Successful response.
+  /viam.app.data.v1.DataService/BinaryDataByFilter:
+    post:
+      summary: Viam Binary Data By Filter
+      description: Query binary data items using a filter and optional pagination.
+      operationId: binaryDataByFilter
+      tags: [Binary Data]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                data_request: { type: object }
+                include_binary: { type: boolean }
+                count_only: { type: boolean }
+      responses:
+        '200':
+          description: Successful response.
+  /viam.app.data.v1.DataService/BinaryDataByIDs:
+    post:
+      summary: Viam Binary Data By Ids
+      description: Retrieve binary data items by their ids.
+      operationId: binaryDataByIDs
+      tags: [Binary Data]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [binary_ids]
+              properties:
+                binary_ids: { type: array, items: { type: object } }
+                include_binary: { type: boolean }
+      responses:
+        '200':
+          description: Successful response.
+  /viam.app.data.v1.DataService/DeleteBinaryDataByFilter:
+    post:
+      summary: Viam Delete Binary Data By Filter
+      description: Delete binary data items matching a filter.
+      operationId: deleteBinaryDataByFilter
+      tags: [Binary Data]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                filter: { type: object }
+      responses:
+        '200':
+          description: Successful response.
+  /viam.app.data.v1.DataService/DeleteBinaryDataByIDs:
+    post:
+      summary: Viam Delete Binary Data By Ids
+      description: Delete binary data items by id.
+      operationId: deleteBinaryDataByIDs
+      tags: [Binary Data]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [binary_ids]
+              properties:
+                binary_ids: { type: array, items: { type: object } }
+      responses:
+        '200':
+          description: Successful response.
+  /viam.app.data.v1.DataService/CreateBinaryDataSignedURL:
+    post:
+      summary: Viam Create Binary Data Signed Url
+      description: Generate a signed URL for direct upload of binary data.
+      operationId: createBinaryDataSignedURL
+      tags: [Binary Data]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [part_id, file_extension]
+              properties:
+                part_id: { type: string }
+                file_extension: { type: string }
+      responses:
+        '200':
+          description: Successful response.
+  /viam.app.data.v1.DataService/AddTagsToBinaryDataByIDs:
+    post:
+      summary: Viam Add Tags To Binary Data By Ids
+      description: Add string tags to binary data items.
+      operationId: addTagsToBinaryDataByIDs
+      tags: [Tags]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [binary_ids, tags]
+              properties:
+                binary_ids: { type: array, items: { type: object } }
+                tags: { type: array, items: { type: string } }
+      responses:
+        '200':
+          description: Successful response.
+  /viam.app.data.v1.DataService/RemoveTagsFromBinaryDataByIDs:
+    post:
+      summary: Viam Remove Tags From Binary Data By Ids
+      description: Remove string tags from binary data items.
+      operationId: removeTagsFromBinaryDataByIDs
+      tags: [Tags]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [binary_ids, tags]
+              properties:
+                binary_ids: { type: array, items: { type: object } }
+                tags: { type: array, items: { type: string } }
+      responses:
+        '200':
+          description: Successful response.
+  /viam.app.data.v1.DataService/TagsByFilter:
+    post:
+      summary: Viam Tags By Filter
+      description: List unique tags matching a filter.
+      operationId: tagsByFilter
+      tags: [Tags]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                filter: { type: object }
+      responses:
+        '200':
+          description: Successful response.
+  /viam.app.data.v1.DataService/AddBoundingBoxToImageByID:
+    post:
+      summary: Viam Add Bounding Box To Image By Id
+      description: Add a bounding-box annotation to a binary image item.
+      operationId: addBoundingBoxToImageByID
+      tags: [Tags]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [binary_id, label]
+              properties:
+                binary_id: { type: object }
+                label: { type: string }
+                x_min_normalized: { type: number }
+                y_min_normalized: { type: number }
+                x_max_normalized: { type: number }
+                y_max_normalized: { type: number }
+      responses:
+        '200':
+          description: Successful response.
+  /viam.app.data.v1.DataService/RemoveBoundingBoxFromImageByID:
+    post:
+      summary: Viam Remove Bounding Box From Image By Id
+      description: Remove a bounding-box annotation by id.
+      operationId: removeBoundingBoxFromImageByID
+      tags: [Tags]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [binary_id, bbox_id]
+              properties:
+                binary_id: { type: object }
+                bbox_id: { type: string }
+      responses:
+        '200':
+          description: Successful response.
+  /viam.app.data.v1.DataService/AddBinaryDataToDatasetByIDs:
+    post:
+      summary: Viam Add Binary Data To Dataset
+      description: Add binary data items to a dataset.
+      operationId: addBinaryDataToDatasetByIDs
+      tags: [Datasets]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [binary_ids, dataset_id]
+              properties:
+                binary_ids: { type: array, items: { type: object } }
+                dataset_id: { type: string }
+      responses:
+        '200':
+          description: Successful response.
+  /viam.app.data.v1.DataService/RemoveBinaryDataFromDatasetByIDs:
+    post:
+      summary: Viam Remove Binary Data From Dataset
+      description: Remove binary data items from a dataset.
+      operationId: removeBinaryDataFromDatasetByIDs
+      tags: [Datasets]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [binary_ids, dataset_id]
+              properties:
+                binary_ids: { type: array, items: { type: object } }
+                dataset_id: { type: string }
+      responses:
+        '200':
+          description: Successful response.
+  /viam.app.data.v1.DataService/CreateSavedQuery:
+    post:
+      summary: Viam Create Saved Query
+      description: Persist a named SQL/MQL query in the organization.
+      operationId: createSavedQuery
+      tags: [Saved Queries]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [organization_id, name]
+              properties:
+                organization_id: { type: string }
+                name: { type: string }
+                sql_query: { type: string }
+                mql_binary: { type: array, items: { type: string, format: byte } }
+      responses:
+        '200':
+          description: Successful response.
+  /viam.app.data.v1.DataService/ListSavedQueries:
+    post:
+      summary: Viam List Saved Queries
+      description: List saved queries in an organization.
+      operationId: listSavedQueries
+      tags: [Saved Queries]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [organization_id]
+              properties:
+                organization_id: { type: string }
+      responses:
+        '200':
+          description: Successful response.
+  /viam.app.data.v1.DataService/GetSavedQuery:
+    post:
+      summary: Viam Get Saved Query
+      description: Retrieve a saved query by id.
+      operationId: getSavedQuery
+      tags: [Saved Queries]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [id]
+              properties:
+                id: { type: string }
+      responses:
+        '200':
+          description: Successful response.
+  /viam.app.data.v1.DataService/UpdateSavedQuery:
+    post:
+      summary: Viam Update Saved Query
+      description: Update a saved query.
+      operationId: updateSavedQuery
+      tags: [Saved Queries]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [id]
+              properties:
+                id: { type: string }
+                name: { type: string }
+                sql_query: { type: string }
+      responses:
+        '200':
+          description: Successful response.
+  /viam.app.data.v1.DataService/DeleteSavedQuery:
+    post:
+      summary: Viam Delete Saved Query
+      description: Delete a saved query.
+      operationId: deleteSavedQuery
+      tags: [Saved Queries]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [id]
+              properties:
+                id: { type: string }
+      responses:
+        '200':
+          description: Successful response.
+  /viam.app.data.v1.DataService/CreateSequence:
+    post:
+      summary: Viam Create Sequence
+      description: Create a sequence of dataset items.
+      operationId: createSequence
+      tags: [Sequences]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [organization_id, name]
+              properties:
+                organization_id: { type: string }
+                name: { type: string }
+                dataset_id: { type: string }
+      responses:
+        '200':
+          description: Successful response.
+  /viam.app.data.v1.DataService/ListSequences:
+    post:
+      summary: Viam List Sequences
+      description: List sequences in an organization.
+      operationId: listSequences
+      tags: [Sequences]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [organization_id]
+              properties:
+                organization_id: { type: string }
+      responses:
+        '200':
+          description: Successful response.
+  /viam.app.data.v1.DataService/GetDatabaseConnection:
+    post:
+      summary: Viam Get Database Connection
+      description: Get the MongoDB connection string for direct analytics access.
+      operationId: getDatabaseConnection
+      tags: [Database]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [organization_id]
+              properties:
+                organization_id: { type: string }
+      responses:
+        '200':
+          description: Successful response.
+  /viam.app.data.v1.DataService/ConfigureDatabaseUser:
+    post:
+      summary: Viam Configure Database User
+      description: Create or rotate a database user for direct analytics access.
+      operationId: configureDatabaseUser
+      tags: [Database]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [organization_id, password]
+              properties:
+                organization_id: { type: string }
+                password: { type: string }
+      responses:
+        '200':
+          description: Successful response.
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: key
+      description: Viam API key.

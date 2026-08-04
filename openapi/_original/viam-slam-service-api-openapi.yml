@@ -1,0 +1,124 @@
+openapi: 3.1.0
+info:
+  title: Viam SLAM Service API
+  description: |
+    REST/JSON transcoding of the Viam SLAMService gRPC API. Simultaneous Localization
+    And Mapping — GetPosition returns the machine's pose within the map; GetPointCloudMap
+    and GetInternalState stream the live map.
+
+    Canonical contract: https://github.com/viamrobotics/api/blob/main/proto/viam/service/slam/v1/slam.proto
+  version: '2026.05'
+  contact:
+    name: Viam Support
+    url: https://www.viam.com/contact
+servers:
+  - url: https://{machine_address}
+    description: Per-machine viam-server endpoint.
+    variables:
+      machine_address:
+        default: machine.local.viam.cloud:443
+security:
+  - ApiKeyAuth: []
+tags:
+  - name: SLAM
+    description: Simultaneous Localization And Mapping.
+paths:
+  /viam.service.slam.v1.SLAMService/GetPosition:
+    post:
+      summary: Viam Get Position
+      description: Return the machine's pose within the SLAM map.
+      operationId: getPosition
+      tags: [SLAM]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [name]
+              properties:
+                name: { type: string }
+      responses:
+        '200':
+          description: Successful response.
+  /viam.service.slam.v1.SLAMService/GetPointCloudMap:
+    post:
+      summary: Viam Get Point Cloud Map
+      description: Stream the live point cloud map.
+      operationId: getPointCloudMap
+      tags: [SLAM]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [name]
+              properties:
+                name: { type: string }
+                return_edges_only: { type: boolean }
+      responses:
+        '200':
+          description: Successful response.
+  /viam.service.slam.v1.SLAMService/GetInternalState:
+    post:
+      summary: Viam Get Internal State
+      description: Stream the internal SLAM state (used for resume and offline analysis).
+      operationId: getInternalState
+      tags: [SLAM]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [name]
+              properties:
+                name: { type: string }
+      responses:
+        '200':
+          description: Successful response.
+  /viam.service.slam.v1.SLAMService/GetProperties:
+    post:
+      summary: Viam Get Properties
+      description: Retrieve SLAM service properties (mapping vs localization, cloud vs local).
+      operationId: getProperties
+      tags: [SLAM]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [name]
+              properties:
+                name: { type: string }
+      responses:
+        '200':
+          description: Successful response.
+  /viam.service.slam.v1.SLAMService/DoCommand:
+    post:
+      summary: Viam Do Command
+      description: Model-specific custom commands.
+      operationId: doCommand
+      tags: [SLAM]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [name, command]
+              properties:
+                name: { type: string }
+                command: { type: object }
+      responses:
+        '200':
+          description: Successful response.
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: key
+      description: Viam API key or location secret.
