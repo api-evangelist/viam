@@ -1,26 +1,26 @@
 {
   "item": [
     {
-      "id": "76996852-e435-4a5a-90b1-a86a6df05ba1",
-      "name": "Provisioning",
+      "id": "52e65b2a-ffa5-4f1d-aa70-bb01bf4ddf3f",
+      "name": "Billing Tiers",
       "description": {
-        "content": "Network and cloud credentials onboarding.",
+        "content": "Available billing tiers for end-customer billing.",
         "type": "text/plain"
       },
       "item": [
         {
-          "id": "cca14827-dd8f-4f11-8cce-3bc2e48c9860",
-          "name": "Viam Get Smart Machine Status",
+          "id": "618dc98e-1194-42dd-8554-e745b7399308",
+          "name": "Viam Get Available Billing Tiers",
           "request": {
-            "name": "Viam Get Smart Machine Status",
+            "name": "Viam Get Available Billing Tiers",
             "description": {
-              "content": "Retrieve the device's provisioning status (network connectivity, cloud config).",
+              "content": "List billing tiers available for end-customer subscription.",
               "type": "text/plain"
             },
             "url": {
               "path": [
-                "viam.provisioning.v1.ProvisioningService",
-                "GetSmartMachineStatus"
+                "viam.app.v1.BillingService",
+                "GetAvailableBillingTiers"
               ],
               "host": [
                 "{{baseUrl}}"
@@ -38,7 +38,7 @@
             "auth": null,
             "body": {
               "mode": "raw",
-              "raw": "<object>",
+              "raw": "{\n  \"org_id\": \"<string>\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -48,13 +48,13 @@
           },
           "response": [
             {
-              "id": "44302297-3c59-4600-ac68-6fbea38f0b03",
+              "id": "215c4571-2f6f-4bb4-95d8-f661fac4dcd7",
               "name": "Successful response.",
               "originalRequest": {
                 "url": {
                   "path": [
-                    "viam.provisioning.v1.ProvisioningService",
-                    "GetSmartMachineStatus"
+                    "viam.app.v1.BillingService",
+                    "GetAvailableBillingTiers"
                   ],
                   "host": [
                     "{{baseUrl}}"
@@ -75,7 +75,7 @@
                 "method": "POST",
                 "body": {
                   "mode": "raw",
-                  "raw": "<object>",
+                  "raw": "{\n  \"org_id\": \"<string>\"\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -102,18 +102,18 @@
           }
         },
         {
-          "id": "e039f4c6-e20a-4ee3-8c57-4d983db60cc5",
-          "name": "Viam Set Network Credentials",
+          "id": "db4966d2-9a02-461d-bd92-30650e50286c",
+          "name": "Viam Update Organization Billing Tier",
           "request": {
-            "name": "Viam Set Network Credentials",
+            "name": "Viam Update Organization Billing Tier",
             "description": {
-              "content": "Submit Wi-Fi credentials to the device.",
+              "content": "Move an organization onto a new billing tier.",
               "type": "text/plain"
             },
             "url": {
               "path": [
-                "viam.provisioning.v1.ProvisioningService",
-                "SetNetworkCredentials"
+                "viam.app.v1.BillingService",
+                "UpdateOrganizationBillingTier"
               ],
               "host": [
                 "{{baseUrl}}"
@@ -131,7 +131,7 @@
             "auth": null,
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"type\": \"<string>\",\n  \"ssid\": \"<string>\",\n  \"psk\": \"<string>\"\n}",
+              "raw": "{\n  \"org_id\": \"<string>\",\n  \"billing_tier\": \"<string>\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -141,13 +141,13 @@
           },
           "response": [
             {
-              "id": "eec9aef9-4b1f-43f3-b4dd-0d3e18750593",
+              "id": "60918c67-cf32-4810-bdc7-90ce5f4b3c5e",
               "name": "Successful response.",
               "originalRequest": {
                 "url": {
                   "path": [
-                    "viam.provisioning.v1.ProvisioningService",
-                    "SetNetworkCredentials"
+                    "viam.app.v1.BillingService",
+                    "UpdateOrganizationBillingTier"
                   ],
                   "host": [
                     "{{baseUrl}}"
@@ -168,7 +168,7 @@
                 "method": "POST",
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"type\": \"<string>\",\n  \"ssid\": \"<string>\",\n  \"psk\": \"<string>\"\n}",
+                  "raw": "{\n  \"org_id\": \"<string>\",\n  \"billing_tier\": \"<string>\"\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -195,18 +195,18 @@
           }
         },
         {
-          "id": "0f5b35d7-1e7f-4bdb-b375-0a0872f5a141",
-          "name": "Viam Set Smart Machine Credentials",
+          "id": "397fa4a8-004a-49c4-a019-4c200602a81c",
+          "name": "Viam Get Location Billing Organization",
           "request": {
-            "name": "Viam Set Smart Machine Credentials",
+            "name": "Viam Get Location Billing Organization",
             "description": {
-              "content": "Submit Viam cloud credentials (machine part secret + cloud config URL) to the device.",
+              "content": "Retrieve the organization billed for a location's usage.",
               "type": "text/plain"
             },
             "url": {
               "path": [
-                "viam.provisioning.v1.ProvisioningService",
-                "SetSmartMachineCredentials"
+                "viam.app.v1.BillingService",
+                "GetLocationBillingOrganization"
               ],
               "host": [
                 "{{baseUrl}}"
@@ -224,7 +224,7 @@
             "auth": null,
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"cloud\": {\n    \"id\": \"<string>\",\n    \"secret\": \"<string>\",\n    \"app_address\": \"<string>\"\n  }\n}",
+              "raw": "{\n  \"location_id\": \"<string>\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -234,13 +234,13 @@
           },
           "response": [
             {
-              "id": "52d13c0b-6b22-4c13-b079-91df9e973b79",
+              "id": "225b7b75-4a44-4a28-ae18-d5db3c7bb312",
               "name": "Successful response.",
               "originalRequest": {
                 "url": {
                   "path": [
-                    "viam.provisioning.v1.ProvisioningService",
-                    "SetSmartMachineCredentials"
+                    "viam.app.v1.BillingService",
+                    "GetLocationBillingOrganization"
                   ],
                   "host": [
                     "{{baseUrl}}"
@@ -261,7 +261,7 @@
                 "method": "POST",
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"cloud\": {\n    \"id\": \"<string>\",\n    \"secret\": \"<string>\",\n    \"app_address\": \"<string>\"\n  }\n}",
+                  "raw": "{\n  \"location_id\": \"<string>\"\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -288,18 +288,18 @@
           }
         },
         {
-          "id": "c43846c8-bf45-4bd8-b75a-97b073051db5",
-          "name": "Viam Get Network List",
+          "id": "831d2654-71fd-4426-a94f-c5b2fc6a6e0c",
+          "name": "Viam Update Location Billing Organization",
           "request": {
-            "name": "Viam Get Network List",
+            "name": "Viam Update Location Billing Organization",
             "description": {
-              "content": "List Wi-Fi networks visible to the device.",
+              "content": "Reassign a location to a different billing organization.",
               "type": "text/plain"
             },
             "url": {
               "path": [
-                "viam.provisioning.v1.ProvisioningService",
-                "GetNetworkList"
+                "viam.app.v1.BillingService",
+                "UpdateLocationBillingOrganization"
               ],
               "host": [
                 "{{baseUrl}}"
@@ -317,7 +317,7 @@
             "auth": null,
             "body": {
               "mode": "raw",
-              "raw": "<object>",
+              "raw": "{\n  \"location_id\": \"<string>\",\n  \"billing_organization_id\": \"<string>\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -327,13 +327,13 @@
           },
           "response": [
             {
-              "id": "95c5082e-1618-417f-bc82-4f36df5438d1",
+              "id": "878833c7-647d-4a60-b8ca-3d6bc740c6b1",
               "name": "Successful response.",
               "originalRequest": {
                 "url": {
                   "path": [
-                    "viam.provisioning.v1.ProvisioningService",
-                    "GetNetworkList"
+                    "viam.app.v1.BillingService",
+                    "UpdateLocationBillingOrganization"
                   ],
                   "host": [
                     "{{baseUrl}}"
@@ -354,100 +354,7 @@
                 "method": "POST",
                 "body": {
                   "mode": "raw",
-                  "raw": "<object>",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "d19fb2ab-2443-457e-8dd2-5bece8d7caf1",
-          "name": "Viam Exit Provisioning",
-          "request": {
-            "name": "Viam Exit Provisioning",
-            "description": {
-              "content": "Exit the provisioning service after the device is configured.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "viam.provisioning.v1.ProvisioningService",
-                "ExitProvisioning"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "<object>",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "895f3060-3ca8-46cf-8b68-d9cbfb321cf1",
-              "name": "Successful response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "viam.provisioning.v1.ProvisioningService",
-                    "ExitProvisioning"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "key",
-                    "value": "<API Key>"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "<object>",
+                  "raw": "{\n  \"location_id\": \"<string>\",\n  \"billing_organization_id\": \"<string>\"\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -503,8 +410,8 @@
     ]
   },
   "info": {
-    "_postman_id": "b328f52f-758c-4822-8422-8871e838ee1f",
-    "name": "Viam Billing Arm Provisioning API",
+    "_postman_id": "2ddec154-1a21-444d-89ff-78b193e30122",
+    "name": "Viam Billing Arm Billing Tiers API",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "description": {
       "content": "REST/JSON transcoding of the Viam BillingService gRPC API. Retrieve current-month\nusage, invoice summaries, invoice PDFs, billing tiers, and the location-level billing\norganization assignment used by Viam's \"build a robotics business\" features.\n\nCanonical contract: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/billing.proto\n\n\nContact Support:\n Name: Viam Support",

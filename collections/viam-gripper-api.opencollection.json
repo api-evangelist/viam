@@ -1,0 +1,71 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Viam Billing Arm Gripper API",
+    "version": "2026.05"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "key",
+      "value": "{{key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Gripper",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Viam Gripper Open",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.component.gripper.v1.GripperService/Open",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Open the gripper."
+        },
+        {
+          "info": {
+            "name": "Viam Gripper Grab",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.component.gripper.v1.GripperService/Grab",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Close the gripper and report whether anything was grasped."
+        },
+        {
+          "info": {
+            "name": "Viam Gripper Is Holding Something",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.component.gripper.v1.GripperService/IsHoldingSomething",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Check whether the gripper is currently holding something."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,26 +1,26 @@
 {
   "item": [
     {
-      "id": "76996852-e435-4a5a-90b1-a86a6df05ba1",
-      "name": "Provisioning",
+      "id": "6e5751eb-c4af-4c99-b076-4c246ec5dfcf",
+      "name": "Machine Parts",
       "description": {
-        "content": "Network and cloud credentials onboarding.",
+        "content": "A single viam-server process running on a device. A machine can have multiple parts.",
         "type": "text/plain"
       },
       "item": [
         {
-          "id": "cca14827-dd8f-4f11-8cce-3bc2e48c9860",
-          "name": "Viam Get Smart Machine Status",
+          "id": "ab48ac99-97ae-4e4a-ac6e-1c4f953b5eae",
+          "name": "Viam Get Machine Parts",
           "request": {
-            "name": "Viam Get Smart Machine Status",
+            "name": "Viam Get Machine Parts",
             "description": {
-              "content": "Retrieve the device's provisioning status (network connectivity, cloud config).",
+              "content": "List parts (viam-server processes) that make up a machine.",
               "type": "text/plain"
             },
             "url": {
               "path": [
-                "viam.provisioning.v1.ProvisioningService",
-                "GetSmartMachineStatus"
+                "viam.app.v1.AppService",
+                "GetRobotParts"
               ],
               "host": [
                 "{{baseUrl}}"
@@ -38,7 +38,7 @@
             "auth": null,
             "body": {
               "mode": "raw",
-              "raw": "<object>",
+              "raw": "{\n  \"robot_id\": \"<string>\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -48,13 +48,13 @@
           },
           "response": [
             {
-              "id": "44302297-3c59-4600-ac68-6fbea38f0b03",
+              "id": "d6cbda57-f498-474c-b321-d3d9b9c83d9c",
               "name": "Successful response.",
               "originalRequest": {
                 "url": {
                   "path": [
-                    "viam.provisioning.v1.ProvisioningService",
-                    "GetSmartMachineStatus"
+                    "viam.app.v1.AppService",
+                    "GetRobotParts"
                   ],
                   "host": [
                     "{{baseUrl}}"
@@ -75,7 +75,7 @@
                 "method": "POST",
                 "body": {
                   "mode": "raw",
-                  "raw": "<object>",
+                  "raw": "{\n  \"robot_id\": \"<string>\"\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -102,18 +102,18 @@
           }
         },
         {
-          "id": "e039f4c6-e20a-4ee3-8c57-4d983db60cc5",
-          "name": "Viam Set Network Credentials",
+          "id": "59580ea4-8997-4e13-aa28-f7e38bc56985",
+          "name": "Viam Get Machine Part",
           "request": {
-            "name": "Viam Set Network Credentials",
+            "name": "Viam Get Machine Part",
             "description": {
-              "content": "Submit Wi-Fi credentials to the device.",
+              "content": "Retrieve a single machine part.",
               "type": "text/plain"
             },
             "url": {
               "path": [
-                "viam.provisioning.v1.ProvisioningService",
-                "SetNetworkCredentials"
+                "viam.app.v1.AppService",
+                "GetRobotPart"
               ],
               "host": [
                 "{{baseUrl}}"
@@ -131,7 +131,7 @@
             "auth": null,
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"type\": \"<string>\",\n  \"ssid\": \"<string>\",\n  \"psk\": \"<string>\"\n}",
+              "raw": "{\n  \"id\": \"<string>\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -141,13 +141,13 @@
           },
           "response": [
             {
-              "id": "eec9aef9-4b1f-43f3-b4dd-0d3e18750593",
+              "id": "1b54960f-de2b-4a65-afb2-140d11eff7b4",
               "name": "Successful response.",
               "originalRequest": {
                 "url": {
                   "path": [
-                    "viam.provisioning.v1.ProvisioningService",
-                    "SetNetworkCredentials"
+                    "viam.app.v1.AppService",
+                    "GetRobotPart"
                   ],
                   "host": [
                     "{{baseUrl}}"
@@ -168,7 +168,7 @@
                 "method": "POST",
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"type\": \"<string>\",\n  \"ssid\": \"<string>\",\n  \"psk\": \"<string>\"\n}",
+                  "raw": "{\n  \"id\": \"<string>\"\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -195,18 +195,18 @@
           }
         },
         {
-          "id": "0f5b35d7-1e7f-4bdb-b375-0a0872f5a141",
-          "name": "Viam Set Smart Machine Credentials",
+          "id": "3bee6bcc-0d6c-40b0-a635-fb0a67b21d02",
+          "name": "Viam Create Machine Part",
           "request": {
-            "name": "Viam Set Smart Machine Credentials",
+            "name": "Viam Create Machine Part",
             "description": {
-              "content": "Submit Viam cloud credentials (machine part secret + cloud config URL) to the device.",
+              "content": "Create a new machine part.",
               "type": "text/plain"
             },
             "url": {
               "path": [
-                "viam.provisioning.v1.ProvisioningService",
-                "SetSmartMachineCredentials"
+                "viam.app.v1.AppService",
+                "NewRobotPart"
               ],
               "host": [
                 "{{baseUrl}}"
@@ -224,7 +224,7 @@
             "auth": null,
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"cloud\": {\n    \"id\": \"<string>\",\n    \"secret\": \"<string>\",\n    \"app_address\": \"<string>\"\n  }\n}",
+              "raw": "{\n  \"robot_id\": \"<string>\",\n  \"part_name\": \"<string>\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -234,13 +234,13 @@
           },
           "response": [
             {
-              "id": "52d13c0b-6b22-4c13-b079-91df9e973b79",
+              "id": "6f97b651-caa6-479a-ac46-5d7ee6a4e1b2",
               "name": "Successful response.",
               "originalRequest": {
                 "url": {
                   "path": [
-                    "viam.provisioning.v1.ProvisioningService",
-                    "SetSmartMachineCredentials"
+                    "viam.app.v1.AppService",
+                    "NewRobotPart"
                   ],
                   "host": [
                     "{{baseUrl}}"
@@ -261,7 +261,7 @@
                 "method": "POST",
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"cloud\": {\n    \"id\": \"<string>\",\n    \"secret\": \"<string>\",\n    \"app_address\": \"<string>\"\n  }\n}",
+                  "raw": "{\n  \"robot_id\": \"<string>\",\n  \"part_name\": \"<string>\"\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -288,18 +288,18 @@
           }
         },
         {
-          "id": "c43846c8-bf45-4bd8-b75a-97b073051db5",
-          "name": "Viam Get Network List",
+          "id": "d889328e-4435-4537-8295-a88503158832",
+          "name": "Viam Restart Machine Part",
           "request": {
-            "name": "Viam Get Network List",
+            "name": "Viam Restart Machine Part",
             "description": {
-              "content": "List Wi-Fi networks visible to the device.",
+              "content": "Schedule a restart for a machine part.",
               "type": "text/plain"
             },
             "url": {
               "path": [
-                "viam.provisioning.v1.ProvisioningService",
-                "GetNetworkList"
+                "viam.app.v1.AppService",
+                "MarkPartForRestart"
               ],
               "host": [
                 "{{baseUrl}}"
@@ -317,7 +317,7 @@
             "auth": null,
             "body": {
               "mode": "raw",
-              "raw": "<object>",
+              "raw": "{\n  \"part_id\": \"<string>\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -327,13 +327,13 @@
           },
           "response": [
             {
-              "id": "95c5082e-1618-417f-bc82-4f36df5438d1",
+              "id": "0c64114f-1dd7-4cf2-9fa5-b81a1c0c50de",
               "name": "Successful response.",
               "originalRequest": {
                 "url": {
                   "path": [
-                    "viam.provisioning.v1.ProvisioningService",
-                    "GetNetworkList"
+                    "viam.app.v1.AppService",
+                    "MarkPartForRestart"
                   ],
                   "host": [
                     "{{baseUrl}}"
@@ -354,7 +354,7 @@
                 "method": "POST",
                 "body": {
                   "mode": "raw",
-                  "raw": "<object>",
+                  "raw": "{\n  \"part_id\": \"<string>\"\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -381,18 +381,18 @@
           }
         },
         {
-          "id": "d19fb2ab-2443-457e-8dd2-5bece8d7caf1",
-          "name": "Viam Exit Provisioning",
+          "id": "3bf15e38-d35c-42a4-b6ea-92ebfc54590b",
+          "name": "Viam Get Machine Part Logs",
           "request": {
-            "name": "Viam Exit Provisioning",
+            "name": "Viam Get Machine Part Logs",
             "description": {
-              "content": "Exit the provisioning service after the device is configured.",
+              "content": "Retrieve logs from a machine part.",
               "type": "text/plain"
             },
             "url": {
               "path": [
-                "viam.provisioning.v1.ProvisioningService",
-                "ExitProvisioning"
+                "viam.app.v1.AppService",
+                "GetRobotPartLogs"
               ],
               "host": [
                 "{{baseUrl}}"
@@ -410,7 +410,7 @@
             "auth": null,
             "body": {
               "mode": "raw",
-              "raw": "<object>",
+              "raw": "{\n  \"id\": \"<string>\",\n  \"errors_only\": \"<boolean>\",\n  \"filter\": \"<string>\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -420,13 +420,13 @@
           },
           "response": [
             {
-              "id": "895f3060-3ca8-46cf-8b68-d9cbfb321cf1",
+              "id": "a79f0301-8e7f-4d42-a1cf-3536aa241d28",
               "name": "Successful response.",
               "originalRequest": {
                 "url": {
                   "path": [
-                    "viam.provisioning.v1.ProvisioningService",
-                    "ExitProvisioning"
+                    "viam.app.v1.AppService",
+                    "GetRobotPartLogs"
                   ],
                   "host": [
                     "{{baseUrl}}"
@@ -447,7 +447,7 @@
                 "method": "POST",
                 "body": {
                   "mode": "raw",
-                  "raw": "<object>",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"errors_only\": \"<boolean>\",\n  \"filter\": \"<string>\"\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -503,8 +503,8 @@
     ]
   },
   "info": {
-    "_postman_id": "b328f52f-758c-4822-8422-8871e838ee1f",
-    "name": "Viam Billing Arm Provisioning API",
+    "_postman_id": "4a35ca3d-0d1c-48f9-b243-71a46591e6a2",
+    "name": "Viam Billing Arm Machine Parts API",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "description": {
       "content": "REST/JSON transcoding of the Viam BillingService gRPC API. Retrieve current-month\nusage, invoice summaries, invoice PDFs, billing tiers, and the location-level billing\norganization assignment used by Viam's \"build a robotics business\" features.\n\nCanonical contract: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/billing.proto\n\n\nContact Support:\n Name: Viam Support",

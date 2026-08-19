@@ -1,26 +1,26 @@
 {
   "item": [
     {
-      "id": "76996852-e435-4a5a-90b1-a86a6df05ba1",
-      "name": "Provisioning",
+      "id": "9be8b5cb-8d69-41ef-9599-dc87e815d888",
+      "name": "Binary Data",
       "description": {
-        "content": "Network and cloud credentials onboarding.",
+        "content": "Images, video, audio, and other binary blobs captured by cameras and audio components.",
         "type": "text/plain"
       },
       "item": [
         {
-          "id": "cca14827-dd8f-4f11-8cce-3bc2e48c9860",
-          "name": "Viam Get Smart Machine Status",
+          "id": "3e194d3f-759b-41c0-b955-d8525b736194",
+          "name": "Viam Binary Data By Filter",
           "request": {
-            "name": "Viam Get Smart Machine Status",
+            "name": "Viam Binary Data By Filter",
             "description": {
-              "content": "Retrieve the device's provisioning status (network connectivity, cloud config).",
+              "content": "Query binary data items using a filter and optional pagination.",
               "type": "text/plain"
             },
             "url": {
               "path": [
-                "viam.provisioning.v1.ProvisioningService",
-                "GetSmartMachineStatus"
+                "viam.app.data.v1.DataService",
+                "BinaryDataByFilter"
               ],
               "host": [
                 "{{baseUrl}}"
@@ -38,7 +38,7 @@
             "auth": null,
             "body": {
               "mode": "raw",
-              "raw": "<object>",
+              "raw": "{\n  \"data_request\": \"<object>\",\n  \"include_binary\": \"<boolean>\",\n  \"count_only\": \"<boolean>\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -48,13 +48,13 @@
           },
           "response": [
             {
-              "id": "44302297-3c59-4600-ac68-6fbea38f0b03",
+              "id": "9cff3a59-846e-4058-9eb2-a1bc3f3c39f3",
               "name": "Successful response.",
               "originalRequest": {
                 "url": {
                   "path": [
-                    "viam.provisioning.v1.ProvisioningService",
-                    "GetSmartMachineStatus"
+                    "viam.app.data.v1.DataService",
+                    "BinaryDataByFilter"
                   ],
                   "host": [
                     "{{baseUrl}}"
@@ -75,7 +75,7 @@
                 "method": "POST",
                 "body": {
                   "mode": "raw",
-                  "raw": "<object>",
+                  "raw": "{\n  \"data_request\": \"<object>\",\n  \"include_binary\": \"<boolean>\",\n  \"count_only\": \"<boolean>\"\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -102,18 +102,18 @@
           }
         },
         {
-          "id": "e039f4c6-e20a-4ee3-8c57-4d983db60cc5",
-          "name": "Viam Set Network Credentials",
+          "id": "b6e1a5d6-8b31-4625-a402-1fff8675e2da",
+          "name": "Viam Binary Data By Ids",
           "request": {
-            "name": "Viam Set Network Credentials",
+            "name": "Viam Binary Data By Ids",
             "description": {
-              "content": "Submit Wi-Fi credentials to the device.",
+              "content": "Retrieve binary data items by their ids.",
               "type": "text/plain"
             },
             "url": {
               "path": [
-                "viam.provisioning.v1.ProvisioningService",
-                "SetNetworkCredentials"
+                "viam.app.data.v1.DataService",
+                "BinaryDataByIDs"
               ],
               "host": [
                 "{{baseUrl}}"
@@ -131,7 +131,7 @@
             "auth": null,
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"type\": \"<string>\",\n  \"ssid\": \"<string>\",\n  \"psk\": \"<string>\"\n}",
+              "raw": "{\n  \"binary_ids\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"include_binary\": \"<boolean>\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -141,13 +141,13 @@
           },
           "response": [
             {
-              "id": "eec9aef9-4b1f-43f3-b4dd-0d3e18750593",
+              "id": "15472588-4294-4176-bebf-a8d440aa9cbd",
               "name": "Successful response.",
               "originalRequest": {
                 "url": {
                   "path": [
-                    "viam.provisioning.v1.ProvisioningService",
-                    "SetNetworkCredentials"
+                    "viam.app.data.v1.DataService",
+                    "BinaryDataByIDs"
                   ],
                   "host": [
                     "{{baseUrl}}"
@@ -168,7 +168,7 @@
                 "method": "POST",
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"type\": \"<string>\",\n  \"ssid\": \"<string>\",\n  \"psk\": \"<string>\"\n}",
+                  "raw": "{\n  \"binary_ids\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"include_binary\": \"<boolean>\"\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -195,18 +195,18 @@
           }
         },
         {
-          "id": "0f5b35d7-1e7f-4bdb-b375-0a0872f5a141",
-          "name": "Viam Set Smart Machine Credentials",
+          "id": "6eaf2b71-1fdf-46f8-9dbe-64a26b743a96",
+          "name": "Viam Delete Binary Data By Filter",
           "request": {
-            "name": "Viam Set Smart Machine Credentials",
+            "name": "Viam Delete Binary Data By Filter",
             "description": {
-              "content": "Submit Viam cloud credentials (machine part secret + cloud config URL) to the device.",
+              "content": "Delete binary data items matching a filter.",
               "type": "text/plain"
             },
             "url": {
               "path": [
-                "viam.provisioning.v1.ProvisioningService",
-                "SetSmartMachineCredentials"
+                "viam.app.data.v1.DataService",
+                "DeleteBinaryDataByFilter"
               ],
               "host": [
                 "{{baseUrl}}"
@@ -224,7 +224,7 @@
             "auth": null,
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"cloud\": {\n    \"id\": \"<string>\",\n    \"secret\": \"<string>\",\n    \"app_address\": \"<string>\"\n  }\n}",
+              "raw": "{\n  \"filter\": \"<object>\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -234,13 +234,13 @@
           },
           "response": [
             {
-              "id": "52d13c0b-6b22-4c13-b079-91df9e973b79",
+              "id": "d4eb1f44-c1ce-454e-98af-731142e4678b",
               "name": "Successful response.",
               "originalRequest": {
                 "url": {
                   "path": [
-                    "viam.provisioning.v1.ProvisioningService",
-                    "SetSmartMachineCredentials"
+                    "viam.app.data.v1.DataService",
+                    "DeleteBinaryDataByFilter"
                   ],
                   "host": [
                     "{{baseUrl}}"
@@ -261,7 +261,7 @@
                 "method": "POST",
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"cloud\": {\n    \"id\": \"<string>\",\n    \"secret\": \"<string>\",\n    \"app_address\": \"<string>\"\n  }\n}",
+                  "raw": "{\n  \"filter\": \"<object>\"\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -288,18 +288,18 @@
           }
         },
         {
-          "id": "c43846c8-bf45-4bd8-b75a-97b073051db5",
-          "name": "Viam Get Network List",
+          "id": "6ea06630-5731-4ac2-9524-47cae8f07501",
+          "name": "Viam Delete Binary Data By Ids",
           "request": {
-            "name": "Viam Get Network List",
+            "name": "Viam Delete Binary Data By Ids",
             "description": {
-              "content": "List Wi-Fi networks visible to the device.",
+              "content": "Delete binary data items by id.",
               "type": "text/plain"
             },
             "url": {
               "path": [
-                "viam.provisioning.v1.ProvisioningService",
-                "GetNetworkList"
+                "viam.app.data.v1.DataService",
+                "DeleteBinaryDataByIDs"
               ],
               "host": [
                 "{{baseUrl}}"
@@ -317,7 +317,7 @@
             "auth": null,
             "body": {
               "mode": "raw",
-              "raw": "<object>",
+              "raw": "{\n  \"binary_ids\": [\n    \"<object>\",\n    \"<object>\"\n  ]\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -327,13 +327,13 @@
           },
           "response": [
             {
-              "id": "95c5082e-1618-417f-bc82-4f36df5438d1",
+              "id": "474ce178-e362-4360-9273-c20fd448a566",
               "name": "Successful response.",
               "originalRequest": {
                 "url": {
                   "path": [
-                    "viam.provisioning.v1.ProvisioningService",
-                    "GetNetworkList"
+                    "viam.app.data.v1.DataService",
+                    "DeleteBinaryDataByIDs"
                   ],
                   "host": [
                     "{{baseUrl}}"
@@ -354,7 +354,7 @@
                 "method": "POST",
                 "body": {
                   "mode": "raw",
-                  "raw": "<object>",
+                  "raw": "{\n  \"binary_ids\": [\n    \"<object>\",\n    \"<object>\"\n  ]\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -381,18 +381,18 @@
           }
         },
         {
-          "id": "d19fb2ab-2443-457e-8dd2-5bece8d7caf1",
-          "name": "Viam Exit Provisioning",
+          "id": "9f5ee923-639d-4e8d-b813-988a157b138d",
+          "name": "Viam Create Binary Data Signed Url",
           "request": {
-            "name": "Viam Exit Provisioning",
+            "name": "Viam Create Binary Data Signed Url",
             "description": {
-              "content": "Exit the provisioning service after the device is configured.",
+              "content": "Generate a signed URL for direct upload of binary data.",
               "type": "text/plain"
             },
             "url": {
               "path": [
-                "viam.provisioning.v1.ProvisioningService",
-                "ExitProvisioning"
+                "viam.app.data.v1.DataService",
+                "CreateBinaryDataSignedURL"
               ],
               "host": [
                 "{{baseUrl}}"
@@ -410,7 +410,7 @@
             "auth": null,
             "body": {
               "mode": "raw",
-              "raw": "<object>",
+              "raw": "{\n  \"part_id\": \"<string>\",\n  \"file_extension\": \"<string>\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -420,13 +420,13 @@
           },
           "response": [
             {
-              "id": "895f3060-3ca8-46cf-8b68-d9cbfb321cf1",
+              "id": "0ca700a1-0722-4259-a9b5-994595763093",
               "name": "Successful response.",
               "originalRequest": {
                 "url": {
                   "path": [
-                    "viam.provisioning.v1.ProvisioningService",
-                    "ExitProvisioning"
+                    "viam.app.data.v1.DataService",
+                    "CreateBinaryDataSignedURL"
                   ],
                   "host": [
                     "{{baseUrl}}"
@@ -447,7 +447,7 @@
                 "method": "POST",
                 "body": {
                   "mode": "raw",
-                  "raw": "<object>",
+                  "raw": "{\n  \"part_id\": \"<string>\",\n  \"file_extension\": \"<string>\"\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -503,8 +503,8 @@
     ]
   },
   "info": {
-    "_postman_id": "b328f52f-758c-4822-8422-8871e838ee1f",
-    "name": "Viam Billing Arm Provisioning API",
+    "_postman_id": "a1bb3df3-e124-466f-a3a0-1ba4446d6830",
+    "name": "Viam Billing Arm Binary Data API",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "description": {
       "content": "REST/JSON transcoding of the Viam BillingService gRPC API. Retrieve current-month\nusage, invoice summaries, invoice PDFs, billing tiers, and the location-level billing\norganization assignment used by Viam's \"build a robotics business\" features.\n\nCanonical contract: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/billing.proto\n\n\nContact Support:\n Name: Viam Support",

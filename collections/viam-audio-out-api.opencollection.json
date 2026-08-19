@@ -1,0 +1,41 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Viam Billing Arm Audio Out API",
+    "version": "2026.05"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "key",
+      "value": "{{key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Audio Out",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Viam Audio Out Play",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.component.audioout.v1.AudioOutService/Play",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Play an audio payload on an output device."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

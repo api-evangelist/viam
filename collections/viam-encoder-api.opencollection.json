@@ -1,0 +1,56 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Viam Billing Arm Encoder API",
+    "version": "2026.05"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "key",
+      "value": "{{key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Encoder",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Viam Encoder Get Position",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.component.encoder.v1.EncoderService/GetPosition",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Read the encoder's current position."
+        },
+        {
+          "info": {
+            "name": "Viam Encoder Reset Position",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.component.encoder.v1.EncoderService/ResetPosition",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Reset the encoder's zero position."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

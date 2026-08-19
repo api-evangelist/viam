@@ -1,26 +1,26 @@
 {
   "item": [
     {
-      "id": "76996852-e435-4a5a-90b1-a86a6df05ba1",
-      "name": "Provisioning",
+      "id": "cd4b5628-8647-4004-aaff-4a6647fdf701",
+      "name": "Board",
       "description": {
-        "content": "Network and cloud credentials onboarding.",
+        "content": "GPIO boards (Raspberry Pi, Jetson, ESP32).",
         "type": "text/plain"
       },
       "item": [
         {
-          "id": "cca14827-dd8f-4f11-8cce-3bc2e48c9860",
-          "name": "Viam Get Smart Machine Status",
+          "id": "6d0e0d0d-f613-4ace-a9bf-3b9b8b33e4bd",
+          "name": "Viam Board Set Gpio",
           "request": {
-            "name": "Viam Get Smart Machine Status",
+            "name": "Viam Board Set Gpio",
             "description": {
-              "content": "Retrieve the device's provisioning status (network connectivity, cloud config).",
+              "content": "Set a GPIO pin high or low.",
               "type": "text/plain"
             },
             "url": {
               "path": [
-                "viam.provisioning.v1.ProvisioningService",
-                "GetSmartMachineStatus"
+                "viam.component.board.v1.BoardService",
+                "SetGPIO"
               ],
               "host": [
                 "{{baseUrl}}"
@@ -38,7 +38,7 @@
             "auth": null,
             "body": {
               "mode": "raw",
-              "raw": "<object>",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"pin\": \"<string>\",\n  \"high\": \"<boolean>\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -48,13 +48,13 @@
           },
           "response": [
             {
-              "id": "44302297-3c59-4600-ac68-6fbea38f0b03",
+              "id": "bc053989-a5f8-4ca3-b013-30e5f84ccaab",
               "name": "Successful response.",
               "originalRequest": {
                 "url": {
                   "path": [
-                    "viam.provisioning.v1.ProvisioningService",
-                    "GetSmartMachineStatus"
+                    "viam.component.board.v1.BoardService",
+                    "SetGPIO"
                   ],
                   "host": [
                     "{{baseUrl}}"
@@ -75,7 +75,7 @@
                 "method": "POST",
                 "body": {
                   "mode": "raw",
-                  "raw": "<object>",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"pin\": \"<string>\",\n  \"high\": \"<boolean>\"\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -102,18 +102,18 @@
           }
         },
         {
-          "id": "e039f4c6-e20a-4ee3-8c57-4d983db60cc5",
-          "name": "Viam Set Network Credentials",
+          "id": "67c380a1-3c4b-41a7-b224-3e9e40fa0b64",
+          "name": "Viam Board Get Gpio",
           "request": {
-            "name": "Viam Set Network Credentials",
+            "name": "Viam Board Get Gpio",
             "description": {
-              "content": "Submit Wi-Fi credentials to the device.",
+              "content": "Read a GPIO pin's current value.",
               "type": "text/plain"
             },
             "url": {
               "path": [
-                "viam.provisioning.v1.ProvisioningService",
-                "SetNetworkCredentials"
+                "viam.component.board.v1.BoardService",
+                "GetGPIO"
               ],
               "host": [
                 "{{baseUrl}}"
@@ -131,7 +131,7 @@
             "auth": null,
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"type\": \"<string>\",\n  \"ssid\": \"<string>\",\n  \"psk\": \"<string>\"\n}",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"pin\": \"<string>\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -141,13 +141,13 @@
           },
           "response": [
             {
-              "id": "eec9aef9-4b1f-43f3-b4dd-0d3e18750593",
+              "id": "fdc08a9a-e57f-4acc-a714-08e6c3ce3558",
               "name": "Successful response.",
               "originalRequest": {
                 "url": {
                   "path": [
-                    "viam.provisioning.v1.ProvisioningService",
-                    "SetNetworkCredentials"
+                    "viam.component.board.v1.BoardService",
+                    "GetGPIO"
                   ],
                   "host": [
                     "{{baseUrl}}"
@@ -168,7 +168,7 @@
                 "method": "POST",
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"type\": \"<string>\",\n  \"ssid\": \"<string>\",\n  \"psk\": \"<string>\"\n}",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"pin\": \"<string>\"\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -195,18 +195,18 @@
           }
         },
         {
-          "id": "0f5b35d7-1e7f-4bdb-b375-0a0872f5a141",
-          "name": "Viam Set Smart Machine Credentials",
+          "id": "e18a1453-42c4-492c-8622-fcef0c86b728",
+          "name": "Viam Board Set Pwm",
           "request": {
-            "name": "Viam Set Smart Machine Credentials",
+            "name": "Viam Board Set Pwm",
             "description": {
-              "content": "Submit Viam cloud credentials (machine part secret + cloud config URL) to the device.",
+              "content": "Set a pin's PWM duty cycle.",
               "type": "text/plain"
             },
             "url": {
               "path": [
-                "viam.provisioning.v1.ProvisioningService",
-                "SetSmartMachineCredentials"
+                "viam.component.board.v1.BoardService",
+                "SetPWM"
               ],
               "host": [
                 "{{baseUrl}}"
@@ -224,7 +224,7 @@
             "auth": null,
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"cloud\": {\n    \"id\": \"<string>\",\n    \"secret\": \"<string>\",\n    \"app_address\": \"<string>\"\n  }\n}",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"pin\": \"<string>\",\n  \"duty_cycle_pct\": \"<number>\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -234,13 +234,13 @@
           },
           "response": [
             {
-              "id": "52d13c0b-6b22-4c13-b079-91df9e973b79",
+              "id": "c554808d-41de-4c56-b0dc-b8444de6150e",
               "name": "Successful response.",
               "originalRequest": {
                 "url": {
                   "path": [
-                    "viam.provisioning.v1.ProvisioningService",
-                    "SetSmartMachineCredentials"
+                    "viam.component.board.v1.BoardService",
+                    "SetPWM"
                   ],
                   "host": [
                     "{{baseUrl}}"
@@ -261,7 +261,7 @@
                 "method": "POST",
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"cloud\": {\n    \"id\": \"<string>\",\n    \"secret\": \"<string>\",\n    \"app_address\": \"<string>\"\n  }\n}",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"pin\": \"<string>\",\n  \"duty_cycle_pct\": \"<number>\"\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -288,18 +288,18 @@
           }
         },
         {
-          "id": "c43846c8-bf45-4bd8-b75a-97b073051db5",
-          "name": "Viam Get Network List",
+          "id": "eb3cadbd-170c-44bd-8fee-ea48f3bff692",
+          "name": "Viam Board Read Analog Reader",
           "request": {
-            "name": "Viam Get Network List",
+            "name": "Viam Board Read Analog Reader",
             "description": {
-              "content": "List Wi-Fi networks visible to the device.",
+              "content": "Read a value from an analog reader.",
               "type": "text/plain"
             },
             "url": {
               "path": [
-                "viam.provisioning.v1.ProvisioningService",
-                "GetNetworkList"
+                "viam.component.board.v1.BoardService",
+                "ReadAnalogReader"
               ],
               "host": [
                 "{{baseUrl}}"
@@ -317,7 +317,7 @@
             "auth": null,
             "body": {
               "mode": "raw",
-              "raw": "<object>",
+              "raw": "{\n  \"board_name\": \"<string>\",\n  \"analog_reader_name\": \"<string>\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -327,13 +327,13 @@
           },
           "response": [
             {
-              "id": "95c5082e-1618-417f-bc82-4f36df5438d1",
+              "id": "93dcf160-89ea-4403-b2a9-efed3b1b7062",
               "name": "Successful response.",
               "originalRequest": {
                 "url": {
                   "path": [
-                    "viam.provisioning.v1.ProvisioningService",
-                    "GetNetworkList"
+                    "viam.component.board.v1.BoardService",
+                    "ReadAnalogReader"
                   ],
                   "host": [
                     "{{baseUrl}}"
@@ -354,7 +354,7 @@
                 "method": "POST",
                 "body": {
                   "mode": "raw",
-                  "raw": "<object>",
+                  "raw": "{\n  \"board_name\": \"<string>\",\n  \"analog_reader_name\": \"<string>\"\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -381,18 +381,18 @@
           }
         },
         {
-          "id": "d19fb2ab-2443-457e-8dd2-5bece8d7caf1",
-          "name": "Viam Exit Provisioning",
+          "id": "6e9eff65-6378-424a-b59a-0da7a28f6918",
+          "name": "Viam Board Stream Ticks",
           "request": {
-            "name": "Viam Exit Provisioning",
+            "name": "Viam Board Stream Ticks",
             "description": {
-              "content": "Exit the provisioning service after the device is configured.",
+              "content": "Stream digital interrupt ticks for the given pin names.",
               "type": "text/plain"
             },
             "url": {
               "path": [
-                "viam.provisioning.v1.ProvisioningService",
-                "ExitProvisioning"
+                "viam.component.board.v1.BoardService",
+                "StreamTicks"
               ],
               "host": [
                 "{{baseUrl}}"
@@ -410,7 +410,7 @@
             "auth": null,
             "body": {
               "mode": "raw",
-              "raw": "<object>",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"pin_names\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -420,13 +420,13 @@
           },
           "response": [
             {
-              "id": "895f3060-3ca8-46cf-8b68-d9cbfb321cf1",
+              "id": "4e4f9a84-5b14-411e-8c6f-b4d8323d61fa",
               "name": "Successful response.",
               "originalRequest": {
                 "url": {
                   "path": [
-                    "viam.provisioning.v1.ProvisioningService",
-                    "ExitProvisioning"
+                    "viam.component.board.v1.BoardService",
+                    "StreamTicks"
                   ],
                   "host": [
                     "{{baseUrl}}"
@@ -447,7 +447,7 @@
                 "method": "POST",
                 "body": {
                   "mode": "raw",
-                  "raw": "<object>",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"pin_names\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -503,8 +503,8 @@
     ]
   },
   "info": {
-    "_postman_id": "b328f52f-758c-4822-8422-8871e838ee1f",
-    "name": "Viam Billing Arm Provisioning API",
+    "_postman_id": "7a77759f-788a-409c-ac3d-6ba904a7d6d6",
+    "name": "Viam Billing Arm Board API",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "description": {
       "content": "REST/JSON transcoding of the Viam BillingService gRPC API. Retrieve current-month\nusage, invoice summaries, invoice PDFs, billing tiers, and the location-level billing\norganization assignment used by Viam's \"build a robotics business\" features.\n\nCanonical contract: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/billing.proto\n\n\nContact Support:\n Name: Viam Support",

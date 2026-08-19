@@ -1,26 +1,26 @@
 {
   "item": [
     {
-      "id": "76996852-e435-4a5a-90b1-a86a6df05ba1",
-      "name": "Provisioning",
+      "id": "5ffd68e8-baf0-42e3-9dca-6a8ddf0a842a",
+      "name": "Tags",
       "description": {
-        "content": "Network and cloud credentials onboarding.",
+        "content": "Bounding boxes and labels applied to binary data items.",
         "type": "text/plain"
       },
       "item": [
         {
-          "id": "cca14827-dd8f-4f11-8cce-3bc2e48c9860",
-          "name": "Viam Get Smart Machine Status",
+          "id": "dadcb15b-4ef1-4bb5-b272-8fe0f43da348",
+          "name": "Viam Add Tags To Binary Data By Ids",
           "request": {
-            "name": "Viam Get Smart Machine Status",
+            "name": "Viam Add Tags To Binary Data By Ids",
             "description": {
-              "content": "Retrieve the device's provisioning status (network connectivity, cloud config).",
+              "content": "Add string tags to binary data items.",
               "type": "text/plain"
             },
             "url": {
               "path": [
-                "viam.provisioning.v1.ProvisioningService",
-                "GetSmartMachineStatus"
+                "viam.app.data.v1.DataService",
+                "AddTagsToBinaryDataByIDs"
               ],
               "host": [
                 "{{baseUrl}}"
@@ -38,7 +38,7 @@
             "auth": null,
             "body": {
               "mode": "raw",
-              "raw": "<object>",
+              "raw": "{\n  \"binary_ids\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -48,13 +48,13 @@
           },
           "response": [
             {
-              "id": "44302297-3c59-4600-ac68-6fbea38f0b03",
+              "id": "2d79eb00-c814-43b8-82a5-29e2fb3406ad",
               "name": "Successful response.",
               "originalRequest": {
                 "url": {
                   "path": [
-                    "viam.provisioning.v1.ProvisioningService",
-                    "GetSmartMachineStatus"
+                    "viam.app.data.v1.DataService",
+                    "AddTagsToBinaryDataByIDs"
                   ],
                   "host": [
                     "{{baseUrl}}"
@@ -75,7 +75,7 @@
                 "method": "POST",
                 "body": {
                   "mode": "raw",
-                  "raw": "<object>",
+                  "raw": "{\n  \"binary_ids\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -102,18 +102,18 @@
           }
         },
         {
-          "id": "e039f4c6-e20a-4ee3-8c57-4d983db60cc5",
-          "name": "Viam Set Network Credentials",
+          "id": "d35a19d5-a51e-4504-b9ee-87286a2c1bb7",
+          "name": "Viam Remove Tags From Binary Data By Ids",
           "request": {
-            "name": "Viam Set Network Credentials",
+            "name": "Viam Remove Tags From Binary Data By Ids",
             "description": {
-              "content": "Submit Wi-Fi credentials to the device.",
+              "content": "Remove string tags from binary data items.",
               "type": "text/plain"
             },
             "url": {
               "path": [
-                "viam.provisioning.v1.ProvisioningService",
-                "SetNetworkCredentials"
+                "viam.app.data.v1.DataService",
+                "RemoveTagsFromBinaryDataByIDs"
               ],
               "host": [
                 "{{baseUrl}}"
@@ -131,7 +131,7 @@
             "auth": null,
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"type\": \"<string>\",\n  \"ssid\": \"<string>\",\n  \"psk\": \"<string>\"\n}",
+              "raw": "{\n  \"binary_ids\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -141,13 +141,13 @@
           },
           "response": [
             {
-              "id": "eec9aef9-4b1f-43f3-b4dd-0d3e18750593",
+              "id": "dfe5ee63-17c3-4a7e-9076-56f5148e1a1c",
               "name": "Successful response.",
               "originalRequest": {
                 "url": {
                   "path": [
-                    "viam.provisioning.v1.ProvisioningService",
-                    "SetNetworkCredentials"
+                    "viam.app.data.v1.DataService",
+                    "RemoveTagsFromBinaryDataByIDs"
                   ],
                   "host": [
                     "{{baseUrl}}"
@@ -168,7 +168,7 @@
                 "method": "POST",
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"type\": \"<string>\",\n  \"ssid\": \"<string>\",\n  \"psk\": \"<string>\"\n}",
+                  "raw": "{\n  \"binary_ids\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -195,18 +195,18 @@
           }
         },
         {
-          "id": "0f5b35d7-1e7f-4bdb-b375-0a0872f5a141",
-          "name": "Viam Set Smart Machine Credentials",
+          "id": "dbd96a17-ff43-4b27-803f-f7945a5f10b4",
+          "name": "Viam Tags By Filter",
           "request": {
-            "name": "Viam Set Smart Machine Credentials",
+            "name": "Viam Tags By Filter",
             "description": {
-              "content": "Submit Viam cloud credentials (machine part secret + cloud config URL) to the device.",
+              "content": "List unique tags matching a filter.",
               "type": "text/plain"
             },
             "url": {
               "path": [
-                "viam.provisioning.v1.ProvisioningService",
-                "SetSmartMachineCredentials"
+                "viam.app.data.v1.DataService",
+                "TagsByFilter"
               ],
               "host": [
                 "{{baseUrl}}"
@@ -224,7 +224,7 @@
             "auth": null,
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"cloud\": {\n    \"id\": \"<string>\",\n    \"secret\": \"<string>\",\n    \"app_address\": \"<string>\"\n  }\n}",
+              "raw": "{\n  \"filter\": \"<object>\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -234,13 +234,13 @@
           },
           "response": [
             {
-              "id": "52d13c0b-6b22-4c13-b079-91df9e973b79",
+              "id": "a992270c-da02-4d08-a80b-fa14a50f0485",
               "name": "Successful response.",
               "originalRequest": {
                 "url": {
                   "path": [
-                    "viam.provisioning.v1.ProvisioningService",
-                    "SetSmartMachineCredentials"
+                    "viam.app.data.v1.DataService",
+                    "TagsByFilter"
                   ],
                   "host": [
                     "{{baseUrl}}"
@@ -261,7 +261,7 @@
                 "method": "POST",
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"cloud\": {\n    \"id\": \"<string>\",\n    \"secret\": \"<string>\",\n    \"app_address\": \"<string>\"\n  }\n}",
+                  "raw": "{\n  \"filter\": \"<object>\"\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -288,18 +288,18 @@
           }
         },
         {
-          "id": "c43846c8-bf45-4bd8-b75a-97b073051db5",
-          "name": "Viam Get Network List",
+          "id": "e872ff02-8784-433f-ac8d-994cc8ee7c40",
+          "name": "Viam Add Bounding Box To Image By Id",
           "request": {
-            "name": "Viam Get Network List",
+            "name": "Viam Add Bounding Box To Image By Id",
             "description": {
-              "content": "List Wi-Fi networks visible to the device.",
+              "content": "Add a bounding-box annotation to a binary image item.",
               "type": "text/plain"
             },
             "url": {
               "path": [
-                "viam.provisioning.v1.ProvisioningService",
-                "GetNetworkList"
+                "viam.app.data.v1.DataService",
+                "AddBoundingBoxToImageByID"
               ],
               "host": [
                 "{{baseUrl}}"
@@ -317,7 +317,7 @@
             "auth": null,
             "body": {
               "mode": "raw",
-              "raw": "<object>",
+              "raw": "{\n  \"binary_id\": \"<object>\",\n  \"label\": \"<string>\",\n  \"x_min_normalized\": \"<number>\",\n  \"y_min_normalized\": \"<number>\",\n  \"x_max_normalized\": \"<number>\",\n  \"y_max_normalized\": \"<number>\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -327,13 +327,13 @@
           },
           "response": [
             {
-              "id": "95c5082e-1618-417f-bc82-4f36df5438d1",
+              "id": "246a4e10-04e0-462a-b14c-9a5c8f05aef1",
               "name": "Successful response.",
               "originalRequest": {
                 "url": {
                   "path": [
-                    "viam.provisioning.v1.ProvisioningService",
-                    "GetNetworkList"
+                    "viam.app.data.v1.DataService",
+                    "AddBoundingBoxToImageByID"
                   ],
                   "host": [
                     "{{baseUrl}}"
@@ -354,7 +354,7 @@
                 "method": "POST",
                 "body": {
                   "mode": "raw",
-                  "raw": "<object>",
+                  "raw": "{\n  \"binary_id\": \"<object>\",\n  \"label\": \"<string>\",\n  \"x_min_normalized\": \"<number>\",\n  \"y_min_normalized\": \"<number>\",\n  \"x_max_normalized\": \"<number>\",\n  \"y_max_normalized\": \"<number>\"\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -381,18 +381,18 @@
           }
         },
         {
-          "id": "d19fb2ab-2443-457e-8dd2-5bece8d7caf1",
-          "name": "Viam Exit Provisioning",
+          "id": "9bbe7522-0737-40c2-8a3f-47d55a5d67b2",
+          "name": "Viam Remove Bounding Box From Image By Id",
           "request": {
-            "name": "Viam Exit Provisioning",
+            "name": "Viam Remove Bounding Box From Image By Id",
             "description": {
-              "content": "Exit the provisioning service after the device is configured.",
+              "content": "Remove a bounding-box annotation by id.",
               "type": "text/plain"
             },
             "url": {
               "path": [
-                "viam.provisioning.v1.ProvisioningService",
-                "ExitProvisioning"
+                "viam.app.data.v1.DataService",
+                "RemoveBoundingBoxFromImageByID"
               ],
               "host": [
                 "{{baseUrl}}"
@@ -410,7 +410,7 @@
             "auth": null,
             "body": {
               "mode": "raw",
-              "raw": "<object>",
+              "raw": "{\n  \"binary_id\": \"<object>\",\n  \"bbox_id\": \"<string>\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -420,13 +420,13 @@
           },
           "response": [
             {
-              "id": "895f3060-3ca8-46cf-8b68-d9cbfb321cf1",
+              "id": "1a1e982d-12d2-49eb-83c3-05e4bc0fa137",
               "name": "Successful response.",
               "originalRequest": {
                 "url": {
                   "path": [
-                    "viam.provisioning.v1.ProvisioningService",
-                    "ExitProvisioning"
+                    "viam.app.data.v1.DataService",
+                    "RemoveBoundingBoxFromImageByID"
                   ],
                   "host": [
                     "{{baseUrl}}"
@@ -447,7 +447,7 @@
                 "method": "POST",
                 "body": {
                   "mode": "raw",
-                  "raw": "<object>",
+                  "raw": "{\n  \"binary_id\": \"<object>\",\n  \"bbox_id\": \"<string>\"\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -503,8 +503,8 @@
     ]
   },
   "info": {
-    "_postman_id": "b328f52f-758c-4822-8422-8871e838ee1f",
-    "name": "Viam Billing Arm Provisioning API",
+    "_postman_id": "b6a73c92-6128-4f3f-9bbd-04e1b0107125",
+    "name": "Viam Billing Arm Tags API",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "description": {
       "content": "REST/JSON transcoding of the Viam BillingService gRPC API. Retrieve current-month\nusage, invoice summaries, invoice PDFs, billing tiers, and the location-level billing\norganization assignment used by Viam's \"build a robotics business\" features.\n\nCanonical contract: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/billing.proto\n\n\nContact Support:\n Name: Viam Support",

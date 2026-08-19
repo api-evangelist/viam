@@ -1,0 +1,71 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Viam Billing Arm Power Sensor API",
+    "version": "2026.05"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "key",
+      "value": "{{key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Power Sensor",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Viam Power Sensor Get Voltage",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.component.powersensor.v1.PowerSensorService/GetVoltage",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Read voltage in volts."
+        },
+        {
+          "info": {
+            "name": "Viam Power Sensor Get Current",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.component.powersensor.v1.PowerSensorService/GetCurrent",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Read current in amperes."
+        },
+        {
+          "info": {
+            "name": "Viam Power Sensor Get Power",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.component.powersensor.v1.PowerSensorService/GetPower",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Read power in watts."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,7 +1,7 @@
 {
   "opencollection": "1.0.0",
   "info": {
-    "name": "Viam Billing Arm Provisioning API",
+    "name": "Viam Billing Arm Fragments API",
     "version": "2026.05"
   },
   "request": {
@@ -15,84 +15,84 @@
   "items": [
     {
       "info": {
-        "name": "Provisioning",
+        "name": "Fragments",
         "type": "folder"
       },
       "items": [
         {
           "info": {
-            "name": "Viam Get Smart Machine Status",
+            "name": "Viam List Fragments",
             "type": "http"
           },
           "http": {
             "method": "POST",
-            "url": "https://app.viam.com/viam.provisioning.v1.ProvisioningService/GetSmartMachineStatus",
+            "url": "https://app.viam.com/viam.app.v1.AppService/ListFragments",
             "body": {
               "type": "json",
               "data": "{}"
             }
           },
-          "docs": "Retrieve the device's provisioning status (network connectivity, cloud config)."
+          "docs": "List configuration fragments in an organization."
         },
         {
           "info": {
-            "name": "Viam Set Network Credentials",
+            "name": "Viam Create Fragment",
             "type": "http"
           },
           "http": {
             "method": "POST",
-            "url": "https://app.viam.com/viam.provisioning.v1.ProvisioningService/SetNetworkCredentials",
+            "url": "https://app.viam.com/viam.app.v1.AppService/CreateFragment",
             "body": {
               "type": "json",
               "data": "{}"
             }
           },
-          "docs": "Submit Wi-Fi credentials to the device."
+          "docs": "Create a new configuration fragment."
         },
         {
           "info": {
-            "name": "Viam Set Smart Machine Credentials",
+            "name": "Viam Get Fragment",
             "type": "http"
           },
           "http": {
             "method": "POST",
-            "url": "https://app.viam.com/viam.provisioning.v1.ProvisioningService/SetSmartMachineCredentials",
+            "url": "https://app.viam.com/viam.app.v1.AppService/GetFragment",
             "body": {
               "type": "json",
               "data": "{}"
             }
           },
-          "docs": "Submit Viam cloud credentials (machine part secret + cloud config URL) to the device."
+          "docs": "Retrieve a fragment by id."
         },
         {
           "info": {
-            "name": "Viam Get Network List",
+            "name": "Viam Update Fragment",
             "type": "http"
           },
           "http": {
             "method": "POST",
-            "url": "https://app.viam.com/viam.provisioning.v1.ProvisioningService/GetNetworkList",
+            "url": "https://app.viam.com/viam.app.v1.AppService/UpdateFragment",
             "body": {
               "type": "json",
               "data": "{}"
             }
           },
-          "docs": "List Wi-Fi networks visible to the device."
+          "docs": "Update an existing fragment."
         },
         {
           "info": {
-            "name": "Viam Exit Provisioning",
+            "name": "Viam Delete Fragment",
             "type": "http"
           },
           "http": {
             "method": "POST",
-            "url": "https://app.viam.com/viam.provisioning.v1.ProvisioningService/ExitProvisioning",
+            "url": "https://app.viam.com/viam.app.v1.AppService/DeleteFragment",
             "body": {
               "type": "json",
               "data": "{}"
             }
           },
-          "docs": "Exit the provisioning service after the device is configured."
+          "docs": "Delete a fragment."
         }
       ]
     }

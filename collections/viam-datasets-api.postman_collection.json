@@ -1,0 +1,235 @@
+{
+  "item": [
+    {
+      "id": "070d83d8-1626-4b17-83c0-71bb9f3a9fde",
+      "name": "Datasets",
+      "description": {
+        "content": "Curated collections of binary data used for ML training.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b644957f-22cc-4829-ac6b-7b25cf6a13c1",
+          "name": "Viam Add Binary Data To Dataset",
+          "request": {
+            "name": "Viam Add Binary Data To Dataset",
+            "description": {
+              "content": "Add binary data items to a dataset.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "viam.app.data.v1.DataService",
+                "AddBinaryDataToDatasetByIDs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"binary_ids\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"dataset_id\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e6dd678b-8249-4cc0-9435-831b21b8ca1f",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "viam.app.data.v1.DataService",
+                    "AddBinaryDataToDatasetByIDs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"binary_ids\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"dataset_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "62ffe466-a11c-49bf-ade3-2a34176d6faf",
+          "name": "Viam Remove Binary Data From Dataset",
+          "request": {
+            "name": "Viam Remove Binary Data From Dataset",
+            "description": {
+              "content": "Remove binary data items from a dataset.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "viam.app.data.v1.DataService",
+                "RemoveBinaryDataFromDatasetByIDs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"binary_ids\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"dataset_id\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6533d4ef-733a-4ef8-b3ef-afad06cedb37",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "viam.app.data.v1.DataService",
+                    "RemoveBinaryDataFromDatasetByIDs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"binary_ids\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"dataset_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://app.viam.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "2868dda6-1de4-48d0-92bc-a6d152bef6f2",
+    "name": "Viam Billing Arm Datasets API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST/JSON transcoding of the Viam BillingService gRPC API. Retrieve current-month\nusage, invoice summaries, invoice PDFs, billing tiers, and the location-level billing\norganization assignment used by Viam's \"build a robotics business\" features.\n\nCanonical contract: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/billing.proto\n\n\nContact Support:\n Name: Viam Support",
+      "type": "text/plain"
+    }
+  }
+}

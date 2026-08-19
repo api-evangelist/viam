@@ -1,0 +1,56 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Viam Billing Arm Servo API",
+    "version": "2026.05"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "key",
+      "value": "{{key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Servo",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Viam Servo Move",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.component.servo.v1.ServoService/Move",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Move the servo to an angle in degrees."
+        },
+        {
+          "info": {
+            "name": "Viam Servo Get Position",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.component.servo.v1.ServoService/GetPosition",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Get the servo's current position."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

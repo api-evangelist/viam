@@ -1,0 +1,56 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Viam Billing Arm Tunneling API",
+    "version": "2026.05"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "key",
+      "value": "{{key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Tunneling",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Viam Tunnel",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.robot.v1.RobotService/Tunnel",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Tunnel TCP traffic through viam-server (bidirectional stream)."
+        },
+        {
+          "info": {
+            "name": "Viam List Tunnels",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.robot.v1.RobotService/ListTunnels",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "List active tunnels."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

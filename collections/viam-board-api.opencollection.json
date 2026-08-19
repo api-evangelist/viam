@@ -1,7 +1,7 @@
 {
   "opencollection": "1.0.0",
   "info": {
-    "name": "Viam Billing Arm Provisioning API",
+    "name": "Viam Billing Arm Board API",
     "version": "2026.05"
   },
   "request": {
@@ -15,84 +15,84 @@
   "items": [
     {
       "info": {
-        "name": "Provisioning",
+        "name": "Board",
         "type": "folder"
       },
       "items": [
         {
           "info": {
-            "name": "Viam Get Smart Machine Status",
+            "name": "Viam Board Set Gpio",
             "type": "http"
           },
           "http": {
             "method": "POST",
-            "url": "https://app.viam.com/viam.provisioning.v1.ProvisioningService/GetSmartMachineStatus",
+            "url": "https://app.viam.com/viam.component.board.v1.BoardService/SetGPIO",
             "body": {
               "type": "json",
               "data": "{}"
             }
           },
-          "docs": "Retrieve the device's provisioning status (network connectivity, cloud config)."
+          "docs": "Set a GPIO pin high or low."
         },
         {
           "info": {
-            "name": "Viam Set Network Credentials",
+            "name": "Viam Board Get Gpio",
             "type": "http"
           },
           "http": {
             "method": "POST",
-            "url": "https://app.viam.com/viam.provisioning.v1.ProvisioningService/SetNetworkCredentials",
+            "url": "https://app.viam.com/viam.component.board.v1.BoardService/GetGPIO",
             "body": {
               "type": "json",
               "data": "{}"
             }
           },
-          "docs": "Submit Wi-Fi credentials to the device."
+          "docs": "Read a GPIO pin's current value."
         },
         {
           "info": {
-            "name": "Viam Set Smart Machine Credentials",
+            "name": "Viam Board Set Pwm",
             "type": "http"
           },
           "http": {
             "method": "POST",
-            "url": "https://app.viam.com/viam.provisioning.v1.ProvisioningService/SetSmartMachineCredentials",
+            "url": "https://app.viam.com/viam.component.board.v1.BoardService/SetPWM",
             "body": {
               "type": "json",
               "data": "{}"
             }
           },
-          "docs": "Submit Viam cloud credentials (machine part secret + cloud config URL) to the device."
+          "docs": "Set a pin's PWM duty cycle."
         },
         {
           "info": {
-            "name": "Viam Get Network List",
+            "name": "Viam Board Read Analog Reader",
             "type": "http"
           },
           "http": {
             "method": "POST",
-            "url": "https://app.viam.com/viam.provisioning.v1.ProvisioningService/GetNetworkList",
+            "url": "https://app.viam.com/viam.component.board.v1.BoardService/ReadAnalogReader",
             "body": {
               "type": "json",
               "data": "{}"
             }
           },
-          "docs": "List Wi-Fi networks visible to the device."
+          "docs": "Read a value from an analog reader."
         },
         {
           "info": {
-            "name": "Viam Exit Provisioning",
+            "name": "Viam Board Stream Ticks",
             "type": "http"
           },
           "http": {
             "method": "POST",
-            "url": "https://app.viam.com/viam.provisioning.v1.ProvisioningService/ExitProvisioning",
+            "url": "https://app.viam.com/viam.component.board.v1.BoardService/StreamTicks",
             "body": {
               "type": "json",
               "data": "{}"
             }
           },
-          "docs": "Exit the provisioning service after the device is configured."
+          "docs": "Stream digital interrupt ticks for the given pin names."
         }
       ]
     }

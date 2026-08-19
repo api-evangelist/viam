@@ -1,7 +1,7 @@
 {
   "opencollection": "1.0.0",
   "info": {
-    "name": "Viam Billing Arm Provisioning API",
+    "name": "Viam Billing Arm Locations API",
     "version": "2026.05"
   },
   "request": {
@@ -15,84 +15,84 @@
   "items": [
     {
       "info": {
-        "name": "Provisioning",
+        "name": "Locations",
         "type": "folder"
       },
       "items": [
         {
           "info": {
-            "name": "Viam Get Smart Machine Status",
+            "name": "Viam List Locations",
             "type": "http"
           },
           "http": {
             "method": "POST",
-            "url": "https://app.viam.com/viam.provisioning.v1.ProvisioningService/GetSmartMachineStatus",
+            "url": "https://app.viam.com/viam.app.v1.AppService/ListLocations",
             "body": {
               "type": "json",
               "data": "{}"
             }
           },
-          "docs": "Retrieve the device's provisioning status (network connectivity, cloud config)."
+          "docs": "List locations under an organization."
         },
         {
           "info": {
-            "name": "Viam Set Network Credentials",
+            "name": "Viam Get Location",
             "type": "http"
           },
           "http": {
             "method": "POST",
-            "url": "https://app.viam.com/viam.provisioning.v1.ProvisioningService/SetNetworkCredentials",
+            "url": "https://app.viam.com/viam.app.v1.AppService/GetLocation",
             "body": {
               "type": "json",
               "data": "{}"
             }
           },
-          "docs": "Submit Wi-Fi credentials to the device."
+          "docs": "Retrieve a single location by id."
         },
         {
           "info": {
-            "name": "Viam Set Smart Machine Credentials",
+            "name": "Viam Create Location",
             "type": "http"
           },
           "http": {
             "method": "POST",
-            "url": "https://app.viam.com/viam.provisioning.v1.ProvisioningService/SetSmartMachineCredentials",
+            "url": "https://app.viam.com/viam.app.v1.AppService/CreateLocation",
             "body": {
               "type": "json",
               "data": "{}"
             }
           },
-          "docs": "Submit Viam cloud credentials (machine part secret + cloud config URL) to the device."
+          "docs": "Create a new location under an organization."
         },
         {
           "info": {
-            "name": "Viam Get Network List",
+            "name": "Viam Update Location",
             "type": "http"
           },
           "http": {
             "method": "POST",
-            "url": "https://app.viam.com/viam.provisioning.v1.ProvisioningService/GetNetworkList",
+            "url": "https://app.viam.com/viam.app.v1.AppService/UpdateLocation",
             "body": {
               "type": "json",
               "data": "{}"
             }
           },
-          "docs": "List Wi-Fi networks visible to the device."
+          "docs": "Update a location's name or parent location."
         },
         {
           "info": {
-            "name": "Viam Exit Provisioning",
+            "name": "Viam Delete Location",
             "type": "http"
           },
           "http": {
             "method": "POST",
-            "url": "https://app.viam.com/viam.provisioning.v1.ProvisioningService/ExitProvisioning",
+            "url": "https://app.viam.com/viam.app.v1.AppService/DeleteLocation",
             "body": {
               "type": "json",
               "data": "{}"
             }
           },
-          "docs": "Exit the provisioning service after the device is configured."
+          "docs": "Delete a location and all machines under it."
         }
       ]
     }

@@ -1,0 +1,56 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Viam Billing Arm Gantry API",
+    "version": "2026.05"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "key",
+      "value": "{{key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Gantry",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Viam Gantry Move To Position",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.component.gantry.v1.GantryService/MoveToPosition",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Move the gantry axes to specified positions."
+        },
+        {
+          "info": {
+            "name": "Viam Gantry Home",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.component.gantry.v1.GantryService/Home",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Home the gantry."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,26 +1,26 @@
 {
   "item": [
     {
-      "id": "76996852-e435-4a5a-90b1-a86a6df05ba1",
-      "name": "Provisioning",
+      "id": "1ad834e3-60ee-499a-9109-4919da3e8e25",
+      "name": "Movement Sensor",
       "description": {
-        "content": "Network and cloud credentials onboarding.",
+        "content": "GPS, IMU, odometry.",
         "type": "text/plain"
       },
       "item": [
         {
-          "id": "cca14827-dd8f-4f11-8cce-3bc2e48c9860",
-          "name": "Viam Get Smart Machine Status",
+          "id": "b213fcb7-1350-45cc-9865-289bd30f1dba",
+          "name": "Viam Movement Sensor Get Position",
           "request": {
-            "name": "Viam Get Smart Machine Status",
+            "name": "Viam Movement Sensor Get Position",
             "description": {
-              "content": "Retrieve the device's provisioning status (network connectivity, cloud config).",
+              "content": "Get GPS position (latitude, longitude, altitude).",
               "type": "text/plain"
             },
             "url": {
               "path": [
-                "viam.provisioning.v1.ProvisioningService",
-                "GetSmartMachineStatus"
+                "viam.component.movementsensor.v1.MovementSensorService",
+                "GetPosition"
               ],
               "host": [
                 "{{baseUrl}}"
@@ -38,7 +38,7 @@
             "auth": null,
             "body": {
               "mode": "raw",
-              "raw": "<object>",
+              "raw": "{\n  \"name\": \"<string>\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -48,13 +48,13 @@
           },
           "response": [
             {
-              "id": "44302297-3c59-4600-ac68-6fbea38f0b03",
+              "id": "aca9a5f8-9578-4473-a289-d651c3884554",
               "name": "Successful response.",
               "originalRequest": {
                 "url": {
                   "path": [
-                    "viam.provisioning.v1.ProvisioningService",
-                    "GetSmartMachineStatus"
+                    "viam.component.movementsensor.v1.MovementSensorService",
+                    "GetPosition"
                   ],
                   "host": [
                     "{{baseUrl}}"
@@ -75,7 +75,7 @@
                 "method": "POST",
                 "body": {
                   "mode": "raw",
-                  "raw": "<object>",
+                  "raw": "{\n  \"name\": \"<string>\"\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -102,18 +102,18 @@
           }
         },
         {
-          "id": "e039f4c6-e20a-4ee3-8c57-4d983db60cc5",
-          "name": "Viam Set Network Credentials",
+          "id": "0311a306-9d59-479a-9e16-400ab30ee1ac",
+          "name": "Viam Movement Sensor Get Linear Velocity",
           "request": {
-            "name": "Viam Set Network Credentials",
+            "name": "Viam Movement Sensor Get Linear Velocity",
             "description": {
-              "content": "Submit Wi-Fi credentials to the device.",
+              "content": "Get linear velocity in m/s.",
               "type": "text/plain"
             },
             "url": {
               "path": [
-                "viam.provisioning.v1.ProvisioningService",
-                "SetNetworkCredentials"
+                "viam.component.movementsensor.v1.MovementSensorService",
+                "GetLinearVelocity"
               ],
               "host": [
                 "{{baseUrl}}"
@@ -131,7 +131,7 @@
             "auth": null,
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"type\": \"<string>\",\n  \"ssid\": \"<string>\",\n  \"psk\": \"<string>\"\n}",
+              "raw": "{\n  \"name\": \"<string>\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -141,13 +141,13 @@
           },
           "response": [
             {
-              "id": "eec9aef9-4b1f-43f3-b4dd-0d3e18750593",
+              "id": "853304aa-8db9-4e36-aaac-45a47bdf0ae2",
               "name": "Successful response.",
               "originalRequest": {
                 "url": {
                   "path": [
-                    "viam.provisioning.v1.ProvisioningService",
-                    "SetNetworkCredentials"
+                    "viam.component.movementsensor.v1.MovementSensorService",
+                    "GetLinearVelocity"
                   ],
                   "host": [
                     "{{baseUrl}}"
@@ -168,7 +168,7 @@
                 "method": "POST",
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"type\": \"<string>\",\n  \"ssid\": \"<string>\",\n  \"psk\": \"<string>\"\n}",
+                  "raw": "{\n  \"name\": \"<string>\"\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -195,18 +195,18 @@
           }
         },
         {
-          "id": "0f5b35d7-1e7f-4bdb-b375-0a0872f5a141",
-          "name": "Viam Set Smart Machine Credentials",
+          "id": "35c6f4fc-128b-4ea3-8afb-00a7bb4a5d9d",
+          "name": "Viam Movement Sensor Get Angular Velocity",
           "request": {
-            "name": "Viam Set Smart Machine Credentials",
+            "name": "Viam Movement Sensor Get Angular Velocity",
             "description": {
-              "content": "Submit Viam cloud credentials (machine part secret + cloud config URL) to the device.",
+              "content": "Get angular velocity in deg/s.",
               "type": "text/plain"
             },
             "url": {
               "path": [
-                "viam.provisioning.v1.ProvisioningService",
-                "SetSmartMachineCredentials"
+                "viam.component.movementsensor.v1.MovementSensorService",
+                "GetAngularVelocity"
               ],
               "host": [
                 "{{baseUrl}}"
@@ -224,7 +224,7 @@
             "auth": null,
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"cloud\": {\n    \"id\": \"<string>\",\n    \"secret\": \"<string>\",\n    \"app_address\": \"<string>\"\n  }\n}",
+              "raw": "{\n  \"name\": \"<string>\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -234,13 +234,13 @@
           },
           "response": [
             {
-              "id": "52d13c0b-6b22-4c13-b079-91df9e973b79",
+              "id": "69f534d8-c078-4972-8797-14d3883248ff",
               "name": "Successful response.",
               "originalRequest": {
                 "url": {
                   "path": [
-                    "viam.provisioning.v1.ProvisioningService",
-                    "SetSmartMachineCredentials"
+                    "viam.component.movementsensor.v1.MovementSensorService",
+                    "GetAngularVelocity"
                   ],
                   "host": [
                     "{{baseUrl}}"
@@ -261,7 +261,7 @@
                 "method": "POST",
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"cloud\": {\n    \"id\": \"<string>\",\n    \"secret\": \"<string>\",\n    \"app_address\": \"<string>\"\n  }\n}",
+                  "raw": "{\n  \"name\": \"<string>\"\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -288,18 +288,18 @@
           }
         },
         {
-          "id": "c43846c8-bf45-4bd8-b75a-97b073051db5",
-          "name": "Viam Get Network List",
+          "id": "af572b5b-f69d-42fc-aede-af040f309e97",
+          "name": "Viam Movement Sensor Get Compass Heading",
           "request": {
-            "name": "Viam Get Network List",
+            "name": "Viam Movement Sensor Get Compass Heading",
             "description": {
-              "content": "List Wi-Fi networks visible to the device.",
+              "content": "Get compass heading in degrees.",
               "type": "text/plain"
             },
             "url": {
               "path": [
-                "viam.provisioning.v1.ProvisioningService",
-                "GetNetworkList"
+                "viam.component.movementsensor.v1.MovementSensorService",
+                "GetCompassHeading"
               ],
               "host": [
                 "{{baseUrl}}"
@@ -317,7 +317,7 @@
             "auth": null,
             "body": {
               "mode": "raw",
-              "raw": "<object>",
+              "raw": "{\n  \"name\": \"<string>\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -327,13 +327,13 @@
           },
           "response": [
             {
-              "id": "95c5082e-1618-417f-bc82-4f36df5438d1",
+              "id": "6a2ac317-760b-42c8-8422-51151f5b12a9",
               "name": "Successful response.",
               "originalRequest": {
                 "url": {
                   "path": [
-                    "viam.provisioning.v1.ProvisioningService",
-                    "GetNetworkList"
+                    "viam.component.movementsensor.v1.MovementSensorService",
+                    "GetCompassHeading"
                   ],
                   "host": [
                     "{{baseUrl}}"
@@ -354,7 +354,7 @@
                 "method": "POST",
                 "body": {
                   "mode": "raw",
-                  "raw": "<object>",
+                  "raw": "{\n  \"name\": \"<string>\"\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -381,18 +381,18 @@
           }
         },
         {
-          "id": "d19fb2ab-2443-457e-8dd2-5bece8d7caf1",
-          "name": "Viam Exit Provisioning",
+          "id": "c8d6862c-a06d-4504-8580-fae577b83c34",
+          "name": "Viam Movement Sensor Get Orientation",
           "request": {
-            "name": "Viam Exit Provisioning",
+            "name": "Viam Movement Sensor Get Orientation",
             "description": {
-              "content": "Exit the provisioning service after the device is configured.",
+              "content": "Get orientation as an orientation vector.",
               "type": "text/plain"
             },
             "url": {
               "path": [
-                "viam.provisioning.v1.ProvisioningService",
-                "ExitProvisioning"
+                "viam.component.movementsensor.v1.MovementSensorService",
+                "GetOrientation"
               ],
               "host": [
                 "{{baseUrl}}"
@@ -410,7 +410,7 @@
             "auth": null,
             "body": {
               "mode": "raw",
-              "raw": "<object>",
+              "raw": "{\n  \"name\": \"<string>\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -420,13 +420,13 @@
           },
           "response": [
             {
-              "id": "895f3060-3ca8-46cf-8b68-d9cbfb321cf1",
+              "id": "1f3b6060-8baa-4a41-8f88-dccf84414562",
               "name": "Successful response.",
               "originalRequest": {
                 "url": {
                   "path": [
-                    "viam.provisioning.v1.ProvisioningService",
-                    "ExitProvisioning"
+                    "viam.component.movementsensor.v1.MovementSensorService",
+                    "GetOrientation"
                   ],
                   "host": [
                     "{{baseUrl}}"
@@ -447,7 +447,7 @@
                 "method": "POST",
                 "body": {
                   "mode": "raw",
-                  "raw": "<object>",
+                  "raw": "{\n  \"name\": \"<string>\"\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -503,8 +503,8 @@
     ]
   },
   "info": {
-    "_postman_id": "b328f52f-758c-4822-8422-8871e838ee1f",
-    "name": "Viam Billing Arm Provisioning API",
+    "_postman_id": "762e0cbb-84cc-4f4b-ba7a-cf424db2a435",
+    "name": "Viam Billing Arm Movement Sensor API",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "description": {
       "content": "REST/JSON transcoding of the Viam BillingService gRPC API. Retrieve current-month\nusage, invoice summaries, invoice PDFs, billing tiers, and the location-level billing\norganization assignment used by Viam's \"build a robotics business\" features.\n\nCanonical contract: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/billing.proto\n\n\nContact Support:\n Name: Viam Support",

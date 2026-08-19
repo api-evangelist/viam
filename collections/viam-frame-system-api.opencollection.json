@@ -1,0 +1,86 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Viam Billing Arm Frame System API",
+    "version": "2026.05"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "key",
+      "value": "{{key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Frame System",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Viam Frame System Config",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.robot.v1.RobotService/FrameSystemConfig",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Retrieve the current frame system configuration."
+        },
+        {
+          "info": {
+            "name": "Viam Get Pose",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.robot.v1.RobotService/GetPose",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Retrieve a component's pose relative to a destination frame."
+        },
+        {
+          "info": {
+            "name": "Viam Transform Pose",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.robot.v1.RobotService/TransformPose",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Transform a pose from one frame to another."
+        },
+        {
+          "info": {
+            "name": "Viam Transform Pcd",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.robot.v1.RobotService/TransformPCD",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Transform a point cloud from one frame to another."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

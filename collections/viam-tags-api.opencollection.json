@@ -1,7 +1,7 @@
 {
   "opencollection": "1.0.0",
   "info": {
-    "name": "Viam Billing Arm Provisioning API",
+    "name": "Viam Billing Arm Tags API",
     "version": "2026.05"
   },
   "request": {
@@ -15,84 +15,84 @@
   "items": [
     {
       "info": {
-        "name": "Provisioning",
+        "name": "Tags",
         "type": "folder"
       },
       "items": [
         {
           "info": {
-            "name": "Viam Get Smart Machine Status",
+            "name": "Viam Add Tags To Binary Data By Ids",
             "type": "http"
           },
           "http": {
             "method": "POST",
-            "url": "https://app.viam.com/viam.provisioning.v1.ProvisioningService/GetSmartMachineStatus",
+            "url": "https://app.viam.com/viam.app.data.v1.DataService/AddTagsToBinaryDataByIDs",
             "body": {
               "type": "json",
               "data": "{}"
             }
           },
-          "docs": "Retrieve the device's provisioning status (network connectivity, cloud config)."
+          "docs": "Add string tags to binary data items."
         },
         {
           "info": {
-            "name": "Viam Set Network Credentials",
+            "name": "Viam Remove Tags From Binary Data By Ids",
             "type": "http"
           },
           "http": {
             "method": "POST",
-            "url": "https://app.viam.com/viam.provisioning.v1.ProvisioningService/SetNetworkCredentials",
+            "url": "https://app.viam.com/viam.app.data.v1.DataService/RemoveTagsFromBinaryDataByIDs",
             "body": {
               "type": "json",
               "data": "{}"
             }
           },
-          "docs": "Submit Wi-Fi credentials to the device."
+          "docs": "Remove string tags from binary data items."
         },
         {
           "info": {
-            "name": "Viam Set Smart Machine Credentials",
+            "name": "Viam Tags By Filter",
             "type": "http"
           },
           "http": {
             "method": "POST",
-            "url": "https://app.viam.com/viam.provisioning.v1.ProvisioningService/SetSmartMachineCredentials",
+            "url": "https://app.viam.com/viam.app.data.v1.DataService/TagsByFilter",
             "body": {
               "type": "json",
               "data": "{}"
             }
           },
-          "docs": "Submit Viam cloud credentials (machine part secret + cloud config URL) to the device."
+          "docs": "List unique tags matching a filter."
         },
         {
           "info": {
-            "name": "Viam Get Network List",
+            "name": "Viam Add Bounding Box To Image By Id",
             "type": "http"
           },
           "http": {
             "method": "POST",
-            "url": "https://app.viam.com/viam.provisioning.v1.ProvisioningService/GetNetworkList",
+            "url": "https://app.viam.com/viam.app.data.v1.DataService/AddBoundingBoxToImageByID",
             "body": {
               "type": "json",
               "data": "{}"
             }
           },
-          "docs": "List Wi-Fi networks visible to the device."
+          "docs": "Add a bounding-box annotation to a binary image item."
         },
         {
           "info": {
-            "name": "Viam Exit Provisioning",
+            "name": "Viam Remove Bounding Box From Image By Id",
             "type": "http"
           },
           "http": {
             "method": "POST",
-            "url": "https://app.viam.com/viam.provisioning.v1.ProvisioningService/ExitProvisioning",
+            "url": "https://app.viam.com/viam.app.data.v1.DataService/RemoveBoundingBoxFromImageByID",
             "body": {
               "type": "json",
               "data": "{}"
             }
           },
-          "docs": "Exit the provisioning service after the device is configured."
+          "docs": "Remove a bounding-box annotation by id."
         }
       ]
     }

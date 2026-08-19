@@ -1,0 +1,71 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Viam Billing Arm Camera API",
+    "version": "2026.05"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "key",
+      "value": "{{key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Camera",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Viam Camera Get Images",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.component.camera.v1.CameraService/GetImages",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Capture one or more images from the camera."
+        },
+        {
+          "info": {
+            "name": "Viam Camera Get Point Cloud",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.component.camera.v1.CameraService/GetPointCloud",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Capture a 3D point cloud from the camera."
+        },
+        {
+          "info": {
+            "name": "Viam Camera Get Properties",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.component.camera.v1.CameraService/GetProperties",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Get camera intrinsics and supported MIME types."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

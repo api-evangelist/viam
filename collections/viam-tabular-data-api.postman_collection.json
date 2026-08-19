@@ -1,26 +1,26 @@
 {
   "item": [
     {
-      "id": "76996852-e435-4a5a-90b1-a86a6df05ba1",
-      "name": "Provisioning",
+      "id": "fff16daa-5323-4272-8c18-662b36bd32e1",
+      "name": "Tabular Data",
       "description": {
-        "content": "Network and cloud credentials onboarding.",
+        "content": "Time-series and structured data captured by sensor and movement-sensor components.",
         "type": "text/plain"
       },
       "item": [
         {
-          "id": "cca14827-dd8f-4f11-8cce-3bc2e48c9860",
-          "name": "Viam Get Smart Machine Status",
+          "id": "bb2728c6-7a65-4bd0-b247-a6393b679761",
+          "name": "Viam Tabular Data By Filter",
           "request": {
-            "name": "Viam Get Smart Machine Status",
+            "name": "Viam Tabular Data By Filter",
             "description": {
-              "content": "Retrieve the device's provisioning status (network connectivity, cloud config).",
+              "content": "Query tabular data using component, location, time-range, and tag filters.",
               "type": "text/plain"
             },
             "url": {
               "path": [
-                "viam.provisioning.v1.ProvisioningService",
-                "GetSmartMachineStatus"
+                "viam.app.data.v1.DataService",
+                "TabularDataByFilter"
               ],
               "host": [
                 "{{baseUrl}}"
@@ -38,7 +38,7 @@
             "auth": null,
             "body": {
               "mode": "raw",
-              "raw": "<object>",
+              "raw": "{\n  \"data_request\": \"<object>\",\n  \"count_only\": \"<boolean>\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -48,13 +48,13 @@
           },
           "response": [
             {
-              "id": "44302297-3c59-4600-ac68-6fbea38f0b03",
+              "id": "714a4a6d-fce2-4b16-ab2b-b1bc33ccae42",
               "name": "Successful response.",
               "originalRequest": {
                 "url": {
                   "path": [
-                    "viam.provisioning.v1.ProvisioningService",
-                    "GetSmartMachineStatus"
+                    "viam.app.data.v1.DataService",
+                    "TabularDataByFilter"
                   ],
                   "host": [
                     "{{baseUrl}}"
@@ -75,7 +75,7 @@
                 "method": "POST",
                 "body": {
                   "mode": "raw",
-                  "raw": "<object>",
+                  "raw": "{\n  \"data_request\": \"<object>\",\n  \"count_only\": \"<boolean>\"\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -102,18 +102,18 @@
           }
         },
         {
-          "id": "e039f4c6-e20a-4ee3-8c57-4d983db60cc5",
-          "name": "Viam Set Network Credentials",
+          "id": "b79db253-b1e4-4a26-82fd-5fadd741a24a",
+          "name": "Viam Tabular Data By Sql",
           "request": {
-            "name": "Viam Set Network Credentials",
+            "name": "Viam Tabular Data By Sql",
             "description": {
-              "content": "Submit Wi-Fi credentials to the device.",
+              "content": "Query tabular data with SQL against the Viam hot data store.",
               "type": "text/plain"
             },
             "url": {
               "path": [
-                "viam.provisioning.v1.ProvisioningService",
-                "SetNetworkCredentials"
+                "viam.app.data.v1.DataService",
+                "TabularDataBySQL"
               ],
               "host": [
                 "{{baseUrl}}"
@@ -131,7 +131,7 @@
             "auth": null,
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"type\": \"<string>\",\n  \"ssid\": \"<string>\",\n  \"psk\": \"<string>\"\n}",
+              "raw": "{\n  \"organization_id\": \"<string>\",\n  \"sql_query\": \"<string>\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -141,13 +141,13 @@
           },
           "response": [
             {
-              "id": "eec9aef9-4b1f-43f3-b4dd-0d3e18750593",
+              "id": "d4abe06a-61ac-403d-95e0-951f34a57bf6",
               "name": "Successful response.",
               "originalRequest": {
                 "url": {
                   "path": [
-                    "viam.provisioning.v1.ProvisioningService",
-                    "SetNetworkCredentials"
+                    "viam.app.data.v1.DataService",
+                    "TabularDataBySQL"
                   ],
                   "host": [
                     "{{baseUrl}}"
@@ -168,7 +168,7 @@
                 "method": "POST",
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"type\": \"<string>\",\n  \"ssid\": \"<string>\",\n  \"psk\": \"<string>\"\n}",
+                  "raw": "{\n  \"organization_id\": \"<string>\",\n  \"sql_query\": \"<string>\"\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -195,18 +195,18 @@
           }
         },
         {
-          "id": "0f5b35d7-1e7f-4bdb-b375-0a0872f5a141",
-          "name": "Viam Set Smart Machine Credentials",
+          "id": "1c91bb34-5be3-47db-94bb-68f6fa0af611",
+          "name": "Viam Tabular Data By Mql",
           "request": {
-            "name": "Viam Set Smart Machine Credentials",
+            "name": "Viam Tabular Data By Mql",
             "description": {
-              "content": "Submit Viam cloud credentials (machine part secret + cloud config URL) to the device.",
+              "content": "Query tabular data with MongoDB Query Language.",
               "type": "text/plain"
             },
             "url": {
               "path": [
-                "viam.provisioning.v1.ProvisioningService",
-                "SetSmartMachineCredentials"
+                "viam.app.data.v1.DataService",
+                "TabularDataByMQL"
               ],
               "host": [
                 "{{baseUrl}}"
@@ -224,7 +224,7 @@
             "auth": null,
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"cloud\": {\n    \"id\": \"<string>\",\n    \"secret\": \"<string>\",\n    \"app_address\": \"<string>\"\n  }\n}",
+              "raw": "{\n  \"organization_id\": \"<string>\",\n  \"mql_binary\": [\n    \"<byte>\",\n    \"<byte>\"\n  ]\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -234,13 +234,13 @@
           },
           "response": [
             {
-              "id": "52d13c0b-6b22-4c13-b079-91df9e973b79",
+              "id": "26925412-5817-4848-b257-e24e810b0be8",
               "name": "Successful response.",
               "originalRequest": {
                 "url": {
                   "path": [
-                    "viam.provisioning.v1.ProvisioningService",
-                    "SetSmartMachineCredentials"
+                    "viam.app.data.v1.DataService",
+                    "TabularDataByMQL"
                   ],
                   "host": [
                     "{{baseUrl}}"
@@ -261,7 +261,7 @@
                 "method": "POST",
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"cloud\": {\n    \"id\": \"<string>\",\n    \"secret\": \"<string>\",\n    \"app_address\": \"<string>\"\n  }\n}",
+                  "raw": "{\n  \"organization_id\": \"<string>\",\n  \"mql_binary\": [\n    \"<byte>\",\n    \"<byte>\"\n  ]\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -288,18 +288,18 @@
           }
         },
         {
-          "id": "c43846c8-bf45-4bd8-b75a-97b073051db5",
-          "name": "Viam Get Network List",
+          "id": "542d9df5-825a-4b0a-83bb-480407b3c2f6",
+          "name": "Viam Export Tabular Data",
           "request": {
-            "name": "Viam Get Network List",
+            "name": "Viam Export Tabular Data",
             "description": {
-              "content": "List Wi-Fi networks visible to the device.",
+              "content": "Stream-export tabular data matching a filter.",
               "type": "text/plain"
             },
             "url": {
               "path": [
-                "viam.provisioning.v1.ProvisioningService",
-                "GetNetworkList"
+                "viam.app.data.v1.DataService",
+                "ExportTabularData"
               ],
               "host": [
                 "{{baseUrl}}"
@@ -317,7 +317,7 @@
             "auth": null,
             "body": {
               "mode": "raw",
-              "raw": "<object>",
+              "raw": "{\n  \"part_id\": \"<string>\",\n  \"resource_name\": \"<string>\",\n  \"resource_subtype\": \"<string>\",\n  \"method_name\": \"<string>\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -327,13 +327,13 @@
           },
           "response": [
             {
-              "id": "95c5082e-1618-417f-bc82-4f36df5438d1",
+              "id": "17bfe26e-12d5-49ff-b5e8-32d3727f98f1",
               "name": "Successful response.",
               "originalRequest": {
                 "url": {
                   "path": [
-                    "viam.provisioning.v1.ProvisioningService",
-                    "GetNetworkList"
+                    "viam.app.data.v1.DataService",
+                    "ExportTabularData"
                   ],
                   "host": [
                     "{{baseUrl}}"
@@ -354,7 +354,7 @@
                 "method": "POST",
                 "body": {
                   "mode": "raw",
-                  "raw": "<object>",
+                  "raw": "{\n  \"part_id\": \"<string>\",\n  \"resource_name\": \"<string>\",\n  \"resource_subtype\": \"<string>\",\n  \"method_name\": \"<string>\"\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -381,18 +381,18 @@
           }
         },
         {
-          "id": "d19fb2ab-2443-457e-8dd2-5bece8d7caf1",
-          "name": "Viam Exit Provisioning",
+          "id": "8fb19517-2a75-43d4-99e9-8794b307e98e",
+          "name": "Viam Get Latest Tabular Data",
           "request": {
-            "name": "Viam Exit Provisioning",
+            "name": "Viam Get Latest Tabular Data",
             "description": {
-              "content": "Exit the provisioning service after the device is configured.",
+              "content": "Return the latest tabular data point for a component/method.",
               "type": "text/plain"
             },
             "url": {
               "path": [
-                "viam.provisioning.v1.ProvisioningService",
-                "ExitProvisioning"
+                "viam.app.data.v1.DataService",
+                "GetLatestTabularData"
               ],
               "host": [
                 "{{baseUrl}}"
@@ -410,7 +410,7 @@
             "auth": null,
             "body": {
               "mode": "raw",
-              "raw": "<object>",
+              "raw": "{\n  \"part_id\": \"<string>\",\n  \"resource_name\": \"<string>\",\n  \"resource_subtype\": \"<string>\",\n  \"method_name\": \"<string>\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -420,13 +420,13 @@
           },
           "response": [
             {
-              "id": "895f3060-3ca8-46cf-8b68-d9cbfb321cf1",
+              "id": "a410af75-7dd3-4154-b7da-728301137f23",
               "name": "Successful response.",
               "originalRequest": {
                 "url": {
                   "path": [
-                    "viam.provisioning.v1.ProvisioningService",
-                    "ExitProvisioning"
+                    "viam.app.data.v1.DataService",
+                    "GetLatestTabularData"
                   ],
                   "host": [
                     "{{baseUrl}}"
@@ -447,7 +447,100 @@
                 "method": "POST",
                 "body": {
                   "mode": "raw",
-                  "raw": "<object>",
+                  "raw": "{\n  \"part_id\": \"<string>\",\n  \"resource_name\": \"<string>\",\n  \"resource_subtype\": \"<string>\",\n  \"method_name\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "34192aea-46bd-46b4-8887-300729936614",
+          "name": "Viam Delete Tabular Data",
+          "request": {
+            "name": "Viam Delete Tabular Data",
+            "description": {
+              "content": "Delete tabular data older than a given age in days.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "viam.app.data.v1.DataService",
+                "DeleteTabularData"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"organization_id\": \"<string>\",\n  \"delete_older_than_days\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8c63ae77-9824-467b-a7dd-f62369bca916",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "viam.app.data.v1.DataService",
+                    "DeleteTabularData"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"organization_id\": \"<string>\",\n  \"delete_older_than_days\": \"<integer>\"\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -503,8 +596,8 @@
     ]
   },
   "info": {
-    "_postman_id": "b328f52f-758c-4822-8422-8871e838ee1f",
-    "name": "Viam Billing Arm Provisioning API",
+    "_postman_id": "eb348386-ec25-4712-b883-69ec2ff690d1",
+    "name": "Viam Billing Arm Tabular Data API",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "description": {
       "content": "REST/JSON transcoding of the Viam BillingService gRPC API. Retrieve current-month\nusage, invoice summaries, invoice PDFs, billing tiers, and the location-level billing\norganization assignment used by Viam's \"build a robotics business\" features.\n\nCanonical contract: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/billing.proto\n\n\nContact Support:\n Name: Viam Support",

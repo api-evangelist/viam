@@ -1,7 +1,7 @@
 {
   "opencollection": "1.0.0",
   "info": {
-    "name": "Viam Billing Arm Provisioning API",
+    "name": "Viam Billing Arm Status API",
     "version": "2026.05"
   },
   "request": {
@@ -15,84 +15,99 @@
   "items": [
     {
       "info": {
-        "name": "Provisioning",
+        "name": "Status",
         "type": "folder"
       },
       "items": [
         {
           "info": {
-            "name": "Viam Get Smart Machine Status",
+            "name": "Viam Get Machine Status",
             "type": "http"
           },
           "http": {
             "method": "POST",
-            "url": "https://app.viam.com/viam.provisioning.v1.ProvisioningService/GetSmartMachineStatus",
+            "url": "https://app.viam.com/viam.robot.v1.RobotService/GetMachineStatus",
             "body": {
               "type": "json",
               "data": "{}"
             }
           },
-          "docs": "Retrieve the device's provisioning status (network connectivity, cloud config)."
+          "docs": "Retrieve the overall machine status including each resource's state."
         },
         {
           "info": {
-            "name": "Viam Set Network Credentials",
+            "name": "Viam Get Version",
             "type": "http"
           },
           "http": {
             "method": "POST",
-            "url": "https://app.viam.com/viam.provisioning.v1.ProvisioningService/SetNetworkCredentials",
+            "url": "https://app.viam.com/viam.robot.v1.RobotService/GetVersion",
             "body": {
               "type": "json",
               "data": "{}"
             }
           },
-          "docs": "Submit Wi-Fi credentials to the device."
+          "docs": "Retrieve the viam-server version and platform metadata."
         },
         {
           "info": {
-            "name": "Viam Set Smart Machine Credentials",
+            "name": "Viam Get Cloud Metadata",
             "type": "http"
           },
           "http": {
             "method": "POST",
-            "url": "https://app.viam.com/viam.provisioning.v1.ProvisioningService/SetSmartMachineCredentials",
+            "url": "https://app.viam.com/viam.robot.v1.RobotService/GetCloudMetadata",
             "body": {
               "type": "json",
               "data": "{}"
             }
           },
-          "docs": "Submit Viam cloud credentials (machine part secret + cloud config URL) to the device."
+          "docs": "Retrieve the org/location/machine id that the device is registered to."
         },
         {
           "info": {
-            "name": "Viam Get Network List",
+            "name": "Viam Shutdown",
             "type": "http"
           },
           "http": {
             "method": "POST",
-            "url": "https://app.viam.com/viam.provisioning.v1.ProvisioningService/GetNetworkList",
+            "url": "https://app.viam.com/viam.robot.v1.RobotService/Shutdown",
             "body": {
               "type": "json",
               "data": "{}"
             }
           },
-          "docs": "List Wi-Fi networks visible to the device."
+          "docs": "Cleanly shut down viam-server on the device."
         },
         {
           "info": {
-            "name": "Viam Exit Provisioning",
+            "name": "Viam Stop All",
             "type": "http"
           },
           "http": {
             "method": "POST",
-            "url": "https://app.viam.com/viam.provisioning.v1.ProvisioningService/ExitProvisioning",
+            "url": "https://app.viam.com/viam.robot.v1.RobotService/StopAll",
             "body": {
               "type": "json",
               "data": "{}"
             }
           },
-          "docs": "Exit the provisioning service after the device is configured."
+          "docs": "Stop all components on the machine."
+        },
+        {
+          "info": {
+            "name": "Viam Log",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.robot.v1.RobotService/Log",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Submit log entries to viam-server."
         }
       ]
     }

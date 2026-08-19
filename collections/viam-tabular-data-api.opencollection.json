@@ -1,0 +1,116 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Viam Billing Arm Tabular Data API",
+    "version": "2026.05"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "key",
+      "value": "{{key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Tabular Data",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Viam Tabular Data By Filter",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.app.data.v1.DataService/TabularDataByFilter",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Query tabular data using component, location, time-range, and tag filters."
+        },
+        {
+          "info": {
+            "name": "Viam Tabular Data By Sql",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.app.data.v1.DataService/TabularDataBySQL",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Query tabular data with SQL against the Viam hot data store."
+        },
+        {
+          "info": {
+            "name": "Viam Tabular Data By Mql",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.app.data.v1.DataService/TabularDataByMQL",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Query tabular data with MongoDB Query Language."
+        },
+        {
+          "info": {
+            "name": "Viam Export Tabular Data",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.app.data.v1.DataService/ExportTabularData",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Stream-export tabular data matching a filter."
+        },
+        {
+          "info": {
+            "name": "Viam Get Latest Tabular Data",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.app.data.v1.DataService/GetLatestTabularData",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Return the latest tabular data point for a component/method."
+        },
+        {
+          "info": {
+            "name": "Viam Delete Tabular Data",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.viam.com/viam.app.data.v1.DataService/DeleteTabularData",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Delete tabular data older than a given age in days."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
