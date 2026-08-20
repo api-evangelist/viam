@@ -26,6 +26,8 @@ apis:
   description: Robotic arms — joint and end-effector control.
   humanURL: https://docs.viam.com/dev/reference/apis/fleet/
   tags:
+  - ARM
+  tags_raw:
   - Arm
   properties:
   - type: OpenAPI
@@ -476,6 +478,8 @@ apis:
   description: GPIO boards (Raspberry Pi, Jetson, ESP32).
   humanURL: https://docs.viam.com/dev/reference/apis/fleet/
   tags:
+  - Boards
+  tags_raw:
   - Board
   properties:
   - type: OpenAPI
@@ -2275,7 +2279,8 @@ apis:
   name: Viam Operations API
   description: Long-running operations executing on the machine.
   humanURL: https://docs.viam.com/dev/reference/apis/fleet/
-  tags:
+  tags: []
+  tags_raw:
   - Operations
   properties:
   - type: OpenAPI
@@ -2352,6 +2357,8 @@ apis:
     Tenant boundary for Viam — owns locations, machines, members, billing, and registry items.
   humanURL: https://docs.viam.com/dev/reference/apis/fleet/
   tags:
+  - Organization
+  tags_raw:
   - Organizations
   properties:
   - type: OpenAPI
@@ -3849,6 +3856,15 @@ apis:
       https://github.com/viamrobotics/api/blob/main/proto/viam/app/datapipelines/v1/data_pipelines.proto
 name: Viam
 tags:
+  - Robotics
+  - Edge AI
+  - Fleet Management
+  - Computer-Vision
+  - Machine-Learning
+  - IoT
+  - Embedded
+  - gRPC
+tags_raw:
   - Robotics
   - Edge AI
   - Fleet Management
