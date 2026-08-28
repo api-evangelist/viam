@@ -10,8 +10,11 @@ info:
     executed without opening the underlying OpenAPI description.
   version: 1.0.0
 sourceDescriptions:
-- name: fleetManagementApi
-  url: ../openapi/viam-fleet-management-api-openapi.yml
+- name: fragmentsApi
+  url: ../openapi/viam-fragments-api-openapi.yml
+  type: openapi
+- name: machinePartsApi
+  url: ../openapi/viam-machine-parts-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: fragment-rollout

@@ -9,8 +9,14 @@ info:
     so the curation can be executed directly against the Viam Data Client API.
   version: 1.0.0
 sourceDescriptions:
-- name: dataClientApi
-  url: ../openapi/viam-data-client-api-openapi.yml
+- name: binaryDataApi
+  url: ../openapi/viam-binary-data-api-openapi.yml
+  type: openapi
+- name: datasetsApi
+  url: ../openapi/viam-datasets-api-openapi.yml
+  type: openapi
+- name: tagsApi
+  url: ../openapi/viam-tags-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: curate-dataset

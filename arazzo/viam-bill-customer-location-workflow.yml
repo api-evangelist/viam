@@ -10,8 +10,14 @@ info:
     is inlined so the flow can be executed directly against the Viam Billing API.
   version: 1.0.0
 sourceDescriptions:
-- name: billingApi
-  url: ../openapi/viam-billing-api-openapi.yml
+- name: billingTiersApi
+  url: ../openapi/viam-billing-tiers-api-openapi.yml
+  type: openapi
+- name: chargesApi
+  url: ../openapi/viam-charges-api-openapi.yml
+  type: openapi
+- name: usageApi
+  url: ../openapi/viam-usage-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: bill-customer-location

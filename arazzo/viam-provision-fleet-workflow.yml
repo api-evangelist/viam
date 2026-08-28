@@ -11,8 +11,14 @@ info:
     re-reading it before the location and machine are created.
   version: 1.0.0
 sourceDescriptions:
-- name: fleetManagementApi
-  url: ../openapi/viam-fleet-management-api-openapi.yml
+- name: locationsApi
+  url: ../openapi/viam-locations-api-openapi.yml
+  type: openapi
+- name: machinesApi
+  url: ../openapi/viam-machines-api-openapi.yml
+  type: openapi
+- name: organizationsApi
+  url: ../openapi/viam-organizations-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: provision-fleet

@@ -10,8 +10,8 @@ info:
     against the Viam Data Client API.
   version: 1.0.0
 sourceDescriptions:
-- name: dataClientApi
-  url: ../openapi/viam-data-client-api-openapi.yml
+- name: savedQueriesApi
+  url: ../openapi/viam-saved-queries-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: saved-query-lifecycle

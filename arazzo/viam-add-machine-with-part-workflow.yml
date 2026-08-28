@@ -10,8 +10,11 @@ info:
     chain can be executed directly against the Viam Fleet Management API.
   version: 1.0.0
 sourceDescriptions:
-- name: fleetManagementApi
-  url: ../openapi/viam-fleet-management-api-openapi.yml
+- name: machinePartsApi
+  url: ../openapi/viam-machine-parts-api-openapi.yml
+  type: openapi
+- name: machinesApi
+  url: ../openapi/viam-machines-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: add-machine-with-part

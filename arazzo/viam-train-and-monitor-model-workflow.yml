@@ -10,8 +10,8 @@ info:
     against the Viam ML Training API.
   version: 1.0.0
 sourceDescriptions:
-- name: mlTrainingApi
-  url: ../openapi/viam-ml-training-api-openapi.yml
+- name: trainingJobsApi
+  url: ../openapi/viam-training-jobs-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: train-and-monitor-model

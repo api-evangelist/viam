@@ -10,8 +10,8 @@ info:
     Pipelines API.
   version: 1.0.0
 sourceDescriptions:
-- name: dataPipelinesApi
-  url: ../openapi/viam-data-pipelines-api-openapi.yml
+- name: pipelinesApi
+  url: ../openapi/viam-pipelines-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: data-pipeline-lifecycle

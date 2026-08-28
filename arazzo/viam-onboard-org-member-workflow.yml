@@ -10,8 +10,11 @@ info:
     onboarding can be executed directly against the Viam Fleet Management API.
   version: 1.0.0
 sourceDescriptions:
-- name: fleetManagementApi
-  url: ../openapi/viam-fleet-management-api-openapi.yml
+- name: membersApi
+  url: ../openapi/viam-members-api-openapi.yml
+  type: openapi
+- name: organizationsApi
+  url: ../openapi/viam-organizations-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: onboard-org-member

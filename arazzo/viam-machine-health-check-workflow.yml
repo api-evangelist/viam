@@ -11,8 +11,11 @@ info:
     can be executed directly against the Viam Machine Management API.
   version: 1.0.0
 sourceDescriptions:
-- name: machineManagementApi
-  url: ../openapi/viam-machine-management-api-openapi.yml
+- name: resourcesApi
+  url: ../openapi/viam-resources-api-openapi.yml
+  type: openapi
+- name: statusApi
+  url: ../openapi/viam-status-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: machine-health-check
