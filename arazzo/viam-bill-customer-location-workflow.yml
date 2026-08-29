@@ -9,6 +9,22 @@ info:
     creates an invoice that charges the customer immediately. Each request body
     is inlined so the flow can be executed directly against the Viam Billing API.
   version: 1.0.0
+  x-realizes-capability-ids:
+  - BC-4240
+  - BC-4250
+  x-capability-derivation:
+    method: 'deterministic join: sourceDescriptions -> per-tag OpenAPI -> tag/capability edge. No classification at this step.'
+    min_confidence: 0.7
+    sources:
+    - capability_id: BC-4240
+      capability_name: Subscription Lifecycle Management
+      spec: viam-billing-tiers-api-openapi.yml
+      confidence: 0.7
+    - capability_id: BC-4250
+      capability_name: Subscription Billing & Revenue Management
+      spec: viam-charges-api-openapi.yml
+      confidence: 0.8
+    model: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities, CC BY 4.0
 sourceDescriptions:
 - name: billingTiersApi
   url: ../openapi/viam-billing-tiers-api-openapi.yml
