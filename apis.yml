@@ -1,26 +1,6 @@
 aid: viam
 url: https://raw.githubusercontent.com/api-evangelist/viam/refs/heads/main/apis.yml
 apis:
-- aid: viam:viam-provisioning-api
-  name: Viam Provisioning API
-  tags:
-  - Robotics
-  - Provisioning
-  - Onboarding
-  - Bluetooth
-  humanURL: https://docs.viam.com/manage/configure/provisioning/
-  properties:
-  - url: https://docs.viam.com/manage/configure/provisioning/
-    type: Documentation
-  - url: >-
-      https://github.com/viamrobotics/api/blob/main/proto/viam/provisioning/v1/provisioning.proto
-    type: Protobuf
-  - url: openapi/viam-provisioning-api-openapi.yml
-    type: OpenAPI
-  description: >-
-    Bootstrap a smart machine onto Wi-Fi and into the viam.app cloud over Bluetooth or hotspot. SetNetworkCredentials,
-    SetSmartMachineCredentials, GetNetworkList, GetSmartMachineStatus, and ExitProvisioning are used by
-    the Flutter provisioning widgets and viam-agent.
 - aid: viam:viam-arm-api
   name: Viam Arm API
   description: Robotic arms — joint and end-effector control.
@@ -3874,6 +3854,18 @@ tags_raw:
   - Embedded
   - gRPC
 kind: contract
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: self-serve
@@ -3890,6 +3882,9 @@ accessModel:
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/viam.png
 access: 3rd-Party
 common:
+  - type: CapabilityMap
+    url: capabilities/viam-capability-edges.yml
+    name: Viam Business Capability Map
   - type: AgenticAccess
     url: agentic-access/viam-agentic-access.yml
   - type: DomainSecurity
