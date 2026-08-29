@@ -1,14 +1,14 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Viam Billing Arm Tags API
-  description: 'REST/JSON transcoding of the Viam BillingService gRPC API. Retrieve current-month
+  title: Viam Data Client Tags API
+  description: 'REST/JSON transcoding of the Viam DataService gRPC API. Upload, download, query,
 
-    usage, invoice summaries, invoice PDFs, billing tiers, and the location-level billing
+    tag, and delete tabular and binary data captured from machines. Manage datasets,
 
-    organization assignment used by Viam''s "build a robotics business" features.
+    saved queries, bounding boxes, sequences, and the cloud-hosted MongoDB connection.
 
 
-    Canonical contract: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/billing.proto
+    Canonical contract: https://github.com/viamrobotics/api/blob/main/proto/viam/app/data/v1/data.proto
 
     '
   version: '2026.05'

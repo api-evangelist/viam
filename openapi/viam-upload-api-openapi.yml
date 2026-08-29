@@ -1,14 +1,14 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Viam Billing Arm Upload API
-  description: 'REST/JSON transcoding of the Viam BillingService gRPC API. Retrieve current-month
+  title: Viam Data Sync Upload API
+  description: 'REST/JSON transcoding of the Viam DataSyncService gRPC API. The ingest plane used by
 
-    usage, invoice summaries, invoice PDFs, billing tiers, and the location-level billing
+    viam-server''s Data Management Service to upload captured tabular data, binary data,
 
-    organization assignment used by Viam''s "build a robotics business" features.
+    and arbitrary files to the Viam cloud.
 
 
-    Canonical contract: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/billing.proto
+    Canonical contract: https://github.com/viamrobotics/api/blob/main/proto/viam/app/datasync/v1/data_sync.proto
 
     '
   version: '2026.05'

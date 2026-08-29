@@ -1,14 +1,19 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Viam Billing Arm Audio In API
-  description: 'REST/JSON transcoding of the Viam BillingService gRPC API. Retrieve current-month
+  title: Viam Component Audio In API
+  description: 'REST/JSON transcoding of every Viam Component gRPC API — the hardware abstraction
 
-    usage, invoice summaries, invoice PDFs, billing tiers, and the location-level billing
+    layer that lets any client speak the same uniform contract to motors, cameras, arms,
 
-    organization assignment used by Viam''s "build a robotics business" features.
+    sensors, and every other supported component class regardless of model.
 
 
-    Canonical contract: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/billing.proto
+    Canonical contracts: https://github.com/viamrobotics/api/tree/main/proto/viam/component
+
+
+    Every component exposes DoCommand (model-specific extension), GetStatus, and
+
+    GetGeometries in addition to its class-specific operations.
 
     '
   version: '2026.05'
@@ -16,8 +21,11 @@ info:
     name: Viam Support
     url: https://www.viam.com/contact
 servers:
-- url: https://app.viam.com
-  description: Viam production cloud.
+- url: https://{machine_address}
+  description: Per-machine viam-server endpoint.
+  variables:
+    machine_address:
+      default: machine.local.viam.cloud:443
 security:
 - ApiKeyAuth: []
 tags:
@@ -51,4 +59,4 @@ components:
       type: apiKey
       in: header
       name: key
-      description: Viam API key.
+      description: Viam API key or location secret.
