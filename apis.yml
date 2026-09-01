@@ -6,7 +6,7 @@ apis:
   description: Robotic arms — joint and end-effector control.
   humanURL: https://docs.viam.com/dev/reference/apis/fleet/
   tags:
-  - Arm
+  - ARM
   tags_raw:
   - Arm
   properties:
