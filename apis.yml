@@ -1510,6 +1510,8 @@ apis:
   description: Logical grouping of machines (e.g., a building, site, or robot fleet).
   humanURL: https://docs.viam.com/dev/reference/apis/fleet/
   tags:
+  - Location
+  tags_raw:
   - Locations
   properties:
   - type: OpenAPI
