@@ -10,6 +10,10 @@ provenance:
   grounding: every price_text was found verbatim in the fetched page text
 audience: developer-api
 pricing_basis: usage-other
+delivery:
+  delivery: managed
+  method: page
+  read: '2026-09-20'
 published: true
 note: Page mixes a negotiated hardware solution with usage-based developer platform rates; free until
   first $5/month of cloud services.
