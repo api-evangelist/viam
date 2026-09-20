@@ -1,0 +1,66 @@
+slug: viam
+provider: Viam
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Automotive & Mobility
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 5
+edges:
+- tag: Training Jobs
+  spec_file: viam-training-jobs-api-openapi.yml
+  capability_id: BC-610.60
+  capability_id_l1: BC-610
+  capability_name: Artificial Intelligence Management
+  confidence: 0.85
+  evidence: '''Submit, monitor, and manage cloud-hosted ML training jobs that produce models deployable
+    to viam-server''; ''SubmitTrainingJob'''
+  reason: Operations submit, monitor, cancel and delete ML training jobs and retrieve their logs — squarely
+    AI/ML model lifecycle and MLOps management.
+- tag: Charges
+  spec_file: viam-charges-api-openapi.yml
+  capability_id: BC-4250
+  capability_id_l1: BC-4250
+  capability_name: Subscription Billing & Revenue Management
+  confidence: 0.75
+  evidence: POST /viam.app.v1.BillingService/CreateInvoiceAndChargeImmediately — Viam Create Invoice And
+    Charge Immediately; 'Retrieve current-month usage, invoice summaries, invoice PDFs, billing tiers'
+  reason: BillingService operations charge an organization and create invoices from metered usage — recurring/usage-based
+    billing for the SaaS platform. L1 clear; ambiguous between invoicing (.30) and payment collection
+    (.40), so no L2.
+- tag: Inference
+  spec_file: viam-inference-api-openapi.yml
+  capability_id: BC-610.60
+  capability_id_l1: BC-610
+  capability_name: Artificial Intelligence Management
+  confidence: 0.7
+  evidence: '''Run cloud-hosted inference against models registered in the Viam ML registry''; MLInferenceService/GetInference'
+  reason: Serving ML models registered in a model registry is part of the AI/ML model lifecycle (MLOps),
+    which maps to Artificial Intelligence Management. Single narrow operation keeps confidence moderate.
+- tag: Invoices
+  spec_file: viam-invoices-api-openapi.yml
+  capability_id: BC-4250.30
+  capability_id_l1: BC-4250
+  capability_name: Invoicing & Statement Management
+  confidence: 0.7
+  evidence: POST /viam.app.v1.BillingService/GetInvoicesSummary  Viam Get Invoices Summary; GetInvoicePdf;
+    SendPaymentRequiredEmail
+  reason: Operations retrieve invoice summaries and invoice PDFs and trigger payment-required notifications
+    for a usage-based cloud platform — i.e. invoicing/statement delivery within the subscription billing
+    model, not general ledger accounting.
+- tag: ML Model
+  spec_file: viam-ml-model-api-openapi.yml
+  capability_id: BC-610.60
+  capability_id_l1: BC-610
+  capability_name: Artificial Intelligence Management
+  confidence: 0.7
+  evidence: Run device-side inference against deployed ML models (TFLite, ONNX, Triton) and inspect model
+    input/output schemas via Metadata
+  reason: Operations Infer and Metadata serve deployed ML model execution and introspection, which sits
+    within AI/ML model lifecycle and MLOps capability.
