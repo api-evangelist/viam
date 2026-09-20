@@ -11,7 +11,7 @@ capability_model:
   attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
     CC BY 4.0
   notice: NOTICE
-edge_count: 5
+edge_count: 7
 edges:
 - tag: Training Jobs
   spec_file: viam-training-jobs-api-openapi.yml
@@ -23,6 +23,16 @@ edges:
     to viam-server''; ''SubmitTrainingJob'''
   reason: Operations submit, monitor, cancel and delete ML training jobs and retrieve their logs — squarely
     AI/ML model lifecycle and MLOps management.
+- tag: OAuth Apps
+  spec_file: viam-oauth-apps-api-openapi.yml
+  capability_id: BC-4270.40
+  capability_id_l1: BC-4270
+  capability_name: Developer Identity & Credential Management
+  confidence: 0.78
+  evidence: '"Viam Create Oauth App", "Viam List Oauth Apps"'
+  reason: Registration and listing of OAuth client applications for the platform, which is issuance and
+    stewardship of developer OAuth clients under Developer Identity & Credential Management.
+  recovered_from: sweep-20260829T005356Z-edges.json
 - tag: Charges
   spec_file: viam-charges-api-openapi.yml
   capability_id: BC-4250
@@ -34,6 +44,19 @@ edges:
   reason: BillingService operations charge an organization and create invoices from metered usage — recurring/usage-based
     billing for the SaaS platform. L1 clear; ambiguous between invoicing (.30) and payment collection
     (.40), so no L2.
+- tag: Billing Tiers
+  spec_file: viam-billing-tiers-api-openapi.yml
+  capability_id: BC-4240
+  capability_id_l1: BC-4240
+  capability_name: Subscription Lifecycle Management
+  confidence: 0.7
+  evidence: POST /viam.app.v1.BillingService/GetAvailableBillingTiers  getAvailableBillingTiers; POST
+    /viam.app.v1.BillingService/UpdateOrganizationBillingTier  updateOrganizationBillingTier
+  reason: These BillingService operations expose the catalogue of available plan tiers and change which
+    tier an organization is on, plus which organization is billed for a location. That is commercial plan/subscription
+    lifecycle management for the SaaS platform. L2 left null because the evidence straddles Plan & Entitlement
+    Design (tier catalogue) and Subscription Modification (updating an org's tier).
+  recovered_from: sweep-20260829T005356Z-edges.json
 - tag: Inference
   spec_file: viam-inference-api-openapi.yml
   capability_id: BC-610.60
