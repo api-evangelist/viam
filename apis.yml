@@ -3885,6 +3885,8 @@ accessModel:
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/viam.png
 access: 3rd-Party
 common:
+  - type: Pricing
+    url: https://www.viam.com/pricing
   - type: Website
     url: https://www.viam.com/
   - type: CapabilityMap
