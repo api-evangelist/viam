@@ -8,9 +8,7 @@ info:
     schemas via Metadata.
 
 
-    Canonical contract: https://github.com/viamrobotics/api/blob/main/proto/viam/service/mlmodel/v1/mlmodel.proto
-
-    '
+    Canonical contract: https://github.com/viamrobotics/api/blob/main/proto/viam/service/mlmodel/v1/mlmodel.proto'
   version: '2026.05'
   contact:
     name: Viam Support

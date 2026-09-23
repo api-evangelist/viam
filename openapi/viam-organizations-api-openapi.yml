@@ -8,9 +8,7 @@ info:
     viam.app cloud.
 
 
-    Canonical contract: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/app.proto
-
-    '
+    Canonical contract: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/app.proto'
   version: '2026.05'
   contact:
     name: Viam Support

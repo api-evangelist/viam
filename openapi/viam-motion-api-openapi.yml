@@ -8,9 +8,7 @@ info:
     avoidance.
 
 
-    Canonical contract: https://github.com/viamrobotics/api/blob/main/proto/viam/service/motion/v1/motion.proto
-
-    '
+    Canonical contract: https://github.com/viamrobotics/api/blob/main/proto/viam/service/motion/v1/motion.proto'
   version: '2026.05'
   contact:
     name: Viam Support

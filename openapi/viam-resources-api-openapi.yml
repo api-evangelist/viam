@@ -8,9 +8,7 @@ info:
     transform poses, and tunnel TCP traffic.
 
 
-    Canonical contract: https://github.com/viamrobotics/api/blob/main/proto/viam/robot/v1/robot.proto
-
-    '
+    Canonical contract: https://github.com/viamrobotics/api/blob/main/proto/viam/robot/v1/robot.proto'
   version: '2026.05'
   contact:
     name: Viam Support

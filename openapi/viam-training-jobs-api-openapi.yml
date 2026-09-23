@@ -6,9 +6,7 @@ info:
     manage cloud-hosted ML training jobs that produce models deployable to viam-server.
 
 
-    Canonical contract: https://github.com/viamrobotics/api/blob/main/proto/viam/app/mltraining/v1/ml_training.proto
-
-    '
+    Canonical contract: https://github.com/viamrobotics/api/blob/main/proto/viam/app/mltraining/v1/ml_training.proto'
   version: '2026.05'
   contact:
     name: Viam Support

@@ -6,9 +6,7 @@ info:
     inference against models registered in the Viam ML registry.
 
 
-    Canonical contract: https://github.com/viamrobotics/api/blob/main/proto/viam/app/mlinference/v1/ml_inference.proto
-
-    '
+    Canonical contract: https://github.com/viamrobotics/api/blob/main/proto/viam/app/mlinference/v1/ml_inference.proto'
   version: '2026.05'
   contact:
     name: Viam Support

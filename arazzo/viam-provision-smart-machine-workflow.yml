@@ -13,7 +13,7 @@ info:
   version: 1.0.0
 sourceDescriptions:
 - name: provisioningApi
-  url: ../openapi/viam-provisioning-api-openapi.yml
+  url: ../openapi/_superseded/viam-provisioning-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: provision-smart-machine

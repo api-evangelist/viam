@@ -6,9 +6,7 @@ info:
     image classification, and 3D segmentation against a configured camera component.
 
 
-    Canonical contract: https://github.com/viamrobotics/api/blob/main/proto/viam/service/vision/v1/vision.proto
-
-    '
+    Canonical contract: https://github.com/viamrobotics/api/blob/main/proto/viam/service/vision/v1/vision.proto'
   version: '2026.05'
   contact:
     name: Viam Support

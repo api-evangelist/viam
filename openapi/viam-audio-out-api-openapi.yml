@@ -13,9 +13,7 @@ info:
 
     Every component exposes DoCommand (model-specific extension), GetStatus, and
 
-    GetGeometries in addition to its class-specific operations.
-
-    '
+    GetGeometries in addition to its class-specific operations.'
   version: '2026.05'
   contact:
     name: Viam Support

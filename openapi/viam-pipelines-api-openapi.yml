@@ -8,9 +8,7 @@ info:
     machine data into the Viam hot data store.
 
 
-    Canonical contract: https://github.com/viamrobotics/api/blob/main/proto/viam/app/datapipelines/v1/data_pipelines.proto
-
-    '
+    Canonical contract: https://github.com/viamrobotics/api/blob/main/proto/viam/app/datapipelines/v1/data_pipelines.proto'
   version: '2026.05'
   contact:
     name: Viam Support

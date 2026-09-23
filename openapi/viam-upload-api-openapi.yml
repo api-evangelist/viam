@@ -8,9 +8,7 @@ info:
     and arbitrary files to the Viam cloud.
 
 
-    Canonical contract: https://github.com/viamrobotics/api/blob/main/proto/viam/app/datasync/v1/data_sync.proto
-
-    '
+    Canonical contract: https://github.com/viamrobotics/api/blob/main/proto/viam/app/datasync/v1/data_sync.proto'
   version: '2026.05'
   contact:
     name: Viam Support

@@ -85,7 +85,8 @@
     "viam-ml-training-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
     "viam-motion-service-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
     "viam-slam-service-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "viam-vision-service-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0"
+    "viam-vision-service-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
   ],
   "skipped": [
     "viam-arm-api-openapi.yml: previously refined output, superseded by openapi/_original/",
@@ -122,7 +123,6 @@
     "viam-organizations-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "viam-pipelines-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "viam-power-sensor-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "viam-provisioning-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "viam-resources-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "viam-saved-queries-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "viam-secrets-api-openapi.yml: previously refined output, superseded by openapi/_original/",

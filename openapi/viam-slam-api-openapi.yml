@@ -8,9 +8,7 @@ info:
     and GetInternalState stream the live map.
 
 
-    Canonical contract: https://github.com/viamrobotics/api/blob/main/proto/viam/service/slam/v1/slam.proto
-
-    '
+    Canonical contract: https://github.com/viamrobotics/api/blob/main/proto/viam/service/slam/v1/slam.proto'
   version: '2026.05'
   contact:
     name: Viam Support

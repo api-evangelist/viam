@@ -8,9 +8,7 @@ info:
     organization assignment used by Viam''s "build a robotics business" features.
 
 
-    Canonical contract: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/billing.proto
-
-    '
+    Canonical contract: https://github.com/viamrobotics/api/blob/main/proto/viam/app/v1/billing.proto'
   version: '2026.05'
   contact:
     name: Viam Support

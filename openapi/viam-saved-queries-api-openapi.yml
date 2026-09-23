@@ -8,9 +8,7 @@ info:
     saved queries, bounding boxes, sequences, and the cloud-hosted MongoDB connection.
 
 
-    Canonical contract: https://github.com/viamrobotics/api/blob/main/proto/viam/app/data/v1/data.proto
-
-    '
+    Canonical contract: https://github.com/viamrobotics/api/blob/main/proto/viam/app/data/v1/data.proto'
   version: '2026.05'
   contact:
     name: Viam Support
