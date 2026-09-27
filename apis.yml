@@ -3841,8 +3841,8 @@ tags:
   - Robotics
   - Edge AI
   - Fleet Management
-  - Computer-Vision
-  - Machine-Learning
+  - Computer Vision
+  - Machine Learning
   - IoT
   - Embedded
   - gRPC
@@ -3855,6 +3855,8 @@ tags_raw:
   - IoT
   - Embedded
   - gRPC
+  - Computer-Vision
+  - Machine-Learning
 kind: contract
 deliveryModel:
   model: saas
